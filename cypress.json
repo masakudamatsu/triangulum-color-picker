@@ -1,0 +1,8 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "experimentalComponentTesting": true,
+  "integrationFolder": "cypress/e2e",
+  "video": false,
+  "viewportHeight": 1100,
+  "viewportWidth": 1100
+}
