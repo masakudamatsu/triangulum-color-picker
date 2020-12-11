@@ -26,7 +26,7 @@ function HomePage() {
   return (
     <FlexContainer>
       <Template />
-      <Canvas pureHue={pureHue} />
+      <Canvas luminance={luminance} pureHue={pureHue} saturation={saturation} />
     </FlexContainer>
   );
 }

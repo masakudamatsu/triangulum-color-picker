@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import draw from 'src/utils/draw';
 
 const Canvas = ({
+  luminance = 11,
   pureHue = {
     r: 255,
     g: 0,
     b: 0,
   },
   resolution = 3,
+  saturation = 50,
 }) => {
   // set up canvas after the initial rendering
   const canvas = useRef();
@@ -24,7 +26,7 @@ const Canvas = ({
       return;
     }
     canvasContext.clearRect(0, 0, canvas.current.width, canvas.current.height);
-    draw(canvasContext, pureHue, resolution);
+    draw(canvasContext, luminance, pureHue, resolution, saturation);
   });
 
   const canvasWidthPx = `${101 * resolution}px`;
@@ -40,8 +42,10 @@ const Canvas = ({
 };
 
 Canvas.propTypes = {
+  luminance: PropTypes.number,
   pureHue: PropTypes.object,
   resolution: PropTypes.number,
+  saturation: PropTypes.number,
 };
 
 export default Canvas;
