@@ -2,7 +2,14 @@ import {useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 import draw from 'src/utils/draw';
 
-const Canvas = ({resolution = 3}) => {
+const Canvas = ({
+  pureHue = {
+    r: 255,
+    g: 0,
+    b: 0,
+  },
+  resolution = 3,
+}) => {
   // set up canvas after the initial rendering
   const canvas = useRef();
   const [canvasContext, setCanvasContext] = useState();
@@ -16,7 +23,7 @@ const Canvas = ({resolution = 3}) => {
     if (!canvasContext) {
       return;
     }
-    draw(canvasContext, resolution);
+    draw(canvasContext, pureHue, resolution);
   });
 
   const canvasWidthPx = `${101 * resolution}px`;
@@ -32,8 +39,8 @@ const Canvas = ({resolution = 3}) => {
 };
 
 Canvas.propTypes = {
+  pureHue: PropTypes.object,
   resolution: PropTypes.number,
-  setSelectedColor: PropTypes.func,
 };
 
 export default Canvas;

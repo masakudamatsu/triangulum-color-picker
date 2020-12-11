@@ -1,12 +1,7 @@
 import getContrastRatio from 'src/utils/getContrastRatio';
 import mixHueWithGray from 'src/utils/mixHueWithGray';
 
-export default function draw(canvasContext, resolution) {
-  const pureHue = {
-    r: 255,
-    g: 0,
-    b: 0,
-  };
+export default function draw(canvasContext, pureHue, resolution) {
   for (var x = 0; x <= 100; x++) {
     const shareOfHue = x;
 
