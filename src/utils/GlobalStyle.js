@@ -316,11 +316,11 @@ input {
 }
 
 :root { /* The background-color on the body element won't spread over the entire page for some reason. */
-  background-color: white;
+  background-color: black;
 }
 
 body {
-  color: black;
+  color: white;
   font-family: 'Roboto'; /* See _document.js */
 }
 
