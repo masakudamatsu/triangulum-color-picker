@@ -1,3 +1,4 @@
+import Canvas from 'src/components/Canvas';
 import Template from 'src/components/Template';
 import styled from 'styled-components';
 
@@ -14,6 +15,7 @@ function HomePage() {
   return (
     <FlexContainer>
       <Template />
+      <Canvas />
     </FlexContainer>
   );
 }
