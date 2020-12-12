@@ -5,7 +5,7 @@ export default function draw(
   canvasContext,
   luminance,
   pureHue,
-  resolution,
+  pixelSize,
   saturation,
 ) {
   for (let x = 0; x <= 100; x++) {
@@ -21,10 +21,10 @@ export default function draw(
 
     canvasContext.fillStyle = `rgb(${brightestRgb.r}, ${brightestRgb.g}, ${brightestRgb.b})`;
     canvasContext.fillRect(
-      x * resolution,
-      minY * resolution,
-      resolution,
-      resolution,
+      x * pixelSize,
+      minY * pixelSize,
+      pixelSize,
+      pixelSize,
     );
 
     let prevY;
@@ -36,10 +36,10 @@ export default function draw(
       if (y !== prevY && y > minY) {
         canvasContext.fillStyle = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
         canvasContext.fillRect(
-          x * resolution,
-          y * resolution,
-          resolution,
-          resolution,
+          x * pixelSize,
+          y * pixelSize,
+          pixelSize,
+          pixelSize,
         );
         prevY = y;
       }
@@ -52,16 +52,16 @@ export default function draw(
   const lineY = getVerticalPosition(luminance);
   const lineX = Math.round(saturation);
 
-  const horizontalLinePosition = lineY * resolution + resolution / 2;
+  const horizontalLinePosition = lineY * pixelSize + pixelSize / 2;
   canvasContext.beginPath();
   canvasContext.moveTo(0, horizontalLinePosition);
-  canvasContext.lineTo(101 * resolution, horizontalLinePosition);
+  canvasContext.lineTo(101 * pixelSize, horizontalLinePosition);
   canvasContext.stroke();
 
-  const verticalLinePosition = lineX * resolution + resolution / 2;
+  const verticalLinePosition = lineX * pixelSize + pixelSize / 2;
   canvasContext.beginPath();
   canvasContext.moveTo(verticalLinePosition, 0);
-  canvasContext.lineTo(verticalLinePosition, 101 * resolution);
+  canvasContext.lineTo(verticalLinePosition, 101 * pixelSize);
   canvasContext.stroke();
 }
 

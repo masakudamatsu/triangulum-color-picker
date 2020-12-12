@@ -9,7 +9,7 @@ const Canvas = ({
     g: 0,
     b: 0,
   },
-  resolution = 3,
+  pixelSize = 3,
   saturation = 50.55,
 }) => {
   // set up canvas after the initial rendering
@@ -26,10 +26,10 @@ const Canvas = ({
       return;
     }
     canvasContext.clearRect(0, 0, canvas.current.width, canvas.current.height);
-    draw(canvasContext, luminance, pureHue, resolution, saturation);
+    draw(canvasContext, luminance, pureHue, pixelSize, saturation);
   });
 
-  const canvasWidthPx = `${101 * resolution}px`;
+  const canvasWidthPx = `${101 * pixelSize}px`;
 
   return (
     <canvas
@@ -44,7 +44,7 @@ const Canvas = ({
 Canvas.propTypes = {
   luminance: PropTypes.number,
   pureHue: PropTypes.object,
-  resolution: PropTypes.number,
+  pixelSize: PropTypes.number,
   saturation: PropTypes.number,
 };
 
