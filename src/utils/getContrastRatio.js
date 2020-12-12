@@ -1,12 +1,11 @@
-const getContrastRatio = (r, g, b) => {
-  // See https://www.w3.org/TR/WCAG20-TECHS/G17.html
+import round from './round';
+
+export default function getContrastRatio(r, g, b) {
+  // Calculate contrast ratio against pure black (whose relative luminance is 0)
+  // see https://www.w3.org/TR/WCAG20-TECHS/G17.html
   const contrastRatio = (relativeLuminance(r, g, b) + 0.05) / 0.05;
 
-  return roundToTwoDecimalPlaces(contrastRatio);
-
-  function roundToTwoDecimalPlaces(float) {
-    return Math.round(float * 100) / 100;
-  }
+  return round(contrastRatio, 2);
 
   function relativeLuminance(r, g, b) {
     return (
@@ -26,6 +25,4 @@ const getContrastRatio = (r, g, b) => {
   function percentize(eightBitNumber) {
     return eightBitNumber / 255;
   }
-};
-
-export default getContrastRatio;
+}
