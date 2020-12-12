@@ -1,4 +1,5 @@
-const mixHueWithGray = (pureHue, grayValue, hueShare) => {
+export default function mixHueWithGray(pureHue, grayValue, hueShare) {
+  // type-checking
   if (typeof pureHue !== 'object') {
     throw Error(
       `mixHueWithGray(): First argument is expected to be an object, but ${typeof pureHue} was given`,
@@ -29,6 +30,8 @@ const mixHueWithGray = (pureHue, grayValue, hueShare) => {
       `mixHueWithGray(): Third argument is expected to be a number, but ${typeof hueShare} was given`,
     );
   }
+
+  // Mix pure hue with neutral color
   const red = Math.floor(
     (1 / 100) * (pureHue.r * hueShare + grayValue * (100 - hueShare)),
   );
@@ -43,6 +46,4 @@ const mixHueWithGray = (pureHue, grayValue, hueShare) => {
     g: green,
     b: blue,
   };
-};
-
-export default mixHueWithGray;
+}
