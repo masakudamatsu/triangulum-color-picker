@@ -1,5 +1,6 @@
 import parseColor from 'parse-color';
 import getContrastRatio from './getContrastRatio';
+import round from './round';
 
 const colorAnalyzer = colorCode => {
   // https://github.com/substack/parse-color
@@ -12,9 +13,11 @@ const colorAnalyzer = colorCode => {
 
   // If the input is neutral color
   if (red === green && red === blue) {
+    const rgbValue = red;
+
     saturation = 0;
     hue = null;
-    neutralColor = red;
+    neutralColor = rgbValue;
 
     // If the input is pure hue
   } else if (red === 0 || green === 0 || blue === 0) {
@@ -29,20 +32,16 @@ const colorAnalyzer = colorCode => {
   } else {
     const inputMax = Math.max(...rgb);
     const inputMin = Math.min(...rgb);
-    const inputMid =
-      (red === inputMax && green === inputMin) ||
-      (red === inputMin && green === inputMax)
-        ? blue
-        : (red === inputMax && blue === inputMin) ||
-          (red === inputMin && blue === inputMax)
-        ? green
-        : red;
+
+    // Formula
+    // inputMax = pureHueShare * 255 + (1 - purHueShare) * grayValue
+    // inputMin = pureHueShare * 0 + (1 - purHueShare) * grayValue
 
     const pureHueShare = (inputMax - inputMin) / 255;
-    saturation = Math.round(pureHueShare * 10000) / 100; // Keep two decimal places
+    saturation = round(pureHueShare * 100, 2); // in percentage, up to 2 decimal places
 
     const grayValue = inputMin / (1 - pureHueShare);
-    neutralColor = Math.round(grayValue);
+    neutralColor = round(grayValue, 0);
 
     const pureHueHSL = `hsl(${hsl[0]}, 100, 50)`;
     const pureHueRgbArray = parseColor(pureHueHSL).rgb;
