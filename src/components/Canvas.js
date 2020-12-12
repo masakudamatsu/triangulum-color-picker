@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import draw from 'src/utils/draw';
 
 const Canvas = ({
-  luminance = 11,
+  luminance = 11.11,
   pureHue = {
     r: 255,
     g: 0,
     b: 0,
   },
   resolution = 3,
-  saturation = 50,
+  saturation = 50.55,
 }) => {
   // set up canvas after the initial rendering
   const canvas = useRef();
