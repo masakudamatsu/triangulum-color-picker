@@ -1,10 +1,25 @@
-// import React from 'react';
-// import {mount} from 'cypress-react-unit-test';
-// import Canvas from 'src/components/Canvas';
-//
-// describe('Canvas component', () => {
-//   it('gets rendered as before', () => {
-//     mount(<Canvas />);
-//     cy.get('canvas').should('be.visible').matchImageSnapshot();
-//   });
-// });
+import React from 'react';
+import {mount} from 'cypress-react-unit-test';
+import Canvas from 'src/components/Canvas';
+import colorAnalyzer from 'src/utils/colorAnalyzer';
+import parseColor from 'parse-color';
+
+describe('Canvas component', () => {
+  it('gets rendered as before', () => {
+    const userColor = 'rgb(29, 161, 242)';
+    const {luminance, saturation, hue, neutralColor} = colorAnalyzer(userColor);
+    const pureHue = {
+      r: parseColor(hue.rgb).rgb[0],
+      g: parseColor(hue.rgb).rgb[1],
+      b: parseColor(hue.rgb).rgb[2],
+    };
+    mount(
+      <Canvas
+        luminance={luminance}
+        pureHue={pureHue}
+        saturation={saturation}
+      />,
+    );
+    cy.get('canvas').should('be.visible').matchImageSnapshot();
+  });
+});
