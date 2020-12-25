@@ -44,30 +44,7 @@ test('entering text calls setUserColor function with the entered text as its arg
 test('renders initial UI correctly', () => {
   const {container} = render(<TextInputForm {...mockProps} />);
   expect(container).toMatchInlineSnapshot(`
-    .c0 {
-      background-color: inherit;
-      height: 81px;
-      position: relative;
-      width: 303px;
-    }
-
-    .c1 {
-      color: inherit;
-      font-size: 1rem;
-      position: absolute;
-      top: 15.5342px;
-      left: 12.5342px;
-    }
-
-    .c1::before {
-      margin-bottom: -6.12px;
-    }
-
-    .c1::after {
-      margin-top: -6.563px;
-    }
-
-    .c2 {
+    .c3 {
       background-color: inherit;
       border-color: currentColor;
       border-style: solid;
@@ -81,11 +58,37 @@ test('renders initial UI correctly', () => {
       width: 100%;
     }
 
-    .c2:active,
-    .c2:hover,
-    .c2:focus {
+    .c3:active,
+    .c3:hover,
+    .c3:focus {
       border-width: 2px;
       outline: none;
+    }
+
+    .c1 {
+      color: inherit;
+      font-size: 0.5rem;
+    }
+
+    .c1::before {
+      margin-bottom: -6.12px;
+    }
+
+    .c1::after {
+      margin-top: -6.563px;
+    }
+
+    .c0 {
+      background-color: inherit;
+      height: 81px;
+      position: relative;
+      width: 303px;
+    }
+
+    .c2 {
+      position: absolute;
+      top: 15.5342px;
+      left: 12.5342px;
     }
 
     <div>
@@ -93,14 +96,14 @@ test('renders initial UI correctly', () => {
         class="c0"
       >
         <label
-          class="c1"
+          class="c1 c2"
           for="colorCode"
         >
           Enter color code
         </label>
         <input
           autocomplete="off"
-          class="c2"
+          class="c3"
           id="colorCode"
           type="text"
           value=""
