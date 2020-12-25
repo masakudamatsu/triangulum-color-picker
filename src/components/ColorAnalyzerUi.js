@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import TextInputForm from 'src/components/TextInputForm';
+import SpacerVertical from 'src/styledComponents/SpacerVertical';
 import Canvas from 'src/components/Canvas';
 import colorAnalyzer from 'src/utils/colorAnalyzer';
 import parseColor from 'parse-color';
@@ -40,6 +41,7 @@ function ColorAnalyzerUi() {
         setUserColor={setUserColor}
         userColor={userColor}
       />
+      <SpacerVertical />
       {canvasElement}
     </FlexContainer>
   );
