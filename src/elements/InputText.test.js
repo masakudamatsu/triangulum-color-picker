@@ -12,15 +12,19 @@ test('renders UI correctly', () => {
   const {container} = render(<InputText {...mockProps} />);
   expect(container).toMatchInlineSnapshot(`
     .c0 {
+      font-family: 'Poppins';
+      font-size: 1.7857rem;
+      font-weight: 300;
       background-color: inherit;
       border-color: currentColor;
       border-style: solid;
       border-width: 1px;
       border-radius: 4px;
       color: inherit;
-      font-size: 1.5rem;
       height: 100%;
-      padding: 35.0937px 10.5342px 11.3609px;
+      padding-bottom: 8px;
+      padding-left: 7.75px;
+      padding-top: 30px;
       text-align: left;
       width: 100%;
     }
@@ -30,6 +34,7 @@ test('renders UI correctly', () => {
     .c0:focus {
       border-width: 2px;
       outline: none;
+      padding-left: 6.75px;
     }
 
     <div>

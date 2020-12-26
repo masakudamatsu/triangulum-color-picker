@@ -17,15 +17,19 @@ test('renders UI correctly', () => {
   );
   expect(container).toMatchInlineSnapshot(`
     .c3 {
+      font-family: 'Poppins';
+      font-size: 1.7857rem;
+      font-weight: 300;
       background-color: inherit;
       border-color: currentColor;
       border-style: solid;
       border-width: 1px;
       border-radius: 4px;
       color: inherit;
-      font-size: 1.5rem;
       height: 100%;
-      padding: 35.0937px 10.5342px 11.3609px;
+      padding-bottom: 8px;
+      padding-left: 7.75px;
+      padding-top: 30px;
       text-align: left;
       width: 100%;
     }
@@ -35,32 +39,31 @@ test('renders UI correctly', () => {
     .c3:focus {
       border-width: 2px;
       outline: none;
+      padding-left: 6.75px;
     }
 
     .c1 {
+      font-family: 'Poppins';
+      font-size: 0.8929rem;
+      font-weight: 300;
+      line-height: 1;
+      -webkit-transform: translateX(-0.08em) translateY(-0.1375em);
+      -ms-transform: translateX(-0.08em) translateY(-0.1375em);
+      transform: translateX(-0.08em) translateY(-0.1375em);
       color: inherit;
-      font-size: 0.5rem;
-    }
-
-    .c1::before {
-      margin-bottom: -6.12px;
-    }
-
-    .c1::after {
-      margin-top: -6.563px;
     }
 
     .c0 {
       background-color: inherit;
-      height: 81px;
+      height: 82px;
       position: relative;
       width: 303px;
     }
 
     .c2 {
       position: absolute;
-      top: 15.5342px;
-      left: 12.5342px;
+      top: 11px;
+      left: 11px;
     }
 
     <div>

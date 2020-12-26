@@ -1,15 +1,11 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+import {typescale} from 'src/utils/typography';
+
 const Label = styled.label`
+  ${typescale.small}
   color: inherit;
-  font-size: 0.5rem;
-  &::before {
-    margin-bottom: -6.12px;
-  }
-  &::after {
-    margin-top: -6.563px;
-  }
 `;
 
 Label.propTypes = {};

@@ -1,27 +1,34 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+import {typescale} from 'src/utils/typography';
+import {inputText} from 'src/utils/layout';
+
 const InputText = styled.input.attrs(props => ({
   autoComplete: 'off', // to remove Webkit browser's default style that cannot be overriden. See https://stackoverflow.com/questions/2338102/overrideq-browser-form-filling-and-input-highlighting-with-html-css
   type: 'text',
 }))`
+  ${typescale.large}
   background-color: inherit;
   border-color: currentColor;
   border-style: solid;
-  border-width: 1px;
+  border-width: ${inputText.borderWidth.inactive}px;
   border-radius: 4px;
   color: inherit;
-  font-size: 1.5rem;
-  height: 100%; /* Without this, 10px will be added up for some reason */
-  padding: 35.0937px 10.5342px 11.3609px;
+  height: 100%; /* Without this, text moves as the border thickens with focus */
+  padding-bottom: ${inputText.paddingBottom - 12}px;
+  padding-left: ${inputText.paddingLeft - 2.25}px;
+  padding-top: ${inputText.paddingTop + 10}px;
   text-align: left;
   width: 100%;
 
   &:active,
   &:hover,
   &:focus {
-    border-width: 2px;
+    border-width: ${inputText.borderWidth.active}px;
     outline: none;
+    padding-left: ${inputText.paddingLeft -
+    3.25}px; /* taking into account the thicker border */
   }
 `;
 
