@@ -12,4 +12,18 @@ describe('Entering css color code shows its luminance and saturation', () => {
       .type(mcdonaldsRed);
     cy.get('canvas').should('be.visible').matchImageSnapshot('mcdonaldsRed');
   });
+
+  it('for neutral color', () => {
+    const grey = 'rgb(129, 129, 129)';
+    const white = 'rgb(255, 255, 255)';
+    cy.visit('/');
+
+    cy.findByLabelText(/color code/i).type(grey);
+    cy.get('canvas').should('be.visible').matchImageSnapshot('grey');
+
+    cy.findByLabelText(/color code/i)
+      .clear()
+      .type(white);
+    cy.get('canvas').should('be.visible').matchImageSnapshot('white');
+  });
 });

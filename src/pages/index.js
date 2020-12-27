@@ -23,11 +23,13 @@ function HomePage() {
   let canvasElement = null;
   if (isValid) {
     const {luminance, saturation, hue, neutralColor} = colorAnalyzer(userColor);
-    const pureHue = {
-      r: parseColor(hue.rgb).rgb[0],
-      g: parseColor(hue.rgb).rgb[1],
-      b: parseColor(hue.rgb).rgb[2],
-    };
+    const pureHue = hue
+      ? {
+          r: parseColor(hue.rgb).rgb[0],
+          g: parseColor(hue.rgb).rgb[1],
+          b: parseColor(hue.rgb).rgb[2],
+        }
+      : {r: 255, g: 0, b: 0};
     canvasElement = (
       <Canvas luminance={luminance} pureHue={pureHue} saturation={saturation} />
     );
