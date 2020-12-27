@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import TextInputForm from 'src/components/TextInputForm';
-import TextFieldForHex from 'src/components/TextFieldForHex';
-import SpacerVertical from 'src/styledComponents/SpacerVertical';
 import Canvas from 'src/components/Canvas';
+import SpacerVertical from 'src/styledComponents/SpacerVertical';
+import TextFieldForHex from 'src/components/TextFieldForHex';
+import TextInputForm from 'src/components/TextInputForm';
 import colorAnalyzer from 'src/utils/colorAnalyzer';
-import parseColor from 'parse-color';
+import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
+import {regex} from 'src/utils/regex';
 
 const FlexContainer = styled.div`
   align-items: center;
@@ -21,54 +22,79 @@ function HomePage() {
   const [userColor, setUserColor] = React.useState({
     cssCode: '',
     hex: '#000000',
+    validCode: 'rgb(0, 0, 0)',
   });
 
   const handleCssCodeChange = event => {
     const newCssCode = event.target.value;
-    const {hex} = parseColor(newCssCode);
     const currentHex = userColor.hex;
-    if (hex) {
+    const currentValidCode = userColor.validCode;
+    if (regex.hex.test(newCssCode.replace(/\s/g, '').trim())) {
+      const {hex} = parseColor(newCssCode);
       setUserColor({
-        cssCode: newCssCode,
+        cssCode: hex,
         hex: hex,
+        validCode: hex,
+      });
+    } else if (regex.hsl.test(newCssCode.replace(/\s/g, '').trim())) {
+      const {hex, hsl} = parseColor(newCssCode);
+      const hslCode = `hsl(${hsl[0]}, ${hsl[1]}, ${hsl[2]})`;
+      setUserColor({
+        cssCode: hslCode,
+        hex: hex,
+        validCode: hslCode,
+      });
+    } else if (regex.rgb.test(newCssCode.replace(/\s/g, '').trim())) {
+      const {hex, rgb} = parseColor(newCssCode);
+      const rgbCode = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+      setUserColor({
+        cssCode: rgbCode,
+        hex: hex,
+        validCode: rgbCode,
       });
     } else {
       setUserColor({
         cssCode: newCssCode,
         hex: currentHex,
+        validCode: currentValidCode,
       });
     }
   };
 
   const handleHexChange = event => {
-    return;
+    const newUserValue = event.target.value;
+    const currentCssCode = userColor.cssCode;
+    const currentValidCode = userColor.validCode;
+    if (regex.hex.test(newUserValue)) {
+      const {hex} = parseColor(newUserValue);
+      setUserColor({
+        cssCode: hex,
+        hex: hex,
+        validCode: hex,
+      });
+    } else {
+      setUserColor({
+        cssCode: currentCssCode,
+        hex: newUserValue,
+        validCode: currentValidCode,
+      });
+    }
   };
 
-  const parsedUserColor = parseColor(userColor.cssCode);
-  // See https://www.npmjs.com/package/parse-color
+  // Prepare prop values for Canvas component
+  const {luminance, saturation, hue, neutralColor} = colorAnalyzer(
+    userColor.validCode,
+  );
+  const pureHue = hue
+    ? {
+        r: parseColor(hue.rgb).rgb[0],
+        g: parseColor(hue.rgb).rgb[1],
+        b: parseColor(hue.rgb).rgb[2],
+      }
+    : {r: 188, g: 188, b: 188}; // contrast ratio 11.04 (the middle value between 1 and 21)
 
-  let isValid = Boolean(parsedUserColor.rgb);
-
-  let lightMode = false;
-  let canvasElement = null;
-  if (isValid) {
-    const {luminance, saturation, hue, neutralColor} = colorAnalyzer(
-      userColor.cssCode,
-    );
-
-    lightMode = luminance > Math.sqrt(21);
-
-    const pureHue = hue
-      ? {
-          r: parseColor(hue.rgb).rgb[0],
-          g: parseColor(hue.rgb).rgb[1],
-          b: parseColor(hue.rgb).rgb[2],
-        }
-      : {r: 255, g: 0, b: 0};
-    canvasElement = (
-      <Canvas luminance={luminance} pureHue={pureHue} saturation={saturation} />
-    );
-  }
+  // Prepare prop value for TextFieldForHex
+  const lightMode = luminance > Math.sqrt(21);
 
   return (
     <FlexContainer>
@@ -80,12 +106,13 @@ function HomePage() {
       />
       <SpacerVertical />
       <TextFieldForHex
+        backgroundColor={userColor.validCode}
         handleChange={handleHexChange}
         lightMode={lightMode}
         value={userColor.hex}
       />
       <SpacerVertical />
-      {canvasElement}
+      <Canvas luminance={luminance} pureHue={pureHue} saturation={saturation} />
     </FlexContainer>
   );
 }

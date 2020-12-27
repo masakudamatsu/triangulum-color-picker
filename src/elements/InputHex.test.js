@@ -6,6 +6,8 @@ import {axe} from 'jest-axe';
 import InputHex from './InputHex';
 
 const mockProps = {
+  backgroundColor: '#654321',
+  onChange: jest.fn(),
   value: '#654321',
 };
 
@@ -45,11 +47,23 @@ test('renders UI correctly', () => {
   `);
 });
 
-test('changes the background-color property by the value prop', () => {
+test('changes the background-color property by the backgroundColor prop, but not by the value prop', () => {
   const newHexValue = '#123456';
-  render(<InputHex data-testid="input" {...mockProps} value={newHexValue} />);
+  const {rerender} = render(
+    <InputHex data-testid="input" {...mockProps} value={newHexValue} />,
+  );
+  expect(screen.getByTestId('input')).toHaveStyle(
+    `background-color: ${mockProps.backgroundColor}`,
+  );
+  rerender(
+    <InputHex
+      data-testid="input"
+      {...mockProps}
+      backgroundColor={newHexValue}
+      value={newHexValue}
+    />,
+  );
   expect(screen.getByTestId('input')).toHaveStyle(
     `background-color: ${newHexValue}`,
   );
 });
-// Accessibility test is skipped as rendering the input element only returns the error message "Form elements must have labels (label)"

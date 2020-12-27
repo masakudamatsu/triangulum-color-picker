@@ -9,7 +9,7 @@ const InputHex = styled.input.attrs(props => ({
   type: 'text',
 }))`
   ${typescale.medium}
-  background-color: ${props => props.value};
+  background-color: ${props => props.backgroundColor};
   border-color: currentColor;
   border-style: solid;
   border-width: ${inputText.borderWidth.inactive}px;
@@ -28,7 +28,7 @@ const InputHex = styled.input.attrs(props => ({
 `;
 
 InputHex.propTypes = {
-  value: PropTypes.string,
+  backgroundColor: PropTypes.string,
 };
 
 export default InputHex;

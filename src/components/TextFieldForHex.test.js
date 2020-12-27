@@ -6,12 +6,21 @@ import {axe} from 'jest-axe';
 import TextFieldForHex from 'src/components/TextFieldForHex';
 
 const mockProps = {
+  handleChange: jest.fn().mockName('handleChange'),
+  lightMode: false,
   value: '#234ed2',
 };
 
-test('shows #000000 by default', () => {
-  render(<TextFieldForHex />);
-  expect(screen.getByLabelText(/hex/i)).toHaveValue('#000000');
+test('calls handleChange as the user enters text', () => {
+  const userText = 'abc';
+  render(<TextFieldForHex {...mockProps} />);
+  userEvent.type(screen.getByLabelText(/hex/i), userText);
+
+  expect(mockProps.handleChange).toHaveBeenCalledTimes(userText.length);
+});
+
+test('changes the color property by the lightMode prop', () => {
+  // This test is done in FormHex.test.js
 });
 
 test('changes the hex code according to the value prop', () => {
