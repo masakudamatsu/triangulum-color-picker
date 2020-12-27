@@ -1,4 +1,4 @@
-describe('Entering css color code shows its luminance and saturation', () => {
+describe('Entering css color code shows the color triangle diagram', () => {
   it('for Twitter blue and then for McDonalds red', () => {
     const twitterBlue = 'rgb(29, 161, 242)';
     const mcdonaldsRed = 'rgb(191, 12, 12)';
