@@ -4,11 +4,7 @@ import styled from 'styled-components';
 
 import Form from 'src/blocks/Form';
 
-const TextInputForm = ({inputId, labelText, setUserColor, userColor}) => {
-  function handleChange(event) {
-    setUserColor(event.target.value); // Trigger the updating of the parent component
-  }
-
+const TextInputForm = ({inputId, labelText, handleChange, userColor}) => {
   return (
     <Form>
       <Form.Label htmlFor={inputId}>{labelText}</Form.Label>
@@ -20,7 +16,7 @@ const TextInputForm = ({inputId, labelText, setUserColor, userColor}) => {
 TextInputForm.propTypes = {
   inputId: PropTypes.string.isRequired,
   labelText: PropTypes.string.isRequired,
-  setUserColor: PropTypes.func,
+  handleChange: PropTypes.func,
   userColor: PropTypes.string,
 };
 

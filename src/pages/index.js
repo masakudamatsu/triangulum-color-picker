@@ -18,8 +18,33 @@ const FlexContainer = styled.div`
 `;
 
 function HomePage() {
-  const [userColor, setUserColor] = React.useState('');
-  const parsedUserColor = parseColor(userColor);
+  const [userColor, setUserColor] = React.useState({
+    cssCode: '',
+    hex: '#000000',
+  });
+
+  const handleCssCodeChange = event => {
+    const newCssCode = event.target.value;
+    const {hex} = parseColor(newCssCode);
+    const currentHex = userColor.hex;
+    if (hex) {
+      setUserColor({
+        cssCode: newCssCode,
+        hex: hex,
+      });
+    } else {
+      setUserColor({
+        cssCode: newCssCode,
+        hex: currentHex,
+      });
+    }
+  };
+
+  const handleHexChange = event => {
+    return;
+  };
+
+  const parsedUserColor = parseColor(userColor.cssCode);
   // See https://www.npmjs.com/package/parse-color
 
   let isValid = Boolean(parsedUserColor.rgb);
@@ -27,7 +52,9 @@ function HomePage() {
   let lightMode = false;
   let canvasElement = null;
   if (isValid) {
-    const {luminance, saturation, hue, neutralColor} = colorAnalyzer(userColor);
+    const {luminance, saturation, hue, neutralColor} = colorAnalyzer(
+      userColor.cssCode,
+    );
 
     lightMode = luminance > Math.sqrt(21);
 
@@ -48,11 +75,15 @@ function HomePage() {
       <TextInputForm
         inputId="colorCode"
         labelText="Enter CSS color code"
-        setUserColor={setUserColor}
-        userColor={userColor}
+        handleChange={handleCssCodeChange}
+        userColor={userColor.cssCode}
       />
       <SpacerVertical />
-      <TextFieldForHex lightMode={lightMode} value={parsedUserColor.hex} />
+      <TextFieldForHex
+        handleChange={handleHexChange}
+        lightMode={lightMode}
+        value={userColor.hex}
+      />
       <SpacerVertical />
       {canvasElement}
     </FlexContainer>

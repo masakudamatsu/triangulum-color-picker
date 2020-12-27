@@ -8,37 +8,21 @@ import TextInputForm from 'src/components/TextInputForm';
 const mockProps = {
   inputId: 'colorCode',
   labelText: 'Enter color code',
-  setUserColor: jest.fn().mockName('setUserColor'),
+  handleChange: jest.fn().mockName('handleChange'),
 };
 
 afterEach(() => {
   window.localStorage.clear();
 });
 
-test('Typed text persists', () => {
-  const {unmount} = render(<TextInputForm {...mockProps} />);
-  const textField = screen.getByLabelText(mockProps.labelText);
-  const testText = 'Masa';
-
-  userEvent.type(textField, testText);
-
-  expect(textField).toHaveValue(testText);
-
-  unmount();
-  render(<TextInputForm {...mockProps} />);
-
-  expect(textField).toHaveValue(testText);
-});
-
-test('entering text calls setUserColor function with the entered text as its argument', () => {
+test('entering text calls handleChange function with the entered text as its argument', () => {
   const userText = 'abc';
 
   render(<TextInputForm {...mockProps} />);
 
   userEvent.type(screen.getByLabelText(mockProps.labelText), userText);
 
-  expect(mockProps.setUserColor).toHaveBeenCalledTimes(userText.length);
-  expect(mockProps.setUserColor).toHaveBeenLastCalledWith(userText);
+  expect(mockProps.handleChange).toHaveBeenCalledTimes(userText.length);
 });
 
 test('is accessible', async () => {
