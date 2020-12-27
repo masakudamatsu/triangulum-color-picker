@@ -26,17 +26,17 @@ function HomePage() {
   });
 
   const handleCssCodeChange = event => {
-    const newCssCode = event.target.value;
+    const newCssCode = event.target.value.trim().replace(/\s/g, '');
     const currentHex = userColor.hex;
     const currentValidCode = userColor.validCode;
-    if (regex.hex.test(newCssCode.replace(/\s/g, '').trim())) {
+    if (regex.hex.test(newCssCode)) {
       const {hex} = parseColor(newCssCode);
       setUserColor({
         cssCode: hex,
         hex: hex,
         validCode: hex,
       });
-    } else if (regex.hsl.test(newCssCode.replace(/\s/g, '').trim())) {
+    } else if (regex.hsl.test(newCssCode)) {
       const {hex, hsl} = parseColor(newCssCode);
       const hslCode = `hsl(${hsl[0]}, ${hsl[1]}, ${hsl[2]})`;
       setUserColor({
@@ -44,7 +44,7 @@ function HomePage() {
         hex: hex,
         validCode: hslCode,
       });
-    } else if (regex.rgb.test(newCssCode.replace(/\s/g, '').trim())) {
+    } else if (regex.rgb.test(newCssCode)) {
       const {hex, rgb} = parseColor(newCssCode);
       const rgbCode = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
       setUserColor({
@@ -54,7 +54,7 @@ function HomePage() {
       });
     } else {
       setUserColor({
-        cssCode: newCssCode,
+        cssCode: event.target.value,
         hex: currentHex,
         validCode: currentValidCode,
       });
@@ -62,7 +62,7 @@ function HomePage() {
   };
 
   const handleHexChange = event => {
-    const newUserValue = event.target.value;
+    const newUserValue = event.target.value.trim().replace(/\s/g, '');
     const currentCssCode = userColor.cssCode;
     const currentValidCode = userColor.validCode;
     if (regex.hex.test(newUserValue)) {
@@ -75,7 +75,7 @@ function HomePage() {
     } else {
       setUserColor({
         cssCode: currentCssCode,
-        hex: newUserValue,
+        hex: event.target.value,
         validCode: currentValidCode,
       });
     }
