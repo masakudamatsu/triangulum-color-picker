@@ -1,3 +1,39 @@
+import {color} from 'src/utils/color';
+
+describe('Entering css color code shows its color, its Hex code equivalent in a legible way', () => {
+  it('for RGB code', () => {
+    const twitterBlue = 'rgb(29, 161, 242)';
+    const mcdonaldsRed = 'rgb(191, 12, 12)';
+    cy.visit('/');
+
+    cy.findByLabelText(/color code/i).type(twitterBlue);
+
+    cy.findByLabelText(/hex/i)
+      .should('have.css', 'background-color', twitterBlue)
+      .should('have.css', 'color', color.black)
+      .should('have.value', '#1da1f2');
+    cy.findByText(/hex/i, {selector: 'label'}).should(
+      'have.css',
+      'color',
+      color.black,
+    );
+
+    cy.findByLabelText(/color code/i)
+      .clear()
+      .type(mcdonaldsRed);
+
+    cy.findByLabelText(/hex/i)
+      .should('have.css', 'background-color', mcdonaldsRed)
+      .should('have.css', 'color', color.white)
+      .should('have.value', '#bf0c0c');
+    cy.findByText(/hex/i, {selector: 'label'}).should(
+      'have.css',
+      'color',
+      color.white,
+    );
+  });
+});
+
 describe('Entering css color code shows the color triangle diagram', () => {
   it('for Twitter blue and then for McDonalds red', () => {
     const twitterBlue = 'rgb(29, 161, 242)';
@@ -25,5 +61,46 @@ describe('Entering css color code shows the color triangle diagram', () => {
       .clear()
       .type(white);
     cy.get('canvas').should('be.visible').matchImageSnapshot('white');
+  });
+});
+
+describe('Entering hex code shows its color, the hex code in a legible way, and its css code in the text field', () => {
+  it('twitter blue', () => {
+    const twitterBlue = {
+      hex: '#1da1f2',
+      rgb: 'rgb(29, 161, 242)',
+    };
+    cy.visit('/');
+
+    cy.findByLabelText(/hex/i).clear().type(twitterBlue.hex);
+
+    cy.findByLabelText(/hex/i)
+      .should('have.css', 'background-color', twitterBlue.rgb)
+      .should('have.css', 'color', color.black);
+    cy.findByLabelText(/color code/i).should('have.value', twitterBlue.hex);
+    cy.findByText(/hex/i, {selector: 'label'}).should(
+      'have.css',
+      'color',
+      color.black,
+    );
+  });
+  it('McDonalds Red', () => {
+    const mcdonaldsRed = {
+      hex: '#bf0c0c',
+      rgb: 'rgb(191, 12, 12)',
+    };
+    cy.visit('/');
+
+    cy.findByLabelText(/hex/i).clear().type(mcdonaldsRed.hex);
+
+    cy.findByLabelText(/hex/i)
+      .should('have.css', 'background-color', mcdonaldsRed.rgb)
+      .should('have.css', 'color', color.white);
+    cy.findByLabelText(/color code/i).should('have.value', mcdonaldsRed.hex);
+    cy.findByText(/hex/i, {selector: 'label'}).should(
+      'have.css',
+      'color',
+      color.white,
+    );
   });
 });
