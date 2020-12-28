@@ -166,3 +166,29 @@ describe('Entering rgb values shows its color, the hex code in a legible way, RG
     });
   });
 });
+
+describe('Entering HSL values shows its color, the hex code in a legible way, RGB and HSL values, and its css code in the text field', () => {
+  [twitterBlue, mcdonaldsRed].forEach(userColor => {
+    it(`${userColor.label}`, () => {
+      cy.visit('/');
+      cy.findByLabelText(/^h$/i).clear().type(userColor.h);
+      cy.findByLabelText(/^s$/i).clear().type(userColor.s);
+      cy.findByLabelText(/^l$/i).clear().type(userColor.l);
+
+      cy.findByLabelText(/color code/i).should('have.value', userColor.hsl);
+      cy.findByLabelText(/hex/i)
+        .should('have.value', userColor.hex)
+        .should('have.css', 'background-color', userColor.rgb)
+        .should('have.css', 'color', userColor.fontColor);
+      cy.findByText(/hex/i, {selector: 'label'}).should(
+        'have.css',
+        'color',
+        userColor.fontColor,
+      );
+
+      cy.findByLabelText(/^r$/i).should('have.value', userColor.r);
+      cy.findByLabelText(/^g$/i).should('have.value', userColor.g);
+      cy.findByLabelText(/^b$/i).should('have.value', userColor.b);
+    });
+  });
+});

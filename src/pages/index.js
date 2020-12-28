@@ -182,6 +182,70 @@ function HomePage() {
     }
   };
 
+  const handleChangeH = event => {
+    const newUserValue = event.target.value.trim().replace(/\s/g, '');
+    if (regex.hValue.test(newUserValue)) {
+      const hsl = `hsl(${newUserValue}, ${userColor.s}%, ${userColor.l}%)`;
+      const {hex, rgb} = parseColor(hsl);
+      setUserColor({
+        cssCode: hsl,
+        hex: hex,
+        r: rgb[0],
+        g: rgb[1],
+        b: rgb[2],
+        h: newUserValue,
+        validCode: hsl,
+      });
+    } else {
+      setUserColor({
+        h: event.target.value,
+      });
+    }
+  };
+
+  const handleChangeS = event => {
+    const newUserValue = event.target.value.trim().replace(/\s/g, '');
+    if (regex.slValues.test(newUserValue)) {
+      console.log('saturation value passes the test');
+      const hsl = `hsl(${userColor.h}, ${newUserValue}%, ${userColor.l}%)`;
+      const {hex, rgb} = parseColor(hsl);
+      setUserColor({
+        cssCode: hsl,
+        hex: hex,
+        r: rgb[0],
+        g: rgb[1],
+        b: rgb[2],
+        s: newUserValue,
+        validCode: hsl,
+      });
+    } else {
+      setUserColor({
+        s: event.target.value,
+      });
+    }
+  };
+
+  const handleChangeL = event => {
+    const newUserValue = event.target.value.trim().replace(/\s/g, '');
+    if (regex.slValues.test(newUserValue)) {
+      const hsl = `hsl(${userColor.h}, ${userColor.s}%, ${newUserValue}%)`;
+      const {hex, rgb} = parseColor(hsl);
+      setUserColor({
+        cssCode: hsl,
+        hex: hex,
+        r: rgb[0],
+        g: rgb[1],
+        b: rgb[2],
+        l: newUserValue,
+        validCode: hsl,
+      });
+    } else {
+      setUserColor({
+        l: event.target.value,
+      });
+    }
+  };
+
   // Prepare prop values for Canvas component
   const {luminance, saturation, hue, neutralColor} = colorAnalyzer(
     userColor.validCode,
@@ -226,7 +290,16 @@ function HomePage() {
             b={userColor.b}
           />
           <SpacerVertical style={{height: '10px'}} />
-          <TextFieldForHsl h={userColor.h} s={userColor.s} l={userColor.l} />
+          <TextFieldForHsl
+            handleChange={{
+              h: handleChangeH,
+              s: handleChangeS,
+              l: handleChangeL,
+            }}
+            h={userColor.h}
+            s={userColor.s}
+            l={userColor.l}
+          />
         </RgbHslWrapper>
       </FormWrapper>
       <SpacerVertical />
