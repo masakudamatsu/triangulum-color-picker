@@ -38,32 +38,56 @@ function HomePage() {
   const [userColor, setUserColor] = React.useReducer(userColorReducer, {
     cssCode: '',
     hex: '#000000',
+    r: 0,
+    g: 0,
+    b: 0,
+    h: 0,
+    s: 0,
+    l: 0,
     validCode: 'rgb(0, 0, 0)',
   });
 
   const handleCssCodeChange = event => {
     const newCssCode = event.target.value.trim().replace(/\s/g, '');
     if (regex.hex.test(newCssCode)) {
-      const {hex} = parseColor(newCssCode);
+      const {hex, rgb, hsl} = parseColor(newCssCode);
       setUserColor({
         cssCode: hex,
         hex: hex,
+        r: rgb[0],
+        g: rgb[1],
+        b: rgb[2],
+        h: hsl[0],
+        s: hsl[1],
+        l: hsl[2],
         validCode: hex,
       });
     } else if (regex.hsl.test(newCssCode)) {
-      const {hex, hsl} = parseColor(newCssCode);
+      const {hex, rgb, hsl} = parseColor(newCssCode);
       const hslCode = `hsl(${hsl[0]}, ${hsl[1]}%, ${hsl[2]}%)`;
       setUserColor({
         cssCode: hslCode,
         hex: hex,
+        r: rgb[0],
+        g: rgb[1],
+        b: rgb[2],
+        h: hsl[0],
+        s: hsl[1],
+        l: hsl[2],
         validCode: hslCode,
       });
     } else if (regex.rgb.test(newCssCode)) {
-      const {hex, rgb} = parseColor(newCssCode);
+      const {hex, rgb, hsl} = parseColor(newCssCode);
       const rgbCode = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
       setUserColor({
         cssCode: rgbCode,
         hex: hex,
+        r: rgb[0],
+        g: rgb[1],
+        b: rgb[2],
+        h: hsl[0],
+        s: hsl[1],
+        l: hsl[2],
         validCode: rgbCode,
       });
     } else {
@@ -76,10 +100,16 @@ function HomePage() {
   const handleHexChange = event => {
     const newUserValue = event.target.value.trim().replace(/\s/g, '');
     if (regex.hex.test(newUserValue)) {
-      const {hex} = parseColor(newUserValue);
+      const {hex, rgb, hsl} = parseColor(newUserValue);
       setUserColor({
         cssCode: hex,
         hex: hex,
+        r: rgb[0],
+        g: rgb[1],
+        b: rgb[2],
+        h: hsl[0],
+        s: hsl[1],
+        l: hsl[2],
         validCode: hex,
       });
     } else {
@@ -105,8 +135,6 @@ function HomePage() {
   const lightMode = luminance > Math.sqrt(21);
 
   // Prop values for TextFieldForRgb
-  const [r, g, b] = parseColor(userColor.validCode).rgb;
-  const [h, s, l] = parseColor(userColor.validCode).hsl;
   return (
     <FlexContainer>
       <TextInputForm
@@ -124,9 +152,9 @@ function HomePage() {
           value={userColor.hex}
         />
         <RgbHslWrapper>
-          <TextFieldForRgb r={r} g={g} b={b} />
+          <TextFieldForRgb r={userColor.r} g={userColor.g} b={userColor.b} />
           <SpacerVertical style={{height: '10px'}} />
-          <TextFieldForHsl h={h} s={s} l={l} />
+          <TextFieldForHsl h={userColor.h} s={userColor.s} l={userColor.l} />
         </RgbHslWrapper>
       </FormWrapper>
       <SpacerVertical />
