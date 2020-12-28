@@ -47,7 +47,7 @@ function HomePage() {
     validCode: 'rgb(0, 0, 0)',
   });
 
-  const handleCssCodeChange = event => {
+  const handleChangeCssCode = event => {
     const newCssCode = event.target.value.trim().replace(/\s/g, '');
     if (regex.hex.test(newCssCode)) {
       const {hex, rgb, hsl} = parseColor(newCssCode);
@@ -97,7 +97,7 @@ function HomePage() {
     }
   };
 
-  const handleHexChange = event => {
+  const handleChangeHex = event => {
     const newUserValue = event.target.value.trim().replace(/\s/g, '');
     if (regex.hex.test(newUserValue)) {
       const {hex, rgb, hsl} = parseColor(newUserValue);
@@ -115,6 +115,69 @@ function HomePage() {
     } else {
       setUserColor({
         hex: event.target.value,
+      });
+    }
+  };
+
+  const handleChangeR = event => {
+    const newUserValue = event.target.value.trim().replace(/\s/g, '');
+    if (regex.rgbValues.test(newUserValue)) {
+      const rgb = `rgb(${newUserValue}, ${userColor.g}, ${userColor.b})`;
+      const {hex, hsl} = parseColor(rgb);
+      setUserColor({
+        cssCode: rgb,
+        hex: hex,
+        r: newUserValue,
+        h: hsl[0],
+        s: hsl[1],
+        l: hsl[2],
+        validCode: rgb,
+      });
+    } else {
+      setUserColor({
+        r: event.target.value,
+      });
+    }
+  };
+
+  const handleChangeG = event => {
+    const newUserValue = event.target.value.trim().replace(/\s/g, '');
+    if (regex.rgbValues.test(newUserValue)) {
+      const rgb = `rgb(${userColor.r}, ${newUserValue}, ${userColor.b})`;
+      const {hex, hsl} = parseColor(rgb);
+      setUserColor({
+        cssCode: rgb,
+        hex: hex,
+        g: newUserValue,
+        h: hsl[0],
+        s: hsl[1],
+        l: hsl[2],
+        validCode: rgb,
+      });
+    } else {
+      setUserColor({
+        g: event.target.value,
+      });
+    }
+  };
+
+  const handleChangeB = event => {
+    const newUserValue = event.target.value.trim().replace(/\s/g, '');
+    if (regex.rgbValues.test(newUserValue)) {
+      const rgb = `rgb(${userColor.r}, ${userColor.g}, ${newUserValue})`;
+      const {hex, hsl} = parseColor(rgb);
+      setUserColor({
+        cssCode: rgb,
+        hex: hex,
+        b: newUserValue,
+        h: hsl[0],
+        s: hsl[1],
+        l: hsl[2],
+        validCode: rgb,
+      });
+    } else {
+      setUserColor({
+        b: event.target.value,
       });
     }
   };
@@ -140,19 +203,28 @@ function HomePage() {
       <TextInputForm
         inputId="colorCode"
         labelText="Enter CSS color code"
-        handleChange={handleCssCodeChange}
+        handleChange={handleChangeCssCode}
         userColor={userColor.cssCode}
       />
       <SpacerVertical />
       <FormWrapper>
         <TextFieldForHex
           backgroundColor={userColor.validCode}
-          handleChange={handleHexChange}
+          handleChange={handleChangeHex}
           lightMode={lightMode}
           value={userColor.hex}
         />
         <RgbHslWrapper>
-          <TextFieldForRgb r={userColor.r} g={userColor.g} b={userColor.b} />
+          <TextFieldForRgb
+            handleChange={{
+              r: handleChangeR,
+              g: handleChangeG,
+              b: handleChangeB,
+            }}
+            r={userColor.r}
+            g={userColor.g}
+            b={userColor.b}
+          />
           <SpacerVertical style={{height: '10px'}} />
           <TextFieldForHsl h={userColor.h} s={userColor.s} l={userColor.l} />
         </RgbHslWrapper>
