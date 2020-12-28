@@ -30,8 +30,12 @@ const RgbHslWrapper = styled.div`
   flex-direction: column;
 `;
 
+const userColorReducer = (state, action) => {
+  return {...state, ...action};
+};
+
 function HomePage() {
-  const [userColor, setUserColor] = React.useState({
+  const [userColor, setUserColor] = React.useReducer(userColorReducer, {
     cssCode: '',
     hex: '#000000',
     validCode: 'rgb(0, 0, 0)',
@@ -39,8 +43,6 @@ function HomePage() {
 
   const handleCssCodeChange = event => {
     const newCssCode = event.target.value.trim().replace(/\s/g, '');
-    const currentHex = userColor.hex;
-    const currentValidCode = userColor.validCode;
     if (regex.hex.test(newCssCode)) {
       const {hex} = parseColor(newCssCode);
       setUserColor({
@@ -67,16 +69,12 @@ function HomePage() {
     } else {
       setUserColor({
         cssCode: event.target.value,
-        hex: currentHex,
-        validCode: currentValidCode,
       });
     }
   };
 
   const handleHexChange = event => {
     const newUserValue = event.target.value.trim().replace(/\s/g, '');
-    const currentCssCode = userColor.cssCode;
-    const currentValidCode = userColor.validCode;
     if (regex.hex.test(newUserValue)) {
       const {hex} = parseColor(newUserValue);
       setUserColor({
@@ -86,9 +84,7 @@ function HomePage() {
       });
     } else {
       setUserColor({
-        cssCode: currentCssCode,
         hex: event.target.value,
-        validCode: currentValidCode,
       });
     }
   };
