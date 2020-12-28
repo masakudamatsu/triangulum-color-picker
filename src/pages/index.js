@@ -38,7 +38,7 @@ function HomePage() {
       });
     } else if (regex.hsl.test(newCssCode)) {
       const {hex, hsl} = parseColor(newCssCode);
-      const hslCode = `hsl(${hsl[0]}, ${hsl[1]}, ${hsl[2]})`;
+      const hslCode = `hsl(${hsl[0]}, ${hsl[1]}%, ${hsl[2]}%)`;
       setUserColor({
         cssCode: hslCode,
         hex: hex,
