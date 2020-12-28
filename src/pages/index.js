@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import Canvas from 'src/components/Canvas';
 import SpacerVertical from 'src/styledComponents/SpacerVertical';
 import TextFieldForHex from 'src/components/TextFieldForHex';
+import TextFieldForHsl from 'src/components/TextFieldForHsl';
+import TextFieldForRgb from 'src/components/TextFieldForRgb';
 import TextInputForm from 'src/components/TextInputForm';
 import colorAnalyzer from 'src/utils/colorAnalyzer';
 import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
@@ -16,6 +18,16 @@ const FlexContainer = styled.div`
   height: 100vh;
   justify-content: center;
   width: 100%;
+`;
+
+const FormWrapper = styled.div`
+  display: flex;
+  width: 303px;
+`;
+
+const RgbHslWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 function HomePage() {
@@ -96,6 +108,9 @@ function HomePage() {
   // Prepare prop value for TextFieldForHex
   const lightMode = luminance > Math.sqrt(21);
 
+  // Prop values for TextFieldForRgb
+  const [r, g, b] = parseColor(userColor.validCode).rgb;
+  const [h, s, l] = parseColor(userColor.validCode).hsl;
   return (
     <FlexContainer>
       <TextInputForm
@@ -105,12 +120,19 @@ function HomePage() {
         userColor={userColor.cssCode}
       />
       <SpacerVertical />
-      <TextFieldForHex
-        backgroundColor={userColor.validCode}
-        handleChange={handleHexChange}
-        lightMode={lightMode}
-        value={userColor.hex}
-      />
+      <FormWrapper>
+        <TextFieldForHex
+          backgroundColor={userColor.validCode}
+          handleChange={handleHexChange}
+          lightMode={lightMode}
+          value={userColor.hex}
+        />
+        <RgbHslWrapper>
+          <TextFieldForRgb r={r} g={g} b={b} />
+          <SpacerVertical style={{height: '10px'}} />
+          <TextFieldForHsl h={h} s={s} l={l} />
+        </RgbHslWrapper>
+      </FormWrapper>
       <SpacerVertical />
       <Canvas luminance={luminance} pureHue={pureHue} saturation={saturation} />
     </FlexContainer>

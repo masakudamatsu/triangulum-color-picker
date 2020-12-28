@@ -1,18 +1,37 @@
+import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
+
 import {color} from 'src/utils/color';
 
 describe('Entering css color code shows (1) its color, (2) its Hex code equivalent, (3) RGB values, (4) HSL values, all in a (5) legible way', () => {
-  const twitterBlue = {
-    // an example of high-luminance color
-    hex: '#1ca0f2',
-    rgb: 'rgb(28, 160, 242)',
-    hsl: 'hsl(203, 89%, 53%)',
-  };
-  const mcdonaldsRed = {
-    // an example of low-luminance color
-    hex: '#c00c0c',
-    rgb: 'rgb(192, 12, 12)',
-    hsl: 'hsl(0, 88%, 40%)',
-  };
+  // Construct user data
+  const [twitterBlue, mcdonaldsRed] = [
+    {
+      // an example of high-luminance color
+      hex: '#1ca0f2',
+      rgb: 'rgb(28, 160, 242)',
+      hsl: 'hsl(203, 89%, 53%)',
+    },
+    {
+      // an example of low-luminance color
+      hex: '#c00c0c',
+      rgb: 'rgb(192, 12, 12)',
+      hsl: 'hsl(0, 88%, 40%)',
+    },
+  ].map(color => {
+    const {rgb, hsl} = parseColor(color.hex);
+    color = {
+      ...color,
+      r: rgb[0],
+      g: rgb[1],
+      b: rgb[2],
+      h: hsl[0],
+      s: hsl[1],
+      l: hsl[2],
+    };
+    return color;
+  });
+
+  // test
   ['hex', 'rgb', 'hsl'].forEach(colorcode => {
     it(`for ${colorcode}`, () => {
       cy.visit('/');
@@ -28,6 +47,14 @@ describe('Entering css color code shows (1) its color, (2) its Hex code equivale
         color.black, // (5)
       );
 
+      cy.findByLabelText(/^r$/i).should('have.value', twitterBlue.r);
+      cy.findByLabelText(/^g$/i).should('have.value', twitterBlue.g);
+      cy.findByLabelText(/^b$/i).should('have.value', twitterBlue.b);
+
+      cy.findByLabelText(/^h$/i).should('have.value', twitterBlue.h);
+      cy.findByLabelText(/^s$/i).should('have.value', twitterBlue.s);
+      cy.findByLabelText(/^l$/i).should('have.value', twitterBlue.l);
+
       cy.findByLabelText(/color code/i)
         .clear()
         .type(mcdonaldsRed[colorcode]);
@@ -41,6 +68,14 @@ describe('Entering css color code shows (1) its color, (2) its Hex code equivale
         'color',
         color.white, // (5)
       );
+
+      cy.findByLabelText(/^r$/i).should('have.value', mcdonaldsRed.r);
+      cy.findByLabelText(/^g$/i).should('have.value', mcdonaldsRed.g);
+      cy.findByLabelText(/^b$/i).should('have.value', mcdonaldsRed.b);
+
+      cy.findByLabelText(/^h$/i).should('have.value', mcdonaldsRed.h);
+      cy.findByLabelText(/^s$/i).should('have.value', mcdonaldsRed.s);
+      cy.findByLabelText(/^l$/i).should('have.value', mcdonaldsRed.l);
     });
   });
 });
