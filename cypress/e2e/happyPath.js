@@ -1,36 +1,47 @@
 import {color} from 'src/utils/color';
 
-describe('Entering css color code shows its color, its Hex code equivalent in a legible way', () => {
-  it('for RGB code', () => {
-    const twitterBlue = 'rgb(29, 161, 242)';
-    const mcdonaldsRed = 'rgb(191, 12, 12)';
-    cy.visit('/');
+describe('Entering css color code shows (1) its color, (2) its Hex code equivalent, (3) RGB values, (4) HSL values, all in a (5) legible way', () => {
+  const twitterBlue = {
+    // an example of high-luminance color
+    hex: '#1ca0f2',
+    rgb: 'rgb(28, 160, 242)',
+    hsl: 'hsl(203, 89%, 53%)',
+  };
+  const mcdonaldsRed = {
+    // an example of low-luminance color
+    hex: '#c00c0c',
+    rgb: 'rgb(192, 12, 12)',
+    hsl: 'hsl(0, 88%, 40%)',
+  };
+  ['hex', 'rgb', 'hsl'].forEach(colorcode => {
+    it(`for ${colorcode}`, () => {
+      cy.visit('/');
+      cy.findByLabelText(/color code/i).type(twitterBlue[colorcode]);
 
-    cy.findByLabelText(/color code/i).type(twitterBlue);
+      cy.findByLabelText(/hex/i)
+        .should('have.css', 'background-color', twitterBlue.rgb) // (1)
+        .should('have.value', twitterBlue.hex) // (2)
+        .should('have.css', 'color', color.black); // (5)
+      cy.findByText(/hex/i, {selector: 'label'}).should(
+        'have.css',
+        'color',
+        color.black, // (5)
+      );
 
-    cy.findByLabelText(/hex/i)
-      .should('have.css', 'background-color', twitterBlue)
-      .should('have.css', 'color', color.black)
-      .should('have.value', '#1da1f2');
-    cy.findByText(/hex/i, {selector: 'label'}).should(
-      'have.css',
-      'color',
-      color.black,
-    );
+      cy.findByLabelText(/color code/i)
+        .clear()
+        .type(mcdonaldsRed[colorcode]);
 
-    cy.findByLabelText(/color code/i)
-      .clear()
-      .type(mcdonaldsRed);
-
-    cy.findByLabelText(/hex/i)
-      .should('have.css', 'background-color', mcdonaldsRed)
-      .should('have.css', 'color', color.white)
-      .should('have.value', '#bf0c0c');
-    cy.findByText(/hex/i, {selector: 'label'}).should(
-      'have.css',
-      'color',
-      color.white,
-    );
+      cy.findByLabelText(/hex/i)
+        .should('have.css', 'background-color', mcdonaldsRed.rgb) // (1)
+        .should('have.value', mcdonaldsRed.hex) // (2)
+        .should('have.css', 'color', color.white); // (5)
+      cy.findByText(/hex/i, {selector: 'label'}).should(
+        'have.css',
+        'color',
+        color.white, // (5)
+      );
+    });
   });
 });
 
