@@ -29,14 +29,15 @@ const Canvas = ({
     draw(canvasContext, luminance, pureHue, pixelSize, saturation);
   });
 
-  const canvasWidthPx = `${101 * pixelSize}px`;
+  const canvasWidth = `${101 * pixelSize}`;
 
   return (
     <canvas
       data-testid="color-triangle"
       ref={canvas}
-      width={canvasWidthPx}
-      height={canvasWidthPx}
+      width={canvasWidth}
+      height={canvasWidth}
+      style={{width: '303px'}}
     />
   );
 };

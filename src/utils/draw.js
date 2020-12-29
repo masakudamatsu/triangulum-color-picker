@@ -8,7 +8,7 @@ export default function draw(
   pixelSize,
   saturation,
 ) {
-  for (let x = 0; x <= 100; x++) {
+  for (let x = 0; x < 101; x++) {
     const shareOfHue = x;
 
     const brightestRgb = mixHueWithGray(pureHue, 255, shareOfHue);
@@ -17,7 +17,7 @@ export default function draw(
       brightestRgb.g,
       brightestRgb.b,
     );
-    const minY = getVerticalPosition(brightestContrastRatio);
+    const minY = getVerticalPosition(brightestContrastRatio); // see below
 
     canvasContext.fillStyle = `rgb(${brightestRgb.r}, ${brightestRgb.g}, ${brightestRgb.b})`;
     canvasContext.fillRect(
@@ -28,7 +28,7 @@ export default function draw(
     );
 
     let prevY;
-    for (var grayValue = 0; grayValue < 255; grayValue++) {
+    for (let grayValue = 0; grayValue < 255; grayValue++) {
       const rgb = mixHueWithGray(pureHue, grayValue, shareOfHue);
       const contrastRatio = getContrastRatio(rgb.r, rgb.g, rgb.b);
       const y = getVerticalPosition(contrastRatio);
