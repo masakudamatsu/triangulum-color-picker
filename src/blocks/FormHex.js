@@ -12,6 +12,8 @@ const FormHex = styled.form`
   display: flex;
   flex-direction: column;
   height: 110px;
+  min-height: 110px;
+  min-width: 110px; /* Otherwise, the input element will become an ellipse as the hex code occupies 110px width */
   position: relative;
   width: 110px;
 `;

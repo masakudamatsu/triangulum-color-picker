@@ -59,6 +59,8 @@ test('renders UI correctly', () => {
       -ms-flex-direction: column;
       flex-direction: column;
       height: 110px;
+      min-height: 110px;
+      min-width: 110px;
       position: relative;
       width: 110px;
     }

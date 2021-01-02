@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Canvas from 'src/components/Canvas';
+import CrossBottomRight from 'src/components/CrossBottomRight';
+import CrossTopLeft from 'src/components/CrossTopLeft';
 import SpacerVertical from 'src/styledComponents/SpacerVertical';
 import TextFieldForHex from 'src/components/TextFieldForHex';
 import TextFieldForHsl from 'src/components/TextFieldForHsl';
@@ -21,13 +23,17 @@ const FlexContainer = styled.div`
 `;
 
 const FormWrapper = styled.div`
+  align-items: center;
   display: flex;
-  width: 303px;
+  width: 310px;
 `;
 
 const RgbHslWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
+  padding: 20px;
+  width: 200px;
 `;
 
 const CanvasWrapper = styled.figure`
@@ -285,6 +291,7 @@ function HomePage() {
           value={userColor.hex}
         />
         <RgbHslWrapper>
+          <CrossTopLeft />
           <TextFieldForRgb
             handleChange={{
               r: handleChangeR,
@@ -306,6 +313,7 @@ function HomePage() {
             s={userColor.s}
             l={userColor.l}
           />
+          <CrossBottomRight />
         </RgbHslWrapper>
       </FormWrapper>
       <SpacerVertical />
