@@ -1,6 +1,6 @@
 import {useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
-import draw from 'src/utils/draw';
+import {canvasWidth, draw} from 'src/utils/draw';
 
 const Canvas = ({
   luminance = 11.11,
@@ -9,7 +9,7 @@ const Canvas = ({
     g: 0,
     b: 0,
   },
-  pixelSize = 3,
+  pixelSize = 10,
   saturation = 50.55,
 }) => {
   // set up canvas after the initial rendering
@@ -29,15 +29,16 @@ const Canvas = ({
     draw(canvasContext, luminance, pureHue, pixelSize, saturation);
   });
 
-  const canvasWidth = `${101 * pixelSize}`;
-
   return (
     <canvas
       data-testid="color-triangle"
       ref={canvas}
       width={canvasWidth}
       height={canvasWidth}
-      style={{width: '303px'}}
+      style={{
+        maxWidth: `1010 px`,
+        width: `95%`,
+      }}
     />
   );
 };
