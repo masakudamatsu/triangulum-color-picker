@@ -16,7 +16,7 @@ const FlexContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
 `;
 
@@ -28,6 +28,12 @@ const FormWrapper = styled.div`
 const RgbHslWrapper = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+const CanvasWrapper = styled.figure`
+  display: flex;
+  justify-content: center;
+  width: 100%;
 `;
 
 const userColorReducer = (state, action) => {
@@ -303,7 +309,13 @@ function HomePage() {
         </RgbHslWrapper>
       </FormWrapper>
       <SpacerVertical />
-      <Canvas luminance={luminance} pureHue={pureHue} saturation={saturation} />
+      <CanvasWrapper>
+        <Canvas
+          luminance={luminance}
+          pureHue={pureHue}
+          saturation={saturation}
+        />
+      </CanvasWrapper>
     </FlexContainer>
   );
 }
