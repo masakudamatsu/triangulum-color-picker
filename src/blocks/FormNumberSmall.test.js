@@ -3,19 +3,19 @@ import {render} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {axe} from 'jest-axe';
 
-import FormValues from './FormValues';
+import FormNumberSmall from './FormNumberSmall';
 
 const mockProps = {};
 
 // DELETE THIS LINE
 test('renders UI correctly', () => {
   const {container} = render(
-    <FormValues {...mockProps}>
-      <FormValues.Wrapper>
-        <FormValues.Label>R</FormValues.Label>
-        <FormValues.Input value={255} />
-      </FormValues.Wrapper>
-    </FormValues>,
+    <FormNumberSmall {...mockProps}>
+      <FormNumberSmall.Wrapper>
+        <FormNumberSmall.Label>R</FormNumberSmall.Label>
+        <FormNumberSmall.Input value={255} />
+      </FormNumberSmall.Wrapper>
+    </FormNumberSmall>,
   );
   expect(container).toMatchInlineSnapshot(`
     .c4 {
@@ -109,7 +109,7 @@ test('renders UI correctly', () => {
 });
 
 test('is accessible', async () => {
-  const {container} = render(<FormValues {...mockProps} />);
+  const {container} = render(<FormNumberSmall {...mockProps} />);
   const results = await axe(container);
   expect(results).toHaveNoViolations();
 });

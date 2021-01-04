@@ -3,17 +3,17 @@ import {render} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {axe} from 'jest-axe';
 
-import Form from './Form';
+import FormColorCode from './FormColorCode';
 
 const mockProps = {};
 
 // DELETE THIS LINE
 test('renders UI correctly', () => {
   const {container} = render(
-    <Form {...mockProps}>
-      <Form.Label>Enter text</Form.Label>
-      <Form.Input colorCode />
-    </Form>,
+    <FormColorCode {...mockProps}>
+      <FormColorCode.Label>Enter text</FormColorCode.Label>
+      <FormColorCode.Input colorCode />
+    </FormColorCode>,
   );
   expect(container).toMatchInlineSnapshot(`
     .c3 {
@@ -91,7 +91,7 @@ test('renders UI correctly', () => {
 });
 
 test('is accessible', async () => {
-  const {container} = render(<Form {...mockProps} />);
+  const {container} = render(<FormColorCode {...mockProps} />);
   const results = await axe(container);
   expect(results).toHaveNoViolations();
 });

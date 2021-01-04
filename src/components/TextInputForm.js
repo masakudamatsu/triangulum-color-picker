@@ -2,19 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import Form from 'src/blocks/Form';
+import FormColorCode from 'src/blocks/FormColorCode';
 
 const TextInputForm = ({inputId, labelText, handleChange, userColor}) => {
   return (
-    <Form>
-      <Form.Label htmlFor={inputId}>{labelText}</Form.Label>
-      <Form.Input
+    <FormColorCode>
+      <FormColorCode.Label htmlFor={inputId}>{labelText}</FormColorCode.Label>
+      <FormColorCode.Input
         colorCode
         id={inputId}
         onChange={handleChange}
         value={userColor}
       />
-    </Form>
+    </FormColorCode>
   );
 };
 
