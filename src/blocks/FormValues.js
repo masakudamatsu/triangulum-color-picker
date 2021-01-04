@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import {inputText} from 'src/utils/layout';
 
-import InputNumber from 'src/elements/InputNumber';
+import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
 
 const FormValues = styled.form`
@@ -29,7 +29,7 @@ const FormValuesLabel = styled(Label)`
 `;
 
 FormValues.Label = FormValuesLabel;
-FormValues.InputNumber = InputNumber;
+FormValues.Input = Input;
 FormValues.Wrapper = FormValuesWrapper;
 
 FormValues.propTypes = {};

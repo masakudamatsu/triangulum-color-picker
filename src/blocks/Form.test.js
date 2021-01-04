@@ -12,20 +12,20 @@ test('renders UI correctly', () => {
   const {container} = render(
     <Form {...mockProps}>
       <Form.Label>Enter text</Form.Label>
-      <Form.InputText />
+      <Form.Input colorCode />
     </Form>,
   );
   expect(container).toMatchInlineSnapshot(`
     .c3 {
-      font-family: 'Poppins';
-      font-size: 1.7857rem;
-      font-weight: 300;
       background-color: inherit;
       border-color: currentColor;
       border-style: solid;
       border-width: 1px;
-      border-radius: 4px;
       color: inherit;
+      font-family: 'Poppins';
+      font-size: 1.7857rem;
+      font-weight: 300;
+      border-radius: 4px;
       height: 100%;
       padding-bottom: 8px;
       padding-left: 7.75px;
@@ -39,6 +39,11 @@ test('renders UI correctly', () => {
     .c3:focus {
       border-width: 2px;
       outline: none;
+    }
+
+    .c3:active,
+    .c3:hover,
+    .c3:focus {
       padding-left: 6.75px;
     }
 

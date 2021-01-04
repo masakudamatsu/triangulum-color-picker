@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {inputText} from 'src/utils/layout';
 import {color} from 'src/utils/color';
 
-import InputHex from 'src/elements/InputHex';
+import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
 
 const FormHex = styled.form`
@@ -26,7 +26,7 @@ const FormHexLabel = styled(Label)`
 `;
 
 FormHex.Label = FormHexLabel;
-FormHex.InputHex = InputHex;
+FormHex.Input = Input;
 
 FormHex.propTypes = {
   lightMode: PropTypes.bool,

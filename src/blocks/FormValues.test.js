@@ -13,25 +13,20 @@ test('renders UI correctly', () => {
     <FormValues {...mockProps}>
       <FormValues.Wrapper>
         <FormValues.Label>R</FormValues.Label>
-        <FormValues.InputNumber value={255} />
+        <FormValues.Input value={255} />
       </FormValues.Wrapper>
     </FormValues>,
   );
   expect(container).toMatchInlineSnapshot(`
     .c4 {
-      font-family: 'Poppins';
-      font-size: 1.3393rem;
-      font-weight: 300;
       background-color: inherit;
       border-color: currentColor;
       border-style: solid;
       border-width: 1px;
-      border-radius: 100%;
       color: inherit;
-      height: 50px;
-      padding-top: 8px;
-      text-align: center;
-      width: 50px;
+      font-family: 'Poppins';
+      font-size: 1.3393rem;
+      font-weight: 300;
     }
 
     .c4:active,

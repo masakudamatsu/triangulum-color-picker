@@ -8,7 +8,12 @@ const TextInputForm = ({inputId, labelText, handleChange, userColor}) => {
   return (
     <Form>
       <Form.Label htmlFor={inputId}>{labelText}</Form.Label>
-      <Form.InputText id={inputId} onChange={handleChange} value={userColor} />
+      <Form.Input
+        colorCode
+        id={inputId}
+        onChange={handleChange}
+        value={userColor}
+      />
     </Form>
   );
 };

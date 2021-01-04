@@ -8,15 +8,30 @@ const TextFieldForRgb = ({handleChange, r, g, b}) => {
     <FormValues>
       <FormValues.Wrapper>
         <FormValues.Label htmlFor="r">R</FormValues.Label>
-        <FormValues.InputNumber id="r" onChange={handleChange.r} value={r} />
+        <FormValues.Input
+          numberSmall
+          id="r"
+          onChange={handleChange.r}
+          value={r}
+        />
       </FormValues.Wrapper>
       <FormValues.Wrapper>
         <FormValues.Label htmlFor="g">G</FormValues.Label>
-        <FormValues.InputNumber id="g" onChange={handleChange.g} value={g} />
+        <FormValues.Input
+          numberSmall
+          id="g"
+          onChange={handleChange.g}
+          value={g}
+        />
       </FormValues.Wrapper>
       <FormValues.Wrapper>
         <FormValues.Label htmlFor="b">B</FormValues.Label>
-        <FormValues.InputNumber id="b" onChange={handleChange.b} value={b} />
+        <FormValues.Input
+          numberSmall
+          id="b"
+          onChange={handleChange.b}
+          value={b}
+        />
       </FormValues.Wrapper>
     </FormValues>
   );

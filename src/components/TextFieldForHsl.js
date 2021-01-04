@@ -8,15 +8,30 @@ const TextFieldForHsl = ({handleChange, h, s, l}) => {
     <FormValues>
       <FormValues.Wrapper>
         <FormValues.Label htmlFor="h">H</FormValues.Label>
-        <FormValues.InputNumber id="h" onChange={handleChange.h} value={h} />
+        <FormValues.Input
+          numberSmall
+          id="h"
+          onChange={handleChange.h}
+          value={h}
+        />
       </FormValues.Wrapper>
       <FormValues.Wrapper>
         <FormValues.Label htmlFor="s">S</FormValues.Label>
-        <FormValues.InputNumber id="s" onChange={handleChange.s} value={s} />
+        <FormValues.Input
+          numberSmall
+          id="s"
+          onChange={handleChange.s}
+          value={s}
+        />
       </FormValues.Wrapper>
       <FormValues.Wrapper>
         <FormValues.Label htmlFor="l">L</FormValues.Label>
-        <FormValues.InputNumber id="l" onChange={handleChange.l} value={l} />
+        <FormValues.Input
+          numberSmall
+          id="l"
+          onChange={handleChange.l}
+          value={l}
+        />
       </FormValues.Wrapper>
     </FormValues>
   );
