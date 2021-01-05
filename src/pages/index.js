@@ -3,8 +3,7 @@ import styled from 'styled-components';
 
 import Canvas from 'src/components/Canvas';
 import ChromaLuminanceForm from 'src/components/ChromaLuminanceForm';
-import CrossBottomRight from 'src/components/CrossBottomRight';
-import CrossTopLeft from 'src/components/CrossTopLeft';
+import Cross from 'src/components/Cross';
 import SpacerVertical from 'src/styledComponents/SpacerVertical';
 import TextFieldForHex from 'src/components/TextFieldForHex';
 import TextFieldForHsl from 'src/components/TextFieldForHsl';
@@ -18,7 +17,6 @@ const FlexContainer = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   width: 100%;
 `;
 
@@ -44,7 +42,7 @@ const CanvasWrapper = styled.figure`
 
 const ContrastRatioWrapper = styled.div`
   position: relative;
-  padding: 30px;
+  padding: 40px;
   width: 310px;
 `;
 
@@ -297,7 +295,7 @@ function HomePage() {
           value={userColor.hex}
         />
         <RgbHslWrapper>
-          <CrossTopLeft />
+          <Cross position="topLeft" />
           <TextFieldForRgb
             handleChange={{
               r: handleChangeR,
@@ -319,7 +317,7 @@ function HomePage() {
             s={userColor.s}
             l={userColor.l}
           />
-          <CrossBottomRight />
+          <Cross position="bottomRight" />
         </RgbHslWrapper>
       </FormWrapper>
       <SpacerVertical />
@@ -331,14 +329,14 @@ function HomePage() {
         />
       </CanvasWrapper>
       <ContrastRatioWrapper>
-        <CrossTopLeft large />
+        <Cross position="topLeft" large />
         <ChromaLuminanceForm type="chroma" value={saturation} />
-        <CrossBottomRight large />
+        <Cross position="bottomRight" large />
       </ContrastRatioWrapper>
       <ContrastRatioWrapper>
-        <CrossTopLeft large />
+        <Cross position="topLeft" large />
         <ChromaLuminanceForm type="luminance" value={luminance} />
-        <CrossBottomRight large />
+        <Cross position="bottomRight" large />
       </ContrastRatioWrapper>
     </FlexContainer>
   );
