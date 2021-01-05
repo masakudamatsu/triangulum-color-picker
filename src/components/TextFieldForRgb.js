@@ -1,24 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import FormValues from 'src/blocks/FormValues';
+import FormNumberSmall from 'src/blocks/FormNumberSmall';
 
 const TextFieldForRgb = ({handleChange, r, g, b}) => {
   return (
-    <FormValues>
-      <FormValues.Wrapper>
-        <FormValues.Label htmlFor="r">R</FormValues.Label>
-        <FormValues.InputNumber id="r" onChange={handleChange.r} value={r} />
-      </FormValues.Wrapper>
-      <FormValues.Wrapper>
-        <FormValues.Label htmlFor="g">G</FormValues.Label>
-        <FormValues.InputNumber id="g" onChange={handleChange.g} value={g} />
-      </FormValues.Wrapper>
-      <FormValues.Wrapper>
-        <FormValues.Label htmlFor="b">B</FormValues.Label>
-        <FormValues.InputNumber id="b" onChange={handleChange.b} value={b} />
-      </FormValues.Wrapper>
-    </FormValues>
+    <FormNumberSmall>
+      <FormNumberSmall.Wrapper>
+        <FormNumberSmall.Label htmlFor="r">R</FormNumberSmall.Label>
+        <FormNumberSmall.Input
+          numberSmall
+          id="r"
+          onChange={handleChange.r}
+          value={r}
+        />
+      </FormNumberSmall.Wrapper>
+      <FormNumberSmall.Wrapper>
+        <FormNumberSmall.Label htmlFor="g">G</FormNumberSmall.Label>
+        <FormNumberSmall.Input
+          numberSmall
+          id="g"
+          onChange={handleChange.g}
+          value={g}
+        />
+      </FormNumberSmall.Wrapper>
+      <FormNumberSmall.Wrapper>
+        <FormNumberSmall.Label htmlFor="b">B</FormNumberSmall.Label>
+        <FormNumberSmall.Input
+          numberSmall
+          id="b"
+          onChange={handleChange.b}
+          value={b}
+        />
+      </FormNumberSmall.Wrapper>
+    </FormNumberSmall>
   );
 };
 

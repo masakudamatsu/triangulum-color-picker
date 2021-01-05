@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Canvas from 'src/components/Canvas';
+import ChromaLuminanceForm from 'src/components/ChromaLuminanceForm';
+import Cross from 'src/components/Cross';
 import SpacerVertical from 'src/styledComponents/SpacerVertical';
 import TextFieldForHex from 'src/components/TextFieldForHex';
 import TextFieldForHsl from 'src/components/TextFieldForHsl';
@@ -15,25 +17,33 @@ const FlexContainer = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  justify-content: flex-start;
   width: 100%;
 `;
 
 const FormWrapper = styled.div`
+  align-items: center;
   display: flex;
-  width: 303px;
+  width: 310px;
 `;
 
 const RgbHslWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
+  padding: 20px;
+  width: 200px;
 `;
 
 const CanvasWrapper = styled.figure`
   display: flex;
   justify-content: center;
   width: 100%;
+`;
+
+const ContrastRatioWrapper = styled.div`
+  position: relative;
+  padding: 40px;
+  width: 310px;
 `;
 
 const userColorReducer = (state, action) => {
@@ -285,6 +295,7 @@ function HomePage() {
           value={userColor.hex}
         />
         <RgbHslWrapper>
+          <Cross position="topLeft" />
           <TextFieldForRgb
             handleChange={{
               r: handleChangeR,
@@ -306,6 +317,7 @@ function HomePage() {
             s={userColor.s}
             l={userColor.l}
           />
+          <Cross position="bottomRight" />
         </RgbHslWrapper>
       </FormWrapper>
       <SpacerVertical />
@@ -316,6 +328,16 @@ function HomePage() {
           saturation={saturation}
         />
       </CanvasWrapper>
+      <ContrastRatioWrapper>
+        <Cross position="topLeft" large />
+        <ChromaLuminanceForm type="chroma" value={saturation} />
+        <Cross position="bottomRight" large />
+      </ContrastRatioWrapper>
+      <ContrastRatioWrapper>
+        <Cross position="topLeft" large />
+        <ChromaLuminanceForm type="luminance" value={luminance} />
+        <Cross position="bottomRight" large />
+      </ContrastRatioWrapper>
     </FlexContainer>
   );
 }

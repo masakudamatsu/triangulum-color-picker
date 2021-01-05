@@ -13,19 +13,19 @@ test('renders UI correctly', () => {
   const {container} = render(
     <FormHex {...mockProps}>
       <FormHex.Label htmlFor="hex">Enter text</FormHex.Label>
-      <FormHex.InputHex id="hex" />
+      <FormHex.Input hex id="hex" />
     </FormHex>,
   );
   expect(container).toMatchInlineSnapshot(`
     .c3 {
-      font-family: 'Poppins';
-      font-size: 1.3393rem;
-      font-weight: 300;
       border-color: currentColor;
       border-style: solid;
       border-width: 1px;
-      border-radius: 100%;
       color: inherit;
+      font-family: 'Poppins';
+      font-size: 1.3393rem;
+      font-weight: 300;
+      border-radius: 100%;
       height: 110px;
       text-align: center;
       width: 110px;
@@ -43,6 +43,7 @@ test('renders UI correctly', () => {
       font-size: 0.8929rem;
       font-weight: 300;
       line-height: 1;
+      margin-bottom: -0.28em;
       -webkit-transform: translateX(-0.08em) translateY(-0.1375em);
       -ms-transform: translateX(-0.08em) translateY(-0.1375em);
       transform: translateX(-0.08em) translateY(-0.1375em);
@@ -59,6 +60,8 @@ test('renders UI correctly', () => {
       -ms-flex-direction: column;
       flex-direction: column;
       height: 110px;
+      min-height: 110px;
+      min-width: 110px;
       position: relative;
       width: 110px;
     }

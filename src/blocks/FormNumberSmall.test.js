@@ -3,35 +3,30 @@ import {render} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {axe} from 'jest-axe';
 
-import FormValues from './FormValues';
+import FormNumberSmall from './FormNumberSmall';
 
 const mockProps = {};
 
 // DELETE THIS LINE
 test('renders UI correctly', () => {
   const {container} = render(
-    <FormValues {...mockProps}>
-      <FormValues.Wrapper>
-        <FormValues.Label>R</FormValues.Label>
-        <FormValues.InputNumber value={255} />
-      </FormValues.Wrapper>
-    </FormValues>,
+    <FormNumberSmall {...mockProps}>
+      <FormNumberSmall.Wrapper>
+        <FormNumberSmall.Label>R</FormNumberSmall.Label>
+        <FormNumberSmall.Input value={255} />
+      </FormNumberSmall.Wrapper>
+    </FormNumberSmall>,
   );
   expect(container).toMatchInlineSnapshot(`
     .c4 {
-      font-family: 'Poppins';
-      font-size: 1.3393rem;
-      font-weight: 300;
       background-color: inherit;
       border-color: currentColor;
       border-style: solid;
       border-width: 1px;
-      border-radius: 100%;
       color: inherit;
-      height: 50px;
-      padding-top: 8px;
-      text-align: center;
-      width: 50px;
+      font-family: 'Poppins';
+      font-size: 1.3393rem;
+      font-weight: 300;
     }
 
     .c4:active,
@@ -46,6 +41,7 @@ test('renders UI correctly', () => {
       font-size: 0.8929rem;
       font-weight: 300;
       line-height: 1;
+      margin-bottom: -0.28em;
       -webkit-transform: translateX(-0.08em) translateY(-0.1375em);
       -ms-transform: translateX(-0.08em) translateY(-0.1375em);
       transform: translateX(-0.08em) translateY(-0.1375em);
@@ -114,7 +110,7 @@ test('renders UI correctly', () => {
 });
 
 test('is accessible', async () => {
-  const {container} = render(<FormValues {...mockProps} />);
+  const {container} = render(<FormNumberSmall {...mockProps} />);
   const results = await axe(container);
   expect(results).toHaveNoViolations();
 });
