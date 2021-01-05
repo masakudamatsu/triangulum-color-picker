@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Canvas from 'src/components/Canvas';
+import ChromaLuminanceForm from 'src/components/ChromaLuminanceForm';
 import CrossBottomRight from 'src/components/CrossBottomRight';
 import CrossTopLeft from 'src/components/CrossTopLeft';
 import SpacerVertical from 'src/styledComponents/SpacerVertical';
@@ -17,8 +18,7 @@ const FlexContainer = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  justify-content: flex-start;
+  justify-content: space-around;
   width: 100%;
 `;
 
@@ -40,6 +40,12 @@ const CanvasWrapper = styled.figure`
   display: flex;
   justify-content: center;
   width: 100%;
+`;
+
+const ContrastRatioWrapper = styled.div`
+  position: relative;
+  padding: 30px;
+  width: 310px;
 `;
 
 const userColorReducer = (state, action) => {
@@ -324,6 +330,16 @@ function HomePage() {
           saturation={saturation}
         />
       </CanvasWrapper>
+      <ContrastRatioWrapper>
+        <CrossTopLeft large />
+        <ChromaLuminanceForm type="chroma" value={saturation} />
+        <CrossBottomRight large />
+      </ContrastRatioWrapper>
+      <ContrastRatioWrapper>
+        <CrossTopLeft large />
+        <ChromaLuminanceForm type="luminance" value={luminance} />
+        <CrossBottomRight large />
+      </ContrastRatioWrapper>
     </FlexContainer>
   );
 }

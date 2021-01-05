@@ -10,7 +10,7 @@ const FormColorCode = styled.form`
   background-color: inherit;
   height: ${80 + 2 * inputText.borderWidth.inactive}px;
   position: relative;
-  width: 303px;
+  width: 310px;
 `;
 
 const FormColorCodeLabel = styled(Label)`

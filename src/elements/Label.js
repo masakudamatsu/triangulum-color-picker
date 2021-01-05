@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 import {typescale} from 'src/utils/typography';
 
 const Label = styled.label`
-  ${typescale.small}
+  ${props => (props.numberLarge ? typescale.large : typescale.small)}
   color: inherit;
 `;
 
-Label.propTypes = {};
+Label.propTypes = {
+  numberLarge: PropTypes.bool,
+};
 
 export default Label;

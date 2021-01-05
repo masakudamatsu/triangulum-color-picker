@@ -24,6 +24,10 @@ describe('renders UI correctly when:', () => {
         font-family: 'Poppins';
         font-size: 1.7857rem;
         font-weight: 300;
+        margin-bottom: -0.771em;
+        -webkit-transform: translateX(-0.065em) translateY(-0.37em);
+        -ms-transform: translateX(-0.065em) translateY(-0.37em);
+        transform: translateX(-0.065em) translateY(-0.37em);
         border-radius: 4px;
         height: 100%;
         padding-bottom: 8px;
@@ -108,6 +112,43 @@ describe('renders UI correctly when:', () => {
         padding-top: 8px;
         text-align: center;
         width: 50px;
+      }
+
+      .c0:active,
+      .c0:hover,
+      .c0:focus {
+        border-width: 2px;
+        outline: none;
+      }
+
+      <div>
+        <input
+          autocomplete="off"
+          class="c0"
+          type="text"
+          value="#654321"
+        />
+      </div>
+    `);
+  });
+  test('numberLarge prop is provided', () => {
+    const {container} = render(<Input numberLarge {...mockProps} />);
+    expect(container).toMatchInlineSnapshot(`
+      .c0 {
+        background-color: inherit;
+        border-color: currentColor;
+        border-style: solid;
+        border-width: 1px;
+        color: inherit;
+        font-family: 'Poppins';
+        font-size: 5.3571rem;
+        font-weight: 100;
+        line-height: 1;
+        border: none;
+        height: 100px;
+        padding-right: 20px;
+        text-align: right;
+        width: 100%;
       }
 
       .c0:active,

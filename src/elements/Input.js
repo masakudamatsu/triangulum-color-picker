@@ -21,8 +21,15 @@ const Input = styled.input.attrs(props => ({
     outline: none;
   }
 
-  ${props => (props.colorCode ? typescale.large : typescale.medium)}
+  /* Typography */
+  ${props =>
+    props.colorCode
+      ? typescale.large
+      : props.numberLarge
+      ? typescale.number
+      : typescale.medium}
 
+  /* Case-specific styles */
   ${props =>
     props.colorCode
       ? `
@@ -63,12 +70,24 @@ const Input = styled.input.attrs(props => ({
       width: 50px;
     `
       : null}
+
+  ${props =>
+    props.numberLarge
+      ? `
+      border: none;
+      height: 100px;
+      padding-right: 20px;
+      text-align: right;
+      width: 100%;
+    `
+      : null}
 `;
 
 Input.propTypes = {
   backgroundColor: PropTypes.string,
   colorCode: PropTypes.bool,
   hex: PropTypes.bool,
+  numberLarge: PropTypes.bool,
   numberSmall: PropTypes.bool,
 };
 
