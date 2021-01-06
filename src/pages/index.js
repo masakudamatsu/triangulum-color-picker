@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Canvas from 'src/components/Canvas';
 import ChromaLuminanceForm from 'src/components/ChromaLuminanceForm';
 import Cross from 'src/components/Cross';
-import SpacerVertical from 'src/styledComponents/SpacerVertical';
+import Spacer from 'src/elements/Spacer';
 import TextFieldForHex from 'src/components/TextFieldForHex';
 import TextFieldForHsl from 'src/components/TextFieldForHsl';
 import TextFieldForRgb from 'src/components/TextFieldForRgb';
@@ -286,7 +286,7 @@ function HomePage() {
         handleChange={handleChangeCssCode}
         userColor={userColor.cssCode}
       />
-      <SpacerVertical />
+      <Spacer height="10px" width="100%" />
       <FormWrapper>
         <TextFieldForHex
           backgroundColor={userColor.validCode}
@@ -306,7 +306,7 @@ function HomePage() {
             g={userColor.g}
             b={userColor.b}
           />
-          <SpacerVertical style={{height: '10px'}} />
+          <Spacer height="10px" width="100%" />
           <TextFieldForHsl
             handleChange={{
               h: handleChangeH,
@@ -320,7 +320,6 @@ function HomePage() {
           <Cross position="bottomRight" />
         </RgbHslWrapper>
       </FormWrapper>
-      <SpacerVertical />
       <CanvasWrapper>
         <Canvas luminance={luminance} pureHue={pureHue} chroma={chroma} />
       </CanvasWrapper>
