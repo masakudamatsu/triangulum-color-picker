@@ -6,18 +6,18 @@ import colorAnalyzer from './colorAnalyzer';
 cases(
   'returns the correct output:',
   options => {
-    const {luminance, saturation, hue, neutralColor} = colorAnalyzer(
+    const {luminance, chroma, hue, neutralColor} = colorAnalyzer(
       options.rgbCode,
     );
     const [inputRed, inputGreen, inputBlue] = parseColor(options.rgbCode).rgb;
     const [pureHueRed, pureHueGreen, pureHueBlue] = parseColor(hue.rgb).rgb;
 
     const restoredRed =
-      (pureHueRed * saturation + neutralColor * (100 - saturation)) / 100;
+      (pureHueRed * chroma + neutralColor * (100 - chroma)) / 100;
     const restoredGreen =
-      (pureHueGreen * saturation + neutralColor * (100 - saturation)) / 100;
+      (pureHueGreen * chroma + neutralColor * (100 - chroma)) / 100;
     const restoredBlue =
-      (pureHueBlue * saturation + neutralColor * (100 - saturation)) / 100;
+      (pureHueBlue * chroma + neutralColor * (100 - chroma)) / 100;
 
     expect([inputRed - 1, inputRed, inputRed + 1]).toContain(
       Math.round(restoredRed),
@@ -55,7 +55,7 @@ cases(
       rgbCode: 'rgb(128, 128, 128)',
       outputs: {
         luminance: 5.32,
-        saturation: 0,
+        chroma: 0,
         hue: null,
         neutralColor: 128,
       },
@@ -64,7 +64,7 @@ cases(
       rgbCode: 'rgb(255, 0, 0)',
       outputs: {
         luminance: 5.25,
-        saturation: 100,
+        chroma: 100,
         hue: {
           hsl: 'hsl(0, 100, 50)',
           rgb: 'rgb(255, 0, 0)',
@@ -76,7 +76,7 @@ cases(
       rgbCode: 'rgb(255, 255, 0)',
       outputs: {
         luminance: 19.56,
-        saturation: 100,
+        chroma: 100,
         hue: {
           hsl: 'hsl(60, 100, 50)',
           rgb: 'rgb(255, 255, 0)',
@@ -88,7 +88,7 @@ cases(
       rgbCode: 'rgb(255, 127, 0)',
       outputs: {
         luminance: 8.29,
-        saturation: 100,
+        chroma: 100,
         hue: {
           hsl: 'hsl(30, 100, 50)',
           rgb: 'rgb(255, 127, 0)',
