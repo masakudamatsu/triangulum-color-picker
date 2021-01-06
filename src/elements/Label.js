@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import {typescale} from 'src/utils/typography';
+import {textcrop, typescale} from 'src/utils/typography';
 
 const Label = styled.label`
-  ${props => (props.numberLarge ? typescale.large : typescale.small)}
+  ${props =>
+    props.numberLarge
+      ? `${typescale.large} ${textcrop.large}`
+      : `${typescale.small} ${textcrop.small}`}
   color: inherit;
 `;
 
