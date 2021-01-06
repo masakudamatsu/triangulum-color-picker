@@ -9,19 +9,19 @@ const colorAnalyzer = colorCode => {
 
   const luminance = getContrastRatio(red, green, blue);
 
-  let saturation, hue, neutralColor;
+  let chroma, hue, neutralColor;
 
   // If the input is neutral color
   if (red === green && red === blue) {
     const rgbValue = red;
 
-    saturation = 0;
+    chroma = 0;
     hue = null;
     neutralColor = rgbValue;
 
     // If the input is pure hue
   } else if (red === 0 || green === 0 || blue === 0) {
-    saturation = 100;
+    chroma = 100;
     hue = {
       hsl: `hsl(${hsl[0]}, ${hsl[1]}, ${hsl[2]})`,
       rgb: `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`,
@@ -38,7 +38,7 @@ const colorAnalyzer = colorCode => {
     // inputMin = pureHueShare * 0 + (1 - purHueShare) * grayValue
 
     const pureHueShare = (inputMax - inputMin) / 255;
-    saturation = round(pureHueShare * 100, 2); // in percentage, up to 2 decimal places
+    chroma = round(pureHueShare * 100, 2); // in percentage, up to 2 decimal places
 
     const grayValue = inputMin / (1 - pureHueShare);
     neutralColor = round(grayValue, 0);
@@ -53,7 +53,7 @@ const colorAnalyzer = colorCode => {
 
   return {
     luminance: luminance,
-    saturation: saturation,
+    chroma: chroma,
     hue: hue,
     neutralColor: neutralColor,
   };

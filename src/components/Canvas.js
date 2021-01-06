@@ -10,7 +10,7 @@ const Canvas = ({
     b: 0,
   },
   pixelSize = 10,
-  saturation = 50.55,
+  chroma = 50.55,
 }) => {
   // set up canvas after the initial rendering
   const canvas = useRef();
@@ -26,7 +26,7 @@ const Canvas = ({
       return;
     }
     canvasContext.clearRect(0, 0, canvas.current.width, canvas.current.height);
-    draw(canvasContext, luminance, pureHue, pixelSize, saturation);
+    draw(canvasContext, luminance, pureHue, pixelSize, chroma);
   });
 
   return (
@@ -47,7 +47,7 @@ Canvas.propTypes = {
   luminance: PropTypes.number,
   pureHue: PropTypes.object,
   pixelSize: PropTypes.number,
-  saturation: PropTypes.number,
+  chroma: PropTypes.number,
 };
 
 export default Canvas;

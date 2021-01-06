@@ -22,7 +22,7 @@ const squareTopLeftY = squareTopLeftX;
 export const canvasWidth = circleCenterX * 2;
 
 // Draw the color triangle encircled
-export function draw(canvasContext, luminance, pureHue, pixelSize, saturation) {
+export function draw(canvasContext, luminance, pureHue, pixelSize, chroma) {
   // Encircling
   canvasContext.strokeStyle = 'rgb(255, 255, 255)';
 
@@ -80,7 +80,7 @@ export function draw(canvasContext, luminance, pureHue, pixelSize, saturation) {
   canvasContext.restore();
 
   const lineY = getVerticalPosition(luminance);
-  const lineX = Math.round(saturation);
+  const lineX = Math.round(chroma);
 
   const horizontalLinePosition =
     lineY * pixelSize + pixelSize / 2 + squareTopLeftY;

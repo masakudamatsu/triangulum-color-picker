@@ -263,7 +263,7 @@ function HomePage() {
   };
 
   // Prepare prop values for Canvas component
-  const {luminance, saturation, hue, neutralColor} = colorAnalyzer(
+  const {luminance, chroma, hue, neutralColor} = colorAnalyzer(
     userColor.validCode,
   );
   const pureHue = hue
@@ -322,15 +322,11 @@ function HomePage() {
       </FormWrapper>
       <SpacerVertical />
       <CanvasWrapper>
-        <Canvas
-          luminance={luminance}
-          pureHue={pureHue}
-          saturation={saturation}
-        />
+        <Canvas luminance={luminance} pureHue={pureHue} chroma={chroma} />
       </CanvasWrapper>
       <ContrastRatioWrapper>
         <Cross position="topLeft" large />
-        <ChromaLuminanceForm type="chroma" value={saturation} />
+        <ChromaLuminanceForm type="chroma" value={chroma} />
         <Cross position="bottomRight" large />
       </ContrastRatioWrapper>
       <ContrastRatioWrapper>
