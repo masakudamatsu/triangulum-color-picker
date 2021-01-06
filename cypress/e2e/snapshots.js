@@ -7,7 +7,7 @@ it.only('Entire UI is correctly shown', () => {
   cy.viewport('iphone-5'); // 320 x 568 (see https://docs.cypress.io/api/commands/viewport.html#Arguments)
   cy.visit('/');
   cy.findByLabelText(/color code/i).type(twitterBlue);
-  cy.matchImageSnapshot('entire-ui');
+  cy.matchImageSnapshot('entire-ui', {capture: 'fullPage'});
 });
 
 describe('Entering css color code shows the color triangle diagram', () => {
