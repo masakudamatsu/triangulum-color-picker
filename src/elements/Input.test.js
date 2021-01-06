@@ -24,10 +24,6 @@ describe('renders UI correctly when:', () => {
         font-family: 'Poppins';
         font-size: 1.7857rem;
         font-weight: 300;
-        margin-bottom: -0.771em;
-        -webkit-transform: translateX(-0.065em) translateY(-0.37em);
-        -ms-transform: translateX(-0.065em) translateY(-0.37em);
-        transform: translateX(-0.065em) translateY(-0.37em);
         border-radius: 4px;
         height: 100%;
         padding-bottom: 8px;
