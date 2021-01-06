@@ -1,5 +1,6 @@
 import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
 
+import colorAnalyzer from 'src/utils/colorAnalyzer';
 import {color} from 'src/utils/color';
 
 // Construct user data
@@ -22,6 +23,7 @@ const [twitterBlue, mcdonaldsRed] = [
   },
 ].map(color => {
   const {rgb, hsl} = parseColor(color.hex);
+  const {chroma, luminance} = colorAnalyzer(color.hex);
   color = {
     ...color,
     r: rgb[0],
@@ -30,11 +32,13 @@ const [twitterBlue, mcdonaldsRed] = [
     h: hsl[0],
     s: hsl[1],
     l: hsl[2],
+    chroma: chroma,
+    luminance: luminance,
   };
   return color;
 });
 
-describe('Entering css color code shows (1) its color, (2) its Hex code equivalent, (3) RGB values, (4) HSL values, all in a (5) legible way', () => {
+describe('Entering css color code shows (1) its color, (2) its Hex code equivalent, (3) RGB values, (4) HSL values, all in a (5) legible way, and (6) chroma and luminance', () => {
   // test
   ['hex', 'rgb', 'hsl'].forEach(colorcode => {
     it(`for ${colorcode}`, () => {
@@ -59,6 +63,12 @@ describe('Entering css color code shows (1) its color, (2) its Hex code equivale
       cy.findByLabelText(/^s$/i).should('have.value', twitterBlue.s);
       cy.findByLabelText(/^l$/i).should('have.value', twitterBlue.l);
 
+      cy.findByLabelText(/^chroma$/i).should('have.value', twitterBlue.chroma);
+      cy.findByLabelText(/^luminance$/i).should(
+        'have.value',
+        twitterBlue.luminance,
+      );
+
       cy.findByLabelText(/color code/i)
         .clear()
         .type(mcdonaldsRed[colorcode]);
@@ -80,6 +90,109 @@ describe('Entering css color code shows (1) its color, (2) its Hex code equivale
       cy.findByLabelText(/^h$/i).should('have.value', mcdonaldsRed.h); // (4)
       cy.findByLabelText(/^s$/i).should('have.value', mcdonaldsRed.s);
       cy.findByLabelText(/^l$/i).should('have.value', mcdonaldsRed.l);
+
+      cy.findByLabelText(/^chroma$/i).should('have.value', mcdonaldsRed.chroma);
+      cy.findByLabelText(/^luminance$/i).should(
+        'have.value',
+        mcdonaldsRed.luminance,
+      );
+    });
+  });
+});
+
+describe('Entering hex code shows its color, the hex code in a legible way, RGB and HSL values, its css code in the text field, and chroma and luminance', () => {
+  [twitterBlue, mcdonaldsRed].forEach(userColor => {
+    it(`${userColor.label}`, () => {
+      cy.visit('/');
+      cy.findByLabelText(/hex/i).clear().type(userColor.hex);
+
+      cy.findByLabelText(/hex/i)
+        .should('have.css', 'background-color', userColor.rgb)
+        .should('have.css', 'color', userColor.fontColor);
+      cy.findByLabelText(/color code/i).should('have.value', userColor.hex);
+      cy.findByText(/hex/i, {selector: 'label'}).should(
+        'have.css',
+        'color',
+        userColor.fontColor,
+      );
+
+      cy.findByLabelText(/^r$/i).should('have.value', userColor.r);
+      cy.findByLabelText(/^g$/i).should('have.value', userColor.g);
+      cy.findByLabelText(/^b$/i).should('have.value', userColor.b);
+
+      cy.findByLabelText(/^h$/i).should('have.value', userColor.h);
+      cy.findByLabelText(/^s$/i).should('have.value', userColor.s);
+      cy.findByLabelText(/^l$/i).should('have.value', userColor.l);
+
+      cy.findByLabelText(/^chroma$/i).should('have.value', userColor.chroma);
+      cy.findByLabelText(/^luminance$/i).should(
+        'have.value',
+        userColor.luminance,
+      );
+    });
+  });
+});
+
+describe('Entering rgb values shows its color, the hex code in a legible way, RGB and HSL values, and its css code in the text field', () => {
+  [twitterBlue, mcdonaldsRed].forEach(userColor => {
+    it(`${userColor.label}`, () => {
+      cy.visit('/');
+      cy.findByLabelText(/^r$/i).clear().type(userColor.r);
+      cy.findByLabelText(/^g$/i).clear().type(userColor.g);
+      cy.findByLabelText(/^b$/i).clear().type(userColor.b);
+
+      cy.findByLabelText(/color code/i).should('have.value', userColor.rgb);
+      cy.findByLabelText(/hex/i)
+        .should('have.value', userColor.hex)
+        .should('have.css', 'background-color', userColor.rgb)
+        .should('have.css', 'color', userColor.fontColor);
+      cy.findByText(/hex/i, {selector: 'label'}).should(
+        'have.css',
+        'color',
+        userColor.fontColor,
+      );
+
+      cy.findByLabelText(/^h$/i).should('have.value', userColor.h);
+      cy.findByLabelText(/^s$/i).should('have.value', userColor.s);
+      cy.findByLabelText(/^l$/i).should('have.value', userColor.l);
+
+      cy.findByLabelText(/^chroma$/i).should('have.value', userColor.chroma);
+      cy.findByLabelText(/^luminance$/i).should(
+        'have.value',
+        userColor.luminance,
+      );
+    });
+  });
+});
+
+describe('Entering HSL values shows its color, the hex code in a legible way, RGB and HSL values, and its css code in the text field', () => {
+  [twitterBlue, mcdonaldsRed].forEach(userColor => {
+    it(`${userColor.label}`, () => {
+      cy.visit('/');
+      cy.findByLabelText(/^h$/i).clear().type(userColor.h);
+      cy.findByLabelText(/^s$/i).clear().type(userColor.s);
+      cy.findByLabelText(/^l$/i).clear().type(userColor.l);
+
+      cy.findByLabelText(/color code/i).should('have.value', userColor.hsl);
+      cy.findByLabelText(/hex/i)
+        .should('have.value', userColor.hex)
+        .should('have.css', 'background-color', userColor.rgb)
+        .should('have.css', 'color', userColor.fontColor);
+      cy.findByText(/hex/i, {selector: 'label'}).should(
+        'have.css',
+        'color',
+        userColor.fontColor,
+      );
+
+      cy.findByLabelText(/^r$/i).should('have.value', userColor.r);
+      cy.findByLabelText(/^g$/i).should('have.value', userColor.g);
+      cy.findByLabelText(/^b$/i).should('have.value', userColor.b);
+
+      cy.findByLabelText(/^chroma$/i).should('have.value', userColor.chroma);
+      cy.findByLabelText(/^luminance$/i).should(
+        'have.value',
+        userColor.luminance,
+      );
     });
   });
 });
@@ -111,84 +224,5 @@ describe('Entering css color code shows the color triangle diagram', () => {
       .clear()
       .type(white);
     cy.get('canvas').should('be.visible').matchImageSnapshot('white');
-  });
-});
-
-describe('Entering hex code shows its color, the hex code in a legible way, RGB and HSL values, and its css code in the text field', () => {
-  [twitterBlue, mcdonaldsRed].forEach(userColor => {
-    it(`${userColor.label}`, () => {
-      cy.visit('/');
-      cy.findByLabelText(/hex/i).clear().type(userColor.hex);
-
-      cy.findByLabelText(/hex/i)
-        .should('have.css', 'background-color', userColor.rgb)
-        .should('have.css', 'color', userColor.fontColor);
-      cy.findByLabelText(/color code/i).should('have.value', userColor.hex);
-      cy.findByText(/hex/i, {selector: 'label'}).should(
-        'have.css',
-        'color',
-        userColor.fontColor,
-      );
-
-      cy.findByLabelText(/^r$/i).should('have.value', userColor.r);
-      cy.findByLabelText(/^g$/i).should('have.value', userColor.g);
-      cy.findByLabelText(/^b$/i).should('have.value', userColor.b);
-
-      cy.findByLabelText(/^h$/i).should('have.value', userColor.h);
-      cy.findByLabelText(/^s$/i).should('have.value', userColor.s);
-      cy.findByLabelText(/^l$/i).should('have.value', userColor.l);
-    });
-  });
-});
-
-describe('Entering rgb values shows its color, the hex code in a legible way, RGB and HSL values, and its css code in the text field', () => {
-  [twitterBlue, mcdonaldsRed].forEach(userColor => {
-    it(`${userColor.label}`, () => {
-      cy.visit('/');
-      cy.findByLabelText(/^r$/i).clear().type(userColor.r);
-      cy.findByLabelText(/^g$/i).clear().type(userColor.g);
-      cy.findByLabelText(/^b$/i).clear().type(userColor.b);
-
-      cy.findByLabelText(/color code/i).should('have.value', userColor.rgb);
-      cy.findByLabelText(/hex/i)
-        .should('have.value', userColor.hex)
-        .should('have.css', 'background-color', userColor.rgb)
-        .should('have.css', 'color', userColor.fontColor);
-      cy.findByText(/hex/i, {selector: 'label'}).should(
-        'have.css',
-        'color',
-        userColor.fontColor,
-      );
-
-      cy.findByLabelText(/^h$/i).should('have.value', userColor.h);
-      cy.findByLabelText(/^s$/i).should('have.value', userColor.s);
-      cy.findByLabelText(/^l$/i).should('have.value', userColor.l);
-    });
-  });
-});
-
-describe('Entering HSL values shows its color, the hex code in a legible way, RGB and HSL values, and its css code in the text field', () => {
-  [twitterBlue, mcdonaldsRed].forEach(userColor => {
-    it(`${userColor.label}`, () => {
-      cy.visit('/');
-      cy.findByLabelText(/^h$/i).clear().type(userColor.h);
-      cy.findByLabelText(/^s$/i).clear().type(userColor.s);
-      cy.findByLabelText(/^l$/i).clear().type(userColor.l);
-
-      cy.findByLabelText(/color code/i).should('have.value', userColor.hsl);
-      cy.findByLabelText(/hex/i)
-        .should('have.value', userColor.hex)
-        .should('have.css', 'background-color', userColor.rgb)
-        .should('have.css', 'color', userColor.fontColor);
-      cy.findByText(/hex/i, {selector: 'label'}).should(
-        'have.css',
-        'color',
-        userColor.fontColor,
-      );
-
-      cy.findByLabelText(/^r$/i).should('have.value', userColor.r);
-      cy.findByLabelText(/^g$/i).should('have.value', userColor.g);
-      cy.findByLabelText(/^b$/i).should('have.value', userColor.b);
-    });
   });
 });
