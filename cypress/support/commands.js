@@ -9,8 +9,7 @@ if (Cypress.config('isInteractive')) {
 } else {
   // Enable .matchImageSnapshot()
   addMatchImageSnapshotCommand({
-    // Avoid full page snapshot
-    capture: 'viewport',
+    capture: 'fullPage', // this option is ignored for DOM-element snapshots
 
     // Allow tiny differences between snapshots
     customDiffConfig: {threshold: 0.1}, // threshold for each pixel
