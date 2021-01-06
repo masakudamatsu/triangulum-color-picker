@@ -9,6 +9,7 @@ import TextFieldForHex from 'src/components/TextFieldForHex';
 import TextFieldForHsl from 'src/components/TextFieldForHsl';
 import TextFieldForRgb from 'src/components/TextFieldForRgb';
 import TextInputForm from 'src/components/TextInputForm';
+
 import colorAnalyzer from 'src/utils/colorAnalyzer';
 import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
 import {regex} from 'src/utils/regex';
@@ -60,6 +61,8 @@ function HomePage() {
     h: 0,
     s: 0,
     l: 0,
+    chroma: 0,
+    luminance: 1,
     validCode: 'rgb(0, 0, 0)',
   });
 
@@ -67,6 +70,7 @@ function HomePage() {
     const newCssCode = event.target.value.trim().replace(/\s/g, '');
     if (regex.hex.test(newCssCode)) {
       const {hex, rgb, hsl} = parseColor(newCssCode);
+      const {chroma, luminance} = colorAnalyzer(hex);
       setUserColor({
         cssCode: hex,
         hex: hex,
@@ -76,11 +80,14 @@ function HomePage() {
         h: hsl[0],
         s: hsl[1],
         l: hsl[2],
+        chroma: chroma,
+        luminance: luminance,
         validCode: hex,
       });
     } else if (regex.hsl.test(newCssCode)) {
       const {hex, rgb, hsl} = parseColor(newCssCode);
       const hslCode = `hsl(${hsl[0]}, ${hsl[1]}%, ${hsl[2]}%)`;
+      const {chroma, luminance} = colorAnalyzer(hslCode);
       setUserColor({
         cssCode: hslCode,
         hex: hex,
@@ -90,11 +97,14 @@ function HomePage() {
         h: hsl[0],
         s: hsl[1],
         l: hsl[2],
+        chroma: chroma,
+        luminance: luminance,
         validCode: hslCode,
       });
     } else if (regex.rgb.test(newCssCode)) {
       const {hex, rgb, hsl} = parseColor(newCssCode);
       const rgbCode = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+      const {chroma, luminance} = colorAnalyzer(rgbCode);
       setUserColor({
         cssCode: rgbCode,
         hex: hex,
@@ -104,6 +114,8 @@ function HomePage() {
         h: hsl[0],
         s: hsl[1],
         l: hsl[2],
+        chroma: chroma,
+        luminance: luminance,
         validCode: rgbCode,
       });
     } else {
@@ -117,6 +129,7 @@ function HomePage() {
     const newUserValue = event.target.value.trim().replace(/\s/g, '');
     if (regex.hex.test(newUserValue)) {
       const {hex, rgb, hsl} = parseColor(newUserValue);
+      const {chroma, luminance} = colorAnalyzer(hex);
       setUserColor({
         cssCode: hex,
         hex: hex,
@@ -126,6 +139,8 @@ function HomePage() {
         h: hsl[0],
         s: hsl[1],
         l: hsl[2],
+        chroma: chroma,
+        luminance: luminance,
         validCode: hex,
       });
     } else {
@@ -140,6 +155,7 @@ function HomePage() {
     if (regex.rgbValues.test(newUserValue)) {
       const rgb = `rgb(${newUserValue}, ${userColor.g}, ${userColor.b})`;
       const {hex, hsl} = parseColor(rgb);
+      const {chroma, luminance} = colorAnalyzer(rgb);
       setUserColor({
         cssCode: rgb,
         hex: hex,
@@ -147,6 +163,8 @@ function HomePage() {
         h: hsl[0],
         s: hsl[1],
         l: hsl[2],
+        chroma: chroma,
+        luminance: luminance,
         validCode: rgb,
       });
     } else {
@@ -161,6 +179,7 @@ function HomePage() {
     if (regex.rgbValues.test(newUserValue)) {
       const rgb = `rgb(${userColor.r}, ${newUserValue}, ${userColor.b})`;
       const {hex, hsl} = parseColor(rgb);
+      const {chroma, luminance} = colorAnalyzer(rgb);
       setUserColor({
         cssCode: rgb,
         hex: hex,
@@ -168,6 +187,8 @@ function HomePage() {
         h: hsl[0],
         s: hsl[1],
         l: hsl[2],
+        chroma: chroma,
+        luminance: luminance,
         validCode: rgb,
       });
     } else {
@@ -182,6 +203,7 @@ function HomePage() {
     if (regex.rgbValues.test(newUserValue)) {
       const rgb = `rgb(${userColor.r}, ${userColor.g}, ${newUserValue})`;
       const {hex, hsl} = parseColor(rgb);
+      const {chroma, luminance} = colorAnalyzer(rgb);
       setUserColor({
         cssCode: rgb,
         hex: hex,
@@ -189,6 +211,8 @@ function HomePage() {
         h: hsl[0],
         s: hsl[1],
         l: hsl[2],
+        chroma: chroma,
+        luminance: luminance,
         validCode: rgb,
       });
     } else {
@@ -203,6 +227,7 @@ function HomePage() {
     if (regex.hValue.test(newUserValue)) {
       const hsl = `hsl(${newUserValue}, ${userColor.s}%, ${userColor.l}%)`;
       const {hex, rgb} = parseColor(hsl);
+      const {chroma, luminance} = colorAnalyzer(hsl);
       setUserColor({
         cssCode: hsl,
         hex: hex,
@@ -210,6 +235,8 @@ function HomePage() {
         g: rgb[1],
         b: rgb[2],
         h: newUserValue,
+        chroma: chroma,
+        luminance: luminance,
         validCode: hsl,
       });
     } else {
@@ -225,6 +252,7 @@ function HomePage() {
       console.log('saturation value passes the test');
       const hsl = `hsl(${userColor.h}, ${newUserValue}%, ${userColor.l}%)`;
       const {hex, rgb} = parseColor(hsl);
+      const {chroma, luminance} = colorAnalyzer(hsl);
       setUserColor({
         cssCode: hsl,
         hex: hex,
@@ -232,6 +260,8 @@ function HomePage() {
         g: rgb[1],
         b: rgb[2],
         s: newUserValue,
+        chroma: chroma,
+        luminance: luminance,
         validCode: hsl,
       });
     } else {
@@ -246,6 +276,7 @@ function HomePage() {
     if (regex.slValues.test(newUserValue)) {
       const hsl = `hsl(${userColor.h}, ${userColor.s}%, ${newUserValue}%)`;
       const {hex, rgb} = parseColor(hsl);
+      const {chroma, luminance} = colorAnalyzer(hsl);
       setUserColor({
         cssCode: hsl,
         hex: hex,
@@ -253,6 +284,8 @@ function HomePage() {
         g: rgb[1],
         b: rgb[2],
         l: newUserValue,
+        chroma: chroma,
+        luminance: luminance,
         validCode: hsl,
       });
     } else {
@@ -262,10 +295,18 @@ function HomePage() {
     }
   };
 
+  // const handleChangeChroma = event => {
+  //   const newUserValue = event.target.value.trim().replace(/\s/g, '');
+  //   if (regex.chroma.test(newUserValue)) {
+  //     setChroma(newUserValue);
+  //   } else {
+  //     setChroma(event.target.value);
+  //   }
+  // };
+  //
   // Prepare prop values for Canvas component
-  const {luminance, chroma, hue, neutralColor} = colorAnalyzer(
-    userColor.validCode,
-  );
+  const {chroma, luminance} = userColor;
+  const {hue, neutralColor} = colorAnalyzer(userColor.validCode);
   const pureHue = hue
     ? {
         r: parseColor(hue.rgb).rgb[0],
