@@ -13,8 +13,8 @@
     "e2e": "cypress open",
     "test:e2e": "start-server-and-test dev http://localhost:3000 e2e",
     "test:single": "jest",
-    "snapshot": "cypress run --spec \"cypress/component/**/*\"",
-    "snapshot:update": "cypress run --env updateSnapshots=true --spec \"cypress/component/**/*\"",
+    "snapshot": "cypress run --spec \"cypress/e2e/snapshots.js\"",
+    "snapshot:update": "cypress run --env updateSnapshots=true --spec \"cypress/e2e/snapshots.js\"",
     "cy:run": "cypress run",
     "test:precommit": "npm-run-all --parallel test:single cy:run"
   },
