@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Canvas from 'src/components/Canvas';
+import CanvasWrapper from 'src/components/CanvasWrapper';
 import ChromaLuminanceForm from 'src/components/ChromaLuminanceForm';
 import Cross from 'src/components/Cross';
 import Spacer from 'src/elements/Spacer';
@@ -33,12 +33,6 @@ const RgbHslWrapper = styled.div`
   position: relative;
   padding: 20px;
   width: 200px;
-`;
-
-const CanvasWrapper = styled.figure`
-  display: flex;
-  justify-content: center;
-  width: 100%;
 `;
 
 const ContrastRatioWrapper = styled.div`
@@ -290,7 +284,7 @@ function HomePage() {
     }
   };
 
-  // Prepare prop values for Canvas component
+  // Prepare prop values
   const {luminance, chroma, hue, neutralColor} = colorAnalyzer(
     userColor.validCode,
   );
@@ -348,15 +342,13 @@ function HomePage() {
           <Cross position="bottomRight" />
         </RgbHslWrapper>
       </FormWrapper>
-      <CanvasWrapper>
-        <Canvas
-          pixelSize={pixelSize}
-          luminance={luminance}
-          pureHue={pureHue}
-          chroma={chroma}
-          updateUserColor={updateUserColor}
-        />
-      </CanvasWrapper>
+      <CanvasWrapper
+        pixelSize={pixelSize}
+        luminance={luminance}
+        pureHue={pureHue}
+        chroma={chroma}
+        updateUserColor={updateUserColor}
+      />
       <ContrastRatioWrapper>
         <Cross position="topLeft" large />
         <ChromaLuminanceForm type="chroma" value={chroma} />

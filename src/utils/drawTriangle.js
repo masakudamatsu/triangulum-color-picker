@@ -3,35 +3,8 @@ import getContrastRatio from 'src/utils/getContrastRatio';
 import mixHueWithGray from 'src/utils/mixHueWithGray';
 
 // Draw the color triangle encircled
-export default function draw(
-  canvasContext,
-  luminance,
-  pureHue,
-  pixelSize,
-  chroma,
-) {
-  const {
-    canvasWidth,
-    circleCenterX,
-    circleCenterY,
-    circleRadius,
-    lineWidth,
-    squareTopLeftX,
-    squareTopLeftY,
-  } = getCanvasMetrics(pixelSize);
-
-  // Encircling
-  canvasContext.strokeStyle = 'rgb(255, 255, 255)';
-
-  canvasContext.lineWidth = lineWidth;
-
-  const radius = circleRadius;
-  const centerX = circleCenterX;
-  const centerY = circleCenterY;
-  canvasContext.beginPath();
-  canvasContext.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-  canvasContext.stroke();
-  canvasContext.clip(); // Erase any drawing outside the circle
+export default function drawTriangle(canvasContext, pixelSize, pureHue) {
+  const {squareTopLeftX, squareTopLeftY} = getCanvasMetrics(pixelSize);
 
   canvasContext.save();
   canvasContext.translate(squareTopLeftX, squareTopLeftY);
@@ -75,23 +48,6 @@ export default function draw(
   }
 
   canvasContext.restore();
-
-  const lineY = getVerticalPosition(luminance);
-  const lineX = Math.round(chroma);
-
-  const horizontalLinePosition =
-    lineY * pixelSize + pixelSize / 2 + squareTopLeftY;
-  canvasContext.beginPath();
-  canvasContext.moveTo(0, horizontalLinePosition);
-  canvasContext.lineTo(canvasWidth, horizontalLinePosition);
-  canvasContext.stroke();
-
-  const verticalLinePosition =
-    lineX * pixelSize + pixelSize / 2 + squareTopLeftX;
-  canvasContext.beginPath();
-  canvasContext.moveTo(verticalLinePosition, 0);
-  canvasContext.lineTo(verticalLinePosition, canvasWidth);
-  canvasContext.stroke();
 }
 
 // helper function

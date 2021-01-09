@@ -202,7 +202,7 @@ describe('Color picker functions:', () => {
     cy.visit('/');
     cy.findByLabelText(/color code/i).type(twitterBlue.rgb);
 
-    cy.findByTestId('color-triangle').click(330, 333);
+    cy.findByTestId('reticle').click(330, 333);
 
     cy.findByLabelText(/color code/i).should(
       'have.value',

@@ -1,7 +1,8 @@
 import {useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
-import draw from 'src/utils/draw';
-import getCanvasMetrics from 'src/utils/getCanvasMetrics';
+
+import Figure from 'src/blocks/Figure';
+import drawReticle from 'src/utils/drawReticle';
 
 function getMousePosition(domElement, event) {
   const rect = domElement.getBoundingClientRect();
@@ -11,16 +12,12 @@ function getMousePosition(domElement, event) {
   };
 }
 
-const Canvas = ({
-  luminance = 11.11,
-  pureHue = {
-    r: 255,
-    g: 0,
-    b: 0,
-  },
-  pixelSize = 10,
+const Reticle = ({
+  canvasWidth,
   chroma = 50.55,
-  updateUserColor,
+  luminance = 11.11,
+  pixelSize = 10,
+  eyedropper,
 }) => {
   // set up canvas after the initial rendering
   const canvas = useRef();
@@ -36,40 +33,32 @@ const Canvas = ({
       return;
     }
     canvasContext.clearRect(0, 0, canvas.current.width, canvas.current.height);
-    draw(canvasContext, luminance, pureHue, pixelSize, chroma);
+    drawReticle(canvasContext, chroma, luminance, pixelSize);
   });
-
-  const {canvasWidth} = getCanvasMetrics(pixelSize);
 
   const handleClick = event => {
     const clickedPosition = getMousePosition(canvas.current, event);
-    const data = canvasContext.getImageData(
-      clickedPosition.x,
-      clickedPosition.y,
-      1,
-      1,
-    ).data;
-    const rgb = `rgb(${data[0]}, ${data[1]}, ${data[2]})`;
-    console.log(`Clicked color is ${rgb}`);
-    updateUserColor(rgb, 'rgb');
+    eyedropper(clickedPosition);
   };
+
   return (
-    <canvas
-      data-testid="color-triangle"
+    <Figure.Canvas
+      overlay
+      data-testid="reticle"
+      height={canvasWidth}
       onClick={handleClick}
       ref={canvas}
       width={canvasWidth}
-      height={canvasWidth}
     />
   );
 };
 
-Canvas.propTypes = {
-  luminance: PropTypes.number,
-  pureHue: PropTypes.object,
-  pixelSize: PropTypes.number,
+Reticle.propTypes = {
+  canvasWidth: PropTypes.number,
   chroma: PropTypes.number,
-  updateUserColor: PropTypes.func,
+  eyedropper: PropTypes.func,
+  luminance: PropTypes.number,
+  pixelSize: PropTypes.number,
 };
 
-export default Canvas;
+export default Reticle;
