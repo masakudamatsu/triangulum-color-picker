@@ -294,7 +294,7 @@ function HomePage() {
         g: parseColor(hue.rgb).rgb[1],
         b: parseColor(hue.rgb).rgb[2],
       }
-    : {r: 188, g: 188, b: 188}; // contrast ratio 11.04 (the middle value between 1 and 21)
+    : {r: null, g: null, b: null};
 
   // Prepare prop value for TextFieldForHex
   const lightMode = luminance > Math.sqrt(21);

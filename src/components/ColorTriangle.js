@@ -27,6 +27,9 @@ const ColorTriangle = ({
     if (!canvasContext) {
       return;
     }
+    if (pureHue.r === null) {
+      return;
+    }
     canvasContext.clearRect(0, 0, canvas.current.width, canvas.current.height);
     drawTriangle(canvasContext, pixelSize, pureHue);
   });
