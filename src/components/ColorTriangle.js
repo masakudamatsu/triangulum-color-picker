@@ -1,20 +1,22 @@
 import {useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
-import {canvasWidth, draw} from 'src/utils/draw';
 
-const Canvas = ({
-  luminance = 11.11,
+import Figure from 'src/blocks/Figure';
+import drawTriangle from 'src/utils/drawTriangle';
+
+const ColorTriangle = ({
+  canvasContext,
+  canvasWidth,
+  pixelSize = 10,
   pureHue = {
     r: 255,
     g: 0,
     b: 0,
   },
-  pixelSize = 10,
-  chroma = 50.55,
+  setCanvasContext,
 }) => {
   // set up canvas after the initial rendering
   const canvas = useRef();
-  const [canvasContext, setCanvasContext] = useState();
   useEffect(() => {
     const context = canvas.current.getContext('2d');
     setCanvasContext(context);
@@ -25,29 +27,29 @@ const Canvas = ({
     if (!canvasContext) {
       return;
     }
+    if (pureHue.r === null) {
+      return;
+    }
     canvasContext.clearRect(0, 0, canvas.current.width, canvas.current.height);
-    draw(canvasContext, luminance, pureHue, pixelSize, chroma);
+    drawTriangle(canvasContext, pixelSize, pureHue);
   });
 
   return (
-    <canvas
+    <Figure.Canvas
       data-testid="color-triangle"
+      height={canvasWidth}
       ref={canvas}
       width={canvasWidth}
-      height={canvasWidth}
-      style={{
-        maxWidth: `1010 px`,
-        width: `95%`,
-      }}
     />
   );
 };
 
-Canvas.propTypes = {
-  luminance: PropTypes.number,
-  pureHue: PropTypes.object,
+ColorTriangle.propTypes = {
+  canvasContext: PropTypes.object,
+  canvasWidth: PropTypes.number,
   pixelSize: PropTypes.number,
-  chroma: PropTypes.number,
+  pureHue: PropTypes.object,
+  setCanvasContext: PropTypes.func,
 };
 
-export default Canvas;
+export default ColorTriangle;

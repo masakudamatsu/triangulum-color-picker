@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Canvas from 'src/components/Canvas';
+import CanvasWrapper from 'src/components/CanvasWrapper';
 import ChromaLuminanceForm from 'src/components/ChromaLuminanceForm';
 import Cross from 'src/components/Cross';
 import Spacer from 'src/elements/Spacer';
@@ -12,6 +12,7 @@ import TextInputForm from 'src/components/TextInputForm';
 import colorAnalyzer from 'src/utils/colorAnalyzer';
 import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
 import {regex} from 'src/utils/regex';
+import useWindowWidth from 'src/utils/useWindowWidth';
 
 const FlexContainer = styled.div`
   align-items: center;
@@ -34,12 +35,6 @@ const RgbHslWrapper = styled.div`
   width: 200px;
 `;
 
-const CanvasWrapper = styled.figure`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-`;
-
 const ContrastRatioWrapper = styled.div`
   position: relative;
   padding: 40px;
@@ -51,6 +46,15 @@ const userColorReducer = (state, action) => {
 };
 
 function HomePage() {
+  const windowWidth = useWindowWidth();
+  let pixelSize;
+  if (windowWidth < 535) {
+    pixelSize = 3;
+  } else {
+    pixelSize = 5;
+  } // see https://stackoverflow.com/questions/55151041/window-is-not-defined-in-next-js-react-app for why this style of case handling is best for performance
+  console.log(`The pixel size is set to be ${pixelSize}`);
+
   const [userColor, setUserColor] = React.useReducer(userColorReducer, {
     cssCode: '',
     hex: '#000000',
@@ -63,49 +67,78 @@ function HomePage() {
     validCode: 'rgb(0, 0, 0)',
   });
 
+  function updateUserColor(validColorCode, colorCodeType) {
+    if (
+      colorCodeType !== 'hex' &&
+      colorCodeType !== 'rgb' &&
+      colorCodeType !== 'hsl'
+    ) {
+      throw new Error(
+        `A wrong second argument for updateUserColor. It should be either "hex", "rgb", or "hsl". But you provided ${colorCodeType}.`,
+      );
+    }
+    const {hex, rgb, hsl} = parseColor(validColorCode);
+    if (!hex || !rgb || !hsl) {
+      throw new Error(
+        `A wrong first argument for updateUserColor. It should be a valid CSS color code. But you provided ${validColorCode}.`,
+      );
+    }
+    switch (colorCodeType) {
+      case 'hex':
+        setUserColor({
+          cssCode: hex,
+          hex: hex,
+          r: rgb[0],
+          g: rgb[1],
+          b: rgb[2],
+          h: hsl[0],
+          s: hsl[1],
+          l: hsl[2],
+          validCode: hex,
+        });
+        break;
+      case 'rgb':
+        const rgbCode = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+        setUserColor({
+          cssCode: rgbCode,
+          hex: hex,
+          r: rgb[0],
+          g: rgb[1],
+          b: rgb[2],
+          h: hsl[0],
+          s: hsl[1],
+          l: hsl[2],
+          validCode: rgbCode,
+        });
+        break;
+      case 'hsl':
+        const hslCode = `hsl(${hsl[0]}, ${hsl[1]}%, ${hsl[2]}%)`;
+        setUserColor({
+          cssCode: hslCode,
+          hex: hex,
+          r: rgb[0],
+          g: rgb[1],
+          b: rgb[2],
+          h: hsl[0],
+          s: hsl[1],
+          l: hsl[2],
+          validCode: hslCode,
+        });
+        break;
+      default:
+        throw new Error('updateUserColor has thrown an impossible error.');
+        break;
+    }
+  }
+
   const handleChangeCssCode = event => {
     const newCssCode = event.target.value.trim().replace(/\s/g, '');
     if (regex.hex.test(newCssCode)) {
-      const {hex, rgb, hsl} = parseColor(newCssCode);
-      setUserColor({
-        cssCode: hex,
-        hex: hex,
-        r: rgb[0],
-        g: rgb[1],
-        b: rgb[2],
-        h: hsl[0],
-        s: hsl[1],
-        l: hsl[2],
-        validCode: hex,
-      });
+      updateUserColor(newCssCode, 'hex');
     } else if (regex.hsl.test(newCssCode)) {
-      const {hex, rgb, hsl} = parseColor(newCssCode);
-      const hslCode = `hsl(${hsl[0]}, ${hsl[1]}%, ${hsl[2]}%)`;
-      setUserColor({
-        cssCode: hslCode,
-        hex: hex,
-        r: rgb[0],
-        g: rgb[1],
-        b: rgb[2],
-        h: hsl[0],
-        s: hsl[1],
-        l: hsl[2],
-        validCode: hslCode,
-      });
+      updateUserColor(newCssCode, 'hsl');
     } else if (regex.rgb.test(newCssCode)) {
-      const {hex, rgb, hsl} = parseColor(newCssCode);
-      const rgbCode = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
-      setUserColor({
-        cssCode: rgbCode,
-        hex: hex,
-        r: rgb[0],
-        g: rgb[1],
-        b: rgb[2],
-        h: hsl[0],
-        s: hsl[1],
-        l: hsl[2],
-        validCode: rgbCode,
-      });
+      updateUserColor(newCssCode, 'rgb');
     } else {
       setUserColor({
         cssCode: event.target.value,
@@ -116,18 +149,7 @@ function HomePage() {
   const handleChangeHex = event => {
     const newUserValue = event.target.value.trim().replace(/\s/g, '');
     if (regex.hex.test(newUserValue)) {
-      const {hex, rgb, hsl} = parseColor(newUserValue);
-      setUserColor({
-        cssCode: hex,
-        hex: hex,
-        r: rgb[0],
-        g: rgb[1],
-        b: rgb[2],
-        h: hsl[0],
-        s: hsl[1],
-        l: hsl[2],
-        validCode: hex,
-      });
+      updateUserColor(newUserValue, 'hex');
     } else {
       setUserColor({
         hex: event.target.value,
@@ -262,7 +284,7 @@ function HomePage() {
     }
   };
 
-  // Prepare prop values for Canvas component
+  // Prepare prop values
   const {luminance, chroma, hue, neutralColor} = colorAnalyzer(
     userColor.validCode,
   );
@@ -272,7 +294,7 @@ function HomePage() {
         g: parseColor(hue.rgb).rgb[1],
         b: parseColor(hue.rgb).rgb[2],
       }
-    : {r: 188, g: 188, b: 188}; // contrast ratio 11.04 (the middle value between 1 and 21)
+    : {r: null, g: null, b: null};
 
   // Prepare prop value for TextFieldForHex
   const lightMode = luminance > Math.sqrt(21);
@@ -320,9 +342,13 @@ function HomePage() {
           <Cross position="bottomRight" />
         </RgbHslWrapper>
       </FormWrapper>
-      <CanvasWrapper>
-        <Canvas luminance={luminance} pureHue={pureHue} chroma={chroma} />
-      </CanvasWrapper>
+      <CanvasWrapper
+        pixelSize={pixelSize}
+        luminance={luminance}
+        pureHue={pureHue}
+        chroma={chroma}
+        updateUserColor={updateUserColor}
+      />
       <ContrastRatioWrapper>
         <Cross position="topLeft" large />
         <ChromaLuminanceForm type="chroma" value={chroma} />
