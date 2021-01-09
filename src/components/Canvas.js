@@ -38,10 +38,6 @@ const Canvas = ({
       ref={canvas}
       width={canvasWidth}
       height={canvasWidth}
-      style={{
-        maxWidth: `1010 px`,
-        width: `95%`,
-      }}
     />
   );
 };

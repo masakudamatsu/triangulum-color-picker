@@ -12,6 +12,7 @@ import TextInputForm from 'src/components/TextInputForm';
 import colorAnalyzer from 'src/utils/colorAnalyzer';
 import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
 import {regex} from 'src/utils/regex';
+import useWindowWidth from 'src/utils/useWindowWidth';
 
 const FlexContainer = styled.div`
   align-items: center;
@@ -51,6 +52,15 @@ const userColorReducer = (state, action) => {
 };
 
 function HomePage() {
+  const windowWidth = useWindowWidth();
+  let pixelSize;
+  if (windowWidth < 535) {
+    pixelSize = 3;
+  } else {
+    pixelSize = 5;
+  } // see https://stackoverflow.com/questions/55151041/window-is-not-defined-in-next-js-react-app for why this style of case handling is best for performance
+  console.log(`The pixel size is set to be ${pixelSize}`);
+
   const [userColor, setUserColor] = React.useReducer(userColorReducer, {
     cssCode: '',
     hex: '#000000',
@@ -321,7 +331,12 @@ function HomePage() {
         </RgbHslWrapper>
       </FormWrapper>
       <CanvasWrapper>
-        <Canvas luminance={luminance} pureHue={pureHue} chroma={chroma} />
+        <Canvas
+          pixelSize={pixelSize}
+          luminance={luminance}
+          pureHue={pureHue}
+          chroma={chroma}
+        />
       </CanvasWrapper>
       <ContrastRatioWrapper>
         <Cross position="topLeft" large />
