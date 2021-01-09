@@ -1,6 +1,7 @@
 import {useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
-import {canvasWidth, draw} from 'src/utils/draw';
+import draw from 'src/utils/draw';
+import getCanvasMetrics from 'src/utils/getCanvasMetrics';
 
 const Canvas = ({
   luminance = 11.11,
@@ -28,6 +29,8 @@ const Canvas = ({
     canvasContext.clearRect(0, 0, canvas.current.width, canvas.current.height);
     draw(canvasContext, luminance, pureHue, pixelSize, chroma);
   });
+
+  const {canvasWidth} = getCanvasMetrics(pixelSize);
 
   return (
     <canvas
