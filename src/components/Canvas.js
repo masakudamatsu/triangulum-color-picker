@@ -3,6 +3,14 @@ import PropTypes from 'prop-types';
 import draw from 'src/utils/draw';
 import getCanvasMetrics from 'src/utils/getCanvasMetrics';
 
+function getMousePosition(domElement, event) {
+  const rect = domElement.getBoundingClientRect();
+  return {
+    x: event.clientX - rect.left,
+    y: event.clientY - rect.top,
+  };
+}
+
 const Canvas = ({
   luminance = 11.11,
   pureHue = {
@@ -12,6 +20,7 @@ const Canvas = ({
   },
   pixelSize = 10,
   chroma = 50.55,
+  updateUserColor,
 }) => {
   // set up canvas after the initial rendering
   const canvas = useRef();
@@ -32,9 +41,22 @@ const Canvas = ({
 
   const {canvasWidth} = getCanvasMetrics(pixelSize);
 
+  const handleClick = event => {
+    const clickedPosition = getMousePosition(canvas.current, event);
+    const data = canvasContext.getImageData(
+      clickedPosition.x,
+      clickedPosition.y,
+      1,
+      1,
+    ).data;
+    const rgb = `rgb(${data[0]}, ${data[1]}, ${data[2]})`;
+    console.log(`Clicked color is ${rgb}`);
+    updateUserColor(rgb, 'rgb');
+  };
   return (
     <canvas
       data-testid="color-triangle"
+      onClick={handleClick}
       ref={canvas}
       width={canvasWidth}
       height={canvasWidth}
@@ -47,6 +69,7 @@ Canvas.propTypes = {
   pureHue: PropTypes.object,
   pixelSize: PropTypes.number,
   chroma: PropTypes.number,
+  updateUserColor: PropTypes.func,
 };
 
 export default Canvas;

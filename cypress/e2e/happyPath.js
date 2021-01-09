@@ -196,3 +196,29 @@ describe('Entering HSL values shows its color, the hex code in a legible way, RG
     });
   });
 });
+
+describe('Color picker functions:', () => {
+  it('Clicking the color triangle updates the user-selected color with all the information shown', () => {
+    cy.visit('/');
+    cy.findByLabelText(/color code/i).type(twitterBlue.rgb);
+
+    cy.findByTestId('color-triangle').click(330, 333);
+
+    cy.findByLabelText(/color code/i).should(
+      'have.value',
+      'rgb(134, 204, 247)',
+    );
+    cy.findByLabelText(/hex/i).should('have.value', '#86ccf7');
+
+    cy.findByLabelText(/^r$/i).should('have.value', '134');
+    cy.findByLabelText(/^g$/i).should('have.value', '204');
+    cy.findByLabelText(/^b$/i).should('have.value', '247');
+
+    cy.findByLabelText(/^h$/i).should('have.value', '203');
+    cy.findByLabelText(/^s$/i).should('have.value', '88');
+    cy.findByLabelText(/^l$/i).should('have.value', '75');
+
+    cy.findByLabelText(/^chroma$/i).should('have.value', '44.31');
+    cy.findByLabelText(/^luminance$/i).should('have.value', '11.99');
+  });
+});

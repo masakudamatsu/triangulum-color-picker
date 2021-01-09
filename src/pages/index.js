@@ -73,49 +73,78 @@ function HomePage() {
     validCode: 'rgb(0, 0, 0)',
   });
 
+  function updateUserColor(validColorCode, colorCodeType) {
+    if (
+      colorCodeType !== 'hex' &&
+      colorCodeType !== 'rgb' &&
+      colorCodeType !== 'hsl'
+    ) {
+      throw new Error(
+        `A wrong second argument for updateUserColor. It should be either "hex", "rgb", or "hsl". But you provided ${colorCodeType}.`,
+      );
+    }
+    const {hex, rgb, hsl} = parseColor(validColorCode);
+    if (!hex || !rgb || !hsl) {
+      throw new Error(
+        `A wrong first argument for updateUserColor. It should be a valid CSS color code. But you provided ${validColorCode}.`,
+      );
+    }
+    switch (colorCodeType) {
+      case 'hex':
+        setUserColor({
+          cssCode: hex,
+          hex: hex,
+          r: rgb[0],
+          g: rgb[1],
+          b: rgb[2],
+          h: hsl[0],
+          s: hsl[1],
+          l: hsl[2],
+          validCode: hex,
+        });
+        break;
+      case 'rgb':
+        const rgbCode = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+        setUserColor({
+          cssCode: rgbCode,
+          hex: hex,
+          r: rgb[0],
+          g: rgb[1],
+          b: rgb[2],
+          h: hsl[0],
+          s: hsl[1],
+          l: hsl[2],
+          validCode: rgbCode,
+        });
+        break;
+      case 'hsl':
+        const hslCode = `hsl(${hsl[0]}, ${hsl[1]}%, ${hsl[2]}%)`;
+        setUserColor({
+          cssCode: hslCode,
+          hex: hex,
+          r: rgb[0],
+          g: rgb[1],
+          b: rgb[2],
+          h: hsl[0],
+          s: hsl[1],
+          l: hsl[2],
+          validCode: hslCode,
+        });
+        break;
+      default:
+        throw new Error('updateUserColor has thrown an impossible error.');
+        break;
+    }
+  }
+
   const handleChangeCssCode = event => {
     const newCssCode = event.target.value.trim().replace(/\s/g, '');
     if (regex.hex.test(newCssCode)) {
-      const {hex, rgb, hsl} = parseColor(newCssCode);
-      setUserColor({
-        cssCode: hex,
-        hex: hex,
-        r: rgb[0],
-        g: rgb[1],
-        b: rgb[2],
-        h: hsl[0],
-        s: hsl[1],
-        l: hsl[2],
-        validCode: hex,
-      });
+      updateUserColor(newCssCode, 'hex');
     } else if (regex.hsl.test(newCssCode)) {
-      const {hex, rgb, hsl} = parseColor(newCssCode);
-      const hslCode = `hsl(${hsl[0]}, ${hsl[1]}%, ${hsl[2]}%)`;
-      setUserColor({
-        cssCode: hslCode,
-        hex: hex,
-        r: rgb[0],
-        g: rgb[1],
-        b: rgb[2],
-        h: hsl[0],
-        s: hsl[1],
-        l: hsl[2],
-        validCode: hslCode,
-      });
+      updateUserColor(newCssCode, 'hsl');
     } else if (regex.rgb.test(newCssCode)) {
-      const {hex, rgb, hsl} = parseColor(newCssCode);
-      const rgbCode = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
-      setUserColor({
-        cssCode: rgbCode,
-        hex: hex,
-        r: rgb[0],
-        g: rgb[1],
-        b: rgb[2],
-        h: hsl[0],
-        s: hsl[1],
-        l: hsl[2],
-        validCode: rgbCode,
-      });
+      updateUserColor(newCssCode, 'rgb');
     } else {
       setUserColor({
         cssCode: event.target.value,
@@ -126,18 +155,7 @@ function HomePage() {
   const handleChangeHex = event => {
     const newUserValue = event.target.value.trim().replace(/\s/g, '');
     if (regex.hex.test(newUserValue)) {
-      const {hex, rgb, hsl} = parseColor(newUserValue);
-      setUserColor({
-        cssCode: hex,
-        hex: hex,
-        r: rgb[0],
-        g: rgb[1],
-        b: rgb[2],
-        h: hsl[0],
-        s: hsl[1],
-        l: hsl[2],
-        validCode: hex,
-      });
+      updateUserColor(newUserValue, 'hex');
     } else {
       setUserColor({
         hex: event.target.value,
@@ -336,6 +354,7 @@ function HomePage() {
           luminance={luminance}
           pureHue={pureHue}
           chroma={chroma}
+          updateUserColor={updateUserColor}
         />
       </CanvasWrapper>
       <ContrastRatioWrapper>
