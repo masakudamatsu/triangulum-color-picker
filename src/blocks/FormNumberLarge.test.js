@@ -66,7 +66,7 @@ test('renders UI correctly', () => {
 
     .c6 {
       font-family: 'Poppins';
-      font-size: 1.7857rem;
+      font-size: 1.7806rem;
       font-weight: 100;
       margin-bottom: -0.771em;
       -webkit-transform: translateX(-0.065em) translateY(-0.37em);

@@ -40,7 +40,7 @@ describe('renders UI correctly by type prop:', () => {
         border-width: 1px;
         color: inherit;
         font-family: 'Poppins';
-        font-size: 5.3571rem;
+        font-size: 5.3419rem;
         font-weight: 100;
         line-height: 1;
         border: none;
@@ -94,7 +94,7 @@ describe('renders UI correctly by type prop:', () => {
 
       .c7 {
         font-family: 'Poppins';
-        font-size: 1.7857rem;
+        font-size: 1.7806rem;
         font-weight: 100;
         margin-bottom: -0.771em;
         -webkit-transform: translateX(-0.065em) translateY(-0.37em);
@@ -197,7 +197,7 @@ describe('renders UI correctly by type prop:', () => {
         border-width: 1px;
         color: inherit;
         font-family: 'Poppins';
-        font-size: 5.3571rem;
+        font-size: 5.3419rem;
         font-weight: 100;
         line-height: 1;
         border: none;
@@ -251,7 +251,7 @@ describe('renders UI correctly by type prop:', () => {
 
       .c7 {
         font-family: 'Poppins';
-        font-size: 1.7857rem;
+        font-size: 1.7806rem;
         font-weight: 100;
         margin-bottom: -0.771em;
         -webkit-transform: translateX(-0.065em) translateY(-0.37em);

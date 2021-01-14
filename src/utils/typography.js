@@ -43,13 +43,13 @@ export const typescale = {
   `,
   number: css`
     font-family: 'Poppins';
-    font-size: ${(capHeightToBe(60, poppins.light) / oneRemPx).toFixed(4)}rem;
+    font-size: ${(capHeightToBe(60, poppins.thin) / oneRemPx).toFixed(4)}rem;
     font-weight: 100;
     line-height: 1;
   `,
   percent: css`
     font-family: 'Poppins';
-    font-size: ${(capHeightToBe(20, poppins.light) / oneRemPx).toFixed(4)}rem;
+    font-size: ${(capHeightToBe(20, poppins.thin) / oneRemPx).toFixed(4)}rem;
     font-weight: 100;
   `,
 };

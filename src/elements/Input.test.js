@@ -137,7 +137,7 @@ describe('renders UI correctly when:', () => {
         border-width: 1px;
         color: inherit;
         font-family: 'Poppins';
-        font-size: 5.3571rem;
+        font-size: 5.3419rem;
         font-weight: 100;
         line-height: 1;
         border: none;
