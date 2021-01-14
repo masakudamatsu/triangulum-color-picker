@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import {inputText} from 'src/utils/layout';
+import {boxSize, inputText} from 'src/utils/layout';
 
 import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
@@ -10,15 +10,14 @@ const FormNumberSmall = styled.form`
   background-color: inherit;
   display: flex;
   justify-content: space-between;
-  width: ${50 * 3 + 5 * 2}px;
+  width: 100%;
 `;
 
 const FormNumberSmallWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 50px;
   position: relative;
-  width: 50px;
+  ${boxSize.formNumberSmall}
 `;
 
 const FormNumberSmallLabel = styled(Label)`

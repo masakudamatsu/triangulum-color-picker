@@ -54,9 +54,9 @@ const Input = styled.input.attrs(props => ({
     props.hex
       ? `
       border-radius: 100%;
-      height: 110px;
+      height: 100%;
       text-align: center;
-      width: 110px;
+      width: 100%;
     `
       : null}
 
@@ -64,10 +64,10 @@ const Input = styled.input.attrs(props => ({
     props.numberSmall
       ? `
       border-radius: 100%;
-      height: 50px;
+      height: 100%;
       padding-top: 8px;
       text-align: center;
-      width: 50px;
+      width: 100%;
     `
       : null}
 

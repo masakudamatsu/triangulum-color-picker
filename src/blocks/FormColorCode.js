@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import {inputText} from 'src/utils/layout';
+import {boxSize, inputText} from 'src/utils/layout';
 
 import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
@@ -10,7 +10,7 @@ const FormColorCode = styled.form`
   background-color: inherit;
   height: ${80 + 2 * inputText.borderWidth.inactive}px;
   position: relative;
-  width: 310px;
+  ${boxSize.formColorCode}
 `;
 
 const FormColorCodeLabel = styled(Label)`

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import {inputText} from 'src/utils/layout';
+import {boxSize, inputText} from 'src/utils/layout';
 import {color} from 'src/utils/color';
 
 import Input from 'src/elements/Input';
@@ -11,11 +11,8 @@ const FormHex = styled.form`
   color: ${props => (props.lightMode ? color.black : color.white)};
   display: flex;
   flex-direction: column;
-  height: 110px;
-  min-height: 110px;
-  min-width: 110px; /* Otherwise, the input element will become an ellipse as the hex code occupies 110px width */
   position: relative;
-  width: 110px;
+  ${boxSize.formHex}
 `;
 
 const FormHexLabel = styled(Label)`

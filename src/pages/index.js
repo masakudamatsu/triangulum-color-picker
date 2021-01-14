@@ -9,6 +9,7 @@ import TextFieldForHex from 'src/components/TextFieldForHex';
 import TextFieldForHsl from 'src/components/TextFieldForHsl';
 import TextFieldForRgb from 'src/components/TextFieldForRgb';
 import TextInputForm from 'src/components/TextInputForm';
+import {boxSize} from 'src/utils/layout';
 import colorAnalyzer from 'src/utils/colorAnalyzer';
 import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
 import {regex} from 'src/utils/regex';
@@ -24,7 +25,7 @@ const FlexContainer = styled.div`
 const FormWrapper = styled.div`
   align-items: center;
   display: flex;
-  width: 310px;
+  ${boxSize.formWrapper}
 `;
 
 const RgbHslWrapper = styled.div`
@@ -32,13 +33,13 @@ const RgbHslWrapper = styled.div`
   flex-direction: column;
   position: relative;
   padding: 20px;
-  width: 200px;
+  ${boxSize.rgbHslWrapper}
 `;
 
 const ContrastRatioWrapper = styled.div`
   position: relative;
   padding: 40px;
-  width: 310px;
+  ${boxSize.formNumberLargeWrapper}
 `;
 
 const userColorReducer = (state, action) => {
