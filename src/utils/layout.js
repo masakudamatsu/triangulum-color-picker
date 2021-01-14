@@ -1,4 +1,7 @@
 import {css} from 'styled-components';
+
+import {breakpoint, scale} from 'src/utils/typography';
+
 export const inputText = {
   borderWidth: {
     active: 2,
@@ -22,5 +25,9 @@ function responsiveBoxSize(baseWidth, baseHeight) {
   return css`
     height: ${baseHeight ? `${baseHeight.toFixed()}px` : `auto`};
     width: ${baseWidth.toFixed()}px;
+    @media only screen and (min-width: ${breakpoint.toFixed()}px) {
+      height: ${baseHeight ? `${(baseHeight * scale).toFixed()}px` : `auto`};
+      width: ${(baseWidth * scale).toFixed()}px;
+    }
   `;
 }
