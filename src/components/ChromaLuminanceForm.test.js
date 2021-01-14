@@ -131,6 +131,36 @@ describe('renders UI correctly by type prop:', () => {
         top: 0.05em;
       }
 
+      @media only screen and (min-width:728px) {
+        .c6 {
+          font-size: 6.4103rem;
+        }
+      }
+
+      @media only screen and (min-width:728px) {
+        .c1 {
+          font-size: 2.1429rem;
+        }
+      }
+
+      @media only screen and (min-width:728px) {
+        .c4 {
+          font-size: 1.0714rem;
+        }
+      }
+
+      @media only screen and (min-width:728px) {
+        .c9 {
+          font-size: 1.0714rem;
+        }
+      }
+
+      @media only screen and (min-width:728px) {
+        .c7 {
+          font-size: 2.1368rem;
+        }
+      }
+
       <div>
         <form
           class="c0"
@@ -299,6 +329,36 @@ describe('renders UI correctly by type prop:', () => {
       .c12 {
         position: relative;
         top: 0.05em;
+      }
+
+      @media only screen and (min-width:728px) {
+        .c6 {
+          font-size: 6.4103rem;
+        }
+      }
+
+      @media only screen and (min-width:728px) {
+        .c1 {
+          font-size: 2.1429rem;
+        }
+      }
+
+      @media only screen and (min-width:728px) {
+        .c4 {
+          font-size: 1.0714rem;
+        }
+      }
+
+      @media only screen and (min-width:728px) {
+        .c10 {
+          font-size: 1.0714rem;
+        }
+      }
+
+      @media only screen and (min-width:728px) {
+        .c7 {
+          font-size: 2.1368rem;
+        }
       }
 
       <div>

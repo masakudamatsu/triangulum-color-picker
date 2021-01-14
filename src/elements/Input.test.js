@@ -46,6 +46,12 @@ describe('renders UI correctly when:', () => {
         padding-left: 6.75px;
       }
 
+      @media only screen and (min-width:728px) {
+        .c0 {
+          font-size: 2.1429rem;
+        }
+      }
+
       <div>
         <input
           autocomplete="off"
@@ -69,9 +75,9 @@ describe('renders UI correctly when:', () => {
         font-size: 1.3393rem;
         font-weight: 300;
         border-radius: 100%;
-        height: 110px;
+        height: 100%;
         text-align: center;
-        width: 110px;
+        width: 100%;
       }
 
       .c0:active,
@@ -79,6 +85,12 @@ describe('renders UI correctly when:', () => {
       .c0:focus {
         border-width: 2px;
         outline: none;
+      }
+
+      @media only screen and (min-width:728px) {
+        .c0 {
+          font-size: 1.6071rem;
+        }
       }
 
       <div>
@@ -104,10 +116,10 @@ describe('renders UI correctly when:', () => {
         font-size: 1.3393rem;
         font-weight: 300;
         border-radius: 100%;
-        height: 50px;
+        height: 100%;
         padding-top: 8px;
         text-align: center;
-        width: 50px;
+        width: 100%;
       }
 
       .c0:active,
@@ -115,6 +127,12 @@ describe('renders UI correctly when:', () => {
       .c0:focus {
         border-width: 2px;
         outline: none;
+      }
+
+      @media only screen and (min-width:728px) {
+        .c0 {
+          font-size: 1.6071rem;
+        }
       }
 
       <div>
@@ -152,6 +170,12 @@ describe('renders UI correctly when:', () => {
       .c0:focus {
         border-width: 2px;
         outline: none;
+      }
+
+      @media only screen and (min-width:728px) {
+        .c0 {
+          font-size: 6.4103rem;
+        }
       }
 
       <div>

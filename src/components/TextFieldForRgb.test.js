@@ -29,10 +29,10 @@ test('renders UI correctly', () => {
       font-size: 1.3393rem;
       font-weight: 300;
       border-radius: 100%;
-      height: 50px;
+      height: 100%;
       padding-top: 8px;
       text-align: center;
-      width: 50px;
+      width: 100%;
     }
 
     .c4:active,
@@ -64,7 +64,7 @@ test('renders UI correctly', () => {
       -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
       justify-content: space-between;
-      width: 160px;
+      width: 100%;
     }
 
     .c1 {
@@ -75,9 +75,9 @@ test('renders UI correctly', () => {
       -webkit-flex-direction: column;
       -ms-flex-direction: column;
       flex-direction: column;
-      height: 50px;
       position: relative;
-      width: 50px;
+      height: 48px;
+      width: 48px;
     }
 
     .c3 {
@@ -89,6 +89,25 @@ test('renders UI correctly', () => {
       -webkit-transform: translateX(0) translateY(-0.1375em);
       -ms-transform: translateX(0) translateY(-0.1375em);
       transform: translateX(0) translateY(-0.1375em);
+    }
+
+    @media only screen and (min-width:728px) {
+      .c4 {
+        font-size: 1.6071rem;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c2 {
+        font-size: 1.0714rem;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c1 {
+        height: 58px;
+        width: 58px;
+      }
     }
 
     <div>

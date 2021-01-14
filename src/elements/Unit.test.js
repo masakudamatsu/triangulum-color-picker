@@ -27,6 +27,12 @@ test('renders UI correctly', () => {
       transform: translateX(-0.065em) translateY(-0.37em);
     }
 
+    @media only screen and (min-width:728px) {
+      .c0 {
+        font-size: 2.1368rem;
+      }
+    }
+
     <div>
       <p>
         100

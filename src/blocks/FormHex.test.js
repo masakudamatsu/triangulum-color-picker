@@ -26,9 +26,9 @@ test('renders UI correctly', () => {
       font-size: 1.3393rem;
       font-weight: 300;
       border-radius: 100%;
-      height: 110px;
+      height: 100%;
       text-align: center;
-      width: 110px;
+      width: 100%;
     }
 
     .c3:active,
@@ -59,11 +59,9 @@ test('renders UI correctly', () => {
       -webkit-flex-direction: column;
       -ms-flex-direction: column;
       flex-direction: column;
-      height: 110px;
-      min-height: 110px;
-      min-width: 110px;
       position: relative;
-      width: 110px;
+      height: 109px;
+      width: 109px;
     }
 
     .c2 {
@@ -75,6 +73,25 @@ test('renders UI correctly', () => {
       -webkit-transform: translateX(0) translateY(-0.1375em);
       -ms-transform: translateX(0) translateY(-0.1375em);
       transform: translateX(0) translateY(-0.1375em);
+    }
+
+    @media only screen and (min-width:728px) {
+      .c3 {
+        font-size: 1.6071rem;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c1 {
+        font-size: 1.0714rem;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c0 {
+        height: 131px;
+        width: 131px;
+      }
     }
 
     <div>

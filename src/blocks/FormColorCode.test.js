@@ -63,13 +63,33 @@ test('renders UI correctly', () => {
       background-color: inherit;
       height: 82px;
       position: relative;
-      width: 310px;
+      height: auto;
+      width: 303px;
     }
 
     .c2 {
       position: absolute;
       top: 11px;
       left: 11px;
+    }
+
+    @media only screen and (min-width:728px) {
+      .c3 {
+        font-size: 2.1429rem;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c1 {
+        font-size: 1.0714rem;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c0 {
+        height: auto;
+        width: 364px;
+      }
     }
 
     <div>

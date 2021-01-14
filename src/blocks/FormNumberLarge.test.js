@@ -93,6 +93,30 @@ test('renders UI correctly', () => {
       top: 60px;
     }
 
+    @media only screen and (min-width:728px) {
+      .c5 {
+        font-size: 1.6071rem;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c1 {
+        font-size: 1.0714rem;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c3 {
+        font-size: 1.0714rem;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c6 {
+        font-size: 2.1368rem;
+      }
+    }
+
     <div>
       <form
         class="c0"

@@ -22,6 +22,12 @@ describe('renders UI correctly:', () => {
         color: inherit;
       }
 
+      @media only screen and (min-width:728px) {
+        .c0 {
+          font-size: 2.1429rem;
+        }
+      }
+
       <div>
         <label
           class="c0"
@@ -43,6 +49,12 @@ describe('renders UI correctly:', () => {
         -ms-transform: translateX(-0.08em) translateY(-0.1375em);
         transform: translateX(-0.08em) translateY(-0.1375em);
         color: inherit;
+      }
+
+      @media only screen and (min-width:728px) {
+        .c0 {
+          font-size: 1.0714rem;
+        }
       }
 
       <div>
