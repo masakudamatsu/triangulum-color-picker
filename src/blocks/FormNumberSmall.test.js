@@ -108,6 +108,18 @@ test('renders UI correctly', () => {
       }
     }
 
+    @media only screen and (min-width:728px) {
+      .c5 {
+        padding-top: 10.799999999999999px;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c3 {
+        top: 6px;
+      }
+    }
+
     <div>
       <form
         class="c0"

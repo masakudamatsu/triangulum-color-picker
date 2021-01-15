@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import {boxSize, formNumberSmall} from 'src/utils/layout';
-import {textcrop, typescale} from 'src/utils/typography';
+import {breakpoint, scale, textcrop, typescale} from 'src/utils/typography';
 
 import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
@@ -36,6 +36,9 @@ FormNumberSmall.Input = styled(Input)`
   padding-top: ${padding.top}px;
   text-align: center;
   width: 100%;
+  @media only screen and (min-width: ${breakpoint.toString()}px) {
+    padding-top: ${padding.top * scale}px;
+  }
 `;
 
 FormNumberSmall.Label = styled(Label)`
@@ -43,6 +46,9 @@ FormNumberSmall.Label = styled(Label)`
   align-self: center;
   position: absolute;
   top: ${formNumberSmall.whitespace.aboveLabel}px;
+  @media only screen and (min-width: ${breakpoint.toString()}px) {
+    top: ${formNumberSmall.whitespace.aboveLabel * scale}px;
+  }
 `;
 
 FormNumberSmall.propTypes = {};
