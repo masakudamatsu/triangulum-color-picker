@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import {inputText} from 'src/utils/layout';
+import {typescale} from 'src/utils/typography';
 
 import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
@@ -13,25 +14,30 @@ const FormNumberLarge = styled.form`
   width: auto;
 `;
 
-const FormNumberLargeLabel = styled(Label)`
-  display: block;
-`;
-
-const FormNumberLargeInnerWrapper = styled.div`
+FormNumberLarge.InnerWrapper = styled.div`
   position: relative;
 `;
 
-const FormNumberLargeUnit = styled(Unit)`
+FormNumberLarge.Input = styled(Input)`
+  ${typescale.number}
+  border: none;
+  height: 100px;
+  padding-right: 20px;
+  text-align: right;
+  width: 100%;
+`;
+
+FormNumberLarge.Label = styled(Label)`
+  display: block;
+`;
+
+FormNumberLarge.Paragraph = Paragraph;
+
+FormNumberLarge.Unit = styled(Unit)`
   position: absolute;
   right: 0;
   top: 60px;
 `;
-
-FormNumberLarge.InnerWrapper = FormNumberLargeInnerWrapper;
-FormNumberLarge.Input = Input;
-FormNumberLarge.Label = FormNumberLargeLabel;
-FormNumberLarge.Paragraph = Paragraph;
-FormNumberLarge.Unit = FormNumberLargeUnit;
 
 FormNumberLarge.propTypes = {};
 

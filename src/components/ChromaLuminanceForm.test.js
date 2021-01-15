@@ -34,20 +34,10 @@ describe('renders UI correctly by type prop:', () => {
     const {container} = render(<ChromaLuminanceForm {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
       .c6 {
-        background-color: inherit;
         border-color: currentColor;
         border-style: solid;
         border-width: 1px;
         color: inherit;
-        font-family: 'Poppins';
-        font-size: 5.3419rem;
-        font-weight: 100;
-        line-height: 1;
-        border: none;
-        height: 100px;
-        padding-right: 20px;
-        text-align: right;
-        width: 100%;
       }
 
       .c6:active,
@@ -80,7 +70,7 @@ describe('renders UI correctly by type prop:', () => {
         text-align: left;
       }
 
-      .c9 {
+      .c10 {
         font-family: 'Poppins';
         font-size: 0.8929rem;
         font-weight: 300;
@@ -92,7 +82,7 @@ describe('renders UI correctly by type prop:', () => {
         text-align: right;
       }
 
-      .c7 {
+      .c8 {
         font-family: 'Poppins';
         font-size: 1.7806rem;
         font-weight: 100;
@@ -107,15 +97,27 @@ describe('renders UI correctly by type prop:', () => {
         width: auto;
       }
 
-      .c2 {
-        display: block;
-      }
-
       .c5 {
         position: relative;
       }
 
-      .c8 {
+      .c7 {
+        font-family: 'Poppins';
+        font-size: 5.3419rem;
+        font-weight: 100;
+        line-height: 1;
+        border: none;
+        height: 100px;
+        padding-right: 20px;
+        text-align: right;
+        width: 100%;
+      }
+
+      .c2 {
+        display: block;
+      }
+
+      .c9 {
         position: absolute;
         right: 0;
         top: 60px;
@@ -126,15 +128,9 @@ describe('renders UI correctly by type prop:', () => {
         width: 100%;
       }
 
-      .c10 {
+      .c11 {
         position: relative;
         top: 0.05em;
-      }
-
-      @media only screen and (min-width:728px) {
-        .c6 {
-          font-size: 6.4103rem;
-        }
       }
 
       @media only screen and (min-width:728px) {
@@ -150,14 +146,20 @@ describe('renders UI correctly by type prop:', () => {
       }
 
       @media only screen and (min-width:728px) {
-        .c9 {
+        .c10 {
           font-size: 1.0714rem;
         }
       }
 
       @media only screen and (min-width:728px) {
-        .c7 {
+        .c8 {
           font-size: 2.1368rem;
+        }
+      }
+
+      @media only screen and (min-width:728px) {
+        .c7 {
+          font-size: 6.4103rem;
         }
       }
 
@@ -188,24 +190,24 @@ describe('renders UI correctly by type prop:', () => {
             <input
               aria-describedby="chroma-sublabel chroma-helper"
               autocomplete="off"
-              class="c6"
+              class="c6 c7"
               id="chroma"
               type="text"
               value="1"
             />
             <span
-              class="c7 c8"
+              class="c8 c9"
             >
               %
             </span>
           </div>
           <p
-            class="c9"
+            class="c10"
             id="chroma-helper"
           >
             0% for gray 
             <span
-              class="c10"
+              class="c11"
             >
               –
             </span>
@@ -221,20 +223,10 @@ describe('renders UI correctly by type prop:', () => {
     );
     expect(container).toMatchInlineSnapshot(`
       .c6 {
-        background-color: inherit;
         border-color: currentColor;
         border-style: solid;
         border-width: 1px;
         color: inherit;
-        font-family: 'Poppins';
-        font-size: 5.3419rem;
-        font-weight: 100;
-        line-height: 1;
-        border: none;
-        height: 100px;
-        padding-right: 20px;
-        text-align: right;
-        width: 100%;
       }
 
       .c6:active,
@@ -267,7 +259,7 @@ describe('renders UI correctly by type prop:', () => {
         text-align: left;
       }
 
-      .c10 {
+      .c11 {
         font-family: 'Poppins';
         font-size: 0.8929rem;
         font-weight: 300;
@@ -279,7 +271,7 @@ describe('renders UI correctly by type prop:', () => {
         text-align: right;
       }
 
-      .c7 {
+      .c8 {
         font-family: 'Poppins';
         font-size: 1.7806rem;
         font-weight: 100;
@@ -294,15 +286,27 @@ describe('renders UI correctly by type prop:', () => {
         width: auto;
       }
 
-      .c2 {
-        display: block;
-      }
-
       .c5 {
         position: relative;
       }
 
-      .c8 {
+      .c7 {
+        font-family: 'Poppins';
+        font-size: 5.3419rem;
+        font-weight: 100;
+        line-height: 1;
+        border: none;
+        height: 100px;
+        padding-right: 20px;
+        text-align: right;
+        width: 100%;
+      }
+
+      .c2 {
+        display: block;
+      }
+
+      .c9 {
         position: absolute;
         right: 0;
         top: 60px;
@@ -313,28 +317,22 @@ describe('renders UI correctly by type prop:', () => {
         width: 100%;
       }
 
-      .c9 {
+      .c10 {
         position: relative;
         bottom: 0.1em;
         right: 0.2em;
       }
 
-      .c11 {
+      .c12 {
         -webkit-letter-spacing: 0.1em;
         -moz-letter-spacing: 0.1em;
         -ms-letter-spacing: 0.1em;
         letter-spacing: 0.1em;
       }
 
-      .c12 {
+      .c13 {
         position: relative;
         top: 0.05em;
-      }
-
-      @media only screen and (min-width:728px) {
-        .c6 {
-          font-size: 6.4103rem;
-        }
       }
 
       @media only screen and (min-width:728px) {
@@ -350,14 +348,20 @@ describe('renders UI correctly by type prop:', () => {
       }
 
       @media only screen and (min-width:728px) {
-        .c10 {
+        .c11 {
           font-size: 1.0714rem;
         }
       }
 
       @media only screen and (min-width:728px) {
-        .c7 {
+        .c8 {
           font-size: 2.1368rem;
+        }
+      }
+
+      @media only screen and (min-width:728px) {
+        .c7 {
+          font-size: 6.4103rem;
         }
       }
 
@@ -388,16 +392,16 @@ describe('renders UI correctly by type prop:', () => {
             <input
               aria-describedby="luminance-sublabel luminance-helper"
               autocomplete="off"
-              class="c6"
+              class="c6 c7"
               id="luminance"
               type="text"
               value="1"
             />
             <span
-              class="c7 c8"
+              class="c8 c9"
             >
               <span
-                class="c9"
+                class="c10"
               >
                 :
               </span>
@@ -405,23 +409,23 @@ describe('renders UI correctly by type prop:', () => {
             </span>
           </div>
           <p
-            class="c10"
+            class="c11"
             id="luminance-helper"
           >
             <span
-              class="c11"
+              class="c12"
             >
               1:1
             </span>
              for black 
             <span
-              class="c12"
+              class="c13"
             >
               –
             </span>
              
             <span
-              class="c11"
+              class="c12"
             >
               21:1
             </span>

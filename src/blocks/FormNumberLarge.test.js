@@ -23,14 +23,10 @@ test('renders UI correctly', () => {
   );
   expect(container).toMatchInlineSnapshot(`
     .c5 {
-      background-color: inherit;
       border-color: currentColor;
       border-style: solid;
       border-width: 1px;
       color: inherit;
-      font-family: 'Poppins';
-      font-size: 1.3393rem;
-      font-weight: 300;
     }
 
     .c5:active,
@@ -64,7 +60,7 @@ test('renders UI correctly', () => {
       text-align: left;
     }
 
-    .c6 {
+    .c7 {
       font-family: 'Poppins';
       font-size: 1.7806rem;
       font-weight: 100;
@@ -79,24 +75,30 @@ test('renders UI correctly', () => {
       width: auto;
     }
 
-    .c2 {
-      display: block;
-    }
-
     .c4 {
       position: relative;
     }
 
-    .c7 {
+    .c6 {
+      font-family: 'Poppins';
+      font-size: 5.3419rem;
+      font-weight: 100;
+      line-height: 1;
+      border: none;
+      height: 100px;
+      padding-right: 20px;
+      text-align: right;
+      width: 100%;
+    }
+
+    .c2 {
+      display: block;
+    }
+
+    .c8 {
       position: absolute;
       right: 0;
       top: 60px;
-    }
-
-    @media only screen and (min-width:728px) {
-      .c5 {
-        font-size: 1.6071rem;
-      }
     }
 
     @media only screen and (min-width:728px) {
@@ -112,8 +114,14 @@ test('renders UI correctly', () => {
     }
 
     @media only screen and (min-width:728px) {
-      .c6 {
+      .c7 {
         font-size: 2.1368rem;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c6 {
+        font-size: 6.4103rem;
       }
     }
 
@@ -136,12 +144,12 @@ test('renders UI correctly', () => {
         >
           <input
             autocomplete="off"
-            class="c5"
+            class="c5 c6"
             type="text"
             value="50"
           />
           <span
-            class="c6 c7"
+            class="c7 c8"
           >
             %
           </span>

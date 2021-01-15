@@ -22,13 +22,6 @@ test('renders UI correctly', () => {
       border-style: solid;
       border-width: 1px;
       color: inherit;
-      font-family: 'Poppins';
-      font-size: 1.3393rem;
-      font-weight: 300;
-      border-radius: 100%;
-      height: 100%;
-      text-align: center;
-      width: 100%;
     }
 
     .c3:active,
@@ -64,6 +57,16 @@ test('renders UI correctly', () => {
       width: 109px;
     }
 
+    .c4 {
+      font-family: 'Poppins';
+      font-size: 1.3393rem;
+      font-weight: 300;
+      border-radius: 100%;
+      height: 100%;
+      text-align: center;
+      width: 100%;
+    }
+
     .c2 {
       -webkit-align-self: center;
       -ms-flex-item-align: center;
@@ -73,12 +76,6 @@ test('renders UI correctly', () => {
       -webkit-transform: translateX(0) translateY(-0.1375em);
       -ms-transform: translateX(0) translateY(-0.1375em);
       transform: translateX(0) translateY(-0.1375em);
-    }
-
-    @media only screen and (min-width:728px) {
-      .c3 {
-        font-size: 1.6071rem;
-      }
     }
 
     @media only screen and (min-width:728px) {
@@ -94,6 +91,12 @@ test('renders UI correctly', () => {
       }
     }
 
+    @media only screen and (min-width:728px) {
+      .c4 {
+        font-size: 1.6071rem;
+      }
+    }
+
     <div>
       <form
         class="c0"
@@ -106,7 +109,7 @@ test('renders UI correctly', () => {
         </label>
         <input
           autocomplete="off"
-          class="c3"
+          class="c3 c4"
           id="hex"
           type="text"
         />

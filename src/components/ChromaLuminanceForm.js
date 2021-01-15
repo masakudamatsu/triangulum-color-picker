@@ -48,7 +48,6 @@ const ChromaLuminanceForm = ({type, value}) => {
       </FormNumberLarge.Paragraph>
       <FormNumberLarge.InnerWrapper>
         <FormNumberLarge.Input
-          numberLarge
           aria-describedby={`${sublabelId} ${helperTextId}`}
           id={inputId}
           value={value}

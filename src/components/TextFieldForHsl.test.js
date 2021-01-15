@@ -20,19 +20,10 @@ test('renders UI correctly', () => {
   const {container} = render(<TextFieldForHsl {...mockProps} />);
   expect(container).toMatchInlineSnapshot(`
     .c4 {
-      background-color: inherit;
       border-color: currentColor;
       border-style: solid;
       border-width: 1px;
       color: inherit;
-      font-family: 'Poppins';
-      font-size: 1.3393rem;
-      font-weight: 300;
-      border-radius: 100%;
-      height: 100%;
-      padding-top: 8px;
-      text-align: center;
-      width: 100%;
     }
 
     .c4:active,
@@ -67,17 +58,15 @@ test('renders UI correctly', () => {
       width: 100%;
     }
 
-    .c1 {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      position: relative;
-      height: 48px;
-      width: 48px;
+    .c5 {
+      font-family: 'Poppins';
+      font-size: 1.3393rem;
+      font-weight: 300;
+      border-radius: 100%;
+      height: 100%;
+      padding-top: 8px;
+      text-align: center;
+      width: 100%;
     }
 
     .c3 {
@@ -91,15 +80,28 @@ test('renders UI correctly', () => {
       transform: translateX(0) translateY(-0.1375em);
     }
 
-    @media only screen and (min-width:728px) {
-      .c4 {
-        font-size: 1.6071rem;
-      }
+    .c1 {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      position: relative;
+      height: 48px;
+      width: 48px;
     }
 
     @media only screen and (min-width:728px) {
       .c2 {
         font-size: 1.0714rem;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c5 {
+        font-size: 1.6071rem;
       }
     }
 
@@ -125,7 +127,7 @@ test('renders UI correctly', () => {
           </label>
           <input
             autocomplete="off"
-            class="c4"
+            class="c4 c5"
             id="h"
             type="text"
             value="235"
@@ -142,7 +144,7 @@ test('renders UI correctly', () => {
           </label>
           <input
             autocomplete="off"
-            class="c4"
+            class="c4 c5"
             id="s"
             type="text"
             value="22"
@@ -159,7 +161,7 @@ test('renders UI correctly', () => {
           </label>
           <input
             autocomplete="off"
-            class="c4"
+            class="c4 c5"
             id="l"
             type="text"
             value="56"

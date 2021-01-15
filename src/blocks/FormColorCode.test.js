@@ -17,21 +17,10 @@ test('renders UI correctly', () => {
   );
   expect(container).toMatchInlineSnapshot(`
     .c3 {
-      background-color: inherit;
       border-color: currentColor;
       border-style: solid;
       border-width: 1px;
       color: inherit;
-      font-family: 'Poppins';
-      font-size: 1.7857rem;
-      font-weight: 300;
-      border-radius: 4px;
-      height: 100%;
-      padding-bottom: 8px;
-      padding-left: 7.75px;
-      padding-top: 30px;
-      text-align: left;
-      width: 100%;
     }
 
     .c3:active,
@@ -39,12 +28,6 @@ test('renders UI correctly', () => {
     .c3:focus {
       border-width: 2px;
       outline: none;
-    }
-
-    .c3:active,
-    .c3:hover,
-    .c3:focus {
-      padding-left: 6.75px;
     }
 
     .c1 {
@@ -67,16 +50,29 @@ test('renders UI correctly', () => {
       width: 303px;
     }
 
+    .c4 {
+      font-family: 'Poppins';
+      font-size: 1.7857rem;
+      font-weight: 300;
+      border-radius: 4px;
+      height: 100%;
+      padding-bottom: 8px;
+      padding-left: 7.75px;
+      padding-top: 30px;
+      text-align: left;
+      width: 100%;
+    }
+
+    .c4:active,
+    .c4:hover,
+    .c4:focus {
+      padding-left: 6.75px;
+    }
+
     .c2 {
       position: absolute;
       top: 11px;
       left: 11px;
-    }
-
-    @media only screen and (min-width:728px) {
-      .c3 {
-        font-size: 2.1429rem;
-      }
     }
 
     @media only screen and (min-width:728px) {
@@ -92,6 +88,12 @@ test('renders UI correctly', () => {
       }
     }
 
+    @media only screen and (min-width:728px) {
+      .c4 {
+        font-size: 2.1429rem;
+      }
+    }
+
     <div>
       <form
         class="c0"
@@ -103,7 +105,7 @@ test('renders UI correctly', () => {
         </label>
         <input
           autocomplete="off"
-          class="c3"
+          class="c3 c4"
           type="text"
         />
       </form>

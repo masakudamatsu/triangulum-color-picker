@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import {boxSize, inputText} from 'src/utils/layout';
+import {typescale} from 'src/utils/typography';
 
 import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
@@ -13,23 +14,28 @@ const FormNumberSmall = styled.form`
   width: 100%;
 `;
 
-const FormNumberSmallWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  ${boxSize.formNumberSmall}
+FormNumberSmall.Input = styled(Input)`
+  ${typescale.medium}
+  border-radius: 100%;
+  height: 100%;
+  padding-top: 8px;
+  text-align: center;
+  width: 100%;
 `;
 
-const FormNumberSmallLabel = styled(Label)`
+FormNumberSmall.Label = styled(Label)`
   align-self: center;
   position: absolute;
   top: 6px;
   transform: translateX(0) translateY(-0.1375em);
 `;
 
-FormNumberSmall.Label = FormNumberSmallLabel;
-FormNumberSmall.Input = Input;
-FormNumberSmall.Wrapper = FormNumberSmallWrapper;
+FormNumberSmall.Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  ${boxSize.formNumberSmall}
+`;
 
 FormNumberSmall.propTypes = {};
 
