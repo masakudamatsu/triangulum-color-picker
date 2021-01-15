@@ -44,7 +44,6 @@ test('renders UI correctly', () => {
 
     .c0 {
       background-color: inherit;
-      height: 82px;
       position: relative;
       height: auto;
       width: 303px;
@@ -55,7 +54,6 @@ test('renders UI correctly', () => {
       font-size: 1.7857rem;
       font-weight: 300;
       border-radius: 4px;
-      height: 100%;
       padding-bottom: 8px;
       padding-left: 7.75px;
       padding-top: 30px;
@@ -66,7 +64,9 @@ test('renders UI correctly', () => {
     .c4:active,
     .c4:hover,
     .c4:focus {
+      padding-bottom: 7px;
       padding-left: 6.75px;
+      padding-top: 29px;
     }
 
     .c2 {

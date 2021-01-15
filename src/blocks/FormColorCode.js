@@ -9,7 +9,6 @@ import Label from 'src/elements/Label';
 
 const FormColorCode = styled.form`
   background-color: inherit;
-  height: ${formColorCode.height}px;
   position: relative;
   ${boxSize.formColorCode}
 `;
@@ -17,12 +16,7 @@ const FormColorCode = styled.form`
 // Text crop and other adjustments
 const padding = {
   bottom: formColorCode.whitespace.belowInputValue - 12,
-  left: {
-    inactive: formColorCode.whitespace.left - 2.25,
-    active:
-      formColorCode.whitespace.left -
-      3.25 /* taking into account the thicker border */,
-  },
+  left: formColorCode.whitespace.left - 2.25,
   top:
     formColorCode.whitespace.aboveLabel +
     formColorCode.capheight.label +
@@ -33,17 +27,17 @@ const padding = {
 FormColorCode.Input = styled(Input)`
   ${typescale.large}
   border-radius: 4px;
-  height: 100%; /* Without this, text moves as the border thickens with focus */
   padding-bottom: ${padding.bottom}px;
-  padding-left: ${padding.left.inactive}px;
+  padding-left: ${padding.left}px;
   padding-top: ${padding.top}px;
   text-align: left;
   width: 100%;
   &:active,
   &:hover,
   &:focus {
-    padding-left: ${padding.left
-      .active}px; /* taking into account the thicker border */
+    padding-bottom: ${padding.bottom - 1}px;
+    padding-left: ${padding.left - 1}px;
+    padding-top: ${padding.top - 1}px;
   }
 `;
 
