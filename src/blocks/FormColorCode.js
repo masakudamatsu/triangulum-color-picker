@@ -26,12 +26,14 @@ const padding = {
 
 FormColorCode.Input = styled(Input)`
   ${typescale.large}
+
   border-radius: 4px;
   padding-bottom: ${padding.bottom}px;
   padding-left: ${padding.left}px;
   padding-top: ${padding.top}px;
   text-align: left;
   width: 100%;
+
   &:active,
   &:hover,
   &:focus {
@@ -39,12 +41,31 @@ FormColorCode.Input = styled(Input)`
     padding-left: ${padding.left - 1}px;
     padding-top: ${padding.top - 1}px;
   }
+
+  @media only screen and (min-width: ${breakpoint.toString()}px) {
+    padding-bottom: ${padding.bottom * scale}px;
+    padding-left: ${padding.left * scale}px;
+    padding-top: ${padding.top * scale}px;
+    &:active,
+    &:hover,
+    &:focus {
+      padding-bottom: ${padding.bottom * scale - 1}px;
+      padding-left: ${padding.left * scale - 1}px;
+      padding-top: ${padding.top * scale - 1}px;
+    }
+  }
 `;
 
 FormColorCode.Label = styled(Label)`
   position: absolute;
   top: ${formColorCode.whitespace.aboveLabel + input.borderWidth.inactive}px;
   left: ${formColorCode.whitespace.left + input.borderWidth.inactive}px;
+  @media only screen and (min-width: ${breakpoint.toFixed()}px) {
+    top: ${formColorCode.whitespace.aboveLabel * scale +
+    input.borderWidth.inactive}px;
+    left: ${formColorCode.whitespace.left * scale +
+    input.borderWidth.inactive}px;
+  }
 `;
 
 FormColorCode.propTypes = {};

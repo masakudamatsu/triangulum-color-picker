@@ -94,6 +94,29 @@ test('renders UI correctly', () => {
       }
     }
 
+    @media only screen and (min-width:728px) {
+      .c4 {
+        padding-bottom: 9.6px;
+        padding-left: 9.299999999999999px;
+        padding-top: 36px;
+      }
+
+      .c4:active,
+      .c4:hover,
+      .c4:focus {
+        padding-bottom: 8.6px;
+        padding-left: 8.299999999999999px;
+        padding-top: 35px;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c2 {
+        top: 13px;
+        left: 13px;
+      }
+    }
+
     <div>
       <form
         class="c0"
