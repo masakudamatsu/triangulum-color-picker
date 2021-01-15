@@ -72,10 +72,7 @@ test('renders UI correctly', () => {
       -ms-flex-item-align: center;
       align-self: center;
       position: absolute;
-      top: 15px;
-      -webkit-transform: translateX(0) translateY(-0.1375em);
-      -ms-transform: translateX(0) translateY(-0.1375em);
-      transform: translateX(0) translateY(-0.1375em);
+      top: 18px;
     }
 
     @media only screen and (min-width:728px) {
@@ -94,6 +91,12 @@ test('renders UI correctly', () => {
     @media only screen and (min-width:728px) {
       .c4 {
         font-size: 1.6071rem;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c2 {
+        top: 21.599999999999998px;
       }
     }
 

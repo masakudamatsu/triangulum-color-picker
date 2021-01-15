@@ -19,22 +19,32 @@ export const formColorCode = {
     belowInputValue: 20,
     left: 10,
   },
-  get height() {
+};
+
+export const formHex = {
+  capheight: {
+    label: capheight.small,
+    inputValue: capheight.medium,
+  },
+  whitespace: {
+    aboveLabel: 18,
+    aboveInputValue: 19,
+    belowInputValue: 47,
+  },
+  get diameter() {
     return (
-      input.borderWidth.inactive +
       this.whitespace.aboveLabel +
       this.capheight.label +
       this.whitespace.aboveInputValue +
       this.capheight.inputValue +
-      this.whitespace.belowInputValue +
-      input.borderWidth.inactive
+      this.whitespace.belowInputValue
     );
   },
 };
 
 export const boxSize = {
   formColorCode: responsiveBoxSize(303),
-  formHex: responsiveBoxSize(109, 109),
+  formHex: responsiveBoxSize(formHex.diameter, formHex.diameter),
   formNumberSmall: responsiveBoxSize(48, 48),
   formNumberLargeWrapper: responsiveBoxSize(343),
   formWrapper: responsiveBoxSize(303),

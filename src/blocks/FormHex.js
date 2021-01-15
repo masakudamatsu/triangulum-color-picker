@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import {boxSize} from 'src/utils/layout';
+import {boxSize, formHex} from 'src/utils/layout';
 import {color} from 'src/utils/color';
-import {typescale} from 'src/utils/typography';
+import {breakpoint, scale, typescale} from 'src/utils/typography';
 
 import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
@@ -28,8 +28,10 @@ FormHex.Input = styled(Input)`
 FormHex.Label = styled(Label)`
   align-self: center;
   position: absolute;
-  top: 15px; /* to have 23px between label and input value, half of 46px space below input value */
-  transform: translateX(0) translateY(-0.1375em);
+  top: ${formHex.whitespace.aboveLabel}px;
+  @media only screen and (min-width: ${breakpoint.toString()}px) {
+    top: ${formHex.whitespace.aboveLabel * scale}px;
+  }
 `;
 
 FormHex.propTypes = {
