@@ -73,7 +73,7 @@ test('renders UI correctly', () => {
       font-weight: 300;
       border-radius: 100%;
       height: 100%;
-      padding-top: 8px;
+      padding-top: 9px;
       text-align: center;
       width: 100%;
     }
@@ -87,7 +87,7 @@ test('renders UI correctly', () => {
       -ms-flex-item-align: center;
       align-self: center;
       position: absolute;
-      top: 6px;
+      top: 5px;
     }
 
     @media only screen and (min-width:728px) {

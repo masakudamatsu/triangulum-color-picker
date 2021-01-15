@@ -42,6 +42,27 @@ export const formHex = {
   },
 };
 
+export const formNumberSmall = {
+  capheight: {
+    label: capheight.small,
+    inputValue: capheight.medium,
+  },
+  whitespace: {
+    aboveLabel: 5,
+    aboveInputValue: 6,
+    belowInputValue: 12,
+  },
+  get diameter() {
+    return (
+      this.whitespace.aboveLabel +
+      this.capheight.label +
+      this.whitespace.aboveInputValue +
+      this.capheight.inputValue +
+      this.whitespace.belowInputValue
+    );
+  },
+};
+
 export const boxSize = {
   formColorCode: responsiveBoxSize(303),
   formHex: responsiveBoxSize(formHex.diameter, formHex.diameter),

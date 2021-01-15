@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import {boxSize} from 'src/utils/layout';
+import {boxSize, formNumberSmall} from 'src/utils/layout';
 import {textcrop, typescale} from 'src/utils/typography';
 
 import Input from 'src/elements/Input';
@@ -21,11 +21,19 @@ FormNumberSmall.InnerWrapper = styled.div`
   ${boxSize.formNumberSmall}
 `;
 
+const padding = {
+  top:
+    formNumberSmall.whitespace.aboveLabel +
+    formNumberSmall.capheight.label +
+    formNumberSmall.whitespace.aboveInputValue -
+    formNumberSmall.whitespace.belowInputValue,
+};
+
 FormNumberSmall.Input = styled(Input)`
   ${typescale.medium}
   border-radius: 100%;
   height: 100%;
-  padding-top: 8px;
+  padding-top: ${padding.top}px;
   text-align: center;
   width: 100%;
 `;
@@ -34,7 +42,7 @@ FormNumberSmall.Label = styled(Label)`
   ${textcrop.smallCenterAligned}
   align-self: center;
   position: absolute;
-  top: 6px;
+  top: ${formNumberSmall.whitespace.aboveLabel}px;
 `;
 
 FormNumberSmall.propTypes = {};
