@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import {inputText} from 'src/utils/layout';
 import {typescale} from 'src/utils/typography';
 
 import Input from 'src/elements/Input';

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import {boxSize, inputText} from 'src/utils/layout';
+import {boxSize} from 'src/utils/layout';
 import {color} from 'src/utils/color';
 import {typescale} from 'src/utils/typography';
 
