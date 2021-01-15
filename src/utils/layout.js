@@ -66,7 +66,10 @@ export const formNumberSmall = {
 export const boxSize = {
   formColorCode: responsiveBoxSize(303),
   formHex: responsiveBoxSize(formHex.diameter, formHex.diameter),
-  formNumberSmall: responsiveBoxSize(48, 48),
+  formNumberSmall: responsiveBoxSize(
+    formNumberSmall.diameter,
+    formNumberSmall.diameter,
+  ),
   formNumberLargeWrapper: responsiveBoxSize(343),
   formWrapper: responsiveBoxSize(303),
   rgbHslWrapper: responsiveBoxSize(194),
