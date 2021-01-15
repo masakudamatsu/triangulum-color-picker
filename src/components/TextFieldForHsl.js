@@ -6,18 +6,18 @@ import FormNumberSmall from 'src/blocks/FormNumberSmall';
 const TextFieldForHsl = ({handleChange, h, s, l}) => {
   return (
     <FormNumberSmall>
-      <FormNumberSmall.Wrapper>
+      <FormNumberSmall.InnerWrapper>
         <FormNumberSmall.Label htmlFor="h">H</FormNumberSmall.Label>
         <FormNumberSmall.Input id="h" onChange={handleChange.h} value={h} />
-      </FormNumberSmall.Wrapper>
-      <FormNumberSmall.Wrapper>
+      </FormNumberSmall.InnerWrapper>
+      <FormNumberSmall.InnerWrapper>
         <FormNumberSmall.Label htmlFor="s">S</FormNumberSmall.Label>
         <FormNumberSmall.Input id="s" onChange={handleChange.s} value={s} />
-      </FormNumberSmall.Wrapper>
-      <FormNumberSmall.Wrapper>
+      </FormNumberSmall.InnerWrapper>
+      <FormNumberSmall.InnerWrapper>
         <FormNumberSmall.Label htmlFor="l">L</FormNumberSmall.Label>
         <FormNumberSmall.Input id="l" onChange={handleChange.l} value={l} />
-      </FormNumberSmall.Wrapper>
+      </FormNumberSmall.InnerWrapper>
     </FormNumberSmall>
   );
 };

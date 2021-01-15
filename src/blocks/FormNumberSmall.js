@@ -14,6 +14,13 @@ const FormNumberSmall = styled.form`
   width: 100%;
 `;
 
+FormNumberSmall.InnerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  ${boxSize.formNumberSmall}
+`;
+
 FormNumberSmall.Input = styled(Input)`
   ${typescale.medium}
   border-radius: 100%;
@@ -28,13 +35,6 @@ FormNumberSmall.Label = styled(Label)`
   position: absolute;
   top: 6px;
   transform: translateX(0) translateY(-0.1375em);
-`;
-
-FormNumberSmall.Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  ${boxSize.formNumberSmall}
 `;
 
 FormNumberSmall.propTypes = {};

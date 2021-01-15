@@ -11,10 +11,10 @@ const mockProps = {};
 test('renders UI correctly', () => {
   const {container} = render(
     <FormNumberSmall {...mockProps}>
-      <FormNumberSmall.Wrapper>
+      <FormNumberSmall.InnerWrapper>
         <FormNumberSmall.Label>R</FormNumberSmall.Label>
         <FormNumberSmall.Input value={255} />
-      </FormNumberSmall.Wrapper>
+      </FormNumberSmall.InnerWrapper>
     </FormNumberSmall>,
   );
   expect(container).toMatchInlineSnapshot(`
@@ -57,6 +57,19 @@ test('renders UI correctly', () => {
       width: 100%;
     }
 
+    .c1 {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      position: relative;
+      height: 48px;
+      width: 48px;
+    }
+
     .c5 {
       font-family: 'Poppins';
       font-size: 1.3393rem;
@@ -79,19 +92,6 @@ test('renders UI correctly', () => {
       transform: translateX(0) translateY(-0.1375em);
     }
 
-    .c1 {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      position: relative;
-      height: 48px;
-      width: 48px;
-    }
-
     @media only screen and (min-width:728px) {
       .c2 {
         font-size: 1.0714rem;
@@ -99,15 +99,15 @@ test('renders UI correctly', () => {
     }
 
     @media only screen and (min-width:728px) {
-      .c5 {
-        font-size: 1.6071rem;
+      .c1 {
+        height: 58px;
+        width: 58px;
       }
     }
 
     @media only screen and (min-width:728px) {
-      .c1 {
-        height: 58px;
-        width: 58px;
+      .c5 {
+        font-size: 1.6071rem;
       }
     }
 
