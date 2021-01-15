@@ -51,10 +51,6 @@ describe('renders UI correctly by type prop:', () => {
         font-family: 'Poppins';
         font-size: 1.7857rem;
         font-weight: 300;
-        margin-bottom: -0.771em;
-        -webkit-transform: translateX(-0.065em) translateY(-0.37em);
-        -ms-transform: translateX(-0.065em) translateY(-0.37em);
-        transform: translateX(-0.065em) translateY(-0.37em);
         color: inherit;
       }
 
@@ -114,6 +110,10 @@ describe('renders UI correctly by type prop:', () => {
       }
 
       .c2 {
+        margin-bottom: -0.771em;
+        -webkit-transform: translateX(-0.065em) translateY(-0.37em);
+        -ms-transform: translateX(-0.065em) translateY(-0.37em);
+        transform: translateX(-0.065em) translateY(-0.37em);
         display: block;
       }
 
@@ -240,10 +240,6 @@ describe('renders UI correctly by type prop:', () => {
         font-family: 'Poppins';
         font-size: 1.7857rem;
         font-weight: 300;
-        margin-bottom: -0.771em;
-        -webkit-transform: translateX(-0.065em) translateY(-0.37em);
-        -ms-transform: translateX(-0.065em) translateY(-0.37em);
-        transform: translateX(-0.065em) translateY(-0.37em);
         color: inherit;
       }
 
@@ -303,6 +299,10 @@ describe('renders UI correctly by type prop:', () => {
       }
 
       .c2 {
+        margin-bottom: -0.771em;
+        -webkit-transform: translateX(-0.065em) translateY(-0.37em);
+        -ms-transform: translateX(-0.065em) translateY(-0.37em);
+        transform: translateX(-0.065em) translateY(-0.37em);
         display: block;
       }
 

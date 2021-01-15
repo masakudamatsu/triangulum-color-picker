@@ -5,7 +5,6 @@ import {textcrop, typescale} from 'src/utils/typography';
 
 const Label = styled.label`
   ${props => (props.numberLarge ? typescale.large : typescale.small)}
-  ${props => (props.numberLarge ? textcrop.large : textcrop.small)}
   color: inherit;
 `;
 

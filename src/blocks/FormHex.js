@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import {boxSize, formHex} from 'src/utils/layout';
 import {color} from 'src/utils/color';
-import {breakpoint, scale, typescale} from 'src/utils/typography';
+import {breakpoint, scale, textcrop, typescale} from 'src/utils/typography';
 
 import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
@@ -26,6 +26,7 @@ FormHex.Input = styled(Input)`
 `;
 
 FormHex.Label = styled(Label)`
+  ${textcrop.smallCenterAligned}
   align-self: center;
   position: absolute;
   top: ${formHex.whitespace.aboveLabel}px;

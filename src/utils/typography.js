@@ -106,6 +106,10 @@ export const textcrop = {
     margin-bottom: -0.28em;
     transform: translateX(-0.08em) translateY(-0.1375em);
   `,
+  smallCenterAligned: css`
+    margin-bottom: -0.28em;
+    transform: translateY(-0.1375em);
+  `,
   large: css`
     margin-bottom: -0.771em;
     transform: translateX(-0.065em) translateY(-0.37em);

@@ -37,10 +37,6 @@ test('renders UI correctly', () => {
       font-size: 0.8929rem;
       font-weight: 300;
       line-height: 1;
-      margin-bottom: -0.28em;
-      -webkit-transform: translateX(-0.08em) translateY(-0.1375em);
-      -ms-transform: translateX(-0.08em) translateY(-0.1375em);
-      transform: translateX(-0.08em) translateY(-0.1375em);
       color: inherit;
     }
 
@@ -82,14 +78,15 @@ test('renders UI correctly', () => {
     }
 
     .c3 {
+      margin-bottom: -0.28em;
+      -webkit-transform: translateY(-0.1375em);
+      -ms-transform: translateY(-0.1375em);
+      transform: translateY(-0.1375em);
       -webkit-align-self: center;
       -ms-flex-item-align: center;
       align-self: center;
       position: absolute;
       top: 6px;
-      -webkit-transform: translateX(0) translateY(-0.1375em);
-      -ms-transform: translateX(0) translateY(-0.1375em);
-      transform: translateX(0) translateY(-0.1375em);
     }
 
     @media only screen and (min-width:728px) {

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import {typescale} from 'src/utils/typography';
+import {textcrop, typescale} from 'src/utils/typography';
 
 import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
@@ -27,6 +27,7 @@ FormNumberLarge.Input = styled(Input)`
 `;
 
 FormNumberLarge.Label = styled(Label)`
+  ${textcrop.large}
   display: block;
 `;
 

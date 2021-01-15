@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import {boxSize, input, formColorCode} from 'src/utils/layout';
-import {breakpoint, scale, typescale} from 'src/utils/typography';
+import {breakpoint, scale, textcrop, typescale} from 'src/utils/typography';
 
 import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
@@ -57,6 +57,7 @@ FormColorCode.Input = styled(Input)`
 `;
 
 FormColorCode.Label = styled(Label)`
+  ${textcrop.small}
   position: absolute;
   top: ${formColorCode.whitespace.aboveLabel + input.borderWidth.inactive}px;
   left: ${formColorCode.whitespace.left + input.borderWidth.inactive}px;

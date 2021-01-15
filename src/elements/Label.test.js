@@ -15,10 +15,6 @@ describe('renders UI correctly:', () => {
         font-family: 'Poppins';
         font-size: 1.7857rem;
         font-weight: 300;
-        margin-bottom: -0.771em;
-        -webkit-transform: translateX(-0.065em) translateY(-0.37em);
-        -ms-transform: translateX(-0.065em) translateY(-0.37em);
-        transform: translateX(-0.065em) translateY(-0.37em);
         color: inherit;
       }
 
@@ -44,10 +40,6 @@ describe('renders UI correctly:', () => {
         font-size: 0.8929rem;
         font-weight: 300;
         line-height: 1;
-        margin-bottom: -0.28em;
-        -webkit-transform: translateX(-0.08em) translateY(-0.1375em);
-        -ms-transform: translateX(-0.08em) translateY(-0.1375em);
-        transform: translateX(-0.08em) translateY(-0.1375em);
         color: inherit;
       }
 

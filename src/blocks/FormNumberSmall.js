@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import {boxSize} from 'src/utils/layout';
-import {typescale} from 'src/utils/typography';
+import {textcrop, typescale} from 'src/utils/typography';
 
 import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
@@ -31,10 +31,10 @@ FormNumberSmall.Input = styled(Input)`
 `;
 
 FormNumberSmall.Label = styled(Label)`
+  ${textcrop.smallCenterAligned}
   align-self: center;
   position: absolute;
   top: 6px;
-  transform: translateX(0) translateY(-0.1375em);
 `;
 
 FormNumberSmall.propTypes = {};
