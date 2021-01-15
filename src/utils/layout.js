@@ -1,15 +1,35 @@
 import {css} from 'styled-components';
 
-import {breakpoint, scale} from 'src/utils/typography';
+import {breakpoint, capheight, scale} from 'src/utils/typography';
 
-export const inputText = {
+export const input = {
   borderWidth: {
     active: 2,
     inactive: 1,
   },
-  paddingBottom: 20,
-  paddingLeft: 10,
-  paddingTop: 20,
+};
+export const formColorCode = {
+  capheight: {
+    label: capheight.small,
+    inputValue: capheight.large,
+  },
+  whitespace: {
+    aboveLabel: 10,
+    aboveInputValue: 20,
+    belowInputValue: 20,
+    left: 10,
+  },
+  get height() {
+    return (
+      input.borderWidth.inactive +
+      this.whitespace.aboveLabel +
+      this.capheight.label +
+      this.whitespace.aboveInputValue +
+      this.capheight.inputValue +
+      this.whitespace.belowInputValue +
+      input.borderWidth.inactive
+    );
+  },
 };
 
 export const boxSize = {
