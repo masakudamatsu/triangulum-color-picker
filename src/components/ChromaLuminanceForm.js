@@ -37,23 +37,28 @@ const ChromaLuminanceForm = ({type, value}) => {
 
   return (
     <FormNumberLarge>
-      <FormNumberLarge.Label numberLarge htmlFor={inputId}>
+      <FormNumberLarge.H2>
         {type === 'chroma' ? 'Chroma' : 'Luminance'}
-      </FormNumberLarge.Label>
+      </FormNumberLarge.H2>
       <Spacer height="10px" width="100%" />
       <FormNumberLarge.Paragraph id={sublabelId}>
         {type === 'chroma'
           ? 'Pure hue share in the mix with gray'
           : 'Contrast ratio against pure black'}
       </FormNumberLarge.Paragraph>
+      <Spacer height="20px" width="100%" />
       <FormNumberLarge.InnerWrapper>
-        <FormNumberLarge.Input
+        <FormNumberLarge.Output
           aria-describedby={`${sublabelId} ${helperTextId}`}
+          data-testid={inputId}
+          htmlFor="colorCode hex r g b h s l"
           id={inputId}
-          value={value}
-        />
+        >
+          {value}
+        </FormNumberLarge.Output>
         {unit}
       </FormNumberLarge.InnerWrapper>
+      <Spacer height="20px" width="100%" />
       {helperText}
     </FormNumberLarge>
   );

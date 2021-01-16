@@ -114,8 +114,11 @@ export const textcrop = {
     margin-bottom: -0.771em;
     transform: translateX(-0.065em) translateY(-0.37em);
   `,
-  percent: css`
-    margin-bottom: -0.771em;
-    transform: translateX(-0.065em) translateY(-0.37em);
+  number: css`
+    margin-bottom: -0.3158em;
+    transform: translateY(-0.1286em);
   `,
+  percent: css`
+    transform: translateY(0.46em);
+  `, // for percent, cropping bottom matters to be bottom-aligned with chroma/luminance values
 };

@@ -63,11 +63,8 @@ describe('Entering css color code shows (1) its color, (2) its Hex code equivale
       cy.findByLabelText(/^s$/i).should('have.value', twitterBlue.s);
       cy.findByLabelText(/^l$/i).should('have.value', twitterBlue.l);
 
-      cy.findByLabelText(/^chroma$/i).should('have.value', twitterBlue.chroma);
-      cy.findByLabelText(/^luminance$/i).should(
-        'have.value',
-        twitterBlue.luminance,
-      );
+      cy.findByTestId('chroma').should('have.value', twitterBlue.chroma);
+      cy.findByTestId('luminance').should('have.value', twitterBlue.luminance);
 
       cy.findByLabelText(/color code/i)
         .clear()
@@ -91,11 +88,8 @@ describe('Entering css color code shows (1) its color, (2) its Hex code equivale
       cy.findByLabelText(/^s$/i).should('have.value', mcdonaldsRed.s);
       cy.findByLabelText(/^l$/i).should('have.value', mcdonaldsRed.l);
 
-      cy.findByLabelText(/^chroma$/i).should('have.value', mcdonaldsRed.chroma);
-      cy.findByLabelText(/^luminance$/i).should(
-        'have.value',
-        mcdonaldsRed.luminance,
-      );
+      cy.findByTestId('chroma').should('have.value', mcdonaldsRed.chroma);
+      cy.findByTestId('luminance').should('have.value', mcdonaldsRed.luminance);
     });
   });
 });
@@ -124,11 +118,8 @@ describe('Entering hex code shows its color, the hex code in a legible way, RGB 
       cy.findByLabelText(/^s$/i).should('have.value', userColor.s);
       cy.findByLabelText(/^l$/i).should('have.value', userColor.l);
 
-      cy.findByLabelText(/^chroma$/i).should('have.value', userColor.chroma);
-      cy.findByLabelText(/^luminance$/i).should(
-        'have.value',
-        userColor.luminance,
-      );
+      cy.findByTestId('chroma').should('have.value', userColor.chroma);
+      cy.findByTestId('luminance').should('have.value', userColor.luminance);
     });
   });
 });
@@ -156,11 +147,8 @@ describe('Entering rgb values shows its color, the hex code in a legible way, RG
       cy.findByLabelText(/^s$/i).should('have.value', userColor.s);
       cy.findByLabelText(/^l$/i).should('have.value', userColor.l);
 
-      cy.findByLabelText(/^chroma$/i).should('have.value', userColor.chroma);
-      cy.findByLabelText(/^luminance$/i).should(
-        'have.value',
-        userColor.luminance,
-      );
+      cy.findByTestId('chroma').should('have.value', userColor.chroma);
+      cy.findByTestId('luminance').should('have.value', userColor.luminance);
     });
   });
 });
@@ -188,11 +176,8 @@ describe('Entering HSL values shows its color, the hex code in a legible way, RG
       cy.findByLabelText(/^g$/i).should('have.value', userColor.g);
       cy.findByLabelText(/^b$/i).should('have.value', userColor.b);
 
-      cy.findByLabelText(/^chroma$/i).should('have.value', userColor.chroma);
-      cy.findByLabelText(/^luminance$/i).should(
-        'have.value',
-        userColor.luminance,
-      );
+      cy.findByTestId('chroma').should('have.value', userColor.chroma);
+      cy.findByTestId('luminance').should('have.value', userColor.luminance);
     });
   });
 });
@@ -218,7 +203,7 @@ describe('Color picker functions:', () => {
     cy.findByLabelText(/^s$/i).should('have.value', '88');
     cy.findByLabelText(/^l$/i).should('have.value', '75');
 
-    cy.findByLabelText(/^chroma$/i).should('have.value', '44.31');
-    cy.findByLabelText(/^luminance$/i).should('have.value', '11.99');
+    cy.findByTestId('chroma').should('have.value', '44.31');
+    cy.findByTestId('luminance').should('have.value', '11.99');
   });
 });

@@ -3,40 +3,35 @@ import PropTypes from 'prop-types';
 
 import {textcrop, typescale} from 'src/utils/typography';
 
-import Input from 'src/elements/Input';
-import Label from 'src/elements/Label';
+import H2 from 'src/elements/H2';
+import Output from 'src/elements/Output';
 import Paragraph from 'src/elements/Paragraph';
 import Unit from 'src/elements/Unit';
 
-const FormNumberLarge = styled.form`
+const FormNumberLarge = styled.section`
   background-color: inherit;
   width: auto;
 `;
 
+FormNumberLarge.H2 = H2;
+
 FormNumberLarge.InnerWrapper = styled.div`
-  position: relative;
+  align-items: baseline; /* Bottom-align */
+  display: flex;
+  height: 60px; /* Text crop */
+  justify-content: flex-end; /* Left-align */
+  position: relative; /* to position Unit */
 `;
 
-FormNumberLarge.Input = styled(Input)`
-  ${typescale.number}
-  border: none;
-  height: 100px;
+FormNumberLarge.Output = styled(Output)`
   padding-right: 20px;
-  text-align: right;
-  width: 100%;
-`;
-
-FormNumberLarge.Label = styled(Label)`
-  ${textcrop.large}
-  display: block;
 `;
 
 FormNumberLarge.Paragraph = Paragraph;
 
 FormNumberLarge.Unit = styled(Unit)`
+  bottom: 0;
   position: absolute;
-  right: 0;
-  top: 60px;
 `;
 
 FormNumberLarge.propTypes = {};
