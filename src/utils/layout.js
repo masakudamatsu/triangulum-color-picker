@@ -8,6 +8,9 @@ export const input = {
     inactive: 1,
   },
 };
+
+// Vertical spacing
+
 export const formColorCode = {
   capheight: {
     label: capheight.small,
@@ -90,16 +93,22 @@ export const formNumberLarge = {
   },
 };
 
+// Horizontal spacing
+
+const triangleWidth = 303;
+
 export const boxSize = {
-  formColorCode: responsiveBoxSize(303),
+  formColorCode: responsiveBoxSize(triangleWidth),
   formHex: responsiveBoxSize(formHex.diameter, formHex.diameter),
   formNumberSmall: responsiveBoxSize(
     formNumberSmall.diameter,
     formNumberSmall.diameter,
   ),
-  formNumberLargeWrapper: responsiveBoxSize(343),
-  formWrapper: responsiveBoxSize(303),
-  rgbHslWrapper: responsiveBoxSize(194),
+  formNumberLargeWrapper: responsiveBoxSize(
+    triangleWidth + formNumberLarge.whitespace.padding,
+  ), // 343
+  formWrapper: responsiveBoxSize(triangleWidth),
+  rgbHslWrapper: responsiveBoxSize(triangleWidth - formHex.diameter), // 194
 };
 
 function responsiveBoxSize(baseWidth, baseHeight) {
