@@ -47,14 +47,3 @@ test('renders UI correctly', () => {
     </div>
   `);
 });
-
-test('is accessible', async () => {
-  const {container} = render(
-    <Figure {...mockProps}>
-      <Figure.Canvas />
-      <Figure.Canvas overlay />
-    </Figure>,
-  );
-  const results = await axe(container);
-  expect(results).toHaveNoViolations();
-});

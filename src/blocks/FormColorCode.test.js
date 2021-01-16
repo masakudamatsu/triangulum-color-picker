@@ -135,9 +135,3 @@ test('renders UI correctly', () => {
     </div>
   `);
 });
-
-test('is accessible', async () => {
-  const {container} = render(<FormColorCode {...mockProps} />);
-  const results = await axe(container);
-  expect(results).toHaveNoViolations();
-});
