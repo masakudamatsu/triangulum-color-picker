@@ -30,7 +30,7 @@ describe('renders UI correctly', () => {
       </div>
     `);
   });
-  test('Paragraph', () => {
+  test('H2', () => {
     const {container} = render(<FormNumberLarge.H2 {...mockProps.h2} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
