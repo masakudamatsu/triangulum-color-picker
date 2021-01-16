@@ -63,6 +63,33 @@ export const formNumberSmall = {
   },
 };
 
+export const formNumberLarge = {
+  capheight: {
+    h2: capheight.large,
+    paragraph: capheight.small,
+    output: capheight.number,
+  },
+  whitespace: {
+    padding: 40,
+    belowH2: 10,
+    aboveOutput: 20,
+    belowOutput: 20,
+  },
+  get height() {
+    return (
+      this.whitespace.paddingTop +
+      this.capheight.h2 +
+      this.whitespace.belowH2 +
+      this.capheight.paragraph +
+      this.whitespace.aboveOutput +
+      this.capheight.output +
+      this.whitespace.belowOutput +
+      this.capheight.paragraph +
+      this.whitespace.paddingBottom
+    );
+  },
+};
+
 export const boxSize = {
   formColorCode: responsiveBoxSize(303),
   formHex: responsiveBoxSize(formHex.diameter, formHex.diameter),

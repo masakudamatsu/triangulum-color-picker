@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import FormNumberLarge from 'src/blocks/FormNumberLarge';
 import Spacer from 'src/elements/Spacer';
 import Span from 'src/elements/Span';
+import {formNumberLarge} from 'src/utils/layout';
 
 const ChromaLuminanceForm = ({type, value}) => {
   const inputId = type === 'chroma' ? 'chroma' : 'luminance';
@@ -40,13 +41,16 @@ const ChromaLuminanceForm = ({type, value}) => {
       <FormNumberLarge.H2>
         {type === 'chroma' ? 'Chroma' : 'Luminance'}
       </FormNumberLarge.H2>
-      <Spacer height="10px" width="100%" />
+      <Spacer height={`${formNumberLarge.whitespace.belowH2}px`} width="100%" />
       <FormNumberLarge.Paragraph id={sublabelId}>
         {type === 'chroma'
           ? 'Pure hue share in the mix with gray'
           : 'Contrast ratio against pure black'}
       </FormNumberLarge.Paragraph>
-      <Spacer height="20px" width="100%" />
+      <Spacer
+        height={`${formNumberLarge.whitespace.aboveOutput}px`}
+        width="100%"
+      />
       <FormNumberLarge.InnerWrapper>
         <FormNumberLarge.Output
           aria-describedby={`${sublabelId} ${helperTextId}`}
@@ -58,7 +62,10 @@ const ChromaLuminanceForm = ({type, value}) => {
         </FormNumberLarge.Output>
         {unit}
       </FormNumberLarge.InnerWrapper>
-      <Spacer height="20px" width="100%" />
+      <Spacer
+        height={`${formNumberLarge.whitespace.belowOutput}px`}
+        width="100%"
+      />
       {helperText}
     </FormNumberLarge>
   );

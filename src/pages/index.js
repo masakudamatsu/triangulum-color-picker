@@ -9,7 +9,7 @@ import TextFieldForHex from 'src/components/TextFieldForHex';
 import TextFieldForHsl from 'src/components/TextFieldForHsl';
 import TextFieldForRgb from 'src/components/TextFieldForRgb';
 import TextInputForm from 'src/components/TextInputForm';
-import {boxSize} from 'src/utils/layout';
+import {boxSize, formNumberLarge} from 'src/utils/layout';
 import colorAnalyzer from 'src/utils/colorAnalyzer';
 import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
 import {regex} from 'src/utils/regex';
@@ -38,7 +38,7 @@ const RgbHslWrapper = styled.div`
 
 const ContrastRatioWrapper = styled.div`
   position: relative;
-  padding: 40px;
+  padding: ${formNumberLarge.whitespace.padding}px;
   ${boxSize.formNumberLargeWrapper}
 `;
 

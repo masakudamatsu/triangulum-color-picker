@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+import {formNumberLarge} from 'src/utils/layout';
 import {textcrop, typescale} from 'src/utils/typography';
 
 import H2 from 'src/elements/H2';
@@ -18,7 +19,7 @@ FormNumberLarge.H2 = H2;
 FormNumberLarge.InnerWrapper = styled.div`
   align-items: baseline; /* Bottom-align */
   display: flex;
-  height: 60px; /* Text crop */
+  height: ${formNumberLarge.capheight.output}px; /* Text crop */
   justify-content: flex-end; /* Left-align */
   position: relative; /* to position Unit */
 `;
