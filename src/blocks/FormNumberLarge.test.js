@@ -56,6 +56,69 @@ describe('renders UI correctly', () => {
       </div>
     `);
   });
+  test('SpacerAboveOutput', () => {
+    const {container} = render(<FormNumberLarge.SpacerAboveOutput />);
+    expect(container).toMatchInlineSnapshot(`
+      .c0 {
+        height: 20px;
+        width: 100%;
+      }
+
+      @media only screen and (min-width:728px) {
+        .c0 {
+          height: 24px;
+        }
+      }
+
+      <div>
+        <div
+          class="c0"
+        />
+      </div>
+    `);
+  });
+  test('SpacerBelowOutput', () => {
+    const {container} = render(<FormNumberLarge.SpacerBelowOutput />);
+    expect(container).toMatchInlineSnapshot(`
+      .c0 {
+        height: 20px;
+        width: 100%;
+      }
+
+      @media only screen and (min-width:728px) {
+        .c0 {
+          height: 24px;
+        }
+      }
+
+      <div>
+        <div
+          class="c0"
+        />
+      </div>
+    `);
+  });
+  test('SpacerBelowH2', () => {
+    const {container} = render(<FormNumberLarge.SpacerBelowH2 />);
+    expect(container).toMatchInlineSnapshot(`
+      .c0 {
+        height: 10px;
+        width: 100%;
+      }
+
+      @media only screen and (min-width:728px) {
+        .c0 {
+          height: 12px;
+        }
+      }
+
+      <div>
+        <div
+          class="c0"
+        />
+      </div>
+    `);
+  });
   test('InnerWrapper', () => {
     const {container} = render(
       <FormNumberLarge.InnerWrapper {...mockProps.innerwrapper} />,
@@ -76,6 +139,12 @@ describe('renders UI correctly', () => {
         -ms-flex-pack: end;
         justify-content: flex-end;
         position: relative;
+      }
+
+      @media only screen and (min-width:728px) {
+        .c0 {
+          height: 72px;
+        }
       }
 
       <div>
