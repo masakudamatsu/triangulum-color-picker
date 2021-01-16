@@ -38,5 +38,8 @@ FormHex.Label = styled(Label)`
 FormHex.propTypes = {
   lightMode: PropTypes.bool,
 };
+FormHex.Input.propTypes = {
+  backgroundColor: PropTypes.string,
+};
 
 export default FormHex;
