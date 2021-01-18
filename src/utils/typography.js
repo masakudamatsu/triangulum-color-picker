@@ -1,7 +1,13 @@
 import {css} from 'styled-components';
 
-// # of px for 1rem
-const oneRemPx = 16;
+// Convert px in number into rem in string
+function remify(px) {
+  const oneRemInPx = 16;
+  function stringify(number) {
+    return `${number.toFixed(4)}rem`;
+  }
+  return stringify(px / oneRemInPx);
+}
 
 // Font metrics
 const poppins = {
@@ -39,64 +45,54 @@ function capHeightToBe(px, fontMetrics) {
 export const typescale = {
   small: css`
     font-family: 'Poppins';
-    font-size: ${(
-      capHeightToBe(capheight.small, poppins.light) / oneRemPx
-    ).toFixed(4)}rem;
+    font-size: ${remify(capHeightToBe(capheight.small, poppins.light))};
     font-weight: 300;
     line-height: 1;
     @media only screen and (min-width: ${breakpoint.toString()}px) {
-      font-size: ${(
-        capHeightToBe(capheight.small * scale, poppins.light) / oneRemPx
-      ).toFixed(4)}rem;
+      font-size: ${remify(
+        capHeightToBe(capheight.small * scale, poppins.light),
+      )};
     }
   `,
   medium: css`
     font-family: 'Poppins';
-    font-size: ${(
-      capHeightToBe(capheight.medium, poppins.light) / oneRemPx
-    ).toFixed(4)}rem;
+    font-size: ${remify(capHeightToBe(capheight.medium, poppins.light))};
     font-weight: 300;
     @media only screen and (min-width: ${breakpoint.toString()}px) {
-      font-size: ${(
-        capHeightToBe(capheight.medium * scale, poppins.light) / oneRemPx
-      ).toFixed(4)}rem;
+      font-size: ${remify(
+        capHeightToBe(capheight.medium * scale, poppins.light),
+      )};
     }
   `,
   large: css`
     font-family: 'Poppins';
-    font-size: ${(
-      capHeightToBe(capheight.large, poppins.light) / oneRemPx
-    ).toFixed(4)}rem;
+    font-size: ${remify(capHeightToBe(capheight.large, poppins.light))};
     font-weight: 300;
     @media only screen and (min-width: ${breakpoint.toString()}px) {
-      font-size: ${(
-        capHeightToBe(capheight.large * scale, poppins.light) / oneRemPx
-      ).toFixed(4)}rem;
+      font-size: ${remify(
+        capHeightToBe(capheight.large * scale, poppins.light),
+      )};
     }
   `,
   number: css`
     font-family: 'Poppins';
-    font-size: ${(
-      capHeightToBe(capheight.number, poppins.thin) / oneRemPx
-    ).toFixed(4)}rem;
+    font-size: ${remify(capHeightToBe(capheight.number, poppins.thin))};
     font-weight: 100;
     line-height: 1;
     @media only screen and (min-width: ${breakpoint.toString()}px) {
-      font-size: ${(
-        capHeightToBe(capheight.number * scale, poppins.thin) / oneRemPx
-      ).toFixed(4)}rem;
+      font-size: ${remify(
+        capHeightToBe(capheight.number * scale, poppins.thin),
+      )};
     }
   `,
   percent: css`
     font-family: 'Poppins';
-    font-size: ${(
-      capHeightToBe(capheight.percent, poppins.thin) / oneRemPx
-    ).toFixed(4)}rem;
+    font-size: ${remify(capHeightToBe(capheight.percent, poppins.thin))};
     font-weight: 100;
     @media only screen and (min-width: ${breakpoint.toString()}px) {
-      font-size: ${(
-        capHeightToBe(capheight.percent * scale, poppins.thin) / oneRemPx
-      ).toFixed(4)}rem;
+      font-size: ${remify(
+        capHeightToBe(capheight.percent * scale, poppins.thin),
+      )};
     }
   `,
 };
