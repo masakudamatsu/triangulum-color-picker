@@ -1,6 +1,8 @@
 import {css} from 'styled-components';
 
-import {breakpoint, capheight, scale} from 'src/utils/typography';
+import {breakpoint, capheight, scale} from './typography';
+
+import {mediaQuery} from './breakpoints';
 
 export const input = {
   borderWidth: {
@@ -115,7 +117,7 @@ function responsiveBoxSize(baseWidth, baseHeight) {
   return css`
     height: ${baseHeight ? `${baseHeight.toFixed()}px` : `auto`};
     width: ${baseWidth.toFixed()}px;
-    @media only screen and (min-width: ${breakpoint.toFixed()}px) {
+    @media only screen and ${mediaQuery.font} {
       height: ${baseHeight ? `${(baseHeight * scale).toFixed()}px` : `auto`};
       width: ${(baseWidth * scale).toFixed()}px;
     }

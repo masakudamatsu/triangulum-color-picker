@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import {boxSize, input, formColorCode} from 'src/utils/layout';
 import {breakpoint, scale, textcrop, typescale} from 'src/utils/typography';
+import {mediaQuery} from 'src/utils/breakpoints';
 
 import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
@@ -42,7 +43,7 @@ FormColorCode.Input = styled(Input)`
     padding-top: ${padding.top - 1}px;
   }
 
-  @media only screen and (min-width: ${breakpoint.toString()}px) {
+  @media only screen and ${mediaQuery.font} {
     padding-bottom: ${padding.bottom * scale}px;
     padding-left: ${padding.left * scale}px;
     padding-top: ${padding.top * scale}px;
@@ -61,7 +62,7 @@ FormColorCode.Label = styled(Label)`
   position: absolute;
   top: ${formColorCode.whitespace.aboveLabel + input.borderWidth.inactive}px;
   left: ${formColorCode.whitespace.left + input.borderWidth.inactive}px;
-  @media only screen and (min-width: ${breakpoint.toFixed()}px) {
+  @media only screen and ${mediaQuery.font} {
     top: ${formColorCode.whitespace.aboveLabel * scale +
     input.borderWidth.inactive}px;
     left: ${formColorCode.whitespace.left * scale +

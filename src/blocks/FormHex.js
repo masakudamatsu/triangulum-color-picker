@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import {boxSize, formHex} from 'src/utils/layout';
-import {color} from 'src/utils/color';
 import {breakpoint, scale, textcrop, typescale} from 'src/utils/typography';
+import {color} from 'src/utils/color';
+import {mediaQuery} from 'src/utils/breakpoints';
 
 import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
@@ -30,7 +31,7 @@ FormHex.Label = styled(Label)`
   align-self: center;
   position: absolute;
   top: ${formHex.whitespace.aboveLabel}px;
-  @media only screen and (min-width: ${breakpoint.toString()}px) {
+  @media only screen and ${mediaQuery.font} {
     top: ${formHex.whitespace.aboveLabel * scale}px;
   }
 `;

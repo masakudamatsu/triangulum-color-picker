@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import {boxSize, formNumberSmall} from 'src/utils/layout';
 import {breakpoint, scale, textcrop, typescale} from 'src/utils/typography';
+import {mediaQuery} from 'src/utils/breakpoints';
 
 import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
@@ -36,7 +37,7 @@ FormNumberSmall.Input = styled(Input)`
   padding-top: ${padding.top}px;
   text-align: center;
   width: 100%;
-  @media only screen and (min-width: ${breakpoint.toString()}px) {
+  @media only screen and ${mediaQuery.font} {
     padding-top: ${padding.top * scale}px;
   }
 `;
@@ -46,7 +47,7 @@ FormNumberSmall.Label = styled(Label)`
   align-self: center;
   position: absolute;
   top: ${formNumberSmall.whitespace.aboveLabel}px;
-  @media only screen and (min-width: ${breakpoint.toString()}px) {
+  @media only screen and ${mediaQuery.font} {
     top: ${formNumberSmall.whitespace.aboveLabel * scale}px;
   }
 `;
