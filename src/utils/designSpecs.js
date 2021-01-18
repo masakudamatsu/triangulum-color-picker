@@ -1,5 +1,6 @@
 // Scale factor to enlarge fonts beyond the tablet screen width of 728px
 export const scale = 1.2;
+export const triangleWidth = 303;
 
 export const capheight = {
   small: 10,
@@ -20,6 +21,7 @@ export const formColorCode = {
     belowInputValue: 20,
     left: 10,
   },
+  width: triangleWidth,
 };
 
 export const formHex = {
@@ -68,6 +70,9 @@ export const formNumberLarge = {
       this.whitespace.paddingBottom
     );
   },
+  get width() {
+    return triangleWidth + this.whitespace.padding;
+  },
 };
 
 export const formNumberSmall = {
@@ -98,4 +103,8 @@ export const input = {
   },
 };
 
-export const triangleWidth = 303;
+export const page = {
+  whitespace: {
+    betweenComponents: 20,
+  },
+};

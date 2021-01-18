@@ -2,6 +2,7 @@ import {css} from 'styled-components';
 
 import {
   capheight,
+  formColorCode,
   formHex,
   formNumberLarge,
   formNumberSmall,
@@ -12,15 +13,13 @@ import {
 import {mediaQuery} from './breakpoints';
 
 export const boxSize = {
-  formColorCode: responsiveBoxSize(triangleWidth),
+  formColorCode: responsiveBoxSize(formColorCode.width),
   formHex: responsiveBoxSize(formHex.diameter, formHex.diameter),
   formNumberSmall: responsiveBoxSize(
     formNumberSmall.diameter,
     formNumberSmall.diameter,
   ),
-  formNumberLargeWrapper: responsiveBoxSize(
-    triangleWidth + formNumberLarge.whitespace.padding,
-  ), // 343
+  formNumberLargeWrapper: responsiveBoxSize(formNumberLarge.width), // 343
   formWrapper: responsiveBoxSize(triangleWidth),
   rgbHslWrapper: responsiveBoxSize(triangleWidth - formHex.diameter), // 194
 };
