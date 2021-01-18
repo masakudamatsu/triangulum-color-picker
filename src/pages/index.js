@@ -9,8 +9,9 @@ import TextFieldForHex from 'src/components/TextFieldForHex';
 import TextFieldForHsl from 'src/components/TextFieldForHsl';
 import TextFieldForRgb from 'src/components/TextFieldForRgb';
 import TextInputForm from 'src/components/TextInputForm';
-import {boxSize, formNumberLarge} from 'src/utils/layout';
+import {boxSize} from 'src/utils/layout';
 import colorAnalyzer from 'src/utils/colorAnalyzer';
+import {formNumberLarge} from 'src/utils/designSpecs';
 import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
 import {regex} from 'src/utils/regex';
 import useWindowWidth from 'src/utils/useWindowWidth';

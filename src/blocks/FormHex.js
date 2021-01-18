@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import {boxSize, formHex} from 'src/utils/layout';
-import {breakpoint, scale, textcrop, typescale} from 'src/utils/typography';
+import {boxSize} from 'src/utils/layout';
+import {formHex, scale} from 'src/utils/designSpecs';
+import {textcrop, typescale} from 'src/utils/typography';
 import {color} from 'src/utils/color';
 import {mediaQuery} from 'src/utils/breakpoints';
 

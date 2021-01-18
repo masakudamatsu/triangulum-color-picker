@@ -1,5 +1,6 @@
 import {css} from 'styled-components';
 
+import {capheight, scale} from './designSpecs';
 import {mediaQuery} from './breakpoints';
 
 // Convert px in number into rem in string
@@ -24,18 +25,6 @@ const poppins = {
     capHeight: 702,
   },
 }; // Measured with https://opentype.js.org/font-inspector.html
-
-// Breakpoint for font-size (following Medium.com)
-export const breakpoint = 728;
-export const scale = 1.2;
-
-export const capheight = {
-  small: 10,
-  medium: 15,
-  large: 20,
-  number: 60,
-  percent: 20,
-};
 
 function capHeightToBe(px, fontMetrics) {
   const capHeightToFontSize = capHeight =>

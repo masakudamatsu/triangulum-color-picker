@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import {breakpoint, scale, textcrop, typescale} from 'src/utils/typography';
-import {formNumberLarge} from 'src/utils/layout';
+import {formNumberLarge, scale} from 'src/utils/designSpecs';
+import {textcrop, typescale} from 'src/utils/typography';
 import {mediaQuery} from 'src/utils/breakpoints';
 
 import H2 from 'src/elements/H2';
