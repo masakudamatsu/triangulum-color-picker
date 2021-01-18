@@ -30,7 +30,19 @@ test('renders UI correctly', () => {
       -ms-flex-pack: center;
       justify-content: center;
       position: relative;
-      width: 100%;
+      width: 431px;
+    }
+
+    @media only screen and (min-width:535px) {
+      .c0 {
+        width: 717px;
+      }
+    }
+
+    @media only screen and (min-width:1612px) and (min-height:797px) {
+      .c0 {
+        width: 717px;
+      }
     }
 
     <div>

@@ -11,18 +11,75 @@ import TextFieldForRgb from 'src/components/TextFieldForRgb';
 import TextInputForm from 'src/components/TextInputForm';
 import {boxSize} from 'src/utils/layout';
 import colorAnalyzer from 'src/utils/colorAnalyzer';
-import {formNumberLarge} from 'src/utils/designSpecs';
+import {canvas, formNumberLarge, page} from 'src/utils/designSpecs';
+import {mediaQuery} from 'src/utils/breakpoints';
 import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
 import {regex} from 'src/utils/regex';
 import useWindowWidth from 'src/utils/useWindowWidth';
+
+const Main = styled.main`
+  @media only screen and ${mediaQuery.threeColumns} {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+  }
+`;
 
 const FlexContainer = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
   width: 100%;
+  @media only screen and ${mediaQuery.threeColumns} {
+    flex-direction: row;
+    height: ${canvas.width.large}px;
+    justify-content: center;
+  }
 `;
 
+const Column = styled.div`
+  @media only screen and ${mediaQuery.threeColumns} {
+    align-self: ${props => (props.bottom ? 'flex-end' : 'flex-start')};
+  }
+`;
+
+const TopMargin = styled.div`
+  display: none;
+  @media only screen and ${mediaQuery.threeColumns} {
+    display: block;
+    height: ${page.whitespace.topMargin}px;
+    width: 100%;
+  }
+`;
+
+const SideMargin = styled.div`
+  display: none;
+  @media only screen and ${mediaQuery.threeColumns} {
+    display: block;
+    height: 100vh;
+    width: ${page.whitespace.sideMargin}px;
+  }
+`;
+
+const BottomMargin = styled.div`
+  display: none;
+  @media only screen and ${mediaQuery.threeColumns} {
+    display: block;
+    height: ${page.whitespace.bottomMargin}px;
+    width: 100%;
+  }
+`;
+
+const SpacerHorizontal = styled.div`
+  display: none;
+  @media only screen and ${mediaQuery.threeColumns} {
+    display: block;
+    height: 100vh;
+    width: ${page.whitespace.betweenComponents}px;
+  }
+`;
 const FormWrapper = styled.div`
   align-items: center;
   display: flex;
@@ -303,65 +360,77 @@ function HomePage() {
 
   // Prop values for TextFieldForRgb
   return (
-    <FlexContainer>
-      <TextInputForm
-        inputId="colorCode"
-        labelText="Enter CSS color code"
-        handleChange={handleChangeCssCode}
-        userColor={userColor.cssCode}
-      />
-      <Spacer height="10px" width="100%" />
-      <FormWrapper>
-        <TextFieldForHex
-          backgroundColor={userColor.validCode}
-          handleChange={handleChangeHex}
-          lightMode={lightMode}
-          value={userColor.hex}
-        />
-        <RgbHslWrapper>
-          <Cross position="topLeft" />
-          <TextFieldForRgb
-            handleChange={{
-              r: handleChangeR,
-              g: handleChangeG,
-              b: handleChangeB,
-            }}
-            r={userColor.r}
-            g={userColor.g}
-            b={userColor.b}
+    <Main>
+      <TopMargin />
+      <FlexContainer>
+        <SideMargin />
+        <Column>
+          <TextInputForm
+            inputId="colorCode"
+            labelText="Enter CSS color code"
+            handleChange={handleChangeCssCode}
+            userColor={userColor.cssCode}
           />
           <Spacer height="10px" width="100%" />
-          <TextFieldForHsl
-            handleChange={{
-              h: handleChangeH,
-              s: handleChangeS,
-              l: handleChangeL,
-            }}
-            h={userColor.h}
-            s={userColor.s}
-            l={userColor.l}
-          />
-          <Cross position="bottomRight" />
-        </RgbHslWrapper>
-      </FormWrapper>
-      <CanvasWrapper
-        pixelSize={pixelSize}
-        luminance={luminance}
-        pureHue={pureHue}
-        chroma={chroma}
-        updateUserColor={updateUserColor}
-      />
-      <ContrastRatioWrapper>
-        <Cross position="topLeft" large />
-        <ChromaLuminanceForm type="chroma" value={chroma} />
-        <Cross position="bottomRight" large />
-      </ContrastRatioWrapper>
-      <ContrastRatioWrapper>
-        <Cross position="topLeft" large />
-        <ChromaLuminanceForm type="luminance" value={luminance} />
-        <Cross position="bottomRight" large />
-      </ContrastRatioWrapper>
-    </FlexContainer>
+          <FormWrapper>
+            <TextFieldForHex
+              backgroundColor={userColor.validCode}
+              handleChange={handleChangeHex}
+              lightMode={lightMode}
+              value={userColor.hex}
+            />
+            <RgbHslWrapper>
+              <Cross position="topLeft" />
+              <TextFieldForRgb
+                handleChange={{
+                  r: handleChangeR,
+                  g: handleChangeG,
+                  b: handleChangeB,
+                }}
+                r={userColor.r}
+                g={userColor.g}
+                b={userColor.b}
+              />
+              <Spacer height="10px" width="100%" />
+              <TextFieldForHsl
+                handleChange={{
+                  h: handleChangeH,
+                  s: handleChangeS,
+                  l: handleChangeL,
+                }}
+                h={userColor.h}
+                s={userColor.s}
+                l={userColor.l}
+              />
+              <Cross position="bottomRight" />
+            </RgbHslWrapper>
+          </FormWrapper>
+        </Column>
+        <SpacerHorizontal />
+        <CanvasWrapper
+          pixelSize={pixelSize}
+          luminance={luminance}
+          pureHue={pureHue}
+          chroma={chroma}
+          updateUserColor={updateUserColor}
+        />
+        <SpacerHorizontal />
+        <Column bottom>
+          <ContrastRatioWrapper>
+            <Cross position="topLeft" large />
+            <ChromaLuminanceForm type="chroma" value={chroma} />
+            <Cross position="bottomRight" large />
+          </ContrastRatioWrapper>
+          <ContrastRatioWrapper>
+            <Cross position="topLeft" large />
+            <ChromaLuminanceForm type="luminance" value={luminance} />
+            <Cross position="bottomRight" large />
+          </ContrastRatioWrapper>
+        </Column>
+        <SideMargin />
+      </FlexContainer>
+      <BottomMargin />
+    </Main>
   );
 }
 
