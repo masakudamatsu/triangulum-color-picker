@@ -119,11 +119,11 @@ const userColorReducer = (state, action) => {
 function HomePage() {
   const windowWidth = useWindowWidth();
   let pixelSize;
-  if (windowWidth < 535) {
-    pixelSize = 3;
-  } else {
-    pixelSize = 5;
-  } // see https://stackoverflow.com/questions/55151041/window-is-not-defined-in-next-js-react-app for why this style of case handling is best for performance
+  // if (windowWidth < 535) {
+  pixelSize = 3;
+  // } else {
+  //   pixelSize = 5;
+  // } // see https://stackoverflow.com/questions/55151041/window-is-not-defined-in-next-js-react-app for why this style of case handling is best for performance
   console.log(`The pixel size is set to be ${pixelSize}`);
 
   const [userColor, setUserColor] = React.useReducer(userColorReducer, {

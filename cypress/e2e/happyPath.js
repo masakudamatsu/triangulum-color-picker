@@ -187,7 +187,7 @@ describe('Color picker functions:', () => {
     cy.visit('/');
     cy.findByLabelText(/color code/i).type(twitterBlue.rgb);
 
-    cy.findByTestId('reticle').click(330, 333);
+    cy.findByTestId('reticle').click(198, 200);
 
     cy.findByLabelText(/color code/i).should(
       'have.value',
