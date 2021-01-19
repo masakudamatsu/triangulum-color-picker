@@ -19,12 +19,17 @@ test('renders UI correctly', () => {
   expect(container).toMatchInlineSnapshot(`
     .c0 {
       font-family: 'Poppins';
-      font-size: 1.7857rem;
+      font-size: 1.7806rem;
       font-weight: 100;
-      margin-bottom: -0.771em;
-      -webkit-transform: translateX(-0.065em) translateY(-0.37em);
-      -ms-transform: translateX(-0.065em) translateY(-0.37em);
-      transform: translateX(-0.065em) translateY(-0.37em);
+      -webkit-transform: translateY(0.46em);
+      -ms-transform: translateY(0.46em);
+      transform: translateY(0.46em);
+    }
+
+    @media only screen and (min-width:728px) {
+      .c0 {
+        font-size: 2.1368rem;
+      }
     }
 
     <div>

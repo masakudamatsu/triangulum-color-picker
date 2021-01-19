@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import {inputText} from 'src/utils/layout';
+import {boxSize} from 'src/utils/layout';
+import {formHex, scale} from 'src/utils/designSpecs';
+import {textcrop, typescale} from 'src/utils/typography';
 import {color} from 'src/utils/color';
+import {mediaQuery} from 'src/utils/breakpoints';
 
 import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
@@ -11,25 +14,34 @@ const FormHex = styled.form`
   color: ${props => (props.lightMode ? color.black : color.white)};
   display: flex;
   flex-direction: column;
-  height: 110px;
-  min-height: 110px;
-  min-width: 110px; /* Otherwise, the input element will become an ellipse as the hex code occupies 110px width */
   position: relative;
-  width: 110px;
+  ${boxSize.formHex}
 `;
 
-const FormHexLabel = styled(Label)`
+FormHex.Input = styled(Input)`
+  ${typescale.medium}
+  background-color: ${props => props.backgroundColor};
+  border-radius: 100%;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+`;
+
+FormHex.Label = styled(Label)`
+  ${textcrop.smallCenterAligned}
   align-self: center;
   position: absolute;
-  top: 15px; /* to have 23px between label and input value, half of 46px space below input value */
-  transform: translateX(0) translateY(-0.1375em);
+  top: ${formHex.whitespace.aboveLabel}px;
+  @media only screen and ${mediaQuery.font} {
+    top: ${formHex.whitespace.aboveLabel * scale}px;
+  }
 `;
-
-FormHex.Label = FormHexLabel;
-FormHex.Input = Input;
 
 FormHex.propTypes = {
   lightMode: PropTypes.bool,
+};
+FormHex.Input.propTypes = {
+  backgroundColor: PropTypes.string,
 };
 
 export default FormHex;

@@ -4,42 +4,28 @@ import styled from 'styled-components';
 import CanvasWrapper from 'src/components/CanvasWrapper';
 import ChromaLuminanceForm from 'src/components/ChromaLuminanceForm';
 import Cross from 'src/components/Cross';
-import Spacer from 'src/elements/Spacer';
+import Main from 'src/blocks/Main';
 import TextFieldForHex from 'src/components/TextFieldForHex';
 import TextFieldForHsl from 'src/components/TextFieldForHsl';
 import TextFieldForRgb from 'src/components/TextFieldForRgb';
 import TextInputForm from 'src/components/TextInputForm';
+import WrapperColorData from 'src/blocks/WrapperColorData';
+import WrapperForms from 'src/blocks/WrapperForms';
+
+import {boxSize} from 'src/utils/layout';
 import colorAnalyzer from 'src/utils/colorAnalyzer';
+import {
+  canvas,
+  formNumberLarge,
+  formNumberSmall,
+  page,
+  rgbHslWrapper,
+  scale,
+} from 'src/utils/designSpecs';
+import {mediaQuery} from 'src/utils/breakpoints';
 import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
 import {regex} from 'src/utils/regex';
 import useWindowWidth from 'src/utils/useWindowWidth';
-
-const FlexContainer = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-`;
-
-const FormWrapper = styled.div`
-  align-items: center;
-  display: flex;
-  width: 310px;
-`;
-
-const RgbHslWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  padding: 20px;
-  width: 200px;
-`;
-
-const ContrastRatioWrapper = styled.div`
-  position: relative;
-  padding: 40px;
-  width: 310px;
-`;
 
 const userColorReducer = (state, action) => {
   return {...state, ...action};
@@ -48,11 +34,11 @@ const userColorReducer = (state, action) => {
 function HomePage() {
   const windowWidth = useWindowWidth();
   let pixelSize;
-  if (windowWidth < 535) {
-    pixelSize = 3;
-  } else {
-    pixelSize = 5;
-  } // see https://stackoverflow.com/questions/55151041/window-is-not-defined-in-next-js-react-app for why this style of case handling is best for performance
+  // if (windowWidth < 535) {
+  pixelSize = 3;
+  // } else {
+  //   pixelSize = 5;
+  // } // see https://stackoverflow.com/questions/55151041/window-is-not-defined-in-next-js-react-app for why this style of case handling is best for performance
   console.log(`The pixel size is set to be ${pixelSize}`);
 
   const [userColor, setUserColor] = React.useReducer(userColorReducer, {
@@ -301,65 +287,77 @@ function HomePage() {
 
   // Prop values for TextFieldForRgb
   return (
-    <FlexContainer>
-      <TextInputForm
-        inputId="colorCode"
-        labelText="Enter CSS color code"
-        handleChange={handleChangeCssCode}
-        userColor={userColor.cssCode}
-      />
-      <Spacer height="10px" width="100%" />
-      <FormWrapper>
-        <TextFieldForHex
-          backgroundColor={userColor.validCode}
-          handleChange={handleChangeHex}
-          lightMode={lightMode}
-          value={userColor.hex}
+    <Main>
+      <Main.MarginTop />
+      <Main.FlexContainer>
+        <Main.MarginSide />
+        <WrapperForms>
+          <TextInputForm
+            inputId="colorCode"
+            labelText="Enter CSS color code"
+            handleChange={handleChangeCssCode}
+            userColor={userColor.cssCode}
+          />
+          <WrapperForms.MarginBetweenColorCodeAndHexRgbHsl />
+          <WrapperForms.WrapperHexRgbHsl>
+            <TextFieldForHex
+              backgroundColor={userColor.validCode}
+              handleChange={handleChangeHex}
+              lightMode={lightMode}
+              value={userColor.hex}
+            />
+            <WrapperForms.WrapperRgbHsl>
+              <Cross position="topLeft" />
+              <TextFieldForRgb
+                handleChange={{
+                  r: handleChangeR,
+                  g: handleChangeG,
+                  b: handleChangeB,
+                }}
+                r={userColor.r}
+                g={userColor.g}
+                b={userColor.b}
+              />
+              <WrapperForms.MarginBetweenRgbAndHsl />
+              <TextFieldForHsl
+                handleChange={{
+                  h: handleChangeH,
+                  s: handleChangeS,
+                  l: handleChangeL,
+                }}
+                h={userColor.h}
+                s={userColor.s}
+                l={userColor.l}
+              />
+              <Cross position="bottomRight" />
+            </WrapperForms.WrapperRgbHsl>
+          </WrapperForms.WrapperHexRgbHsl>
+        </WrapperForms>
+        <Main.MarginBetweenColumns />
+        <CanvasWrapper
+          pixelSize={pixelSize}
+          luminance={luminance}
+          pureHue={pureHue}
+          chroma={chroma}
+          updateUserColor={updateUserColor}
         />
-        <RgbHslWrapper>
-          <Cross position="topLeft" />
-          <TextFieldForRgb
-            handleChange={{
-              r: handleChangeR,
-              g: handleChangeG,
-              b: handleChangeB,
-            }}
-            r={userColor.r}
-            g={userColor.g}
-            b={userColor.b}
-          />
-          <Spacer height="10px" width="100%" />
-          <TextFieldForHsl
-            handleChange={{
-              h: handleChangeH,
-              s: handleChangeS,
-              l: handleChangeL,
-            }}
-            h={userColor.h}
-            s={userColor.s}
-            l={userColor.l}
-          />
-          <Cross position="bottomRight" />
-        </RgbHslWrapper>
-      </FormWrapper>
-      <CanvasWrapper
-        pixelSize={pixelSize}
-        luminance={luminance}
-        pureHue={pureHue}
-        chroma={chroma}
-        updateUserColor={updateUserColor}
-      />
-      <ContrastRatioWrapper>
-        <Cross position="topLeft" large />
-        <ChromaLuminanceForm type="chroma" value={chroma} />
-        <Cross position="bottomRight" large />
-      </ContrastRatioWrapper>
-      <ContrastRatioWrapper>
-        <Cross position="topLeft" large />
-        <ChromaLuminanceForm type="luminance" value={luminance} />
-        <Cross position="bottomRight" large />
-      </ContrastRatioWrapper>
-    </FlexContainer>
+        <Main.MarginBetweenColumns />
+        <WrapperColorData>
+          <WrapperColorData.WrapperSection>
+            <Cross position="topLeft" large />
+            <ChromaLuminanceForm type="chroma" value={chroma} />
+            <Cross position="bottomRight" large />
+          </WrapperColorData.WrapperSection>
+          <WrapperColorData.WrapperSection>
+            <Cross position="topLeft" large />
+            <ChromaLuminanceForm type="luminance" value={luminance} />
+            <Cross position="bottomRight" large />
+          </WrapperColorData.WrapperSection>
+        </WrapperColorData>
+        <Main.MarginSide />
+      </Main.FlexContainer>
+      <Main.MarginBottom />
+    </Main>
   );
 }
 

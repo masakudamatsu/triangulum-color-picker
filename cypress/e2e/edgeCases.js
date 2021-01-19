@@ -41,7 +41,7 @@ const [twitterBlue, mcdonaldsRed] = [
 
 describe('Color picker functions:', () => {
   it('Clicking the neutral color does not change the hue of the color triangle', () => {
-    const {canvasWidth, squareTopLeftX, squareTopLeftY} = getCanvasMetrics(5);
+    const {canvasWidth, squareTopLeftX, squareTopLeftY} = getCanvasMetrics(3);
     cy.viewport(canvasWidth, canvasWidth);
 
     cy.visit('/');

@@ -30,7 +30,23 @@ test('renders UI correctly', () => {
       -ms-flex-pack: center;
       justify-content: center;
       position: relative;
-      width: 100%;
+      width: 431px;
+    }
+
+    @media only screen and (min-width:943px) {
+      .c0 {
+        -webkit-order: 1;
+        -ms-flex-order: 1;
+        order: 1;
+      }
+    }
+
+    @media only screen and (min-width:1326px) {
+      .c0 {
+        -webkit-order: 0;
+        -ms-flex-order: 0;
+        order: 0;
+      }
     }
 
     <div>
@@ -46,15 +62,4 @@ test('renders UI correctly', () => {
       </figure>
     </div>
   `);
-});
-
-test('is accessible', async () => {
-  const {container} = render(
-    <Figure {...mockProps}>
-      <Figure.Canvas />
-      <Figure.Canvas overlay />
-    </Figure>,
-  );
-  const results = await axe(container);
-  expect(results).toHaveNoViolations();
 });

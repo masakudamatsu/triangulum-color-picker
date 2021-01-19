@@ -9,7 +9,6 @@ const TextInputForm = ({inputId, labelText, handleChange, userColor}) => {
     <FormColorCode>
       <FormColorCode.Label htmlFor={inputId}>{labelText}</FormColorCode.Label>
       <FormColorCode.Input
-        colorCode
         id={inputId}
         onChange={handleChange}
         value={userColor}
