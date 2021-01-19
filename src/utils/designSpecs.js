@@ -21,6 +21,12 @@ export const capheight = {
   percent: 20,
 };
 
+export const cross = {
+  width: {
+    default: 30,
+    large: 60,
+  },
+};
 export const formColorCode = {
   capheight: {
     label: capheight.small,
@@ -63,7 +69,7 @@ export const formNumberLarge = {
     output: capheight.number,
   },
   whitespace: {
-    padding: 40,
+    padding: cross.width.large * (2 / 3),
     belowH2: 10,
     aboveOutput: 20,
     belowOutput: 20,
@@ -95,6 +101,7 @@ export const formNumberSmall = {
     aboveLabel: 5,
     aboveInputValue: 6,
     belowInputValue: 12,
+    wrapperPadding: cross.width.default * (2 / 3),
   },
   get diameter() {
     return (

@@ -11,7 +11,13 @@ import TextFieldForRgb from 'src/components/TextFieldForRgb';
 import TextInputForm from 'src/components/TextInputForm';
 import {boxSize} from 'src/utils/layout';
 import colorAnalyzer from 'src/utils/colorAnalyzer';
-import {canvas, formNumberLarge, page} from 'src/utils/designSpecs';
+import {
+  canvas,
+  formNumberLarge,
+  formNumberSmall,
+  page,
+  scale,
+} from 'src/utils/designSpecs';
 import {mediaQuery} from 'src/utils/breakpoints';
 import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
 import {regex} from 'src/utils/regex';
@@ -90,14 +96,20 @@ const RgbHslWrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: 20px;
+  padding: ${formNumberSmall.whitespace.wrapperPadding}px;
   ${boxSize.rgbHslWrapper}
+  @media only screen and ${mediaQuery.font} {
+    padding: ${formNumberSmall.whitespace.wrapperPadding * scale}px;
+  }
 `;
 
 const ContrastRatioWrapper = styled.div`
   position: relative;
   padding: ${formNumberLarge.whitespace.padding}px;
   ${boxSize.formNumberLargeWrapper}
+  @media only screen and ${mediaQuery.font} {
+    padding: ${formNumberLarge.whitespace.padding * scale}px;
+  }
 `;
 
 const userColorReducer = (state, action) => {

@@ -16,6 +16,12 @@ describe('renders UI correctly', () => {
         left: 0;
       }
 
+      @media only screen and (min-width:728px) {
+        .c0 {
+          width: 36px;
+        }
+      }
+
       <div>
         <svg
           class="c0"
@@ -31,6 +37,12 @@ describe('renders UI correctly', () => {
         width: 60px;
         top: 0;
         left: 0;
+      }
+
+      @media only screen and (min-width:728px) {
+        .c0 {
+          width: 72px;
+        }
       }
 
       <div>
@@ -50,6 +62,12 @@ describe('renders UI correctly', () => {
         right: 0;
       }
 
+      @media only screen and (min-width:728px) {
+        .c0 {
+          width: 36px;
+        }
+      }
+
       <div>
         <svg
           class="c0"
@@ -65,6 +83,12 @@ describe('renders UI correctly', () => {
         width: 60px;
         bottom: 0;
         right: 0;
+      }
+
+      @media only screen and (min-width:728px) {
+        .c0 {
+          width: 72px;
+        }
       }
 
       <div>
