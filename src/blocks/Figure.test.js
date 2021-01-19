@@ -41,7 +41,7 @@ test('renders UI correctly', () => {
       }
     }
 
-    @media only screen and (min-width:1326px) and (min-height:511px) {
+    @media only screen and (min-width:1326px) {
       .c0 {
         -webkit-order: 0;
         -ms-flex-order: 0;

@@ -31,7 +31,13 @@ describe('renders UI correctly', () => {
         }
       }
 
-      @media only screen and (min-width:1326px) and (min-height:511px) {
+      @media only screen and (min-width:943px) and (min-height:916px) {
+        .c0 {
+          height: 100vh;
+        }
+      }
+
+      @media only screen and (min-width:1326px) {
         .c0 {
           -webkit-align-items: center;
           -webkit-box-align: center;
@@ -44,11 +50,16 @@ describe('renders UI correctly', () => {
           -webkit-flex-direction: column;
           -ms-flex-direction: column;
           flex-direction: column;
-          height: 100vh;
           -webkit-box-pack: center;
           -webkit-justify-content: center;
           -ms-flex-pack: center;
           justify-content: center;
+        }
+      }
+
+      @media only screen and (min-width:1326px) and (min-height:632px) {
+        .c0 {
+          height: 100vh;
         }
       }
 
@@ -62,17 +73,13 @@ describe('renders UI correctly', () => {
   test('Column', () => {
     const {container} = render(<Main.Column {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
-      @media only screen and (min-width:1326px) and (min-height:511px) {
-        .c0 {
-          -webkit-align-self: flex-start;
-          -ms-flex-item-align: start;
-          align-self: flex-start;
-        }
+      @media only screen and (min-width:1326px) {
+
       }
 
       <div>
         <div
-          class="c0"
+          class=""
         />
       </div>
     `);
@@ -105,19 +112,24 @@ describe('renders UI correctly', () => {
         }
       }
 
-      @media only screen and (min-width:1326px) and (min-height:511px) {
+      @media only screen and (min-width:1326px) {
         .c0 {
+          -webkit-align-items: flex-start;
+          -webkit-box-align: flex-start;
+          -ms-flex-align: flex-start;
+          align-items: flex-start;
           -webkit-flex-direction: row;
           -ms-flex-direction: row;
           flex-direction: row;
           -webkit-flex-wrap: nowrap;
           -ms-flex-wrap: nowrap;
           flex-wrap: nowrap;
-          height: 717px;
+          height: 552px;
           -webkit-box-pack: center;
           -webkit-justify-content: center;
           -ms-flex-pack: center;
           justify-content: center;
+          width: auto;
         }
       }
 
@@ -135,7 +147,7 @@ describe('renders UI correctly', () => {
         display: none;
       }
 
-      @media only screen and (min-width:1326px) and (min-height:511px) {
+      @media only screen and (min-width:1326px) {
         .c0 {
           display: block;
           height: 100vh;
@@ -165,7 +177,7 @@ describe('renders UI correctly', () => {
         }
       }
 
-      @media only screen and (min-width:1326px) and (min-height:511px) {
+      @media only screen and (min-width:1326px) {
         .c0 {
           display: block;
           height: 40px;
@@ -187,7 +199,7 @@ describe('renders UI correctly', () => {
         display: none;
       }
 
-      @media only screen and (min-width:1326px) and (min-height:511px) {
+      @media only screen and (min-width:1326px) {
         .c0 {
           display: block;
           height: 100vh;
@@ -217,7 +229,7 @@ describe('renders UI correctly', () => {
         }
       }
 
-      @media only screen and (min-width:1326px) and (min-height:511px) {
+      @media only screen and (min-width:1326px) {
         .c0 {
           display: block;
           height: 40px;

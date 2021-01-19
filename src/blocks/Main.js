@@ -2,7 +2,13 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import {mediaQuery, twoColumns} from 'src/utils/breakpoints';
-import {canvas, flexbox, page} from 'src/utils/designSpecs';
+import {
+  canvas,
+  flexbox,
+  formNumberLarge,
+  page,
+  scale,
+} from 'src/utils/designSpecs';
 
 const Main = styled.main`
   @media only screen and ${mediaQuery.twoColumns} {
@@ -11,18 +17,22 @@ const Main = styled.main`
     flex-direction: column;
     justify-content: center;
   }
+  @media only screen and ${mediaQuery.twoColumnsTall} {
+    height: 100vh;
+  }
   @media only screen and ${mediaQuery.threeColumns} {
     align-items: center;
     display: flex;
     flex-direction: column;
-    height: 100vh;
     justify-content: center;
+  }
+  @media only screen and ${mediaQuery.threeColumnsTall} {
+    height: 100vh;
   }
 `;
 
 Main.Column = styled.div`
   @media only screen and ${mediaQuery.threeColumns} {
-    align-self: ${props => (props.bottom ? 'flex-end' : 'flex-start')};
   }
 `;
 
@@ -37,10 +47,12 @@ Main.FlexContainer = styled.div`
     width: ${twoColumns.minWidth.toFixed()}px;
   }
   @media only screen and ${mediaQuery.threeColumns} {
+    align-items: flex-start;
     flex-direction: row;
     flex-wrap: nowrap;
-    height: ${canvas.width.large}px;
+    height: ${(formNumberLarge.height * scale * 2).toFixed()}px;
     justify-content: center;
+    width: auto;
   }
 `;
 
