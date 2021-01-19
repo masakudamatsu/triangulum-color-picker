@@ -73,13 +73,9 @@ describe('renders UI correctly', () => {
   test('Column', () => {
     const {container} = render(<Main.Column {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
-      @media only screen and (min-width:1326px) {
-
-      }
-
       <div>
         <div
-          class=""
+          class="Main__Column-sc-126eniy-1"
         />
       </div>
     `);

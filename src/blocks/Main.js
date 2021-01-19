@@ -31,10 +31,7 @@ const Main = styled.main`
   }
 `;
 
-Main.Column = styled.div`
-  @media only screen and ${mediaQuery.threeColumns} {
-  }
-`;
+Main.Column = styled.div``;
 
 Main.FlexContainer = styled.div`
   align-items: center;
