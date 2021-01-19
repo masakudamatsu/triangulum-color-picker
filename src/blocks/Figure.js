@@ -11,11 +11,11 @@ const Figure = styled.figure`
   justify-content: center;
   position: relative;
   width: ${canvas.width.small}px;
-  @media only screen and ${mediaQuery.canvas} {
-    width: ${canvas.width.large}px;
+  @media only screen and ${mediaQuery.twoColumns} {
+    order: 1;
   }
   @media only screen and ${mediaQuery.threeColumns} {
-    width: ${canvas.width.large}px;
+    order: 0;
   }
 `;
 

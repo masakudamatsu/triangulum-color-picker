@@ -8,7 +8,6 @@ export const canvas = {
     large: canvasLarge.canvasWidth,
   },
 };
-console.log(canvas);
 // Scale factor to enlarge fonts beyond the tablet screen width of 728px
 export const scale = 1.2;
 export const triangleWidth = 303;
@@ -27,6 +26,13 @@ export const cross = {
     large: 60,
   },
 };
+export const input = {
+  borderWidth: {
+    active: 2,
+    inactive: 1,
+  },
+};
+
 export const formColorCode = {
   capheight: {
     label: capheight.small,
@@ -37,6 +43,16 @@ export const formColorCode = {
     aboveInputValue: 20,
     belowInputValue: 20,
     left: 10,
+  },
+  get height() {
+    return (
+      this.whitespace.aboveLabel +
+      this.capheight.label +
+      this.whitespace.aboveInputValue +
+      this.capheight.inputValue +
+      this.whitespace.belowInputValue +
+      input.borderWidth.inactive * 2
+    );
   },
   width: triangleWidth,
 };
@@ -76,15 +92,14 @@ export const formNumberLarge = {
   },
   get height() {
     return (
-      this.whitespace.paddingTop +
+      this.whitespace.padding * 2 +
       this.capheight.h2 +
       this.whitespace.belowH2 +
       this.capheight.paragraph +
       this.whitespace.aboveOutput +
       this.capheight.output +
       this.whitespace.belowOutput +
-      this.capheight.paragraph +
-      this.whitespace.paddingBottom
+      this.capheight.paragraph
     );
   },
   get width() {
@@ -101,7 +116,6 @@ export const formNumberSmall = {
     aboveLabel: 5,
     aboveInputValue: 6,
     belowInputValue: 12,
-    wrapperPadding: cross.width.default * (2 / 3),
   },
   get diameter() {
     return (
@@ -114,18 +128,48 @@ export const formNumberSmall = {
   },
 };
 
-export const input = {
-  borderWidth: {
-    active: 2,
-    inactive: 1,
+export const rgbHslWrapper = {
+  padding: cross.width.default * (2 / 3),
+  whitespace: {
+    betweenRgbAndHsl: 10,
+  },
+  get height() {
+    return (
+      this.padding * 2 +
+      formNumberSmall.diameter * 2 +
+      this.whitespace.betweenRgbAndHsl
+    );
   },
 };
 
 export const page = {
   whitespace: {
+    betweenColorCodeAndRgb: 10,
     betweenComponents: 20,
     bottomMargin: 40,
     sideMargin: 40,
     topMargin: 40,
+  },
+  get height() {
+    return (
+      (formColorCode.height +
+        rgbHslWrapper.height +
+        formNumberLarge.height * 2) *
+        scale +
+      this.whitespace.topMargin +
+      this.whitespace.betweenColorCodeAndRgb +
+      this.whitespace.bottomMargin
+    );
+  },
+};
+
+export const flexbox = {
+  height: {
+    twoColumns:
+      (formColorCode.height +
+        rgbHslWrapper.height +
+        formNumberLarge.height * 2) *
+        scale +
+      page.whitespace.betweenColorCodeAndRgb,
   },
 };

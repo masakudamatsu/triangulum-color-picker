@@ -33,15 +33,19 @@ test('renders UI correctly', () => {
       width: 431px;
     }
 
-    @media only screen and (min-width:535px) {
+    @media only screen and (min-width:943px) {
       .c0 {
-        width: 717px;
+        -webkit-order: 1;
+        -ms-flex-order: 1;
+        order: 1;
       }
     }
 
-    @media only screen and (min-width:1612px) and (min-height:797px) {
+    @media only screen and (min-width:1326px) and (min-height:511px) {
       .c0 {
-        width: 717px;
+        -webkit-order: 0;
+        -ms-flex-order: 0;
+        order: 0;
       }
     }
 

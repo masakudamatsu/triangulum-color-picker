@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import CanvasWrapper from 'src/components/CanvasWrapper';
 import ChromaLuminanceForm from 'src/components/ChromaLuminanceForm';
 import Cross from 'src/components/Cross';
+import Main from 'src/blocks/Main';
 import Spacer from 'src/elements/Spacer';
 import TextFieldForHex from 'src/components/TextFieldForHex';
 import TextFieldForHsl from 'src/components/TextFieldForHsl';
@@ -16,6 +17,7 @@ import {
   formNumberLarge,
   formNumberSmall,
   page,
+  rgbHslWrapper,
   scale,
 } from 'src/utils/designSpecs';
 import {mediaQuery} from 'src/utils/breakpoints';
@@ -23,69 +25,6 @@ import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse
 import {regex} from 'src/utils/regex';
 import useWindowWidth from 'src/utils/useWindowWidth';
 
-const Main = styled.main`
-  @media only screen and ${mediaQuery.threeColumns} {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-  }
-`;
-
-const FlexContainer = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  @media only screen and ${mediaQuery.threeColumns} {
-    flex-direction: row;
-    height: ${canvas.width.large}px;
-    justify-content: center;
-  }
-`;
-
-const Column = styled.div`
-  @media only screen and ${mediaQuery.threeColumns} {
-    align-self: ${props => (props.bottom ? 'flex-end' : 'flex-start')};
-  }
-`;
-
-const TopMargin = styled.div`
-  display: none;
-  @media only screen and ${mediaQuery.threeColumns} {
-    display: block;
-    height: ${page.whitespace.topMargin}px;
-    width: 100%;
-  }
-`;
-
-const SideMargin = styled.div`
-  display: none;
-  @media only screen and ${mediaQuery.threeColumns} {
-    display: block;
-    height: 100vh;
-    width: ${page.whitespace.sideMargin}px;
-  }
-`;
-
-const BottomMargin = styled.div`
-  display: none;
-  @media only screen and ${mediaQuery.threeColumns} {
-    display: block;
-    height: ${page.whitespace.bottomMargin}px;
-    width: 100%;
-  }
-`;
-
-const SpacerHorizontal = styled.div`
-  display: none;
-  @media only screen and ${mediaQuery.threeColumns} {
-    display: block;
-    height: 100vh;
-    width: ${page.whitespace.betweenComponents}px;
-  }
-`;
 const FormWrapper = styled.div`
   align-items: center;
   display: flex;
@@ -96,10 +35,10 @@ const RgbHslWrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: ${formNumberSmall.whitespace.wrapperPadding}px;
+  padding: ${rgbHslWrapper.padding}px;
   ${boxSize.rgbHslWrapper}
   @media only screen and ${mediaQuery.font} {
-    padding: ${formNumberSmall.whitespace.wrapperPadding * scale}px;
+    padding: ${rgbHslWrapper.padding * scale}px;
   }
 `;
 
@@ -373,17 +312,20 @@ function HomePage() {
   // Prop values for TextFieldForRgb
   return (
     <Main>
-      <TopMargin />
-      <FlexContainer>
-        <SideMargin />
-        <Column>
+      <Main.MarginTop />
+      <Main.FlexContainer>
+        <Main.MarginSide />
+        <Main.Column>
           <TextInputForm
             inputId="colorCode"
             labelText="Enter CSS color code"
             handleChange={handleChangeCssCode}
             userColor={userColor.cssCode}
           />
-          <Spacer height="10px" width="100%" />
+          <Spacer
+            height={`${page.whitespace.betweenColorCodeAndRgb}px`}
+            width="100%"
+          />
           <FormWrapper>
             <TextFieldForHex
               backgroundColor={userColor.validCode}
@@ -403,7 +345,10 @@ function HomePage() {
                 g={userColor.g}
                 b={userColor.b}
               />
-              <Spacer height="10px" width="100%" />
+              <Spacer
+                height={`${rgbHslWrapper.whitespace.betweenRgbAndHsl}px`}
+                width="100%"
+              />
               <TextFieldForHsl
                 handleChange={{
                   h: handleChangeH,
@@ -417,8 +362,8 @@ function HomePage() {
               <Cross position="bottomRight" />
             </RgbHslWrapper>
           </FormWrapper>
-        </Column>
-        <SpacerHorizontal />
+        </Main.Column>
+        <Main.MarginBetweenColumns />
         <CanvasWrapper
           pixelSize={pixelSize}
           luminance={luminance}
@@ -426,8 +371,8 @@ function HomePage() {
           chroma={chroma}
           updateUserColor={updateUserColor}
         />
-        <SpacerHorizontal />
-        <Column bottom>
+        <Main.MarginBetweenColumns />
+        <Main.Column bottom>
           <ContrastRatioWrapper>
             <Cross position="topLeft" large />
             <ChromaLuminanceForm type="chroma" value={chroma} />
@@ -438,10 +383,10 @@ function HomePage() {
             <ChromaLuminanceForm type="luminance" value={luminance} />
             <Cross position="bottomRight" large />
           </ContrastRatioWrapper>
-        </Column>
-        <SideMargin />
-      </FlexContainer>
-      <BottomMargin />
+        </Main.Column>
+        <Main.MarginSide />
+      </Main.FlexContainer>
+      <Main.MarginBottom />
     </Main>
   );
 }
