@@ -10,6 +10,8 @@ import TextFieldForHex from 'src/components/TextFieldForHex';
 import TextFieldForHsl from 'src/components/TextFieldForHsl';
 import TextFieldForRgb from 'src/components/TextFieldForRgb';
 import TextInputForm from 'src/components/TextInputForm';
+import WrapperRgbHsl from 'src/blocks/WrapperRgbHsl';
+
 import {boxSize} from 'src/utils/layout';
 import colorAnalyzer from 'src/utils/colorAnalyzer';
 import {
@@ -29,17 +31,6 @@ const FormWrapper = styled.div`
   align-items: center;
   display: flex;
   ${boxSize.formWrapper}
-`;
-
-const RgbHslWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  padding: ${rgbHslWrapper.padding}px;
-  ${boxSize.rgbHslWrapper}
-  @media only screen and ${mediaQuery.font} {
-    padding: ${rgbHslWrapper.padding * scale}px;
-  }
 `;
 
 const ContrastRatioWrapper = styled.div`
@@ -333,7 +324,7 @@ function HomePage() {
               lightMode={lightMode}
               value={userColor.hex}
             />
-            <RgbHslWrapper>
+            <WrapperRgbHsl>
               <Cross position="topLeft" />
               <TextFieldForRgb
                 handleChange={{
@@ -345,10 +336,7 @@ function HomePage() {
                 g={userColor.g}
                 b={userColor.b}
               />
-              <Spacer
-                height={`${rgbHslWrapper.whitespace.betweenRgbAndHsl}px`}
-                width="100%"
-              />
+              <WrapperRgbHsl.MarginBetweenForms />
               <TextFieldForHsl
                 handleChange={{
                   h: handleChangeH,
@@ -360,7 +348,7 @@ function HomePage() {
                 l={userColor.l}
               />
               <Cross position="bottomRight" />
-            </RgbHslWrapper>
+            </WrapperRgbHsl>
           </FormWrapper>
         </Main.Column>
         <Main.MarginBetweenColumns />

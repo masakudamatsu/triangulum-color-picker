@@ -40,7 +40,9 @@ Main.FlexContainer = styled.div`
   width: 100%;
   @media only screen and ${mediaQuery.twoColumns} {
     flex-wrap: wrap;
-    height: ${(flexbox.height.twoColumns + 1).toFixed()}px;
+    height: ${(
+      flexbox.height.twoColumns + 3
+    ).toFixed()}px; /* Flex items will be wrapped with less than this height */
     width: ${twoColumns.minWidth.toFixed()}px;
   }
   @media only screen and ${mediaQuery.threeColumns} {
