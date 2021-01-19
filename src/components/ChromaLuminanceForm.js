@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import FormNumberLarge from 'src/blocks/FormNumberLarge';
-import Spacer from 'src/elements/Spacer';
 import Span from 'src/elements/Span';
 import {formNumberLarge} from 'src/utils/designSpecs';
 

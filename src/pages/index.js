@@ -5,12 +5,11 @@ import CanvasWrapper from 'src/components/CanvasWrapper';
 import ChromaLuminanceForm from 'src/components/ChromaLuminanceForm';
 import Cross from 'src/components/Cross';
 import Main from 'src/blocks/Main';
-import Spacer from 'src/elements/Spacer';
 import TextFieldForHex from 'src/components/TextFieldForHex';
 import TextFieldForHsl from 'src/components/TextFieldForHsl';
 import TextFieldForRgb from 'src/components/TextFieldForRgb';
 import TextInputForm from 'src/components/TextInputForm';
-import WrapperRgbHsl from 'src/blocks/WrapperRgbHsl';
+import WrapperForms from 'src/blocks/WrapperForms';
 
 import {boxSize} from 'src/utils/layout';
 import colorAnalyzer from 'src/utils/colorAnalyzer';
@@ -26,12 +25,6 @@ import {mediaQuery} from 'src/utils/breakpoints';
 import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
 import {regex} from 'src/utils/regex';
 import useWindowWidth from 'src/utils/useWindowWidth';
-
-const FormWrapper = styled.div`
-  align-items: center;
-  display: flex;
-  ${boxSize.formWrapper}
-`;
 
 const ContrastRatioWrapper = styled.div`
   position: relative;
@@ -306,25 +299,22 @@ function HomePage() {
       <Main.MarginTop />
       <Main.FlexContainer>
         <Main.MarginSide />
-        <Main.Column>
+        <WrapperForms>
           <TextInputForm
             inputId="colorCode"
             labelText="Enter CSS color code"
             handleChange={handleChangeCssCode}
             userColor={userColor.cssCode}
           />
-          <Spacer
-            height={`${page.whitespace.betweenColorCodeAndRgb}px`}
-            width="100%"
-          />
-          <FormWrapper>
+          <WrapperForms.MarginBetweenColorCodeAndHexRgbHsl />
+          <WrapperForms.WrapperHexRgbHsl>
             <TextFieldForHex
               backgroundColor={userColor.validCode}
               handleChange={handleChangeHex}
               lightMode={lightMode}
               value={userColor.hex}
             />
-            <WrapperRgbHsl>
+            <WrapperForms.WrapperRgbHsl>
               <Cross position="topLeft" />
               <TextFieldForRgb
                 handleChange={{
@@ -336,7 +326,7 @@ function HomePage() {
                 g={userColor.g}
                 b={userColor.b}
               />
-              <WrapperRgbHsl.MarginBetweenForms />
+              <WrapperForms.MarginBetweenRgbAndHsl />
               <TextFieldForHsl
                 handleChange={{
                   h: handleChangeH,
@@ -348,9 +338,9 @@ function HomePage() {
                 l={userColor.l}
               />
               <Cross position="bottomRight" />
-            </WrapperRgbHsl>
-          </FormWrapper>
-        </Main.Column>
+            </WrapperForms.WrapperRgbHsl>
+          </WrapperForms.WrapperHexRgbHsl>
+        </WrapperForms>
         <Main.MarginBetweenColumns />
         <CanvasWrapper
           pixelSize={pixelSize}

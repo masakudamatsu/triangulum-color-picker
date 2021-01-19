@@ -31,7 +31,7 @@ describe('renders UI correctly', () => {
         }
       }
 
-      @media only screen and (min-width:943px) and (min-height:916px) {
+      @media only screen and (min-width:943px) and (min-height:918px) {
         .c0 {
           height: 100vh;
         }
@@ -103,7 +103,7 @@ describe('renders UI correctly', () => {
           -webkit-flex-wrap: wrap;
           -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-          height: 839px;
+          height: 841px;
           width: 943px;
         }
       }

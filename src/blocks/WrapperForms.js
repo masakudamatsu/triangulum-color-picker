@@ -12,7 +12,23 @@ import {
   scale,
 } from 'src/utils/designSpecs';
 
-const WrapperRgbHsl = styled.div`
+const WrapperForms = styled.div``;
+
+WrapperForms.MarginBetweenColorCodeAndHexRgbHsl = styled.div`
+  height: ${page.whitespace.betweenColorCodeAndRgb}px;
+  width: 100%;
+  @media only screen and ${mediaQuery.font} {
+    height: ${page.whitespace.betweenColorCodeAndRgb * scale}px;
+  }
+`;
+
+WrapperForms.WrapperHexRgbHsl = styled.div`
+  align-items: center;
+  display: flex;
+  ${boxSize.formWrapper}
+`;
+
+WrapperForms.WrapperRgbHsl = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
@@ -23,7 +39,7 @@ const WrapperRgbHsl = styled.div`
   }
 `;
 
-WrapperRgbHsl.MarginBetweenForms = styled.div`
+WrapperForms.MarginBetweenRgbAndHsl = styled.div`
   height: ${rgbHslWrapper.whitespace.betweenRgbAndHsl}px;
   width: 100%;
   @media only screen and ${mediaQuery.font} {
@@ -31,6 +47,6 @@ WrapperRgbHsl.MarginBetweenForms = styled.div`
   }
 `;
 
-WrapperRgbHsl.propTypes = {};
+WrapperForms.propTypes = {};
 
-export default WrapperRgbHsl;
+export default WrapperForms;

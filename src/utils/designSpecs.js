@@ -168,8 +168,8 @@ export const flexbox = {
     twoColumns:
       (formColorCode.height +
         rgbHslWrapper.height +
-        formNumberLarge.height * 2) *
-        scale +
-      page.whitespace.betweenColorCodeAndRgb,
+        formNumberLarge.height * 2 +
+        page.whitespace.betweenColorCodeAndRgb) *
+      scale,
   },
 };
