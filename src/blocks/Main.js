@@ -31,8 +31,6 @@ const Main = styled.main`
   }
 `;
 
-Main.Column = styled.div``;
-
 Main.FlexContainer = styled.div`
   align-items: center;
   display: flex;

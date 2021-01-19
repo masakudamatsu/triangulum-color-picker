@@ -9,6 +9,7 @@ import TextFieldForHex from 'src/components/TextFieldForHex';
 import TextFieldForHsl from 'src/components/TextFieldForHsl';
 import TextFieldForRgb from 'src/components/TextFieldForRgb';
 import TextInputForm from 'src/components/TextInputForm';
+import WrapperColorData from 'src/blocks/WrapperColorData';
 import WrapperForms from 'src/blocks/WrapperForms';
 
 import {boxSize} from 'src/utils/layout';
@@ -25,15 +26,6 @@ import {mediaQuery} from 'src/utils/breakpoints';
 import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
 import {regex} from 'src/utils/regex';
 import useWindowWidth from 'src/utils/useWindowWidth';
-
-const ContrastRatioWrapper = styled.div`
-  position: relative;
-  padding: ${formNumberLarge.whitespace.padding}px;
-  ${boxSize.formNumberLargeWrapper}
-  @media only screen and ${mediaQuery.font} {
-    padding: ${formNumberLarge.whitespace.padding * scale}px;
-  }
-`;
 
 const userColorReducer = (state, action) => {
   return {...state, ...action};
@@ -350,18 +342,18 @@ function HomePage() {
           updateUserColor={updateUserColor}
         />
         <Main.MarginBetweenColumns />
-        <Main.Column bottom>
-          <ContrastRatioWrapper>
+        <WrapperColorData>
+          <WrapperColorData.WrapperSection>
             <Cross position="topLeft" large />
             <ChromaLuminanceForm type="chroma" value={chroma} />
             <Cross position="bottomRight" large />
-          </ContrastRatioWrapper>
-          <ContrastRatioWrapper>
+          </WrapperColorData.WrapperSection>
+          <WrapperColorData.WrapperSection>
             <Cross position="topLeft" large />
             <ChromaLuminanceForm type="luminance" value={luminance} />
             <Cross position="bottomRight" large />
-          </ContrastRatioWrapper>
-        </Main.Column>
+          </WrapperColorData.WrapperSection>
+        </WrapperColorData>
         <Main.MarginSide />
       </Main.FlexContainer>
       <Main.MarginBottom />

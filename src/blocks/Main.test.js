@@ -70,16 +70,6 @@ describe('renders UI correctly', () => {
       </div>
     `);
   });
-  test('Column', () => {
-    const {container} = render(<Main.Column {...mockProps} />);
-    expect(container).toMatchInlineSnapshot(`
-      <div>
-        <div
-          class="Main__Column-sc-126eniy-1"
-        />
-      </div>
-    `);
-  });
   test('FlexContainer', () => {
     const {container} = render(<Main.FlexContainer {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import FormNumberLarge from 'src/blocks/FormNumberLarge';
+import SectionColorData from 'src/blocks/SectionColorData';
 import Span from 'src/elements/Span';
 import {formNumberLarge} from 'src/utils/designSpecs';
 
@@ -16,51 +16,51 @@ const ChromaLuminanceForm = ({type, value}) => {
 
   const helperText =
     type === 'chroma' ? (
-      <FormNumberLarge.Paragraph id={helperTextId} rightAligned>
+      <SectionColorData.Paragraph id={helperTextId} rightAligned>
         0% for gray <Span dash>–</Span> 100% for pure hue
-      </FormNumberLarge.Paragraph>
+      </SectionColorData.Paragraph>
     ) : (
-      <FormNumberLarge.Paragraph id={helperTextId} rightAligned>
+      <SectionColorData.Paragraph id={helperTextId} rightAligned>
         <Span ratio>1:1</Span> for black <Span dash>–</Span>{' '}
         <Span ratio>21:1</Span> for white
-      </FormNumberLarge.Paragraph>
+      </SectionColorData.Paragraph>
     );
 
   const unit =
     type === 'chroma' ? (
-      <FormNumberLarge.Unit>%</FormNumberLarge.Unit>
+      <SectionColorData.Unit>%</SectionColorData.Unit>
     ) : (
-      <FormNumberLarge.Unit>
+      <SectionColorData.Unit>
         <Span colon>:</Span>1
-      </FormNumberLarge.Unit>
+      </SectionColorData.Unit>
     );
 
   return (
-    <FormNumberLarge>
-      <FormNumberLarge.H2>
+    <SectionColorData>
+      <SectionColorData.H2>
         {type === 'chroma' ? 'Chroma' : 'Luminance'}
-      </FormNumberLarge.H2>
-      <FormNumberLarge.SpacerBelowH2 />{' '}
-      <FormNumberLarge.Paragraph id={sublabelId}>
+      </SectionColorData.H2>
+      <SectionColorData.SpacerBelowH2 />{' '}
+      <SectionColorData.Paragraph id={sublabelId}>
         {type === 'chroma'
           ? 'Pure hue share in the mix with gray'
           : 'Contrast ratio against pure black'}
-      </FormNumberLarge.Paragraph>
-      <FormNumberLarge.SpacerAboveOutput />
-      <FormNumberLarge.InnerWrapper>
-        <FormNumberLarge.Output
+      </SectionColorData.Paragraph>
+      <SectionColorData.SpacerAboveOutput />
+      <SectionColorData.InnerWrapper>
+        <SectionColorData.Output
           aria-describedby={`${sublabelId} ${helperTextId}`}
           data-testid={inputId}
           htmlFor="colorCode hex r g b h s l"
           id={inputId}
         >
           {value}
-        </FormNumberLarge.Output>
+        </SectionColorData.Output>
         {unit}
-      </FormNumberLarge.InnerWrapper>
-      <FormNumberLarge.SpacerBelowOutput />
+      </SectionColorData.InnerWrapper>
+      <SectionColorData.SpacerBelowOutput />
       {helperText}
-    </FormNumberLarge>
+    </SectionColorData>
   );
 };
 

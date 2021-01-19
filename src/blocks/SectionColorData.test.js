@@ -3,7 +3,7 @@ import {render} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {axe} from 'jest-axe';
 
-import FormNumberLarge from './FormNumberLarge';
+import SectionColorData from './SectionColorData';
 
 const mockProps = {
   parent: {},
@@ -16,7 +16,7 @@ const mockProps = {
 
 describe('renders UI correctly', () => {
   test('Parent', () => {
-    const {container} = render(<FormNumberLarge {...mockProps.parent} />);
+    const {container} = render(<SectionColorData {...mockProps.parent} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
         background-color: inherit;
@@ -31,7 +31,7 @@ describe('renders UI correctly', () => {
     `);
   });
   test('H2', () => {
-    const {container} = render(<FormNumberLarge.H2 {...mockProps.h2} />);
+    const {container} = render(<SectionColorData.H2 {...mockProps.h2} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
         font-family: 'Poppins';
@@ -57,7 +57,7 @@ describe('renders UI correctly', () => {
     `);
   });
   test('SpacerAboveOutput', () => {
-    const {container} = render(<FormNumberLarge.SpacerAboveOutput />);
+    const {container} = render(<SectionColorData.SpacerAboveOutput />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
         height: 20px;
@@ -78,7 +78,7 @@ describe('renders UI correctly', () => {
     `);
   });
   test('SpacerBelowOutput', () => {
-    const {container} = render(<FormNumberLarge.SpacerBelowOutput />);
+    const {container} = render(<SectionColorData.SpacerBelowOutput />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
         height: 20px;
@@ -99,7 +99,7 @@ describe('renders UI correctly', () => {
     `);
   });
   test('SpacerBelowH2', () => {
-    const {container} = render(<FormNumberLarge.SpacerBelowH2 />);
+    const {container} = render(<SectionColorData.SpacerBelowH2 />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
         height: 10px;
@@ -121,7 +121,7 @@ describe('renders UI correctly', () => {
   });
   test('InnerWrapper', () => {
     const {container} = render(
-      <FormNumberLarge.InnerWrapper {...mockProps.innerwrapper} />,
+      <SectionColorData.InnerWrapper {...mockProps.innerwrapper} />,
     );
     expect(container).toMatchInlineSnapshot(`
       .c0 {
@@ -156,7 +156,7 @@ describe('renders UI correctly', () => {
   });
   test('Output', () => {
     const {container} = render(
-      <FormNumberLarge.Output {...mockProps.output} />,
+      <SectionColorData.Output {...mockProps.output} />,
     );
     expect(container).toMatchInlineSnapshot(`
       .c0 {
@@ -189,7 +189,7 @@ describe('renders UI correctly', () => {
   });
   test('Paragraph', () => {
     const {container} = render(
-      <FormNumberLarge.Paragraph {...mockProps.paragraph} />,
+      <SectionColorData.Paragraph {...mockProps.paragraph} />,
     );
     expect(container).toMatchInlineSnapshot(`
       .c0 {
@@ -218,7 +218,7 @@ describe('renders UI correctly', () => {
     `);
   });
   test('Unit', () => {
-    const {container} = render(<FormNumberLarge.Unit {...mockProps.unit} />);
+    const {container} = render(<SectionColorData.Unit {...mockProps.unit} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
         font-family: 'Poppins';

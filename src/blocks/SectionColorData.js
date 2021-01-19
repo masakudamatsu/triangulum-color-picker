@@ -10,14 +10,14 @@ import Output from 'src/elements/Output';
 import Paragraph from 'src/elements/Paragraph';
 import Unit from 'src/elements/Unit';
 
-const FormNumberLarge = styled.section`
+const SectionColorData = styled.section`
   background-color: inherit;
   width: auto;
 `;
 
-FormNumberLarge.H2 = H2;
+SectionColorData.H2 = H2;
 
-FormNumberLarge.InnerWrapper = styled.div`
+SectionColorData.InnerWrapper = styled.div`
   align-items: baseline; /* Bottom-align */
   display: flex;
   height: ${formNumberLarge.capheight.output}px; /* Text crop */
@@ -28,13 +28,13 @@ FormNumberLarge.InnerWrapper = styled.div`
   }
 `;
 
-FormNumberLarge.Output = styled(Output)`
+SectionColorData.Output = styled(Output)`
   padding-right: 20px;
 `;
 
-FormNumberLarge.Paragraph = Paragraph;
+SectionColorData.Paragraph = Paragraph;
 
-FormNumberLarge.SpacerAboveOutput = styled.div`
+SectionColorData.SpacerAboveOutput = styled.div`
   height: ${formNumberLarge.whitespace.aboveOutput}px;
   width: 100%;
   @media only screen and ${mediaQuery.font} {
@@ -42,7 +42,7 @@ FormNumberLarge.SpacerAboveOutput = styled.div`
   }
 `;
 
-FormNumberLarge.SpacerBelowH2 = styled.div`
+SectionColorData.SpacerBelowH2 = styled.div`
   height: ${formNumberLarge.whitespace.belowH2}px;
   width: 100%;
   @media only screen and ${mediaQuery.font} {
@@ -50,7 +50,7 @@ FormNumberLarge.SpacerBelowH2 = styled.div`
   }
 `;
 
-FormNumberLarge.SpacerBelowOutput = styled.div`
+SectionColorData.SpacerBelowOutput = styled.div`
   height: ${formNumberLarge.whitespace.belowOutput}px;
   width: 100%;
   @media only screen and ${mediaQuery.font} {
@@ -58,11 +58,11 @@ FormNumberLarge.SpacerBelowOutput = styled.div`
   }
 `;
 
-FormNumberLarge.Unit = styled(Unit)`
+SectionColorData.Unit = styled(Unit)`
   bottom: 0;
   position: absolute;
 `;
 
-FormNumberLarge.propTypes = {};
+SectionColorData.propTypes = {};
 
-export default FormNumberLarge;
+export default SectionColorData;
