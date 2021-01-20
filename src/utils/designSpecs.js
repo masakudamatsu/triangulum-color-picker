@@ -20,6 +20,8 @@ export const capheight = {
   percent: 20,
 };
 
+export const marginLeft = 10;
+
 export const cross = {
   width: {
     default: 30,
@@ -33,6 +35,30 @@ export const input = {
   },
 };
 
+export const header = {
+  capheight: {
+    h1: capheight.medium,
+  },
+  logo: {
+    height: 30,
+    width: 30,
+  },
+  speed: {
+    hide: '.5s',
+    show: '.25s',
+  },
+  whitespace: {
+    aboveH1: 15,
+    belowH1: 15,
+    betweenLogoAndH1: marginLeft,
+  },
+  get height() {
+    return (
+      this.capheight.h1 + this.whitespace.aboveH1 + this.whitespace.belowH1
+    );
+  },
+};
+
 export const formColorCode = {
   capheight: {
     label: capheight.small,
@@ -42,7 +68,7 @@ export const formColorCode = {
     aboveLabel: 10,
     aboveInputValue: 20,
     belowInputValue: 20,
-    left: 10,
+    left: marginLeft,
   },
   get height() {
     return (
@@ -144,6 +170,7 @@ export const rgbHslWrapper = {
 
 export const page = {
   whitespace: {
+    aboveColorCode: 10,
     betweenColorCodeAndRgb: 10,
     betweenComponents: 20,
     bottomMargin: 40,

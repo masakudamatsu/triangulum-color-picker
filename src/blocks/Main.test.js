@@ -11,6 +11,10 @@ describe('renders UI correctly', () => {
   test('Parent', () => {
     const {container} = render(<Main {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
+      .c0 {
+        padding-top: 55px;
+      }
+
       @media only screen and (min-width:943px) {
         .c0 {
           -webkit-align-items: center;
@@ -28,6 +32,7 @@ describe('renders UI correctly', () => {
           -webkit-justify-content: center;
           -ms-flex-pack: center;
           justify-content: center;
+          padding-top: 0;
         }
       }
 
@@ -54,6 +59,7 @@ describe('renders UI correctly', () => {
           -webkit-justify-content: center;
           -ms-flex-pack: center;
           justify-content: center;
+          padding-top: 0;
         }
       }
 

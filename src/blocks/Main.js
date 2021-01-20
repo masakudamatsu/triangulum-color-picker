@@ -6,16 +6,19 @@ import {
   canvas,
   flexbox,
   formNumberLarge,
+  header,
   page,
   scale,
 } from 'src/utils/designSpecs';
 
 const Main = styled.main`
+  padding-top: ${header.height + page.whitespace.aboveColorCode}px;
   @media only screen and ${mediaQuery.twoColumns} {
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-top: 0;
   }
   @media only screen and ${mediaQuery.twoColumnsTall} {
     height: 100vh;
@@ -25,6 +28,7 @@ const Main = styled.main`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-top: 0;
   }
   @media only screen and ${mediaQuery.threeColumnsTall} {
     height: 100vh;
