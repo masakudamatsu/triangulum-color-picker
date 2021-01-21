@@ -12,16 +12,15 @@ import {
 } from 'src/utils/designSpecs';
 
 const Main = styled.main`
-  padding-top: ${header.height + page.whitespace.aboveColorCode}px;
+  padding-top: ${header.height + header.borderBottomWidth}px;
   @media only screen and ${mediaQuery.font} {
-    padding-top: ${(header.height + page.whitespace.aboveColorCode) * scale}px;
+    padding-top: ${header.height * scale + header.borderBottomWidth}px;
   }
   @media only screen and ${mediaQuery.twoColumns} {
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 0;
   }
   @media only screen and ${mediaQuery.twoColumnsTall} {
     height: 100vh;
@@ -31,7 +30,6 @@ const Main = styled.main`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 0;
   }
   @media only screen and ${mediaQuery.threeColumnsTall} {
     height: 100vh;
@@ -93,14 +91,16 @@ Main.MarginSide = styled.div`
 `;
 
 Main.MarginTop = styled.div`
-  display: none;
+  height: ${page.whitespace.aboveColorCode}px;
+  width: 100%;
+  @media only screen and ${mediaQuery.font} {
+    height: ${page.whitespace.aboveColorCode * scale}px;
+  }
   @media only screen and ${mediaQuery.twoColumns} {
-    display: block;
     height: ${page.whitespace.topMargin}px;
     width: 100%;
   }
   @media only screen and ${mediaQuery.threeColumns} {
-    display: block;
     height: ${page.whitespace.topMargin}px;
     width: 100%;
   }

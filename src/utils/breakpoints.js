@@ -3,6 +3,7 @@ import {
   flexbox,
   formColorCode,
   formNumberLarge,
+  header,
   page,
   rgbHslWrapper,
   scale,
@@ -16,6 +17,8 @@ const threeColumns = {
     page.whitespace.betweenComponents * 2 +
     page.whitespace.sideMargin * 2,
   minHeight:
+    header.height * scale +
+    header.borderBottomWidth +
     formNumberLarge.height * scale * 2 +
     page.whitespace.topMargin +
     page.whitespace.bottomMargin,
@@ -28,6 +31,8 @@ export const twoColumns = {
     page.whitespace.betweenComponents +
     page.whitespace.sideMargin * 2,
   minHeight:
+    header.height * scale +
+    header.borderBottomWidth +
     flexbox.height.twoColumns +
     page.whitespace.topMargin +
     page.whitespace.bottomMargin,
