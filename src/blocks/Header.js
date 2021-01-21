@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import H1 from 'src/elements/H1';
+import Img from 'src/elements/Img';
 
 import {color} from 'src/utils/color';
 import {mediaQuery} from 'src/utils/breakpoints';
@@ -54,11 +55,7 @@ Header.WrapperLogo = styled.div`
   header.whitespace.betweenLogoAndH1}px;
 `; // temporary
 
-Header.Logo = styled.div`
-  background-color: red;
-  height: ${header.logo.height}px;
-  width: ${header.logo.width}px;
-`; // temporary
+Header.Img = Img; // temporary
 
 Header.propTypes = {
   hide: PropTypes.bool,

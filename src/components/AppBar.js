@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Header from 'src/blocks/Header';
+import {header} from 'src/utils/designSpecs';
 
 const AppBar = () => {
   const [show, setShow] = React.useState(true);
@@ -35,7 +36,12 @@ const AppBar = () => {
     <Header hide={!show} show={show}>
       <Header.InnerWrapper>
         <Header.WrapperLogo>
-          <Header.Logo />
+          <Header.Img
+            src="/logo.svg"
+            alt="Logo of Triangulum Color Picker"
+            width={header.logo.width}
+            height={header.logo.height}
+          />
         </Header.WrapperLogo>
         <Header.WrapperH1>
           <Header.H1>Triangulum Color Picker</Header.H1>

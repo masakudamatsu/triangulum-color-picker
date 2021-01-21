@@ -60,6 +60,21 @@ describe('renders UI correctly', () => {
       </div>
     `);
   });
+  test('Img', () => {
+    const {container} = render(<Header.Img {...mockProps} />);
+    expect(container).toMatchInlineSnapshot(`
+      .c0 {
+        height: auto;
+        max-width: 100%;
+      }
+
+      <div>
+        <img
+          class="c0"
+        />
+      </div>
+    `);
+  });
   test('WrapperH1', () => {
     const {container} = render(<Header.WrapperH1 {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
