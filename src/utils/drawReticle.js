@@ -26,8 +26,8 @@ export default function drawReticle(
   const centerY = circleCenterY;
   canvasContext.beginPath();
   canvasContext.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-  canvasContext.stroke();
   canvasContext.clip(); // Erase any drawing outside the circle
+  canvasContext.stroke();
 
   const lineY = getVerticalPosition(luminance);
   const lineX = Math.round(chroma);

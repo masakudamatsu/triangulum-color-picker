@@ -2,42 +2,29 @@ import {useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 
 import Figure from 'src/blocks/Figure';
-import drawTriangle from 'src/utils/drawTriangle';
+import drawBackground from 'src/utils/drawBackground';
 
-const ColorTriangle = ({
-  canvasContext,
-  canvasWidth,
-  pixelSize = 10,
-  pureHue = {
-    r: 255,
-    g: 0,
-    b: 0,
-  },
-  setCanvasContext,
-}) => {
+const Background = ({canvasWidth, pixelSize = 10}) => {
   // set up canvas after the initial rendering
   const canvas = useRef();
+  const [canvasContext, setCanvasContext] = useState();
   useEffect(() => {
     const context = canvas.current.getContext('2d');
     setCanvasContext(context);
   }, []);
 
-  // Draw the color triangle
+  // Draw the background
   useEffect(() => {
     if (!canvasContext) {
       return;
     }
-    if (pureHue.r === null) {
-      return;
-    }
     canvasContext.clearRect(0, 0, canvas.current.width, canvas.current.height);
-    drawTriangle(canvasContext, pixelSize, pureHue);
+    drawBackground(canvasContext, pixelSize);
   });
 
   return (
     <Figure.Canvas
-      overlay
-      data-testid="color-triangle"
+      data-testid="background"
       height={canvasWidth}
       ref={canvas}
       width={canvasWidth}
@@ -45,12 +32,9 @@ const ColorTriangle = ({
   );
 };
 
-ColorTriangle.propTypes = {
-  canvasContext: PropTypes.object,
+Background.propTypes = {
   canvasWidth: PropTypes.number,
   pixelSize: PropTypes.number,
-  pureHue: PropTypes.object,
-  setCanvasContext: PropTypes.func,
 };
 
-export default ColorTriangle;
+export default Background;

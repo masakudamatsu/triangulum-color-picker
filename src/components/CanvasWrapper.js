@@ -2,6 +2,7 @@ import {useEffect, useRef, useState} from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+import Background from 'src/components/Background';
 import ColorTriangle from 'src/components/ColorTriangle';
 import Figure from 'src/blocks/Figure';
 import Reticle from 'src/components/Reticle';
@@ -36,6 +37,7 @@ const CanvasWrapper = ({
 
   return (
     <Figure>
+      <Background canvasWidth={canvasWidth} pixelSize={pixelSize} />
       <ColorTriangle
         canvasContext={canvasContext}
         canvasWidth={canvasWidth}
