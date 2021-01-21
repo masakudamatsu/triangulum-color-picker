@@ -13,7 +13,8 @@ describe('renders UI correctly', () => {
     const {container} = render(<Header {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        background-color: rgb(23,23,23);
+        background-color: rgb(10,10,10);
+        border-bottom: 1px solid rgb(96,96,96);
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;

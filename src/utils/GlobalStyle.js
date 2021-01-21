@@ -1,4 +1,5 @@
 import {createGlobalStyle} from 'styled-components';
+import {color} from './color';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -333,7 +334,7 @@ input {
 }
 
 :root { /* The background-color on the body element won't spread over the entire page for some reason. */
-  background-color: black;
+  background-image: ${color.background};
 }
 
 body {

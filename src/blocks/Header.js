@@ -23,7 +23,8 @@ const animation = {
 };
 
 const Header = styled.header`
-  background-color: ${color.elevation4};
+  background-color: ${color.topAppBar.background};
+  border-bottom: 1px solid ${color.topAppBar.borderBottom};
   display: flex;
   height: ${header.height}px;
   justify-content: center;
