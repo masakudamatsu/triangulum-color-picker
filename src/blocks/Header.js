@@ -50,9 +50,7 @@ Header.WrapperLogo = styled.div`
   display: flex;
   height: ${header.height}px;
   padding-right: ${header.whitespace.betweenLogoAndH1}px;
-  width: ${header.whitespace.paddingLeft +
-  header.logo.width +
-  header.whitespace.betweenLogoAndH1}px;
+  width: ${header.logo.width + header.whitespace.betweenLogoAndH1}px;
 `; // temporary
 
 Header.Img = Img; // temporary

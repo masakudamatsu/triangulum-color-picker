@@ -104,7 +104,7 @@ describe('renders UI correctly', () => {
         display: flex;
         height: 45px;
         padding-right: 10px;
-        width: NaNpx;
+        width: 40px;
       }
 
       <div>
