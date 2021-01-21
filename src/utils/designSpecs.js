@@ -36,6 +36,7 @@ export const input = {
 };
 
 export const header = {
+  borderBottomWidth: 1,
   capheight: {
     h1: capheight.medium,
   },

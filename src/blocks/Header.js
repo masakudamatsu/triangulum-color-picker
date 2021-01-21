@@ -24,9 +24,10 @@ const animation = {
 
 const Header = styled.header`
   background-color: ${color.topAppBar.background};
-  border-bottom: 1px solid ${color.topAppBar.borderBottom};
+  border-bottom: ${header.borderBottomWidth}px solid
+    ${color.topAppBar.borderBottom};
   display: flex;
-  height: ${header.height}px;
+  height: ${header.height + header.borderBottomWidth}px;
   justify-content: center;
   position: fixed;
   width: 100%;
@@ -34,7 +35,7 @@ const Header = styled.header`
   ${props => props.show && animation.show}
   ${props => props.hide && animation.hide}
   @media only screen and ${mediaQuery.font} {
-    height: ${header.height * scale}px;
+    height: ${header.height * scale + header.borderBottomWidth}px;
   }
 `;
 

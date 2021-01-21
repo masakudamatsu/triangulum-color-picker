@@ -19,7 +19,7 @@ describe('renders UI correctly', () => {
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
-        height: 45px;
+        height: 46px;
         -webkit-box-pack: center;
         -webkit-justify-content: center;
         -ms-flex-pack: center;
@@ -31,7 +31,7 @@ describe('renders UI correctly', () => {
 
       @media only screen and (min-width:728px) {
         .c0 {
-          height: 54px;
+          height: 55px;
         }
       }
 
