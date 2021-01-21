@@ -18,6 +18,7 @@ describe('renders UI correctly', () => {
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
+        height: 45px;
         -webkit-box-pack: center;
         -webkit-justify-content: center;
         -ms-flex-pack: center;
@@ -25,6 +26,12 @@ describe('renders UI correctly', () => {
         position: fixed;
         width: 100%;
         z-index: 1;
+      }
+
+      @media only screen and (min-width:728px) {
+        .c0 {
+          height: 54px;
+        }
       }
 
       <div>
@@ -83,6 +90,13 @@ describe('renders UI correctly', () => {
         padding-top: 15px;
       }
 
+      @media only screen and (min-width:728px) {
+        .c0 {
+          padding-bottom: 18px;
+          padding-top: 18px;
+        }
+      }
+
       <div>
         <div
           class="c0"
@@ -102,7 +116,7 @@ describe('renders UI correctly', () => {
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
-        height: 45px;
+        height: 100%;
         padding-right: 10px;
         width: 40px;
       }

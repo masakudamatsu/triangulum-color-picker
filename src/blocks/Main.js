@@ -13,6 +13,9 @@ import {
 
 const Main = styled.main`
   padding-top: ${header.height + page.whitespace.aboveColorCode}px;
+  @media only screen and ${mediaQuery.font} {
+    padding-top: ${(header.height + page.whitespace.aboveColorCode) * scale}px;
+  }
   @media only screen and ${mediaQuery.twoColumns} {
     align-items: center;
     display: flex;

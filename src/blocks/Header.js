@@ -16,22 +16,30 @@ const animation = {
   hide: `
     transform: translate(0, -${header.height}px);
     transition: transform ${header.speed.hide};
+    @media only screen and ${mediaQuery.font} {
+      transform: translate(0, -${header.height * scale}px);
+    }
   `,
 };
 
 const Header = styled.header`
   background-color: ${color.elevation4};
   display: flex;
+  height: ${header.height}px;
   justify-content: center;
   position: fixed;
   width: 100%;
   z-index: 1;
   ${props => props.show && animation.show}
   ${props => props.hide && animation.hide}
+  @media only screen and ${mediaQuery.font} {
+    height: ${header.height * scale}px;
+  }
 `;
 
 Header.InnerWrapper = styled.div`
   display: flex;
+  height: 100%;
   justify-content: flex-start;
   width: ${triangleWidth}px;
   @media only screen and ${mediaQuery.font} {
@@ -41,6 +49,10 @@ Header.InnerWrapper = styled.div`
 Header.WrapperH1 = styled.div`
   padding-bottom: ${header.whitespace.belowH1}px;
   padding-top: ${header.whitespace.aboveH1}px;
+  @media only screen and ${mediaQuery.font} {
+    padding-bottom: ${header.whitespace.belowH1 * scale}px;
+    padding-top: ${header.whitespace.aboveH1 * scale}px;
+  }
 `;
 
 Header.H1 = H1;
@@ -48,7 +60,7 @@ Header.H1 = H1;
 Header.WrapperLogo = styled.div`
   align-items: center;
   display: flex;
-  height: ${header.height}px;
+  height: 100%;
   padding-right: ${header.whitespace.betweenLogoAndH1}px;
   width: ${header.logo.width + header.whitespace.betweenLogoAndH1}px;
 `; // temporary

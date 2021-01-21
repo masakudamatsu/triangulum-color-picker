@@ -15,6 +15,12 @@ describe('renders UI correctly', () => {
         padding-top: 55px;
       }
 
+      @media only screen and (min-width:728px) {
+        .c0 {
+          padding-top: 66px;
+        }
+      }
+
       @media only screen and (min-width:943px) {
         .c0 {
           -webkit-align-items: center;
