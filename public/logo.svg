@@ -1,0 +1,8 @@
+
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" >
+  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <polygon id="Blue" fill-opacity="0.6666" fill="#2828D1" points="600,450 0,600 0,0"></polygon>
+    <polygon id="Red" fill-opacity="0.6666" fill="#D22828" points="600,300 0,600 0,0"></polygon>
+    <polygon id="Green" fill-opacity="0.6666" fill="#28D228" points="600,150 0,600 0,0"></polygon>
+  </g>
+</svg>

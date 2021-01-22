@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import AppBar from 'src/components/AppBar';
 import CanvasWrapper from 'src/components/CanvasWrapper';
 import ChromaLuminanceForm from 'src/components/ChromaLuminanceForm';
 import Cross from 'src/components/Cross';
@@ -287,77 +288,78 @@ function HomePage() {
 
   // Prop values for TextFieldForRgb
   return (
-    <Main>
-      <Main.MarginTop />
-      <Main.FlexContainer>
-        <Main.MarginSide />
-        <WrapperForms>
-          <TextInputForm
-            inputId="colorCode"
-            labelText="Enter CSS color code"
-            handleChange={handleChangeCssCode}
-            userColor={userColor.cssCode}
-          />
-          <WrapperForms.MarginBetweenColorCodeAndHexRgbHsl />
-          <WrapperForms.WrapperHexRgbHsl>
-            <TextFieldForHex
-              backgroundColor={userColor.validCode}
-              handleChange={handleChangeHex}
-              lightMode={lightMode}
-              value={userColor.hex}
+    <>
+      <AppBar />
+      <Main>
+        <Main.MarginTop />
+        <Main.FlexContainer>
+          <WrapperForms>
+            <TextInputForm
+              inputId="colorCode"
+              labelText="Enter CSS color code"
+              handleChange={handleChangeCssCode}
+              userColor={userColor.cssCode}
             />
-            <WrapperForms.WrapperRgbHsl>
-              <Cross position="topLeft" />
-              <TextFieldForRgb
-                handleChange={{
-                  r: handleChangeR,
-                  g: handleChangeG,
-                  b: handleChangeB,
-                }}
-                r={userColor.r}
-                g={userColor.g}
-                b={userColor.b}
+            <WrapperForms.MarginBetweenColorCodeAndHexRgbHsl />
+            <WrapperForms.WrapperHexRgbHsl>
+              <TextFieldForHex
+                backgroundColor={userColor.validCode}
+                handleChange={handleChangeHex}
+                lightMode={lightMode}
+                value={userColor.hex}
               />
-              <WrapperForms.MarginBetweenRgbAndHsl />
-              <TextFieldForHsl
-                handleChange={{
-                  h: handleChangeH,
-                  s: handleChangeS,
-                  l: handleChangeL,
-                }}
-                h={userColor.h}
-                s={userColor.s}
-                l={userColor.l}
-              />
-              <Cross position="bottomRight" />
-            </WrapperForms.WrapperRgbHsl>
-          </WrapperForms.WrapperHexRgbHsl>
-        </WrapperForms>
-        <Main.MarginBetweenColumns />
-        <CanvasWrapper
-          pixelSize={pixelSize}
-          luminance={luminance}
-          pureHue={pureHue}
-          chroma={chroma}
-          updateUserColor={updateUserColor}
-        />
-        <Main.MarginBetweenColumns />
-        <WrapperColorData>
-          <WrapperColorData.WrapperSection>
-            <Cross position="topLeft" large />
-            <ChromaLuminanceForm type="chroma" value={chroma} />
-            <Cross position="bottomRight" large />
-          </WrapperColorData.WrapperSection>
-          <WrapperColorData.WrapperSection>
-            <Cross position="topLeft" large />
-            <ChromaLuminanceForm type="luminance" value={luminance} />
-            <Cross position="bottomRight" large />
-          </WrapperColorData.WrapperSection>
-        </WrapperColorData>
-        <Main.MarginSide />
-      </Main.FlexContainer>
-      <Main.MarginBottom />
-    </Main>
+              <WrapperForms.WrapperRgbHsl>
+                <Cross position="topLeft" />
+                <TextFieldForRgb
+                  handleChange={{
+                    r: handleChangeR,
+                    g: handleChangeG,
+                    b: handleChangeB,
+                  }}
+                  r={userColor.r}
+                  g={userColor.g}
+                  b={userColor.b}
+                />
+                <WrapperForms.MarginBetweenRgbAndHsl />
+                <TextFieldForHsl
+                  handleChange={{
+                    h: handleChangeH,
+                    s: handleChangeS,
+                    l: handleChangeL,
+                  }}
+                  h={userColor.h}
+                  s={userColor.s}
+                  l={userColor.l}
+                />
+                <Cross position="bottomRight" />
+              </WrapperForms.WrapperRgbHsl>
+            </WrapperForms.WrapperHexRgbHsl>
+          </WrapperForms>
+          <Main.MarginBetweenColumns />
+          <CanvasWrapper
+            pixelSize={pixelSize}
+            luminance={luminance}
+            pureHue={pureHue}
+            chroma={chroma}
+            updateUserColor={updateUserColor}
+          />
+          <Main.MarginBetweenColumns />
+          <WrapperColorData>
+            <WrapperColorData.WrapperSection>
+              <Cross position="topLeft" large />
+              <ChromaLuminanceForm type="chroma" value={chroma} />
+              <Cross position="bottomRight" large />
+            </WrapperColorData.WrapperSection>
+            <WrapperColorData.WrapperSection>
+              <Cross position="topLeft" large />
+              <ChromaLuminanceForm type="luminance" value={luminance} />
+              <Cross position="bottomRight" large />
+            </WrapperColorData.WrapperSection>
+          </WrapperColorData>
+        </Main.FlexContainer>
+        <Main.MarginBottom />
+      </Main>
+    </>
   );
 }
 

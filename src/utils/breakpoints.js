@@ -3,12 +3,13 @@ import {
   flexbox,
   formColorCode,
   formNumberLarge,
+  header,
   page,
   rgbHslWrapper,
   scale,
 } from './designSpecs';
 
-const threeColumns = {
+export const threeColumns = {
   minWidth:
     canvas.width.small +
     formColorCode.width * scale +
@@ -16,6 +17,8 @@ const threeColumns = {
     page.whitespace.betweenComponents * 2 +
     page.whitespace.sideMargin * 2,
   minHeight:
+    header.height * scale +
+    header.borderBottomWidth +
     formNumberLarge.height * scale * 2 +
     page.whitespace.topMargin +
     page.whitespace.bottomMargin,
@@ -25,9 +28,10 @@ export const twoColumns = {
   minWidth:
     canvas.width.small +
     formNumberLarge.width * scale +
-    page.whitespace.betweenComponents +
     page.whitespace.sideMargin * 2,
   minHeight:
+    header.height * scale +
+    header.borderBottomWidth +
     flexbox.height.twoColumns +
     page.whitespace.topMargin +
     page.whitespace.bottomMargin,

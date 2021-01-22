@@ -11,7 +11,17 @@ describe('renders UI correctly', () => {
   test('Parent', () => {
     const {container} = render(<Main {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
-      @media only screen and (min-width:943px) {
+      .c0 {
+        padding-top: 46px;
+      }
+
+      @media only screen and (min-width:728px) {
+        .c0 {
+          padding-top: 55px;
+        }
+      }
+
+      @media only screen and (min-width:923px) {
         .c0 {
           -webkit-align-items: center;
           -webkit-box-align: center;
@@ -31,7 +41,7 @@ describe('renders UI correctly', () => {
         }
       }
 
-      @media only screen and (min-width:943px) and (min-height:918px) {
+      @media only screen and (min-width:923px) and (min-height:973px) {
         .c0 {
           height: 100vh;
         }
@@ -57,7 +67,7 @@ describe('renders UI correctly', () => {
         }
       }
 
-      @media only screen and (min-width:1326px) and (min-height:632px) {
+      @media only screen and (min-width:1326px) and (min-height:687px) {
         .c0 {
           height: 100vh;
         }
@@ -88,13 +98,14 @@ describe('renders UI correctly', () => {
         width: 100%;
       }
 
-      @media only screen and (min-width:943px) {
+      @media only screen and (min-width:923px) {
         .c0 {
           -webkit-flex-wrap: wrap;
           -ms-flex-wrap: wrap;
           flex-wrap: wrap;
           height: 841px;
-          width: 943px;
+          padding: 0 40px;
+          width: 923px;
         }
       }
 
@@ -115,6 +126,7 @@ describe('renders UI correctly', () => {
           -webkit-justify-content: center;
           -ms-flex-pack: center;
           justify-content: center;
+          padding: 0 40px;
           width: auto;
         }
       }
@@ -155,7 +167,7 @@ describe('renders UI correctly', () => {
         display: none;
       }
 
-      @media only screen and (min-width:943px) {
+      @media only screen and (min-width:923px) {
         .c0 {
           display: block;
           height: 40px;
@@ -168,28 +180,6 @@ describe('renders UI correctly', () => {
           display: block;
           height: 40px;
           width: 100%;
-        }
-      }
-
-      <div>
-        <div
-          class="c0"
-        />
-      </div>
-    `);
-  });
-  test('MarginSide', () => {
-    const {container} = render(<Main.MarginSide {...mockProps} />);
-    expect(container).toMatchInlineSnapshot(`
-      .c0 {
-        display: none;
-      }
-
-      @media only screen and (min-width:1326px) {
-        .c0 {
-          display: block;
-          height: 100vh;
-          width: 40px;
         }
       }
 
@@ -204,12 +194,18 @@ describe('renders UI correctly', () => {
     const {container} = render(<Main.MarginTop {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        display: none;
+        height: 10px;
+        width: 100%;
       }
 
-      @media only screen and (min-width:943px) {
+      @media only screen and (min-width:728px) {
         .c0 {
-          display: block;
+          height: 12px;
+        }
+      }
+
+      @media only screen and (min-width:923px) {
+        .c0 {
           height: 40px;
           width: 100%;
         }
@@ -217,7 +213,6 @@ describe('renders UI correctly', () => {
 
       @media only screen and (min-width:1326px) {
         .c0 {
-          display: block;
           height: 40px;
           width: 100%;
         }
