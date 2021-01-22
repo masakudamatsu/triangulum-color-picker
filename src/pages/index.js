@@ -293,7 +293,6 @@ function HomePage() {
       <Main>
         <Main.MarginTop />
         <Main.FlexContainer>
-          <Main.MarginSide />
           <WrapperForms>
             <TextInputForm
               inputId="colorCode"
@@ -357,7 +356,6 @@ function HomePage() {
               <Cross position="bottomRight" large />
             </WrapperColorData.WrapperSection>
           </WrapperColorData>
-          <Main.MarginSide />
         </Main.FlexContainer>
         <Main.MarginBottom />
       </Main>

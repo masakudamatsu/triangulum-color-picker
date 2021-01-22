@@ -70,16 +70,8 @@ Main.FlexContainer = styled.div`
     flex-wrap: nowrap;
     height: ${(formNumberLarge.height * scale * 2).toFixed()}px;
     justify-content: center;
+    padding: 0 ${page.whitespace.sideMargin}px;
     width: auto;
-  }
-`;
-
-Main.MarginSide = styled.div`
-  display: none;
-  @media only screen and ${mediaQuery.threeColumns} {
-    display: block;
-    height: 100vh;
-    width: ${page.whitespace.sideMargin}px;
   }
 `;
 

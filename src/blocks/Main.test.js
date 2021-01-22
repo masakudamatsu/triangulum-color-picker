@@ -125,6 +125,7 @@ describe('renders UI correctly', () => {
           -webkit-justify-content: center;
           -ms-flex-pack: center;
           justify-content: center;
+          padding: 0 40px;
           width: auto;
         }
       }
@@ -178,28 +179,6 @@ describe('renders UI correctly', () => {
           display: block;
           height: 40px;
           width: 100%;
-        }
-      }
-
-      <div>
-        <div
-          class="c0"
-        />
-      </div>
-    `);
-  });
-  test('MarginSide', () => {
-    const {container} = render(<Main.MarginSide {...mockProps} />);
-    expect(container).toMatchInlineSnapshot(`
-      .c0 {
-        display: none;
-      }
-
-      @media only screen and (min-width:1326px) {
-        .c0 {
-          display: block;
-          height: 100vh;
-          width: 40px;
         }
       }
 
