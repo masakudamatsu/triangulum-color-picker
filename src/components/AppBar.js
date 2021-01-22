@@ -35,6 +35,8 @@ const AppBar = () => {
   return (
     <Header hide={!show} show={show}>
       <Header.InnerWrapper>
+        {' '}
+        {/* Set the width */}
         <Header.WrapperLogo>
           <Header.Img
             src="/logo.svg"

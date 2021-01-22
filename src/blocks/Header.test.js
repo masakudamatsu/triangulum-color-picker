@@ -105,6 +105,13 @@ describe('renders UI correctly', () => {
         }
       }
 
+      @media only screen and (min-width:1326px) {
+        .c0 {
+          padding-left: 40px;
+          width: 1326.1999999999998px;
+        }
+      }
+
       <div>
         <div
           class="c0"

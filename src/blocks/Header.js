@@ -5,8 +5,8 @@ import H1 from 'src/elements/H1';
 import Img from 'src/elements/Img';
 
 import {color} from 'src/utils/color';
-import {mediaQuery} from 'src/utils/breakpoints';
-import {header, scale, triangleWidth} from 'src/utils/designSpecs';
+import {mediaQuery, threeColumns} from 'src/utils/breakpoints';
+import {header, page, scale, triangleWidth} from 'src/utils/designSpecs';
 
 const animation = {
   show: `
@@ -46,6 +46,10 @@ Header.InnerWrapper = styled.div`
   width: ${triangleWidth}px;
   @media only screen and ${mediaQuery.font} {
     width: ${triangleWidth * scale}px;
+  }
+  @media only screen and ${mediaQuery.threeColumns} {
+    padding-left: ${page.whitespace.sideMargin}px;
+    width: ${threeColumns.minWidth}px;
   }
 `;
 

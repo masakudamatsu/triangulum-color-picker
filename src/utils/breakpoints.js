@@ -9,7 +9,7 @@ import {
   scale,
 } from './designSpecs';
 
-const threeColumns = {
+export const threeColumns = {
   minWidth:
     canvas.width.small +
     formColorCode.width * scale +
