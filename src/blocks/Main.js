@@ -24,6 +24,7 @@ const Main = styled.main`
   }
   @media only screen and ${mediaQuery.twoColumnsTall} {
     height: 100vh;
+    padding-top: 0;
   }
   @media only screen and ${mediaQuery.threeColumns} {
     align-items: center;
@@ -33,6 +34,7 @@ const Main = styled.main`
   }
   @media only screen and ${mediaQuery.threeColumnsTall} {
     height: 100vh;
+    padding-top: 0;
   }
 `;
 

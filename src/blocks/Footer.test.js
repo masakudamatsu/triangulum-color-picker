@@ -26,14 +26,14 @@ describe('renders UI correctly', () => {
         width: 100%;
       }
 
-      @media only screen and (min-width:923px) and (min-height:973px) {
+      @media only screen and (min-width:923px) and (min-height:1025px) {
         .c0 {
           bottom: 0;
           position: fixed;
         }
       }
 
-      @media only screen and (min-width:1326px) and (min-height:687px) {
+      @media only screen and (min-width:1326px) and (min-height:739px) {
         .c0 {
           bottom: 0;
           position: fixed;
