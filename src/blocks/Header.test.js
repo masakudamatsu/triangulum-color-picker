@@ -83,6 +83,35 @@ describe('renders UI correctly', () => {
       </div>
     `);
   });
+  test('InnerWrapper', () => {
+    const {container} = render(<Header.InnerWrapper {...mockProps} />);
+    expect(container).toMatchInlineSnapshot(`
+      .c0 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        height: 100%;
+        -webkit-box-pack: start;
+        -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        width: 303px;
+      }
+
+      @media only screen and (min-width:728px) {
+        .c0 {
+          width: 363.59999999999997px;
+        }
+      }
+
+      <div>
+        <div
+          class="c0"
+        />
+      </div>
+    `);
+  });
   test('WrapperH1', () => {
     const {container} = render(<Header.WrapperH1 {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
