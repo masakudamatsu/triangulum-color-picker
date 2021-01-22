@@ -41,9 +41,10 @@ describe('renders UI correctly', () => {
         }
       }
 
-      @media only screen and (min-width:923px) and (min-height:973px) {
+      @media only screen and (min-width:923px) and (min-height:1025px) {
         .c0 {
           height: 100vh;
+          padding-top: 0;
         }
       }
 
@@ -67,9 +68,10 @@ describe('renders UI correctly', () => {
         }
       }
 
-      @media only screen and (min-width:1326px) and (min-height:687px) {
+      @media only screen and (min-width:1326px) and (min-height:739px) {
         .c0 {
           height: 100vh;
+          padding-top: 0;
         }
       }
 
@@ -164,7 +166,14 @@ describe('renders UI correctly', () => {
     const {container} = render(<Main.MarginBottom {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        display: none;
+        height: 10px;
+        width: 100%;
+      }
+
+      @media only screen and (min-width:728px) {
+        .c0 {
+          height: 12px;
+        }
       }
 
       @media only screen and (min-width:923px) {

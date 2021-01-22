@@ -1,6 +1,7 @@
 import {
   canvas,
   flexbox,
+  footer,
   formColorCode,
   formNumberLarge,
   header,
@@ -21,7 +22,9 @@ export const threeColumns = {
     header.borderBottomWidth +
     formNumberLarge.height * scale * 2 +
     page.whitespace.topMargin +
-    page.whitespace.bottomMargin,
+    page.whitespace.bottomMargin +
+    header.borderBottomWidth +
+    footer.height * scale,
 };
 
 export const twoColumns = {
@@ -34,7 +37,9 @@ export const twoColumns = {
     header.borderBottomWidth +
     flexbox.height.twoColumns +
     page.whitespace.topMargin +
-    page.whitespace.bottomMargin,
+    page.whitespace.bottomMargin +
+    header.borderBottomWidth +
+    footer.height * scale,
 };
 
 export const mediaQuery = {
