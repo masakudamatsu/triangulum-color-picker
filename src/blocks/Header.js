@@ -48,16 +48,6 @@ Header.InnerWrapper = styled.div`
     width: ${triangleWidth * scale}px;
   }
 `;
-Header.WrapperH1 = styled.div`
-  padding-bottom: ${header.whitespace.belowH1}px;
-  padding-top: ${header.whitespace.aboveH1}px;
-  @media only screen and ${mediaQuery.font} {
-    padding-bottom: ${header.whitespace.belowH1 * scale}px;
-    padding-top: ${header.whitespace.aboveH1 * scale}px;
-  }
-`;
-
-Header.H1 = H1;
 
 Header.WrapperLogo = styled.div`
   align-items: center;
@@ -68,6 +58,17 @@ Header.WrapperLogo = styled.div`
 `; // temporary
 
 Header.Img = Img; // temporary
+
+Header.WrapperH1 = styled.div`
+  padding-bottom: ${header.whitespace.belowH1}px;
+  padding-top: ${header.whitespace.aboveH1}px;
+  @media only screen and ${mediaQuery.font} {
+    padding-bottom: ${header.whitespace.belowH1 * scale}px;
+    padding-top: ${header.whitespace.aboveH1 * scale}px;
+  }
+`;
+
+Header.H1 = H1;
 
 Header.propTypes = {
   hide: PropTypes.bool,

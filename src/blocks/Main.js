@@ -36,6 +36,22 @@ const Main = styled.main`
   }
 `;
 
+Main.MarginTop = styled.div`
+  height: ${page.whitespace.aboveColorCode}px;
+  width: 100%;
+  @media only screen and ${mediaQuery.font} {
+    height: ${page.whitespace.aboveColorCode * scale}px;
+  }
+  @media only screen and ${mediaQuery.twoColumns} {
+    height: ${page.whitespace.topMargin}px;
+    width: 100%;
+  }
+  @media only screen and ${mediaQuery.threeColumns} {
+    height: ${page.whitespace.topMargin}px;
+    width: 100%;
+  }
+`;
+
 Main.FlexContainer = styled.div`
   align-items: center;
   display: flex;
@@ -58,6 +74,15 @@ Main.FlexContainer = styled.div`
   }
 `;
 
+Main.MarginSide = styled.div`
+  display: none;
+  @media only screen and ${mediaQuery.threeColumns} {
+    display: block;
+    height: 100vh;
+    width: ${page.whitespace.sideMargin}px;
+  }
+`;
+
 Main.MarginBetweenColumns = styled.div`
   display: none;
   @media only screen and ${mediaQuery.threeColumns} {
@@ -77,31 +102,6 @@ Main.MarginBottom = styled.div`
   @media only screen and ${mediaQuery.threeColumns} {
     display: block;
     height: ${page.whitespace.bottomMargin}px;
-    width: 100%;
-  }
-`;
-
-Main.MarginSide = styled.div`
-  display: none;
-  @media only screen and ${mediaQuery.threeColumns} {
-    display: block;
-    height: 100vh;
-    width: ${page.whitespace.sideMargin}px;
-  }
-`;
-
-Main.MarginTop = styled.div`
-  height: ${page.whitespace.aboveColorCode}px;
-  width: 100%;
-  @media only screen and ${mediaQuery.font} {
-    height: ${page.whitespace.aboveColorCode * scale}px;
-  }
-  @media only screen and ${mediaQuery.twoColumns} {
-    height: ${page.whitespace.topMargin}px;
-    width: 100%;
-  }
-  @media only screen and ${mediaQuery.threeColumns} {
-    height: ${page.whitespace.topMargin}px;
     width: 100%;
   }
 `;
