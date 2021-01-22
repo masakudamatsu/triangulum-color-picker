@@ -28,7 +28,6 @@ export const twoColumns = {
   minWidth:
     canvas.width.small +
     formNumberLarge.width * scale +
-    page.whitespace.betweenComponents +
     page.whitespace.sideMargin * 2,
   minHeight:
     header.height * scale +

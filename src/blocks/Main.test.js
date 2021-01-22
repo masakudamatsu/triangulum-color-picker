@@ -21,7 +21,7 @@ describe('renders UI correctly', () => {
         }
       }
 
-      @media only screen and (min-width:943px) {
+      @media only screen and (min-width:923px) {
         .c0 {
           -webkit-align-items: center;
           -webkit-box-align: center;
@@ -41,7 +41,7 @@ describe('renders UI correctly', () => {
         }
       }
 
-      @media only screen and (min-width:943px) and (min-height:973px) {
+      @media only screen and (min-width:923px) and (min-height:973px) {
         .c0 {
           height: 100vh;
         }
@@ -98,13 +98,14 @@ describe('renders UI correctly', () => {
         width: 100%;
       }
 
-      @media only screen and (min-width:943px) {
+      @media only screen and (min-width:923px) {
         .c0 {
           -webkit-flex-wrap: wrap;
           -ms-flex-wrap: wrap;
           flex-wrap: wrap;
           height: 841px;
-          width: 943px;
+          padding: 0 40px;
+          width: 923px;
         }
       }
 
@@ -166,7 +167,7 @@ describe('renders UI correctly', () => {
         display: none;
       }
 
-      @media only screen and (min-width:943px) {
+      @media only screen and (min-width:923px) {
         .c0 {
           display: block;
           height: 40px;
@@ -203,7 +204,7 @@ describe('renders UI correctly', () => {
         }
       }
 
-      @media only screen and (min-width:943px) {
+      @media only screen and (min-width:923px) {
         .c0 {
           height: 40px;
           width: 100%;

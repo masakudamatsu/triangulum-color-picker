@@ -62,6 +62,7 @@ Main.FlexContainer = styled.div`
     height: ${(
       flexbox.height.twoColumns + 3
     ).toFixed()}px; /* Flex items will be wrapped with less than this height */
+    padding: 0 ${page.whitespace.sideMargin}px;
     width: ${twoColumns.minWidth.toFixed()}px;
   }
   @media only screen and ${mediaQuery.threeColumns} {

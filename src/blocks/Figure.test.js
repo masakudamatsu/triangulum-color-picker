@@ -33,7 +33,7 @@ test('renders UI correctly', () => {
       width: 431px;
     }
 
-    @media only screen and (min-width:943px) {
+    @media only screen and (min-width:923px) {
       .c0 {
         -webkit-order: 1;
         -ms-flex-order: 1;
