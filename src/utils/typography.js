@@ -1,7 +1,8 @@
 import {css} from 'styled-components';
 
-import {capheight, scale} from './designSpecs';
+import {capheight, footer, scale} from './designSpecs';
 import {mediaQuery} from './breakpoints';
+import {poppins} from './fontMetrics';
 
 // Convert px in number into rem in string
 function remify(px) {
@@ -12,24 +13,21 @@ function remify(px) {
   return stringify(px / oneRemInPx);
 }
 
-// Font metrics
-const poppins = {
-  light: {
-    unitsPerEm: 1000,
-    xHeight: 546,
-    capHeight: 700,
-  },
-  thin: {
-    unitsPerEm: 1000,
-    xHeight: 540,
-    capHeight: 702,
-  },
-}; // Measured with https://opentype.js.org/font-inspector.html
-
 function capHeightToBe(px, fontMetrics) {
   const capHeightToFontSize = capHeight =>
     (capHeight / fontMetrics.capHeight) * fontMetrics.unitsPerEm;
   return capHeightToFontSize(px);
+}
+
+function xHeightToBe(px, fontMetrics) {
+  const xHeightToFontSize = xHeight =>
+    (xHeight / fontMetrics.xHeight) * fontMetrics.unitsPerEm;
+  return xHeightToFontSize(px);
+}
+
+function lineHeightToBe(xHeightPx, spaceBetweenPx, fontMetrics) {
+  const lineHeight = xHeightPx + spaceBetweenPx;
+  return lineHeight / xHeightToBe(xHeightPx, fontMetrics);
 }
 
 // Type scale
@@ -86,6 +84,19 @@ export const typescale = {
       )};
     }
   `,
+  footer: css`
+    font-family: 'Poppins';
+    font-size: ${remify(xHeightToBe(footer.xheight, poppins.light))};
+    font-weight: 300;
+    line-height: ${lineHeightToBe(
+      footer.xheight,
+      footer.betweenLine,
+      poppins.light,
+    )};
+    @media only screen and ${mediaQuery.font} {
+      font-size: ${remify(xHeightToBe(footer.xheight * scale, poppins.light))};
+    }
+  `,
 };
 
 export const textcrop = {
@@ -112,4 +123,8 @@ export const textcrop = {
   percent: css`
     transform: translateY(0.46em);
   `, // for percent, cropping bottom matters to be bottom-aligned with chroma/luminance values
+  footer: css`
+    margin-bottom: -0.28em;
+    transform: translateY(-0.1375em);
+  `,
 };

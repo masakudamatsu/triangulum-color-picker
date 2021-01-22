@@ -1,0 +1,63 @@
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
+import Paragraph from 'src/elements/Paragraph';
+import {color} from 'src/utils/color';
+import {
+  cross,
+  footer,
+  header,
+  page,
+  scale,
+  triangleWidth,
+} from 'src/utils/designSpecs';
+import {mediaQuery, threeColumns, twoColumns} from 'src/utils/breakpoints';
+import {textcrop, typescale} from 'src/utils/typography';
+
+const Footer = styled.footer`
+  background-color: ${color.topAppBar.background};
+  border-top: ${header.borderBottomWidth}px solid
+    ${color.topAppBar.borderBottom};
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  @media only screen and ${mediaQuery.twoColumnsTall} {
+    bottom: 0;
+    position: fixed;
+  }
+  @media only screen and ${mediaQuery.threeColumnsTall} {
+    bottom: 0;
+    position: fixed;
+  }
+`;
+
+Footer.InnerWrapper = styled.div`
+  padding-bottom: ${footer.belowParagraph}px;
+  padding-top: ${footer.aboveParagraph}px;
+  width: ${triangleWidth}px;
+  @media only screen and ${mediaQuery.font} {
+    padding-bottom: ${footer.belowParagraph * scale}px;
+    padding-top: ${footer.aboveParagraph * scale}px;
+    width: ${triangleWidth * scale}px;
+  }
+  @media only screen and ${mediaQuery.twoColumns} {
+    padding-left: ${page.whitespace.sideMargin +
+    (cross.width.large * scale) / 3}px;
+    width: ${twoColumns.minWidth}px;
+    padding-right: ${page.whitespace.sideMargin}px;
+  }
+  @media only screen and ${mediaQuery.threeColumns} {
+    padding-left: ${page.whitespace.sideMargin}px;
+    width: ${threeColumns.minWidth}px;
+  }
+`;
+
+Footer.Paragraph = styled(Paragraph)`
+  color: ${color.footer};
+  ${typescale.footer}
+  ${typescale.textcrop}
+`;
+
+Footer.propTypes = {};
+
+export default Footer;

@@ -164,7 +164,14 @@ describe('renders UI correctly', () => {
     const {container} = render(<Main.MarginBottom {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        display: none;
+        height: 10px;
+        width: 100%;
+      }
+
+      @media only screen and (min-width:728px) {
+        .c0 {
+          height: 12px;
+        }
       }
 
       @media only screen and (min-width:923px) {

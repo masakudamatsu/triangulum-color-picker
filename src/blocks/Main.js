@@ -86,7 +86,11 @@ Main.MarginBetweenColumns = styled.div`
 `;
 
 Main.MarginBottom = styled.div`
-  display: none;
+  height: ${page.whitespace.aboveColorCode}px;
+  width: 100%;
+  @media only screen and ${mediaQuery.font} {
+    height: ${page.whitespace.aboveColorCode * scale}px;
+  }
   @media only screen and ${mediaQuery.twoColumns} {
     display: block;
     height: ${page.whitespace.bottomMargin}px;

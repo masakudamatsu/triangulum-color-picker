@@ -5,6 +5,7 @@ import AppBar from 'src/components/AppBar';
 import CanvasWrapper from 'src/components/CanvasWrapper';
 import ChromaLuminanceForm from 'src/components/ChromaLuminanceForm';
 import Cross from 'src/components/Cross';
+import Footnote from 'src/components/Footnote';
 import Main from 'src/blocks/Main';
 import TextFieldForHex from 'src/components/TextFieldForHex';
 import TextFieldForHsl from 'src/components/TextFieldForHsl';
@@ -359,6 +360,7 @@ function HomePage() {
         </Main.FlexContainer>
         <Main.MarginBottom />
       </Main>
+      <Footnote />
     </>
   );
 }

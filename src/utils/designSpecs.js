@@ -1,4 +1,5 @@
 import getCanvasMetrics from './getCanvasMetrics';
+import {poppins} from './fontMetrics';
 
 const canvasSmall = getCanvasMetrics(3);
 const canvasLarge = getCanvasMetrics(5);
@@ -199,5 +200,21 @@ export const flexbox = {
         formNumberLarge.height * 2 +
         page.whitespace.betweenColorCodeAndRgb) *
       scale,
+  },
+};
+
+export const footer = {
+  xheight: (10 / poppins.light.capHeight) * poppins.light.xHeight,
+  get betweenLine() {
+    return this.xheight * 1.5;
+  },
+  get aboveParagraph() {
+    return this.xheight * 1.5 * 1.5;
+  },
+  get belowParagraph() {
+    return this.xheight * 1.5 * 1.5;
+  },
+  get height() {
+    return this.xheight + this.aboveParagraph + this.belowParagraph;
   },
 };
