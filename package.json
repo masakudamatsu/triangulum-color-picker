@@ -13,8 +13,8 @@
     "e2e": "cypress open",
     "test:e2e": "start-server-and-test dev http://localhost:3000 e2e",
     "test:single": "jest",
-    "snapshot": "cypress run --spec \"cypress/e2e/snapshots.js\"",
-    "snapshot:update": "cypress run --env updateSnapshots=true --spec \"cypress/e2e/snapshots.js\"",
+    "snapshot": "cypress run --spec \"cypress/e2e/snapshots.js,cypress/component/CanvasWrapper.test.js\"",
+    "snapshot:update": "cypress run --env updateSnapshots=true --spec \"cypress/e2e/snapshots.js,cypress/component/CanvasWrapper.test.js\"",
     "cy:run": "cypress run",
     "test:precommit": "npm-run-all --parallel test:single cy:run"
   },
