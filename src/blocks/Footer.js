@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+import A from 'src/elements/A';
 import Paragraph from 'src/elements/Paragraph';
 import {color} from 'src/utils/color';
 import {
@@ -29,6 +30,8 @@ const Footer = styled.footer`
     position: fixed;
   }
 `;
+
+Footer.A = A;
 
 Footer.InnerWrapper = styled.div`
   padding-bottom: ${footer.belowParagraph}px;
