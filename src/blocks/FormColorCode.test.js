@@ -40,11 +40,11 @@ describe('renders UI correctly', () => {
     const {container} = render(<FormColorCode.Input {...mockProps.input} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        background-color: rgb(0,0,0);
-        border-color: currentColor;
+        background-color: rgb(10,10,10);
+        border-color: rgb(255,255,255);
         border-style: solid;
         border-width: 1px;
-        color: inherit;
+        color: rgb(255,255,255);
       }
 
       .c0:active,
@@ -113,7 +113,7 @@ describe('renders UI correctly', () => {
         font-size: 0.8929rem;
         font-weight: 300;
         line-height: 1;
-        color: inherit;
+        color: rgb(255,255,255);
       }
 
       .c1 {

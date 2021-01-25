@@ -1,12 +1,29 @@
+const black = 'rgb(10, 10, 10)';
+const grayDark = 'rgb(74, 74, 74)'; // luminance 1.5^2 x black
+const grayMedium = 'rgb(100, 100, 100)'; // luminance 1.5 x grayDark
+
+const white = 'rgb(255, 255, 255)';
+const grayLight = 'rgb(173, 173, 173)'; // luminance 1/(1.5^2) x white;
+const linkTextBackground = 'rgb(65, 65, 65)'; // luminance 1/4.5 x grayLight;
+
 export const color = {
-  background: 'linear-gradient(95deg, rgb(73, 73, 73) 0%, rgb(0,0,0) 100%)',
-  black: 'rgb(0, 0, 0)',
-  white: 'rgb(255, 255, 255)',
-  topAppBar: {
-    background: 'rgb(10, 10, 10)',
-    borderBottom: 'rgb(96, 96, 96)',
+  background: `linear-gradient(95deg, ${grayDark} 0%, ${black} 100%)`,
+  backgroundFallback: black,
+  cross: white,
+  font: white,
+  fontLightMode: black,
+  input: {
+    background: black,
+    border: white,
   },
-  elevation4: 'rgb(23, 23, 23)',
-  // contrast ratio 1.17, equal to when pure black is overlayed with pure white of opacity 0.09 (Material Design Dark Theme to indicate 4dp elevation: https://material.io/design/color/dark-theme.html#properties)
-  footer: 'rgb(117, 117, 117)', // 4.5:1 to pure black
+  topAppBar: {
+    background: black,
+    borderBottom: grayMedium,
+  },
+  footer: {
+    background: black,
+    border: grayMedium,
+    font: grayLight,
+    linkBackground: linkTextBackground,
+  },
 };

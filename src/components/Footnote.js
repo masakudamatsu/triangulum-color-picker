@@ -9,8 +9,10 @@ const Footnote = () => {
       <Footer.InnerWrapper>
         <Footer.Paragraph rightAligned>
           designed and coded by{' '}
-          <a href="https://twitter.com/masa_kudamatsu">Masa Kudamatsu</a> in
-          2021
+          <Footer.A href="https://twitter.com/masa_kudamatsu">
+            Masa Kudamatsu
+          </Footer.A>{' '}
+          in 2021
         </Footer.Paragraph>
       </Footer.InnerWrapper>
     </Footer>

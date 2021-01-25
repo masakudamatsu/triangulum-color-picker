@@ -11,7 +11,7 @@ import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
 
 const FormHex = styled.form`
-  color: ${props => (props.lightMode ? color.black : color.white)};
+  color: ${props => (props.lightMode ? color.fontLightMode : color.font)};
   display: flex;
   flex-direction: column;
   position: relative;
@@ -21,7 +21,9 @@ const FormHex = styled.form`
 FormHex.Input = styled(Input)`
   ${typescale.medium}
   background-color: ${props => props.backgroundColor};
+  border-width: ${props => props.lightMode && `0`};
   border-radius: 100%;
+  color: inherit;
   height: 100%;
   text-align: center;
   width: 100%;
@@ -30,6 +32,7 @@ FormHex.Input = styled(Input)`
 FormHex.Label = styled(Label)`
   ${textcrop.smallCenterAligned}
   align-self: center;
+  color: inherit;
   position: absolute;
   top: ${formHex.whitespace.aboveLabel}px;
   @media only screen and ${mediaQuery.font} {
@@ -42,6 +45,7 @@ FormHex.propTypes = {
 };
 FormHex.Input.propTypes = {
   backgroundColor: PropTypes.string,
+  lightMode: PropTypes.bool,
 };
 
 export default FormHex;

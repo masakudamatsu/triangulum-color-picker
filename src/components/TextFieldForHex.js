@@ -15,6 +15,7 @@ const TextFieldForHex = ({
       <FormHex.Input
         backgroundColor={backgroundColor} // not value, to avoid changes while the user enters a new hex value
         id="hex"
+        lightMode={lightMode}
         onChange={handleChange}
         value={value}
       />

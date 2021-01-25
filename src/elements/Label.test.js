@@ -15,7 +15,7 @@ describe('renders UI correctly:', () => {
         font-family: 'Poppins';
         font-size: 1.7857rem;
         font-weight: 300;
-        color: inherit;
+        color: rgb(255,255,255);
       }
 
       @media only screen and (min-width:728px) {
@@ -40,7 +40,7 @@ describe('renders UI correctly:', () => {
         font-size: 0.8929rem;
         font-weight: 300;
         line-height: 1;
-        color: inherit;
+        color: rgb(255,255,255);
       }
 
       @media only screen and (min-width:728px) {
