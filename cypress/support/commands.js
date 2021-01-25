@@ -13,7 +13,7 @@ if (Cypress.config('isInteractive')) {
 
     // Allow tiny differences between snapshots
     customDiffConfig: {threshold: 0}, // threshold for each pixel
-    failureThreshold: 0, // threshold for entire image
+    failureThreshold: 0.001, // threshold for entire image
     failureThresholdType: 'percent', // percent of image or number of pixels
 
     // see https://github.com/jaredpalmer/cypress-image-snapshot#options
