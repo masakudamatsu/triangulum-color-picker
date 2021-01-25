@@ -1,3 +1,4 @@
+import getCanvasMetrics from 'src/utils/getCanvasMetrics';
 import {threeColumns, twoColumns} from 'src/utils/breakpoints';
 
 const twitterBlue = 'rgb(29, 161, 242)';
@@ -5,7 +6,7 @@ const mcdonaldsRed = 'rgb(191, 12, 12)';
 const grey = 'rgb(129, 129, 129)';
 const white = 'rgb(255, 255, 255)';
 
-describe.only('Entire UI is correctly shown', () => {
+describe('Entire UI is correctly shown', () => {
   it('for narrowest screen size', () => {
     cy.viewport('iphone-5'); // 320 x 568 (see https://docs.cypress.io/api/commands/viewport.html#Arguments)
     cy.visit('/');
@@ -29,6 +30,21 @@ describe.only('Entire UI is correctly shown', () => {
     cy.visit('/');
     cy.findByLabelText(/color code/i).type(twitterBlue);
     cy.matchImageSnapshot('entire-ui-desktop', {capture: 'fullPage'});
+  });
+});
+
+describe.only('Color picker functions:', () => {
+  it('Clicking the neutral color does not change the hue of the color triangle', () => {
+    const {canvasWidth, squareTopLeftX, squareTopLeftY} = getCanvasMetrics(3);
+    cy.viewport(canvasWidth, canvasWidth);
+
+    cy.visit('/');
+    cy.findByLabelText(/color code/i).type(twitterBlue);
+
+    cy.findByTestId('reticle').click(squareTopLeftX, squareTopLeftY + 100);
+    cy.findByTestId('color-triangle')
+      .should('be.visible')
+      .matchImageSnapshot('clicking-neutral-color');
   });
 });
 
