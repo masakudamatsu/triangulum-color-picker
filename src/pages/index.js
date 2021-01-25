@@ -45,14 +45,14 @@ function HomePage() {
 
   const [userColor, setUserColor] = React.useReducer(userColorReducer, {
     cssCode: '',
-    hex: '#000000',
-    r: 0,
+    hex: '#ff0000',
+    r: 255,
     g: 0,
     b: 0,
     h: 0,
-    s: 0,
-    l: 0,
-    validCode: 'rgb(0, 0, 0)',
+    s: 100,
+    l: 50,
+    validCode: 'rgb(255, 0, 0)',
   });
 
   function updateUserColor(validColorCode, colorCodeType) {
