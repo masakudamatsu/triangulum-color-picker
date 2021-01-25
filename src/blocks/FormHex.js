@@ -21,6 +21,7 @@ const FormHex = styled.form`
 FormHex.Input = styled(Input)`
   ${typescale.medium}
   background-color: ${props => props.backgroundColor};
+  border-width: ${props => props.lightMode && `0`};
   border-radius: 100%;
   color: inherit;
   height: 100%;
@@ -44,6 +45,7 @@ FormHex.propTypes = {
 };
 FormHex.Input.propTypes = {
   backgroundColor: PropTypes.string,
+  lightMode: PropTypes.bool,
 };
 
 export default FormHex;

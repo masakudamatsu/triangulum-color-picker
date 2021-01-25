@@ -11,6 +11,7 @@ const mockProps = {
   },
   input: {
     backgroundColor: '#abcdef',
+    lightMode: false,
   },
   label: {},
 };
@@ -158,5 +159,15 @@ describe('changes CSS properties by props', () => {
     expect(screen.getByTestId('input')).toHaveStyle(
       `background-color: ${newColor}`,
     );
+  });
+  test('lightMode prop for Input', () => {
+    render(
+      <FormHex.Input
+        data-testid="input"
+        {...mockProps.input}
+        lightMode={true}
+      />,
+    );
+    expect(screen.getByTestId('input')).toHaveStyle(`border-width: 0px`);
   });
 });
