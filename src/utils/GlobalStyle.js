@@ -334,12 +334,12 @@ input {
 }
 
 :root { /* The background-color on the body element won't spread over the entire page for some reason. */
-  background-color: ${color.black}; // fallback & paint outside the viewport so scrolling to the top/bottom won't reveal white background
+  background-color: ${color.backgroundFallback}; // fallback & paint outside the viewport so scrolling to the top/bottom won't reveal white background
   background-image: ${color.background};
 }
 
 body {
-  color: white;
+  color: ${color.font};
   font-family: 'Poppins'; /* See _document.js */
   font-weight: 300;
 }

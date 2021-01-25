@@ -12,7 +12,7 @@ const [twitterBlue, mcdonaldsRed] = [
     hex: '#1ca0f2',
     rgb: 'rgb(28, 160, 242)',
     hsl: 'hsl(203, 89%, 53%)',
-    fontColor: color.black,
+    fontColor: color.fontLightMode,
   },
   {
     // an example of low-luminance color
@@ -20,7 +20,7 @@ const [twitterBlue, mcdonaldsRed] = [
     hex: '#c00c0c',
     rgb: 'rgb(192, 12, 12)',
     hsl: 'hsl(0, 88%, 40%)',
-    fontColor: color.white,
+    fontColor: color.font,
   },
 ].map(color => {
   const {rgb, hsl} = parseColor(color.hex);

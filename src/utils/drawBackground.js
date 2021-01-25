@@ -22,6 +22,6 @@ export default function drawBackground(canvasContext, pixelSize) {
   canvasContext.clip(); // Erase any drawing outside the circle
 
   // background
-  canvasContext.fillStyle = color.black;
+  canvasContext.fillStyle = color.input.background;
   canvasContext.fillRect(0, 0, canvasWidth, canvasWidth);
 }

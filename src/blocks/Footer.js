@@ -15,9 +15,8 @@ import {mediaQuery, threeColumns, twoColumns} from 'src/utils/breakpoints';
 import {textcrop, typescale} from 'src/utils/typography';
 
 const Footer = styled.footer`
-  background-color: ${color.topAppBar.background};
-  border-top: ${header.borderBottomWidth}px solid
-    ${color.topAppBar.borderBottom};
+  background-color: ${color.footer.background};
+  border-top: ${header.borderBottomWidth}px solid ${color.footer.border};
   display: flex;
   justify-content: center;
   width: 100%;
@@ -53,7 +52,7 @@ Footer.InnerWrapper = styled.div`
 `;
 
 Footer.Paragraph = styled(Paragraph)`
-  color: ${color.footer};
+  color: ${color.footer.font};
   ${typescale.footer}
   ${typescale.textcrop}
 `;

@@ -25,7 +25,7 @@ const Cross = ({large, position}) => {
     >
       <Svg.Line
         data-testid="horizontal"
-        lineColor={color.white}
+        lineColor={color.cross}
         x1={horizontal.x1}
         y1={horizontal.y}
         x2={horizontal.x2}
@@ -33,7 +33,7 @@ const Cross = ({large, position}) => {
       />
       <Svg.Line
         data-testid="vertical"
-        lineColor={color.white}
+        lineColor={color.cross}
         x1={vertical.x}
         y1={vertical.y1}
         x2={vertical.x}

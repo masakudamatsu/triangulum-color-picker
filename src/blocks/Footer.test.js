@@ -14,7 +14,7 @@ describe('renders UI correctly', () => {
     expect(container).toMatchInlineSnapshot(`
       .c0 {
         background-color: rgb(10,10,10);
-        border-top: 1px solid rgb(96,96,96);
+        border-top: 1px solid rgb(100,100,100);
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -102,7 +102,7 @@ describe('renders UI correctly', () => {
       }
 
       .c1 {
-        color: rgb(117,117,117);
+        color: rgb(173,173,173);
         font-family: 'Poppins';
         font-size: 0.8929rem;
         font-weight: 300;

@@ -51,11 +51,11 @@ describe('renders UI correctly', () => {
     const {container} = render(<FormHex.Input {...mockProps.input} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        background-color: rgb(0,0,0);
-        border-color: currentColor;
+        background-color: rgb(10,10,10);
+        border-color: rgb(255,255,255);
         border-style: solid;
         border-width: 1px;
-        color: inherit;
+        color: rgb(255,255,255);
       }
 
       .c0:active,
@@ -71,6 +71,7 @@ describe('renders UI correctly', () => {
         font-weight: 300;
         background-color: #abcdef;
         border-radius: 100%;
+        color: inherit;
         height: 100%;
         text-align: center;
         width: 100%;
@@ -99,7 +100,7 @@ describe('renders UI correctly', () => {
         font-size: 0.8929rem;
         font-weight: 300;
         line-height: 1;
-        color: inherit;
+        color: rgb(255,255,255);
       }
 
       .c1 {
@@ -110,6 +111,7 @@ describe('renders UI correctly', () => {
         -webkit-align-self: center;
         -ms-flex-item-align: center;
         align-self: center;
+        color: inherit;
         position: absolute;
         top: 18px;
       }
@@ -140,7 +142,9 @@ describe('changes CSS properties by props', () => {
     render(
       <FormHex data-testid="form" {...mockProps.parent} lightMode={true} />,
     );
-    expect(screen.getByTestId('form')).toHaveStyle(`color: ${color.black}`);
+    expect(screen.getByTestId('form')).toHaveStyle(
+      `color: ${color.fontLightMode}`,
+    );
   });
   test('backgroundColor prop for Input', () => {
     const newColor = 'rgb(18, 52, 86)'; // #123456
