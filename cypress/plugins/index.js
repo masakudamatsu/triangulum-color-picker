@@ -20,6 +20,15 @@
 const {addMatchImageSnapshotPlugin} = require('cypress-image-snapshot/plugin');
 
 module.exports = (on, config) => {
+  // https://docs.cypress.io/api/plugins/browser-launch-api.html#Set-screen-size-when-running-headless
+  on('before:browser:launch', (browser, launchOptions) => {
+    if (browser.name === 'electron' && browser.isHeadless) {
+      launchOptions.preferences.width = 1920;
+      launchOptions.preferences.height = 1080;
+    }
+    return launchOptions;
+  });
+
   // Cypress Image Snapshot
   addMatchImageSnapshotPlugin(on, config);
 
