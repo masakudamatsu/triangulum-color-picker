@@ -2,9 +2,7 @@ import getCanvasMetrics from 'src/utils/getCanvasMetrics';
 import {threeColumns, twoColumns} from 'src/utils/breakpoints';
 
 const twitterBlue = 'rgb(29, 161, 242)';
-const mcdonaldsRed = 'rgb(191, 12, 12)';
 const grey = 'rgb(129, 129, 129)';
-const white = 'rgb(255, 255, 255)';
 
 describe('Entire UI is correctly shown', () => {
   it('for narrowest screen size', () => {
@@ -33,8 +31,8 @@ describe('Entire UI is correctly shown', () => {
   });
 });
 
-describe.only('Color picker functions:', () => {
-  it('Clicking the neutral color does not change the hue of the color triangle', () => {
+describe('Choosing the neutral color does not change the hue of the color triangle', () => {
+  it('When clicking on the color triangle', () => {
     const {canvasWidth, squareTopLeftX, squareTopLeftY} = getCanvasMetrics(3);
     cy.viewport(canvasWidth, canvasWidth);
 
@@ -46,30 +44,17 @@ describe.only('Color picker functions:', () => {
       .should('be.visible')
       .matchImageSnapshot('clicking-neutral-color');
   });
-});
-
-describe('Entering css color code shows the color triangle diagram', () => {
-  it('for Twitter blue and then for McDonalds red', () => {
+  it('When entering CSS code', () => {
+    const {canvasWidth} = getCanvasMetrics(3);
+    cy.viewport(canvasWidth, canvasWidth);
     cy.visit('/');
-
     cy.findByLabelText(/color code/i).type(twitterBlue);
-    cy.get('canvas').should('be.visible').matchImageSnapshot('twitterBlue');
 
     cy.findByLabelText(/color code/i)
       .clear()
-      .type(mcdonaldsRed);
-    cy.get('canvas').should('be.visible').matchImageSnapshot('mcdonaldsRed');
-  });
-
-  it('for neutral color', () => {
-    cy.visit('/');
-
-    cy.findByLabelText(/color code/i).type(grey);
-    cy.get('canvas').should('be.visible').matchImageSnapshot('grey');
-
-    cy.findByLabelText(/color code/i)
-      .clear()
-      .type(white);
-    cy.get('canvas').should('be.visible').matchImageSnapshot('white');
+      .type(grey);
+    cy.findByTestId('color-triangle')
+      .should('be.visible')
+      .matchImageSnapshot('typing-neutral-color');
   });
 });
