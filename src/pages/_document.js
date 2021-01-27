@@ -35,6 +35,11 @@ export default class MyDocument extends Document {
         <Head>
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <title>Triangulum Color Picker</title>
+          <meta
+            name="description"
+            content="A front-end web app to pick a tint/tone/shade of hues more logically and more intuitively than the standard color pickers"
+          />
           {/* SVG-favicon-compatible browsers */}
           <link rel="icon" type="image/svg+xml" href="/logo.svg" />
 
