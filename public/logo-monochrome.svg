@@ -1,0 +1,8 @@
+
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" >
+  <g id="Page-1" stroke="none" fill="#000">
+    <polygon id="Green" points="0,0 16,4 0,16"></polygon>
+    <polygon id="Red" points="13.5,6.5 16,8 3,14.5"></polygon>
+    <polygon id="Blue" points="13.5,10 16,12 2.5,15.5"></polygon>
+  </g>
+</svg>

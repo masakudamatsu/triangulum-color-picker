@@ -32,7 +32,45 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head></Head>
+        <Head>
+          {/* SVG-favicon-compatible browsers */}
+          <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+
+          {/*  iOS Home Screen */}
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+          />
+          <meta name="apple-mobile-web-app-title" content="Triangulum" />
+
+          {/*  Old browsers that do not recognize SVG as favicon */}
+          <link
+            rel="alternate icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+          />
+          <link
+            rel="alternate icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+          />
+
+          {/*  Android Chrome */}
+          <link rel="manifest" href="/site.webmanifest" />
+          <meta name="application-name" content="Triangulum" />
+
+          {/*  MacOS Safari pinned tab / touch bar */}
+          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#4a4a4a" />
+
+          {/* Windows Start Menu Tile */}
+          <meta name="msapplication-TileColor" content="#4a4a4a" />
+
+          {/* Fallback? */}
+          <meta name="theme-color" content="#4a4a4a" />
+        </Head>
         <body>
           <Main />
           <NextScript />
