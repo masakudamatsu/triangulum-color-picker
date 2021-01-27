@@ -77,6 +77,26 @@ export default class MyDocument extends Document {
 
           {/* Fallback? */}
           <meta name="theme-color" content="#4a4a4a" />
+
+
+          {/* Structured data: see https://developers.google.com/search/docs/data-types/software-app#softwareapplication */}
+          <script type="application/ld+json">
+            {
+              "@context": "http://schema.org",
+              "@type": "WebApplication",
+              "name": "Triangulum Color Picker",
+              "url": "triangulum-color-picker.app",
+              "applicationCategory": "DesignApplication",
+              "genre": "color",
+              "browserRequirements": "Requires JavaScript. Requires HTML5.",
+              "softwareVersion": "1.0.0-beta.1",
+              "operatingSystem": "All",
+              "offers": {
+                "@type": "Offer",
+                "price": "0"
+              }
+            }
+          </script>
         </Head>
         <body>
           <Main />
