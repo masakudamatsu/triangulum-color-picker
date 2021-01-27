@@ -33,6 +33,8 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <meta charset="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
           {/* SVG-favicon-compatible browsers */}
           <link rel="icon" type="image/svg+xml" href="/logo.svg" />
 
