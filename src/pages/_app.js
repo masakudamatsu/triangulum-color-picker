@@ -31,27 +31,12 @@ export default function App({Component, pageProps}) {
         {/* SVG-favicon-compatible browsers */}
         <link rel="icon" type="image/svg+xml" href="/logo.svg" />
 
-        {/*  iOS Home Screen */}
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <meta name="apple-mobile-web-app-title" content="Triangulum" />
+        {/* SVG-favicon-incompatible browsers */}
+        <link rel="alternate icon" href="/favicon.ico" />
 
-        {/*  Old browsers that do not recognize SVG as favicon */}
-        <link
-          rel="alternate icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="alternate icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
+        {/*  iOS Home Screen */}
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Triangulum" />
 
         {/*  Android Chrome */}
         <link rel="manifest" href="/site.webmanifest" />
@@ -60,10 +45,7 @@ export default function App({Component, pageProps}) {
         {/*  MacOS Safari pinned tab / touch bar */}
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#4a4a4a" />
 
-        {/* Windows Start Menu Tile */}
-        <meta name="msapplication-TileColor" content="#4a4a4a" />
-
-        {/* Fallback? */}
+        {/* Android Chrome tab color */}
         <meta name="theme-color" content="#4a4a4a" />
 
         {/* Structured data: see https://developers.google.com/search/docs/data-types/software-app#softwareapplication */}
