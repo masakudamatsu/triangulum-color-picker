@@ -21,7 +21,3 @@ coverage/
 resources/
 
 public/fonts/
-
-public/*.png
-
-public/favicon.ico
