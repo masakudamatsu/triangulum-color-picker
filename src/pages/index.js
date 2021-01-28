@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import AppBar from 'src/components/AppBar';
+import BannerForNoJs from 'src/components/BannerForNoJs';
 import CanvasWrapper from 'src/components/CanvasWrapper';
 import ChromaLuminanceForm from 'src/components/ChromaLuminanceForm';
 import Cross from 'src/components/Cross';
@@ -296,6 +297,7 @@ function HomePage() {
       <Main>
         <Main.MarginTop />
         <Main.FlexContainer>
+          <BannerForNoJs />
           <WrapperForms>
             <H2 hidden>Setting Color</H2>
             <TextInputForm

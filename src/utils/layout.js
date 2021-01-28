@@ -21,6 +21,7 @@ export const boxSize = {
   ),
   formNumberLargeWrapper: responsiveBoxSize(formNumberLarge.width), // 343
   formWrapper: responsiveBoxSize(triangleWidth),
+  noscript: responsiveBoxSize(formColorCode.width),
   rgbHslWrapper: responsiveBoxSize(triangleWidth - formHex.diameter), // 194
 };
 
