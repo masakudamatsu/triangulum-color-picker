@@ -30,21 +30,16 @@ export default function App({Component, pageProps}) {
         />
         {/* SVG-favicon-compatible browsers */}
         <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-
         {/* SVG-favicon-incompatible browsers */}
         <link rel="alternate icon" href="/favicon.ico" />
-
         {/*  iOS Home Screen */}
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-title" content="Triangulum" />
-
         {/*  Android Chrome */}
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="application-name" content="Triangulum" />
-
         {/*  MacOS Safari pinned tab / touch bar */}
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#4a4a4a" />
-
         {/* Android Chrome tab color */}
         <meta name="theme-color" content="#4a4a4a" />
 
@@ -54,6 +49,21 @@ export default function App({Component, pageProps}) {
           dangerouslySetInnerHTML={{__html: JSON.stringify(structuredData)}}
           key="structured-data"
         />
+
+        {/* Social media link appearance */}
+        <meta
+          property="og:image"
+          content="https://triangulum-color-picker.app/thumbnail.png"
+        />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:width" content="1200" />
+        <meta
+          name="twitter:image:alt"
+          content="Preview of Triangulum Color Picker's user interface"
+        />
+        <meta property="og:image:type" content="image/png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@masa_kudamatsu" />
       </Head>
       <GlobalStyle />
       <Component {...pageProps} />{' '}
