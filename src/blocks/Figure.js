@@ -11,12 +11,6 @@ const Figure = styled.figure`
   justify-content: center;
   position: relative;
   width: ${canvas.width.small}px;
-  @media only screen and ${mediaQuery.twoColumns} {
-    order: 1;
-  }
-  @media only screen and ${mediaQuery.threeColumns} {
-    order: 0;
-  }
 `;
 
 Figure.Canvas = Canvas;

@@ -12,7 +12,7 @@ describe('renders UI correctly', () => {
     const {container} = render(<WrapperForms {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
       <div>
-        <div
+        <section
           class="WrapperForms-sc-1le291x-0"
         />
       </div>
