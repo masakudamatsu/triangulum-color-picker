@@ -33,22 +33,6 @@ test('renders UI correctly', () => {
       width: 431px;
     }
 
-    @media only screen and (min-width:923px) {
-      .c0 {
-        -webkit-order: 1;
-        -ms-flex-order: 1;
-        order: 1;
-      }
-    }
-
-    @media only screen and (min-width:1326px) {
-      .c0 {
-        -webkit-order: 0;
-        -ms-flex-order: 0;
-        order: 0;
-      }
-    }
-
     <div>
       <figure
         class="c0"

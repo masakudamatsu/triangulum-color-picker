@@ -33,3 +33,29 @@ test('renders UI correctly:', () => {
     </div>
   `);
 });
+
+test('changes the style with the hidden prop', () => {
+  const {container} = render(<H2 {...mockProps} hidden />);
+  expect(container).toMatchInlineSnapshot(`
+    .c0 {
+      -webkit-clip: rect(1px 1px 1px 1px);
+      clip: rect(1px 1px 1px 1px);
+      -webkit-clip: rect(1px,1px,1px,1px);
+      clip: rect(1px,1px,1px,1px);
+      -webkit-clip-path: inset(50%);
+      clip-path: inset(50%);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+
+    <div>
+      <h2
+        class="c0"
+        hidden=""
+      />
+    </div>
+  `);
+});
