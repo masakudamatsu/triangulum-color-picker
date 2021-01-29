@@ -66,9 +66,16 @@ export default function App({Component, pageProps}) {
         />
 
         {/* Social media link appearance */}
+        <meta property="og:title" content="Triangulum Color Picker" />
+        <meta property="og:url" content="https://triangulum.netlify.app" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:description"
+          content="A front-end web app to pick a tint/tone/shade of hues more logically and more intuitively than the standard color pickers"
+        />
         <meta
           property="og:image"
-          content="https://triangulum-color-picker.app/thumbnail.png"
+          content="https://triangulum.netlify.app/thumbnail.png"
         />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:width" content="1200" />
