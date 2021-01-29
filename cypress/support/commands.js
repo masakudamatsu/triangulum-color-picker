@@ -12,7 +12,7 @@ if (Cypress.config('isInteractive')) {
     capture: 'viewport', // this option is ignored for DOM-element snapshots
 
     // Allow tiny differences between snapshots
-    customDiffConfig: {threshold: 0}, // threshold for each pixel
+    customDiffConfig: {threshold: 0.1}, // threshold for each pixel
     failureThreshold: 0.009, // threshold for entire image
     failureThresholdType: 'percent', // percent of image or number of pixels
 

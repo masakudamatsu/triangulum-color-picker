@@ -43,7 +43,9 @@ describe('Entering css color code shows (1) its color, (2) its Hex code equivale
   ['hex', 'rgb', 'hsl'].forEach(colorcode => {
     it(`for ${colorcode}`, () => {
       cy.visit('/');
-      cy.findByLabelText(/color code/i).type(twitterBlue[colorcode]);
+      cy.findByLabelText(/color code/i)
+        .clear()
+        .type(twitterBlue[colorcode]);
 
       cy.findByLabelText(/hex/i)
         .should('have.css', 'background-color', twitterBlue.rgb) // (1)
@@ -185,7 +187,9 @@ describe('Entering HSL values shows its color, the hex code in a legible way, RG
 describe('Color picker functions:', () => {
   it('Clicking the color triangle updates the user-selected color with all the information shown', () => {
     cy.visit('/');
-    cy.findByLabelText(/color code/i).type(twitterBlue.rgb);
+    cy.findByLabelText(/color code/i)
+      .clear()
+      .type(twitterBlue.rgb);
 
     cy.findByTestId('reticle').click(198, 200);
 

@@ -12,7 +12,7 @@ import {
   scale,
 } from 'src/utils/designSpecs';
 
-const WrapperForms = styled.div``;
+const WrapperForms = styled.section``;
 
 WrapperForms.MarginBetweenColorCodeAndHexRgbHsl = styled.div`
   height: ${page.whitespace.betweenColorCodeAndRgb}px;

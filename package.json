@@ -1,11 +1,11 @@
 {
-  "name": "nextjs-template",
-  "version": "1.0.0",
-  "description": "A template repository for Next.js web dev projects",
+  "name": "triangulum-color-picker",
+  "version": "1.0.0-beta.1",
+  "description": "A front-end web app to pick a tint/tone/shade of hues more logically and more intuitively than the standard color pickers",
   "main": "pages/index.js",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "lint": "eslint --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|json)\"",
@@ -15,7 +15,7 @@
     "test:single": "jest",
     "snapshot": "cypress run --spec \"cypress/e2e/snapshots.js,cypress/component/CanvasWrapper.test.js\"",
     "snapshot:update": "cypress run --env updateSnapshots=true --spec \"cypress/e2e/snapshots.js,cypress/component/CanvasWrapper.test.js\"",
-    "cy:run": "cypress run",
+    "cy:run": "cypress run --spec \"cypress/e2e/happyPath.js\"",
     "test:precommit": "npm-run-all --parallel test:single cy:run"
   },
   "repository": {

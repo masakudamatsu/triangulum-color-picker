@@ -2,6 +2,7 @@ import {useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 
 import Figure from 'src/blocks/Figure';
+import Img from 'src/elements/Img';
 import drawReticle from 'src/utils/drawReticle';
 
 function getMousePosition(domElement, event) {
@@ -49,7 +50,13 @@ const Reticle = ({
       onClick={handleClick}
       ref={canvas}
       width={canvasWidth}
-    />
+    >
+      {/* fallback image */}
+      <Img
+        src="/canvas-fallback.png"
+        alt="Triangular color picker palette for red, with fully saturated red indicated"
+      />
+    </Figure.Canvas>
   );
 };
 

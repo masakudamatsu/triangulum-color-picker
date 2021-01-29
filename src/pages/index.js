@@ -6,7 +6,9 @@ import CanvasWrapper from 'src/components/CanvasWrapper';
 import ChromaLuminanceForm from 'src/components/ChromaLuminanceForm';
 import Cross from 'src/components/Cross';
 import Footnote from 'src/components/Footnote';
+import H2 from 'src/elements/H2';
 import Main from 'src/blocks/Main';
+import SectionColorPalette from 'src/blocks/SectionColorPalette';
 import TextFieldForHex from 'src/components/TextFieldForHex';
 import TextFieldForHsl from 'src/components/TextFieldForHsl';
 import TextFieldForRgb from 'src/components/TextFieldForRgb';
@@ -44,7 +46,7 @@ function HomePage() {
   console.log(`The pixel size is set to be ${pixelSize}`);
 
   const [userColor, setUserColor] = React.useReducer(userColorReducer, {
-    cssCode: '',
+    cssCode: 'rgb(255, 0, 0)',
     hex: '#ff0000',
     r: 255,
     g: 0,
@@ -295,9 +297,10 @@ function HomePage() {
         <Main.MarginTop />
         <Main.FlexContainer>
           <WrapperForms>
+            <H2 hidden>Setting Color</H2>
             <TextInputForm
               inputId="colorCode"
-              labelText="Enter CSS color code"
+              labelText="CSS color code"
               handleChange={handleChangeCssCode}
               userColor={userColor.cssCode}
             />
@@ -337,13 +340,16 @@ function HomePage() {
             </WrapperForms.WrapperHexRgbHsl>
           </WrapperForms>
           <Main.MarginBetweenColumns />
-          <CanvasWrapper
-            pixelSize={pixelSize}
-            luminance={luminance}
-            pureHue={pureHue}
-            chroma={chroma}
-            updateUserColor={updateUserColor}
-          />
+          <SectionColorPalette>
+            <H2 hidden>Triangular Color Palette</H2>
+            <CanvasWrapper
+              pixelSize={pixelSize}
+              luminance={luminance}
+              pureHue={pureHue}
+              chroma={chroma}
+              updateUserColor={updateUserColor}
+            />
+          </SectionColorPalette>
           <Main.MarginBetweenColumns />
           <WrapperColorData>
             <WrapperColorData.WrapperSection>
