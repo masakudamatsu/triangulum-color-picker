@@ -51,6 +51,18 @@ describe('renders UI correctly', () => {
     const {container} = render(<Footer.InnerWrapper {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
         padding-bottom: 17.549999999999997px;
         padding-top: 17.549999999999997px;
         width: 303px;
