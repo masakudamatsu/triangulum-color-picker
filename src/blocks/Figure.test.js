@@ -25,28 +25,13 @@ test('renders UI correctly', () => {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
+      height: 431px;
       -webkit-box-pack: center;
       -webkit-justify-content: center;
       -ms-flex-pack: center;
       justify-content: center;
       position: relative;
       width: 431px;
-    }
-
-    @media only screen and (min-width:923px) {
-      .c0 {
-        -webkit-order: 1;
-        -ms-flex-order: 1;
-        order: 1;
-      }
-    }
-
-    @media only screen and (min-width:1326px) {
-      .c0 {
-        -webkit-order: 0;
-        -ms-flex-order: 0;
-        order: 0;
-      }
     }
 
     <div>

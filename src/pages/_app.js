@@ -24,6 +24,21 @@ export default function App({Component, pageProps}) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Triangulum Color Picker</title>
+
+        {/* Preloading font files */}
+        <link
+          rel="preload"
+          href="/fonts/Poppins-Light.ttf"
+          as="font"
+          crossOrigin
+        />
+        <link
+          rel="preload"
+          href="/fonts/Poppins-Light.ttf"
+          as="font"
+          crossOrigin
+        />
+
         <meta
           name="description"
           content="A front-end web app to pick a tint/tone/shade of hues more logically and more intuitively than the standard color pickers"
