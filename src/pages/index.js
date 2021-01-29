@@ -46,7 +46,7 @@ function HomePage() {
   console.log(`The pixel size is set to be ${pixelSize}`);
 
   const [userColor, setUserColor] = React.useReducer(userColorReducer, {
-    cssCode: '',
+    cssCode: 'rgb(255, 0, 0)',
     hex: '#ff0000',
     r: 255,
     g: 0,
