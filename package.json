@@ -1,7 +1,7 @@
 {
-  "name": "nextjs-template",
-  "version": "1.0.0",
-  "description": "A template repository for Next.js web dev projects",
+  "name": "triangulum-color-picker",
+  "version": "1.0.0-beta.1",
+  "description": "A front-end web app to pick a tint/tone/shade of hues more logically and more intuitively than the standard color pickers",
   "main": "pages/index.js",
   "scripts": {
     "dev": "next dev",
