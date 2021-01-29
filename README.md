@@ -28,8 +28,8 @@ This app is in an experimental stage. Pull requests are welcome.
 
 ## Setting up local environment
 
-Requirements: [Node.js](http://nodejs.org/) (and [NPM](https://npmjs.org/) which
-comes with it).
+Requirements: [Node.js](http://nodejs.org/) (with [NPM](https://npmjs.org/) which
+comes with it) and [Git LFS](https://git-lfs.github.com/)
 
 To install:
 
@@ -39,7 +39,7 @@ $ cd triangulum-color-picker
 $ npm install
 ```
 
-To start server:
+To start a development server:
 
 ```
 $ npm run dev
@@ -58,15 +58,15 @@ The following testing tools are used:
 - [Jest](https://jestjs.io/)
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
+- [ghooks](https://www.npmjs.com/package/ghooks)
 
-To run component tests with Testing-Library and Jest:
+To run unit tests with Testing Library and Jest:
 
 ```
 $ npm test
 ```
 
-To run e2e tests with
-[Cypress Test Runner](https://docs.cypress.io/guides/core-concepts/test-runner.html#Overview):
+To run e2e tests with [Cypress Test Runner](https://docs.cypress.io/guides/core-concepts/test-runner.html#Overview):
 
 - if you've started the development server
 
@@ -85,6 +85,8 @@ To run cypress-image-snapshot tests headlessly in the Electron browser:
 ```
 $ npm run snapshot
 ```
+
+When you make a commit, the `ghooks` will run the unit tests and e2e tests (excluding cypress-image-snapshot tests) to make sure that no failing script will be committed.
 
 ## Contact
 
