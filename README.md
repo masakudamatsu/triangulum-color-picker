@@ -1,12 +1,15 @@
 # Triangulum Color Picker
 
-A front-end web app to pick a tint/tone/shade of hues more logically and more intuitively than the standard color pickers
+A front-end web app to pick a tint/tone/shade of hues more logically and more
+intuitively than the standard color pickers
+
+## UI preview
 
 ![landing page screenshot](public/thumbnail.png)
 
 ## URL
 
-https://triangulum-color-picker.app
+https://triangulum.netlify.app
 
 ## JS libraries used
 
@@ -25,23 +28,30 @@ This app is in an experimental stage. Pull requests are welcome.
 
 ## Setting up local environment
 
-Requirements: [Node.js](http://nodejs.org/) (and [NPM](https://npmjs.org/) which comes with it).
+Requirements: [Node.js](http://nodejs.org/) (and [NPM](https://npmjs.org/) which
+comes with it).
 
 To install:
+
 ```
 $ git clone https://github.com/masakudamatsu/triangulum-color-picker.git
 $ cd triangulum-color-picker
 $ npm install
 ```
+
 To start server:
+
 ```
 $ npm run dev
 ```
-which runs the `next dev` command (see [Next.js Docs](https://nextjs.org/docs/api-reference/cli#development)).
+
+which runs the `next dev` command (see
+[Next.js Docs](https://nextjs.org/docs/api-reference/cli#development)).
 
 ## Testing
 
 The following testing tools are used:
+
 - [Cypress](https://www.cypress.io/)
 - [cypress-image-snapshot](https://www.npmjs.com/package/cypress-image-snapshot)
 - [Testing Library](https://testing-library.com/)
@@ -50,28 +60,37 @@ The following testing tools are used:
 - [Prettier](https://prettier.io/)
 
 To run component tests with Testing-Library and Jest:
+
 ```
 $ npm test
 ```
 
-To run e2e tests with [Cypress Test Runner](https://docs.cypress.io/guides/core-concepts/test-runner.html#Overview):
+To run e2e tests with
+[Cypress Test Runner](https://docs.cypress.io/guides/core-concepts/test-runner.html#Overview):
+
 - if you've started the development server
+
 ```
 $ npm run e2e
 ```
+
 - if you haven't started the development server
+
 ```
 $ npm run test:e2e
 ```
 
 To run cypress-image-snapshot tests headlessly in the Electron browser:
+
 ```
 $ npm run snapshot
 ```
 
 ## Contact
 
-Triangulum Color Picker is developed by Masa Kudamatsu. You can find me on Twitter ([@masa_kudamatsu](https://twitter.com/masa_kudamatsu)). Alternatively, email me at masakudamatsu[at]gmail.com
+Triangulum Color Picker is developed by Masa Kudamatsu. You can find me on
+Twitter ([@masa_kudamatsu](https://twitter.com/masa_kudamatsu)). Alternatively,
+email me at masakudamatsu[at]gmail.com
 
 ## License
 
