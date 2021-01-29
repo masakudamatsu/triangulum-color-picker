@@ -19,3 +19,5 @@ coverage/
 
 # files related to the project (Mood board etc.)
 resources/
+
+out/
