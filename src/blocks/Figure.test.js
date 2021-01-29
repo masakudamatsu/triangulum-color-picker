@@ -25,6 +25,7 @@ test('renders UI correctly', () => {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
+      height: 431px;
       -webkit-box-pack: center;
       -webkit-justify-content: center;
       -ms-flex-pack: center;
