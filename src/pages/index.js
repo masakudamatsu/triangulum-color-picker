@@ -300,7 +300,7 @@ function HomePage() {
             <H2 hidden>Setting Color</H2>
             <TextInputForm
               inputId="colorCode"
-              labelText="Enter CSS color code"
+              labelText="CSS color code"
               handleChange={handleChangeCssCode}
               userColor={userColor.cssCode}
             />
