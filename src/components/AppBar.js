@@ -9,10 +9,23 @@ const AppBar = () => {
 
   React.useEffect(() => {
     let scrollPosition = 0;
+
+    // for dealing with Safari
+    const pageHeight = document.body.offsetHeight;
+    const viewportHeight = window.innerHeight;
+
     function handleScroll() {
       const newScrollPosition = window.pageYOffset; // returns the Y coordinate of the top edge of the current viewport. https://developer.mozilla.org/en-US/docs/Web/API/Window/pageYOffset
 
       if (newScrollPosition === scrollPosition) {
+        return;
+      }
+
+      // Deal with Safari which updates the window.pageYOffset value when the page bounces back at the top and bottom.
+      if (
+        newScrollPosition < 0 ||
+        newScrollPosition > pageHeight - viewportHeight
+      ) {
         return;
       }
 
