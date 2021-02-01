@@ -324,8 +324,6 @@ input {
 
 body {
   color: ${color.font};
-  font-family: 'Poppins', sans-serif; /* See _document.js */
-  font-weight: 300;
 }
 
 `;

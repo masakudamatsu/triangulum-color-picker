@@ -33,7 +33,7 @@ function lineHeightToBe(xHeightPx, spaceBetweenPx, fontMetrics) {
 // Type scale
 export const typescale = {
   small: css`
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     font-size: ${remify(capHeightToBe(capheight.small, poppins.light))};
     font-weight: 300;
     line-height: 1;
@@ -44,7 +44,7 @@ export const typescale = {
     }
   `,
   medium: css`
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     font-size: ${remify(capHeightToBe(capheight.medium, poppins.light))};
     font-weight: 300;
     @media only screen and ${mediaQuery.font} {
@@ -54,7 +54,7 @@ export const typescale = {
     }
   `,
   large: css`
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     font-size: ${remify(capHeightToBe(capheight.large, poppins.light))};
     font-weight: 300;
     @media only screen and ${mediaQuery.font} {
@@ -64,7 +64,7 @@ export const typescale = {
     }
   `,
   number: css`
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     font-size: ${remify(capHeightToBe(capheight.number, poppins.thin))};
     font-weight: 100;
     line-height: 1;
@@ -75,7 +75,7 @@ export const typescale = {
     }
   `,
   percent: css`
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     font-size: ${remify(capHeightToBe(capheight.percent, poppins.thin))};
     font-weight: 100;
     @media only screen and ${mediaQuery.font} {
@@ -85,7 +85,7 @@ export const typescale = {
     }
   `,
   footer: css`
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     font-size: ${remify(xHeightToBe(footer.xheight, poppins.light))};
     font-weight: 300;
     line-height: ${lineHeightToBe(
