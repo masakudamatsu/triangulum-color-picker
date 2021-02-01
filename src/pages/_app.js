@@ -33,6 +33,12 @@ export default function App({Component, pageProps}) {
           media="print"
           onload="this.media='all'"
         />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap"
+          />
+        </noscript>
 
         <meta
           name="description"
