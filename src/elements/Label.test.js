@@ -12,7 +12,7 @@ describe('renders UI correctly:', () => {
     const {container} = render(<Label numberLarge {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        font-family: 'Poppins';
+        font-family: 'Poppins',sans-serif;
         font-size: 1.7857rem;
         font-weight: 300;
         color: rgb(255,255,255);
@@ -36,7 +36,7 @@ describe('renders UI correctly:', () => {
     const {container} = render(<Label {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        font-family: 'Poppins';
+        font-family: 'Poppins',sans-serif;
         font-size: 0.8929rem;
         font-weight: 300;
         line-height: 1;
