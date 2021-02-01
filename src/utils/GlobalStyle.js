@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: local('Poppins Light'), url('/fonts/Poppins-Light.ttf') format('truetype');
+  src: url('../fonts/poppins-v15-latin-300.woff2') format('woff2'), url('/fonts/Poppins-Light.ttf') format('truetype');
 }
 
 @font-face {
@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
   font-style: normal;
   font-weight: 100;
   font-display: swap;
-  src: local('Poppins Thin'), url('/fonts/Poppins-Thin.ttf') format('truetype');
+  src: local('Poppins Thin'), url('../fonts/poppins-v15-latin-100.woff2') format('woff2'), url('/fonts/Poppins-Thin.ttf') format('truetype');
 }
 
 /*!
