@@ -13,7 +13,7 @@ describe('renders UI correctly', () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <section
-          class="WrapperForms-sc-1le291x-0"
+          class="WrapperForms-sc-6876ff-0"
         />
       </div>
     `);
