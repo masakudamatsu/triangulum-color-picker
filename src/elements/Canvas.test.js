@@ -12,7 +12,7 @@ test('renders UI correctly:', () => {
   expect(container).toMatchInlineSnapshot(`
     <div>
       <canvas
-        class="Canvas-r225ux-0"
+        class="Canvas-eu1h5j-0"
       />
     </div>
   `);
