@@ -28,7 +28,7 @@ export default function App({Component, pageProps}) {
         {/* Preloading font files */}
         <link
           rel="preload"
-          href="/fonts/fonts/poppins-v15-latin-300.woff2"
+          href="/fonts/poppins-v15-latin-300.woff2"
           as="font"
           crossOrigin
         />
