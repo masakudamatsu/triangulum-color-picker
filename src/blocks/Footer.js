@@ -34,6 +34,9 @@ const Footer = styled.footer`
 Footer.A = A;
 
 Footer.InnerWrapper = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
   padding-bottom: ${footer.belowParagraph}px;
   padding-top: ${footer.aboveParagraph}px;
   width: ${triangleWidth}px;
@@ -43,12 +46,14 @@ Footer.InnerWrapper = styled.div`
     width: ${triangleWidth * scale}px;
   }
   @media only screen and ${mediaQuery.twoColumns} {
+    justify-content: flex-end;
     padding-left: ${page.whitespace.sideMargin +
     (cross.width.large * scale) / 3}px;
-    width: ${twoColumns.minWidth}px;
     padding-right: ${page.whitespace.sideMargin}px;
+    width: ${twoColumns.minWidth}px;
   }
   @media only screen and ${mediaQuery.threeColumns} {
+    justify-content: flex-end;
     padding-left: ${page.whitespace.sideMargin}px;
     width: ${threeColumns.minWidth}px;
   }

@@ -51,6 +51,18 @@ describe('renders UI correctly', () => {
     const {container} = render(<Footer.InnerWrapper {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
         padding-bottom: 17.549999999999997px;
         padding-top: 17.549999999999997px;
         width: 303px;
@@ -66,14 +78,22 @@ describe('renders UI correctly', () => {
 
       @media only screen and (min-width:923px) {
         .c0 {
+          -webkit-box-pack: end;
+          -webkit-justify-content: flex-end;
+          -ms-flex-pack: end;
+          justify-content: flex-end;
           padding-left: 64px;
-          width: 922.5999999999999px;
           padding-right: 40px;
+          width: 922.5999999999999px;
         }
       }
 
       @media only screen and (min-width:1326px) {
         .c0 {
+          -webkit-box-pack: end;
+          -webkit-justify-content: flex-end;
+          -ms-flex-pack: end;
+          justify-content: flex-end;
           padding-left: 40px;
           width: 1326.1999999999998px;
         }

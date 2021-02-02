@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import GitHubLink from 'src/components/GitHubLink';
 import Header from 'src/blocks/Header';
 import {header} from 'src/utils/designSpecs';
 
@@ -47,21 +48,24 @@ const AppBar = () => {
 
   return (
     <Header hide={!show} show={show}>
-      <Header.InnerWrapper>
-        {' '}
-        {/* Set the width */}
-        <Header.WrapperLogo>
-          <Header.Img
-            src="/logo.svg"
-            alt="Logo of Triangulum Color Picker"
-            width={header.logo.width}
-            height={header.logo.height}
-          />
-        </Header.WrapperLogo>
-        <Header.WrapperH1>
-          <Header.H1>Triangulum Color Picker</Header.H1>
-        </Header.WrapperH1>
-      </Header.InnerWrapper>
+      <Header.OuterWrapper>
+        <Header.InnerWrapper>
+          {' '}
+          {/* Set the width */}
+          <Header.WrapperLogo>
+            <Header.Img
+              src="/logo.svg"
+              alt="Logo of Triangulum Color Picker"
+              width={header.logo.width}
+              height={header.logo.height}
+            />
+          </Header.WrapperLogo>
+          <Header.WrapperH1>
+            <Header.H1>Triangulum Color Picker</Header.H1>
+          </Header.WrapperH1>
+        </Header.InnerWrapper>
+        <GitHubLink />
+      </Header.OuterWrapper>
     </Header>
   );
 };

@@ -2,18 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Footer from 'src/blocks/Footer';
+import GitHubLink from 'src/components/GitHubLink';
 
 const Footnote = () => {
   return (
     <Footer>
       <Footer.InnerWrapper>
         <Footer.Paragraph rightAligned>
-          designed and coded by{' '}
+          Made by{' '}
           <Footer.A href="https://twitter.com/masa_kudamatsu">
             Masa Kudamatsu
           </Footer.A>{' '}
           in 2021
         </Footer.Paragraph>
+        <GitHubLink footer />
       </Footer.InnerWrapper>
     </Footer>
   );
