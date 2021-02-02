@@ -3,22 +3,6 @@ import {color} from './color';
 
 const GlobalStyle = createGlobalStyle`
 
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: local('Poppins Light'), url('/fonts/Poppins-Light.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 100;
-  font-display: swap;
-  src: local('Poppins Thin'), url('/fonts/Poppins-Thin.ttf') format('truetype');
-}
-
 /*!
  * ress.css • v3.0.1
  * MIT License
@@ -340,8 +324,6 @@ input {
 
 body {
   color: ${color.font};
-  font-family: 'Poppins'; /* See _document.js */
-  font-weight: 300;
 }
 
 `;

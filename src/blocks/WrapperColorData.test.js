@@ -13,7 +13,7 @@ describe('renders UI correctly', () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="WrapperColorData-sc-18e8sbl-0"
+          class="WrapperColorData-q1129h-0"
         />
       </div>
     `);

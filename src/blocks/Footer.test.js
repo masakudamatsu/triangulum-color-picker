@@ -102,7 +102,7 @@ describe('renders UI correctly', () => {
     const {container} = render(<Footer.Paragraph {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        font-family: 'Poppins';
+        font-family: 'Poppins',Verdana,sans-serif;
         font-size: 0.8929rem;
         font-weight: 300;
         line-height: 1;
@@ -115,7 +115,7 @@ describe('renders UI correctly', () => {
 
       .c1 {
         color: rgb(173,173,173);
-        font-family: 'Poppins';
+        font-family: 'Poppins',Verdana,sans-serif;
         font-size: 0.8929rem;
         font-weight: 300;
         line-height: 1.365;

@@ -25,19 +25,25 @@ export default function App({Component, pageProps}) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Triangulum Color Picker</title>
 
-        {/* Preloading font files */}
+        {/* Use Google Fonts server for Poppins */}
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           rel="preload"
-          href="/fonts/Poppins-Light.ttf"
-          as="font"
-          crossOrigin
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap"
         />
         <link
-          rel="preload"
-          href="/fonts/Poppins-Light.ttf"
-          as="font"
-          crossOrigin
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap"
+          media="print"
+          onload="this.media='all'"
         />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap"
+          />
+        </noscript>
 
         <meta
           name="description"

@@ -34,7 +34,7 @@ describe('renders UI correctly', () => {
     const {container} = render(<SectionColorData.H2 {...mockProps.h2} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        font-family: 'Poppins';
+        font-family: 'Poppins',Verdana,sans-serif;
         font-size: 1.7857rem;
         font-weight: 300;
         margin-bottom: -0.771em;
@@ -160,7 +160,7 @@ describe('renders UI correctly', () => {
     );
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        font-family: 'Poppins';
+        font-family: 'Poppins',Verdana,sans-serif;
         font-size: 5.3419rem;
         font-weight: 100;
         line-height: 1;
@@ -193,7 +193,7 @@ describe('renders UI correctly', () => {
     );
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        font-family: 'Poppins';
+        font-family: 'Poppins',Verdana,sans-serif;
         font-size: 0.8929rem;
         font-weight: 300;
         line-height: 1;
@@ -221,7 +221,7 @@ describe('renders UI correctly', () => {
     const {container} = render(<SectionColorData.Unit {...mockProps.unit} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        font-family: 'Poppins';
+        font-family: 'Poppins',Verdana,sans-serif;
         font-size: 1.7806rem;
         font-weight: 100;
         -webkit-transform: translateY(0.46em);
