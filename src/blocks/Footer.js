@@ -48,8 +48,8 @@ Footer.InnerWrapper = styled.div`
   @media only screen and ${mediaQuery.twoColumns} {
     padding-left: ${page.whitespace.sideMargin +
     (cross.width.large * scale) / 3}px;
-    width: ${twoColumns.minWidth}px;
     padding-right: ${page.whitespace.sideMargin}px;
+    width: ${twoColumns.minWidth}px;
   }
   @media only screen and ${mediaQuery.threeColumns} {
     padding-left: ${page.whitespace.sideMargin}px;

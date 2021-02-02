@@ -79,8 +79,8 @@ describe('renders UI correctly', () => {
       @media only screen and (min-width:923px) {
         .c0 {
           padding-left: 64px;
-          width: 922.5999999999999px;
           padding-right: 40px;
+          width: 922.5999999999999px;
         }
       }
 
