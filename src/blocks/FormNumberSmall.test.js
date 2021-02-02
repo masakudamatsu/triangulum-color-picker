@@ -87,7 +87,7 @@ describe('renders UI correctly', () => {
       }
 
       .c1 {
-        font-family: 'Poppins',sans-serif;
+        font-family: 'Poppins',Verdana,sans-serif;
         font-size: 1.3393rem;
         font-weight: 300;
         border-radius: 100%;
@@ -122,7 +122,7 @@ describe('renders UI correctly', () => {
     const {container} = render(<FormNumberSmall.Label {...mockProps.label} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        font-family: 'Poppins',sans-serif;
+        font-family: 'Poppins',Verdana,sans-serif;
         font-size: 0.8929rem;
         font-weight: 300;
         line-height: 1;

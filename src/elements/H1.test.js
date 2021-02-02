@@ -11,7 +11,7 @@ test('renders UI correctly:', () => {
   const {container} = render(<H1 {...mockProps} />);
   expect(container).toMatchInlineSnapshot(`
     .c0 {
-      font-family: 'Poppins',sans-serif;
+      font-family: 'Poppins',Verdana,sans-serif;
       font-size: 1.3393rem;
       font-weight: 300;
       margin-bottom: -0.771em;
