@@ -12,11 +12,11 @@ test('renders UI correctly:', () => {
   expect(container).toMatchInlineSnapshot(`
     .c0 {
       background: rgb(65,65,65);
-      background: linear-gradient( to bottom,transparent 50%,rgb(173,173,173) 50%,rgb(173,173,173) );
+      background: linear-gradient( to bottom,transparent 50%,currentColor 50%,currentColor );
       background-position: 0 calc(0.4em + 0.7em);
       background-repeat: no-repeat;
       background-size: 100% 2px;
-      color: rgb(173,173,173);
+      color: inherit;
       cursor: pointer;
       -webkit-text-decoration: none;
       text-decoration: none;
@@ -25,8 +25,8 @@ test('renders UI correctly:', () => {
 
     .c0:visited {
       background: rgb(65,65,65);
-      background: linear-gradient( to bottom,transparent 50%,rgb(173,173,173) 50%,rgb(173,173,173) );
-      color: rgb(173,173,173);
+      background: linear-gradient( to bottom,transparent 50%,currentColor 50%,currentColor );
+      color: inherit;
     }
 
     .c0:focus,
