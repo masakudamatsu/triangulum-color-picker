@@ -127,6 +127,10 @@ describe('renders UI correctly', () => {
         font-size: 0.8929rem;
         font-weight: 300;
         line-height: 1.365;
+        margin-bottom: -0.28em;
+        -webkit-transform: translateY(-0.1375em);
+        -ms-transform: translateY(-0.1375em);
+        transform: translateY(-0.1375em);
       }
 
       @media only screen and (min-width:728px) {
