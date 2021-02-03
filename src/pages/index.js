@@ -295,11 +295,11 @@ function HomePage() {
     <>
       <AppBar />
       <Main>
-        <Main.MarginTop />
         <noscript style={{width: '100%'}}>
-          <BannerForNoJs />
           <Main.MarginTop />
+          <BannerForNoJs />
         </noscript>
+        <Main.MarginTop />
         <Main.FlexContainer>
           <WrapperForms>
             <H2 hidden>Setting Color</H2>
