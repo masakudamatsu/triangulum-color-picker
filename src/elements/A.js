@@ -39,10 +39,6 @@ const A = styled.a`
     background: ${color.footer.linkBackground};
     outline: none;
     text-shadow: none;
-    &:before,
-    &:after {
-      display: none; /* Disable Text Crop */
-    }
   }
 
   &:active {
@@ -54,10 +50,6 @@ const A = styled.a`
     background: ${color.footer.linkBackground};
     outline: none;
     text-shadow: none;
-    &:before,
-    &:after {
-      display: none; /* Disable Text Crop */
-    }
   }
 
   &:visited:active {

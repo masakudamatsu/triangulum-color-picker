@@ -36,13 +36,6 @@ test('renders UI correctly:', () => {
       text-shadow: none;
     }
 
-    .c0:focus:before,
-    .c0:hover:before,
-    .c0:focus:after,
-    .c0:hover:after {
-      display: none;
-    }
-
     .c0:active {
       background: none;
     }
@@ -52,13 +45,6 @@ test('renders UI correctly:', () => {
       background: rgb(65,65,65);
       outline: none;
       text-shadow: none;
-    }
-
-    .c0:visited:focus:before,
-    .c0:visited:hover:before,
-    .c0:visited:focus:after,
-    .c0:visited:hover:after {
-      display: none;
     }
 
     .c0:visited:active {
