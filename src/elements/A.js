@@ -9,14 +9,14 @@ const A = styled.a`
   background: linear-gradient(
     to bottom,
     transparent 50%,
-    ${color.footer.font} 50%,
-    ${color.footer.font}
+    currentColor 50%,
+    currentColor
   );
   background-position: 0
     calc(0.4em + ${poppins.light.capHeight / poppins.light.unitsPerEm}em);
   background-repeat: no-repeat;
   background-size: 100% 2px;
-  color: ${color.footer.font};
+  color: inherit;
   cursor: pointer;
   text-decoration: none;
   text-shadow: 0.03em 0 ${color.footer.background},
@@ -28,10 +28,10 @@ const A = styled.a`
     background: linear-gradient(
       to bottom,
       transparent 50%,
-      ${color.footer.font} 50%,
-      ${color.footer.font}
+      currentColor 50%,
+      currentColor
     );
-    color: ${color.footer.font};
+    color: inherit;
   }
 
   &:focus,
@@ -39,10 +39,6 @@ const A = styled.a`
     background: ${color.footer.linkBackground};
     outline: none;
     text-shadow: none;
-    &:before,
-    &:after {
-      display: none; /* Disable Text Crop */
-    }
   }
 
   &:active {
@@ -54,10 +50,6 @@ const A = styled.a`
     background: ${color.footer.linkBackground};
     outline: none;
     text-shadow: none;
-    &:before,
-    &:after {
-      display: none; /* Disable Text Crop */
-    }
   }
 
   &:visited:active {

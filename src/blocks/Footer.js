@@ -62,7 +62,7 @@ Footer.InnerWrapper = styled.div`
 Footer.Paragraph = styled(Paragraph)`
   color: ${color.footer.font};
   ${typescale.footer}
-  ${typescale.textcrop}
+  ${textcrop.footer}
 `;
 
 Footer.propTypes = {};

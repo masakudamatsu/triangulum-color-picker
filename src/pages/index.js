@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import AppBar from 'src/components/AppBar';
+import BannerForNoJs from 'src/components/BannerForNoJs';
 import CanvasWrapper from 'src/components/CanvasWrapper';
 import ChromaLuminanceForm from 'src/components/ChromaLuminanceForm';
 import Cross from 'src/components/Cross';
@@ -294,6 +295,10 @@ function HomePage() {
     <>
       <AppBar />
       <Main>
+        <noscript style={{width: '100%'}}>
+          <Main.MarginTop />
+          <BannerForNoJs />
+        </noscript>
         <Main.MarginTop />
         <Main.FlexContainer>
           <WrapperForms>
