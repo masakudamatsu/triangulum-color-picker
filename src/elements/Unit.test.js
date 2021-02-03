@@ -18,7 +18,7 @@ test('renders UI correctly', () => {
   );
   expect(container).toMatchInlineSnapshot(`
     .c0 {
-      font-family: 'Poppins';
+      font-family: 'Poppins',Verdana,sans-serif;
       font-size: 1.7806rem;
       font-weight: 100;
       -webkit-transform: translateY(0.46em);

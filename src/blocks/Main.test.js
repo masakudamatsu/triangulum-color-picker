@@ -105,7 +105,7 @@ describe('renders UI correctly', () => {
           -webkit-flex-wrap: wrap;
           -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-          height: 841px;
+          height: 843px;
           padding: 0 40px;
           width: 923px;
         }

@@ -67,7 +67,7 @@ describe('renders UI correctly', () => {
       }
 
       .c1 {
-        font-family: 'Poppins';
+        font-family: 'Poppins',Verdana,sans-serif;
         font-size: 1.3393rem;
         font-weight: 300;
         background-color: #abcdef;
@@ -97,7 +97,7 @@ describe('renders UI correctly', () => {
     const {container} = render(<FormHex.Label {...mockProps.label} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        font-family: 'Poppins';
+        font-family: 'Poppins',Verdana,sans-serif;
         font-size: 0.8929rem;
         font-weight: 300;
         line-height: 1;

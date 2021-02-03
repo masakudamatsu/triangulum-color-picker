@@ -46,7 +46,7 @@ describe('renders UI correctly', () => {
     const {container} = render(<Header.H1 {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        font-family: 'Poppins';
+        font-family: 'Poppins',Verdana,sans-serif;
         font-size: 1.3393rem;
         font-weight: 300;
         margin-bottom: -0.771em;
@@ -105,16 +105,52 @@ describe('renders UI correctly', () => {
         }
       }
 
+      <div>
+        <div
+          class="c0"
+        />
+      </div>
+    `);
+  });
+  test('OuterWrapper', () => {
+    const {container} = render(<Header.OuterWrapper {...mockProps} />);
+    expect(container).toMatchInlineSnapshot(`
       @media only screen and (min-width:923px) {
         .c0 {
+          -webkit-align-items: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: justify;
+          -webkit-justify-content: space-between;
+          -ms-flex-pack: justify;
+          justify-content: space-between;
           padding-left: 64px;
+          padding-right: 40px;
           width: 922.5999999999999px;
         }
       }
 
       @media only screen and (min-width:1326px) {
         .c0 {
+          -webkit-align-items: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: justify;
+          -webkit-justify-content: space-between;
+          -ms-flex-pack: justify;
+          justify-content: space-between;
           padding-left: 40px;
+          padding-right: 40px;
           width: 1326.1999999999998px;
         }
       }
