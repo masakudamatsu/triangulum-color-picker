@@ -20,7 +20,10 @@ const colorAnalyzer = colorCode => {
     neutralColor = rgbValue;
 
     // If the input is pure hue
-  } else if (red === 0 || green === 0 || blue === 0) {
+  } else if (
+    (red === 0 || green === 0 || blue === 0) &&
+    (red === 255 || green === 255 || blue === 255)
+  ) {
     chroma = 100;
     hue = {
       hsl: `hsl(${hsl[0]}, ${hsl[1]}, ${hsl[2]})`,

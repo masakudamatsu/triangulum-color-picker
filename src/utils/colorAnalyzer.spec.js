@@ -96,5 +96,17 @@ cases(
         neutralColor: null,
       },
     },
+    'Saturated dark hue': {
+      rgbCode: 'rgb(144, 144, 0)',
+      outputs: {
+        luminance: 6.18,
+        chroma: 56.47,
+        hue: {
+          hsl: 'hsl(60, 100, 50)',
+          rgb: 'rgb(255, 255, 0)',
+        },
+        neutralColor: 0,
+      },
+    },
   },
 );
