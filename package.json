@@ -10,6 +10,7 @@
     "lint": "eslint --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|json)\"",
     "test": "jest --watch",
+    "test:cov": "jest --coverage",
     "e2e": "cypress open",
     "test:e2e": "start-server-and-test dev http://localhost:3000 e2e",
     "test:single": "jest",
