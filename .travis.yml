@@ -13,3 +13,5 @@ notifications:
 node_js: '12'
 install: echo "install happens as part of setup"
 script: npm run setup:ci
+branches:
+  only: master
