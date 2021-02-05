@@ -21,8 +21,9 @@
     "cy:run": "cypress run",
     "snapshot": "cypress run --spec \"cypress/e2e/snapshots.js,cypress/component/CanvasWrapper.test.js\"",
     "snapshot:update": "cypress run --env updateSnapshots=true --spec \"cypress/e2e/snapshots.js,cypress/component/CanvasWrapper.test.js\"",
-    "cy:run": "cypress run --spec \"cypress/e2e/happyPath.js\"",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "setup:ci": "npm install && npm run validate",
+    "validate": "npm test && npm run test:e2e"
   },
   "repository": {
     "type": "git",
