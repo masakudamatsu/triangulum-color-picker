@@ -6,11 +6,12 @@
       "jsx": true
     }
   },
-  "plugins": ["testing-library"],
+  "plugins": ["jest-dom", "testing-library"],
   "extends": [
     "eslint:recommended",
     "react-app",
     "react-app/jest",
+    "plugin:jest-dom/recommended",
     "plugin:testing-library/react",
     "eslint-config-prettier"
   ],
