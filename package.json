@@ -10,7 +10,7 @@
     "lint": "eslint --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|json)\"",
     "test": "jest --watch",
-    "test:cov": "jest --coverage",
+    "test:coverage": "jest --coverage && open coverage/lcov-report/index.html",
     "e2e": "cypress open",
     "test:e2e": "start-server-and-test dev http://localhost:3000 e2e",
     "snapshot": "cypress run --spec \"cypress/e2e/snapshots.js,cypress/component/CanvasWrapper.test.js\"",
