@@ -23,7 +23,7 @@
     "snapshot:update": "cypress run --env updateSnapshots=true --spec \"cypress/e2e/snapshots.js,cypress/component/CanvasWrapper.test.js\"",
     "commit": "git-cz",
     "setup:ci": "npm install && npm run validate",
-    "validate": "npm-run-all --parallel lint test:coverage test:e2e:run"
+    "validate": "npm-run-all --parallel lint test:coverage:only test:e2e:run"
   },
   "repository": {
     "type": "git",
