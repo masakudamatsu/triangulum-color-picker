@@ -8,9 +8,6 @@ export default function drawBackground(canvasContext, pixelSize) {
     circleCenterX,
     circleCenterY,
     circleRadius,
-    lineWidth,
-    squareTopLeftX,
-    squareTopLeftY,
   } = getCanvasMetrics(pixelSize);
 
   // clipping

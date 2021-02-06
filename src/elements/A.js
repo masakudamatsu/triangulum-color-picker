@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 import {color} from 'src/utils/color';
 import {poppins} from 'src/utils/fontMetrics';
@@ -56,7 +55,5 @@ const A = styled.a`
     background: none;
   }
 `;
-
-A.propTypes = {};
 
 export default A;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import GitHubLink from 'src/components/GitHubLink';
 import Header from 'src/blocks/Header';
@@ -69,7 +68,5 @@ const AppBar = () => {
     </Header>
   );
 };
-
-AppBar.propTypes = {};
 
 export default AppBar;
