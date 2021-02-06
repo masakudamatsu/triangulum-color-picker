@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from 'react';
+import {useEffect, useRef} from 'react';
 import PropTypes from 'prop-types';
 
 import Figure from 'src/blocks/Figure';

@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
 import SectionColorData from 'src/blocks/SectionColorData';
 import Span from 'src/elements/Span';
-import {formNumberLarge} from 'src/utils/designSpecs';
 
 const ChromaLuminanceForm = ({type, value}) => {
   const inputId = type === 'chroma' ? 'chroma' : 'luminance';
