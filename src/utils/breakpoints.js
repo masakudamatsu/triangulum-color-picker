@@ -6,7 +6,6 @@ import {
   formNumberLarge,
   header,
   page,
-  rgbHslWrapper,
   scale,
 } from './designSpecs';
 
