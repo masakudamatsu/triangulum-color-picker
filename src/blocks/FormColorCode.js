@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 import {boxSize} from 'src/utils/layout';
 import {formColorCode, input, scale} from 'src/utils/designSpecs';
@@ -70,7 +69,5 @@ FormColorCode.Label = styled(Label)`
     input.borderWidth.inactive}px;
   }
 `;
-
-FormColorCode.propTypes = {};
 
 export default FormColorCode;

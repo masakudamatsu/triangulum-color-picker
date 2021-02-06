@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 import A from 'src/elements/A';
 import Paragraph from 'src/elements/Paragraph';
 import {boxSize} from 'src/utils/layout';
 import {color} from 'src/utils/color';
-import {footer, page, scale} from 'src/utils/designSpecs';
+import {footer, scale} from 'src/utils/designSpecs';
 import {mediaQuery} from 'src/utils/breakpoints';
 import {textcrop, typescale} from 'src/utils/typography';
 
