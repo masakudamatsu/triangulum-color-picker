@@ -88,7 +88,7 @@ function HomePage() {
           validCode: hex,
         });
         break;
-      case 'rgb':
+      case 'rgb': {
         const rgbCode = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
         setUserColor({
           cssCode: rgbCode,
@@ -102,7 +102,8 @@ function HomePage() {
           validCode: rgbCode,
         });
         break;
-      case 'hsl':
+      }
+      case 'hsl': {
         const hslCode = `hsl(${hsl[0]}, ${hsl[1]}%, ${hsl[2]}%)`;
         setUserColor({
           cssCode: hslCode,
@@ -116,6 +117,7 @@ function HomePage() {
           validCode: hslCode,
         });
         break;
+      }
       default:
         throw new Error('updateUserColor has thrown an impossible error.');
         break;
