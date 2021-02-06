@@ -1,9 +1,7 @@
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 import {color} from 'src/utils/color';
 import {input} from 'src/utils/designSpecs';
-import {typescale} from 'src/utils/typography';
 
 const Input = styled.input.attrs(props => ({
   autoComplete: 'off', // to remove Webkit browser's default style that cannot be overriden. See https://stackoverflow.com/questions/2338102/overrideq-browser-form-filling-and-input-highlighting-with-html-css

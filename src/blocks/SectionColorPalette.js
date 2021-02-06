@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 import {mediaQuery} from 'src/utils/breakpoints';
 
@@ -11,7 +10,5 @@ const SectionColorPalette = styled.section`
     order: 0;
   }
 `;
-
-SectionColorPalette.propTypes = {};
 
 export default SectionColorPalette;

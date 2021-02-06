@@ -1,16 +1,8 @@
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
-import {mediaQuery, twoColumns} from 'src/utils/breakpoints';
+import {mediaQuery} from 'src/utils/breakpoints';
 import {boxSize} from 'src/utils/layout';
-import {
-  canvas,
-  flexbox,
-  formNumberLarge,
-  page,
-  rgbHslWrapper,
-  scale,
-} from 'src/utils/designSpecs';
+import {page, rgbHslWrapper, scale} from 'src/utils/designSpecs';
 
 const WrapperForms = styled.section``;
 
@@ -46,7 +38,5 @@ WrapperForms.MarginBetweenRgbAndHsl = styled.div`
     height: ${rgbHslWrapper.whitespace.betweenRgbAndHsl * scale}px;
   }
 `;
-
-WrapperForms.propTypes = {};
 
 export default WrapperForms;

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 import A from 'src/elements/A';
 import Paragraph from 'src/elements/Paragraph';
@@ -64,7 +63,5 @@ Footer.Paragraph = styled(Paragraph)`
   ${typescale.footer}
   ${textcrop.footer}
 `;
-
-Footer.propTypes = {};
 
 export default Footer;

@@ -1,8 +1,6 @@
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 import {formNumberLarge, scale} from 'src/utils/designSpecs';
-import {textcrop, typescale} from 'src/utils/typography';
 import {mediaQuery} from 'src/utils/breakpoints';
 
 import H2 from 'src/elements/H2';
@@ -62,7 +60,5 @@ SectionColorData.Unit = styled(Unit)`
   bottom: 0;
   position: absolute;
 `;
-
-SectionColorData.propTypes = {};
 
 export default SectionColorData;

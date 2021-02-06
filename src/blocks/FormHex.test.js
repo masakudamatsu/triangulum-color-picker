@@ -1,7 +1,5 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import {axe} from 'jest-axe';
 
 import FormHex from './FormHex';
 import {color} from 'src/utils/color';

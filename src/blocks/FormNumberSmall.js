@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 import {boxSize} from 'src/utils/layout';
 import {formNumberSmall, scale} from 'src/utils/designSpecs';
@@ -52,7 +51,5 @@ FormNumberSmall.Label = styled(Label)`
     top: ${formNumberSmall.whitespace.aboveLabel * scale}px;
   }
 `;
-
-FormNumberSmall.propTypes = {};
 
 export default FormNumberSmall;

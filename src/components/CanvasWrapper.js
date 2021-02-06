@@ -1,5 +1,4 @@
-import {useEffect, useRef, useState} from 'react';
-import styled from 'styled-components';
+import {useState} from 'react';
 import PropTypes from 'prop-types';
 
 import Background from 'src/components/Background';

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import SectionNoscript from 'src/blocks/SectionNoscript';
 
@@ -21,7 +20,5 @@ const BannerForNoJs = () => {
     </SectionNoscript>
   );
 };
-
-BannerForNoJs.propTypes = {};
 
 export default BannerForNoJs;

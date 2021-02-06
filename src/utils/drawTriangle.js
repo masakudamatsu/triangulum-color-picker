@@ -1,13 +1,10 @@
-import {color} from 'src/utils/color';
 import getCanvasMetrics from 'src/utils/getCanvasMetrics';
 import getContrastRatio from 'src/utils/getContrastRatio';
 import mixHueWithGray from 'src/utils/mixHueWithGray';
 
 // Draw the color triangle encircled
 export default function drawTriangle(canvasContext, pixelSize, pureHue) {
-  const {canvasWidth, squareTopLeftX, squareTopLeftY} = getCanvasMetrics(
-    pixelSize,
-  );
+  const {squareTopLeftX, squareTopLeftY} = getCanvasMetrics(pixelSize);
 
   canvasContext.save();
   canvasContext.translate(squareTopLeftX, squareTopLeftY);
