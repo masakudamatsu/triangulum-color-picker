@@ -91,6 +91,9 @@
     }
   },
   "lint-staged": {
+    "*.+(js|ts|tsx)": [
+      "eslint"
+    ],
     "**/*.+(js|json|css|html|md)": [
       "prettier",
       "jest --findRelatedTests"
