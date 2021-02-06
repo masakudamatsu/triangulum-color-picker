@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import AppBar from 'src/components/AppBar';
 import BannerForNoJs from 'src/components/BannerForNoJs';
@@ -17,17 +16,7 @@ import TextInputForm from 'src/components/TextInputForm';
 import WrapperColorData from 'src/blocks/WrapperColorData';
 import WrapperForms from 'src/blocks/WrapperForms';
 
-import {boxSize} from 'src/utils/layout';
 import colorAnalyzer from 'src/utils/colorAnalyzer';
-import {
-  canvas,
-  formNumberLarge,
-  formNumberSmall,
-  page,
-  rgbHslWrapper,
-  scale,
-} from 'src/utils/designSpecs';
-import {mediaQuery} from 'src/utils/breakpoints';
 import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
 import {regex} from 'src/utils/regex';
 import useWindowWidth from 'src/utils/useWindowWidth';
@@ -278,9 +267,7 @@ function HomePage() {
   };
 
   // Prepare prop values
-  const {luminance, chroma, hue, neutralColor} = colorAnalyzer(
-    userColor.validCode,
-  );
+  const {luminance, chroma, hue} = colorAnalyzer(userColor.validCode);
   const pureHue = hue
     ? {
         r: parseColor(hue.rgb).rgb[0],
