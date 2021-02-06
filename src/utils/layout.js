@@ -1,7 +1,6 @@
 import {css} from 'styled-components';
 
 import {
-  capheight,
   formColorCode,
   formHex,
   formNumberLarge,

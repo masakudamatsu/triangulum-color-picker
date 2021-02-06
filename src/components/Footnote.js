@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Footer from 'src/blocks/Footer';
 import GitHubLink from 'src/components/GitHubLink';
@@ -20,7 +19,5 @@ const Footnote = () => {
     </Footer>
   );
 };
-
-Footnote.propTypes = {};
 
 export default Footnote;

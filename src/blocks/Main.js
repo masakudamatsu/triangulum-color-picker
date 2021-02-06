@@ -1,9 +1,7 @@
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 import {mediaQuery, twoColumns} from 'src/utils/breakpoints';
 import {
-  canvas,
   flexbox,
   formNumberLarge,
   header,
@@ -104,7 +102,5 @@ Main.MarginBottom = styled.div`
     width: 100%;
   }
 `;
-
-Main.propTypes = {};
 
 export default Main;
