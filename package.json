@@ -94,8 +94,8 @@
     "*.+(js|ts|tsx)": [
       "eslint"
     ],
-    "**/*.+(js|json|css|html|md)": [
-      "prettier",
+    "*.+(js|json|css|html|md)": [
+      "prettier --write",
       "jest --findRelatedTests"
     ]
   },
