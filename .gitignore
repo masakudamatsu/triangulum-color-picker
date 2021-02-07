@@ -20,4 +20,7 @@ coverage/
 # files related to the project (Mood board etc.)
 resources/
 
+# template scripts
+template*.js
+
 out/
