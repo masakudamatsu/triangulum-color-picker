@@ -1,9 +1,11 @@
+import round from './round';
+
 function remify(px) {
   const oneRemInPx = 16;
   function stringify(number) {
-    return `${number.toFixed(4)}rem`;
+    return `${number.toString()}rem`;
   }
-  return stringify(px / oneRemInPx);
+  return stringify(round(px / oneRemInPx, 4));
 }
 
 export default remify;

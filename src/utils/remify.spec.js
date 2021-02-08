@@ -10,11 +10,11 @@ cases(
   {
     '18px': {
       inputs: 18,
-      outputs: '1.1250rem',
+      outputs: '1.125rem',
     },
-    '31px': {
-      inputs: 31,
-      outputs: '1.9375rem',
+    '31.43px': {
+      inputs: 31.43,
+      outputs: '1.9644rem',
     },
   },
 );
