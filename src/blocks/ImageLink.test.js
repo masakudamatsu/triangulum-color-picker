@@ -10,8 +10,8 @@ describe('renders UI correctly', () => {
     const {container} = render(<ImageLink {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        height: 30px;
-        width: 30px;
+        height: 1.875rem;
+        width: 1.875rem;
         display: none;
       }
 
@@ -38,8 +38,8 @@ describe('renders UI correctly', () => {
     const {container} = render(<ImageLink {...mockProps} footer />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        height: 30px;
-        width: 30px;
+        height: 1.875rem;
+        width: 1.875rem;
         display: inline-block;
       }
 

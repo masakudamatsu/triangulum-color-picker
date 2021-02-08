@@ -3,6 +3,7 @@ import {render, screen} from '@testing-library/react';
 
 import Header from './Header';
 import {header} from 'src/utils/designSpecs';
+import remify from 'src/utils/remify';
 
 const mockProps = {};
 
@@ -17,7 +18,7 @@ describe('renders UI correctly', () => {
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
-        height: 46px;
+        height: 2.875rem;
         -webkit-box-pack: center;
         -webkit-justify-content: center;
         -ms-flex-pack: center;
@@ -29,7 +30,7 @@ describe('renders UI correctly', () => {
 
       @media only screen and (min-width:45.5rem) {
         .c0 {
-          height: 55px;
+          height: 3.4375rem;
         }
       }
 
@@ -94,12 +95,12 @@ describe('renders UI correctly', () => {
         -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
         justify-content: flex-start;
-        width: 303px;
+        width: 18.9375rem;
       }
 
       @media only screen and (min-width:45.5rem) {
         .c0 {
-          width: 363.59999999999997px;
+          width: 22.725rem;
         }
       }
 
@@ -127,9 +128,9 @@ describe('renders UI correctly', () => {
           -webkit-justify-content: space-between;
           -ms-flex-pack: justify;
           justify-content: space-between;
-          padding-left: 64px;
-          padding-right: 40px;
-          width: 922.5999999999999px;
+          padding-left: 4rem;
+          padding-right: 2.5rem;
+          width: 57.6625rem;
         }
       }
 
@@ -147,9 +148,9 @@ describe('renders UI correctly', () => {
           -webkit-justify-content: space-between;
           -ms-flex-pack: justify;
           justify-content: space-between;
-          padding-left: 40px;
-          padding-right: 40px;
-          width: 1326.1999999999998px;
+          padding-left: 2.5rem;
+          padding-right: 2.5rem;
+          width: 82.8875rem;
         }
       }
 
@@ -164,14 +165,14 @@ describe('renders UI correctly', () => {
     const {container} = render(<Header.WrapperH1 {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        padding-bottom: 15px;
-        padding-top: 15px;
+        padding-bottom: 0.9375rem;
+        padding-top: 0.9375rem;
       }
 
       @media only screen and (min-width:45.5rem) {
         .c0 {
-          padding-bottom: 18px;
-          padding-top: 18px;
+          padding-bottom: 1.125rem;
+          padding-top: 1.125rem;
         }
       }
 
@@ -195,8 +196,8 @@ describe('renders UI correctly', () => {
         display: -ms-flexbox;
         display: flex;
         height: 100%;
-        padding-right: 10px;
-        width: 40px;
+        padding-right: 0.625rem;
+        width: 2.5rem;
       }
 
       <div>
@@ -222,7 +223,7 @@ describe('changes style by props values', () => {
     render(<Header hide {...mockProps} data-testid="header" />);
     expect(screen.getByTestId('header')).toHaveStyle(
       `
-        transform: translate(0,-${header.height}px);
+        transform: translate(0,-${remify(header.height)});
         transition: transform ${header.speed.hide};
       `,
     );

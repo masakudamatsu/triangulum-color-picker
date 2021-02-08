@@ -11,6 +11,8 @@ import {
 
 import {mediaQuery} from './breakpoints';
 
+import remify from './remify';
+
 export const boxSize = {
   formColorCode: responsiveBoxSize(formColorCode.width),
   formHex: responsiveBoxSize(formHex.diameter, formHex.diameter),
@@ -26,11 +28,11 @@ export const boxSize = {
 
 function responsiveBoxSize(baseWidth, baseHeight) {
   return css`
-    height: ${baseHeight ? `${baseHeight.toFixed()}px` : `auto`};
-    width: ${baseWidth.toFixed()}px;
+    height: ${baseHeight ? remify(baseHeight) : `auto`};
+    width: ${remify(baseWidth)};
     @media only screen and ${mediaQuery.font} {
-      height: ${baseHeight ? `${(baseHeight * scale).toFixed()}px` : `auto`};
-      width: ${(baseWidth * scale).toFixed()}px;
+      height: ${baseHeight ? remify(baseHeight * scale) : `auto`};
+      width: ${remify(baseWidth * scale)};
     }
   `;
 }

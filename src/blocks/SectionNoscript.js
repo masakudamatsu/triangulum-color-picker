@@ -6,6 +6,7 @@ import {boxSize} from 'src/utils/layout';
 import {color} from 'src/utils/color';
 import {footer, scale} from 'src/utils/designSpecs';
 import {mediaQuery} from 'src/utils/breakpoints';
+import remify from 'src/utils/remify';
 import {textcrop, typescale} from 'src/utils/typography';
 
 const SectionNoscript = styled.section`
@@ -15,9 +16,9 @@ const SectionNoscript = styled.section`
   width: 100%;
   background-color: ${color.banner.background};
   color: ${color.banner.font};
-  padding: ${footer.aboveParagraph}px;
+  padding: ${remify(footer.aboveParagraph)};
   @media only screen and ${mediaQuery.font} {
-    padding: ${footer.aboveParagraph * scale}px;
+    padding: ${remify(footer.aboveParagraph * scale)};
   }
 `;
 
@@ -40,10 +41,10 @@ SectionNoscript.Paragraph = styled(Paragraph)`
 `;
 
 SectionNoscript.Spacer = styled.div`
-  height: ${footer.aboveParagraph}px;
+  height: ${remify(footer.aboveParagraph)};
   width: 100%;
   @media only screen and ${mediaQuery.font} {
-    height: ${footer.aboveParagraph * scale}px;
+    height: ${remify(footer.aboveParagraph * scale)};
   }
 `;
 

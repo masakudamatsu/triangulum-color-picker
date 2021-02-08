@@ -4,6 +4,7 @@ import {boxSize} from 'src/utils/layout';
 import {formColorCode, input, scale} from 'src/utils/designSpecs';
 import {textcrop, typescale} from 'src/utils/typography';
 import {mediaQuery} from 'src/utils/breakpoints';
+import remify from 'src/utils/remify';
 
 import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
@@ -29,30 +30,30 @@ FormColorCode.Input = styled(Input)`
   ${typescale.large}
 
   border-radius: 4px;
-  padding-bottom: ${padding.bottom}px;
-  padding-left: ${padding.left}px;
-  padding-top: ${padding.top}px;
+  padding-bottom: ${remify(padding.bottom)};
+  padding-left: ${remify(padding.left)};
+  padding-top: ${remify(padding.top)};
   text-align: left;
   width: 100%;
 
   &:active,
   &:hover,
   &:focus {
-    padding-bottom: ${padding.bottom - 1}px;
-    padding-left: ${padding.left - 1}px;
-    padding-top: ${padding.top - 1}px;
+    padding-bottom: ${remify(padding.bottom - 1)};
+    padding-left: ${remify(padding.left - 1)};
+    padding-top: ${remify(padding.top - 1)};
   }
 
   @media only screen and ${mediaQuery.font} {
-    padding-bottom: ${padding.bottom * scale}px;
-    padding-left: ${padding.left * scale}px;
-    padding-top: ${padding.top * scale}px;
+    padding-bottom: ${remify(padding.bottom * scale)};
+    padding-left: ${remify(padding.left * scale)};
+    padding-top: ${remify(padding.top * scale)};
     &:active,
     &:hover,
     &:focus {
-      padding-bottom: ${padding.bottom * scale - 1}px;
-      padding-left: ${padding.left * scale - 1}px;
-      padding-top: ${padding.top * scale - 1}px;
+      padding-bottom: ${remify(padding.bottom * scale - 1)};
+      padding-left: ${remify(padding.left * scale - 1)};
+      padding-top: ${remify(padding.top * scale - 1)};
     }
   }
 `;
@@ -60,13 +61,17 @@ FormColorCode.Input = styled(Input)`
 FormColorCode.Label = styled(Label)`
   ${textcrop.small}
   position: absolute;
-  top: ${formColorCode.whitespace.aboveLabel + input.borderWidth.inactive}px;
-  left: ${formColorCode.whitespace.left + input.borderWidth.inactive}px;
+  top: ${remify(
+    formColorCode.whitespace.aboveLabel + input.borderWidth.inactive,
+  )};
+  left: ${remify(formColorCode.whitespace.left + input.borderWidth.inactive)};
   @media only screen and ${mediaQuery.font} {
-    top: ${formColorCode.whitespace.aboveLabel * scale +
-    input.borderWidth.inactive}px;
-    left: ${formColorCode.whitespace.left * scale +
-    input.borderWidth.inactive}px;
+    top: ${remify(
+      formColorCode.whitespace.aboveLabel * scale + input.borderWidth.inactive,
+    )};
+    left: ${remify(
+      formColorCode.whitespace.left * scale + input.borderWidth.inactive,
+    )};
   }
 `;
 

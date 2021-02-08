@@ -60,16 +60,16 @@ describe('renders UI correctly', () => {
         -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
         justify-content: space-between;
-        padding-bottom: 17.549999999999997px;
-        padding-top: 17.549999999999997px;
-        width: 303px;
+        padding-bottom: 1.0969rem;
+        padding-top: 1.0969rem;
+        width: 18.9375rem;
       }
 
       @media only screen and (min-width:45.5rem) {
         .c0 {
-          padding-bottom: 21.059999999999995px;
-          padding-top: 21.059999999999995px;
-          width: 363.59999999999997px;
+          padding-bottom: 1.3162rem;
+          padding-top: 1.3162rem;
+          width: 22.725rem;
         }
       }
 
@@ -79,9 +79,9 @@ describe('renders UI correctly', () => {
           -webkit-justify-content: flex-end;
           -ms-flex-pack: end;
           justify-content: flex-end;
-          padding-left: 64px;
-          padding-right: 40px;
-          width: 922.5999999999999px;
+          padding-left: 4rem;
+          padding-right: 2.5rem;
+          width: 57.6625rem;
         }
       }
 
@@ -91,8 +91,8 @@ describe('renders UI correctly', () => {
           -webkit-justify-content: flex-end;
           -ms-flex-pack: end;
           justify-content: flex-end;
-          padding-left: 40px;
-          width: 1326.1999999999998px;
+          padding-left: 2.5rem;
+          width: 82.8875rem;
         }
       }
 
