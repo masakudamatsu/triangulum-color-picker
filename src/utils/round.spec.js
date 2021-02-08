@@ -24,3 +24,24 @@ cases(
     },
   },
 );
+
+cases(
+  'returns an error when the second argument is not a number',
+  options => {
+    expect(() => {
+      round(options.inputs[0], options.inputs[1]);
+    }).toThrow(options.outputs);
+  },
+  {
+    missing: {
+      inputs: [12.345, undefined],
+      outputs:
+        'The second argument is missing. Provide the number of decimal places you want to keep.',
+    },
+    string: {
+      inputs: [12.345, '2'],
+      outputs:
+        'The second argument must be a number, but you provided a string',
+    },
+  },
+);
