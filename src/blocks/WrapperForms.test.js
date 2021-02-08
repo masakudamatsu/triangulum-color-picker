@@ -27,7 +27,7 @@ describe('renders UI correctly', () => {
         width: 100%;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           height: 12px;
         }
@@ -59,7 +59,7 @@ describe('renders UI correctly', () => {
         width: 303px;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           height: auto;
           width: 364px;
@@ -91,14 +91,14 @@ describe('renders UI correctly', () => {
         width: 194px;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           height: auto;
           width: 233px;
         }
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           padding: 24px;
         }
@@ -122,7 +122,7 @@ describe('renders UI correctly', () => {
         width: 100%;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           height: 12px;
         }

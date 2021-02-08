@@ -14,7 +14,7 @@ describe('renders UI correctly', () => {
         left: 0;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           width: 36px;
         }
@@ -37,7 +37,7 @@ describe('renders UI correctly', () => {
         left: 0;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           width: 72px;
         }
@@ -60,7 +60,7 @@ describe('renders UI correctly', () => {
         right: 0;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           width: 36px;
         }
@@ -83,7 +83,7 @@ describe('renders UI correctly', () => {
         right: 0;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           width: 72px;
         }

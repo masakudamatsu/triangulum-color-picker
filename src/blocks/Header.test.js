@@ -27,7 +27,7 @@ describe('renders UI correctly', () => {
         z-index: 1;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           height: 55px;
         }
@@ -53,7 +53,7 @@ describe('renders UI correctly', () => {
         transform: translateX(-0.065em) translateY(-0.37em);
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 1.6071rem;
         }
@@ -97,7 +97,7 @@ describe('renders UI correctly', () => {
         width: 303px;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           width: 363.59999999999997px;
         }
@@ -113,7 +113,7 @@ describe('renders UI correctly', () => {
   test('OuterWrapper', () => {
     const {container} = render(<Header.OuterWrapper {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
-      @media only screen and (min-width:923px) {
+      @media only screen and (min-width:57.6625rem) {
         .c0 {
           -webkit-align-items: center;
           -webkit-box-align: center;
@@ -133,7 +133,7 @@ describe('renders UI correctly', () => {
         }
       }
 
-      @media only screen and (min-width:1326px) {
+      @media only screen and (min-width:82.8875rem) {
         .c0 {
           -webkit-align-items: center;
           -webkit-box-align: center;
@@ -168,7 +168,7 @@ describe('renders UI correctly', () => {
         padding-top: 15px;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           padding-bottom: 18px;
           padding-top: 18px;

@@ -52,7 +52,7 @@ describe('renders UI correctly', () => {
         width: 48px;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           height: 58px;
           width: 58px;
@@ -95,13 +95,13 @@ describe('renders UI correctly', () => {
         width: 100%;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c1 {
           font-size: 1.6071rem;
         }
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c1 {
           padding-top: 10.799999999999999px;
         }
@@ -139,13 +139,13 @@ describe('renders UI correctly', () => {
         top: 5px;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 1.0714rem;
         }
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c1 {
           top: 6px;
         }

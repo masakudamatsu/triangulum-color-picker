@@ -27,7 +27,7 @@ describe('renders UI correctly:', () => {
         padding: 17.549999999999997px;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           padding: 21.059999999999995px;
         }
@@ -130,20 +130,20 @@ describe('renders UI correctly:', () => {
         transform: translateY(-0.1375em);
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 1.0714rem;
         }
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c1 {
           height: auto;
           width: 364px;
         }
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c1 {
           font-size: 1.0714rem;
         }
@@ -164,7 +164,7 @@ describe('renders UI correctly:', () => {
         width: 100%;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           height: 21.059999999999995px;
         }

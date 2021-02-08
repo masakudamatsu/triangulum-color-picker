@@ -23,14 +23,14 @@ describe('renders UI correctly', () => {
         width: 100%;
       }
 
-      @media only screen and (min-width:923px) and (min-height:1025px) {
+      @media only screen and (min-width:57.6625rem) and (min-height:64.0675rem) {
         .c0 {
           bottom: 0;
           position: fixed;
         }
       }
 
-      @media only screen and (min-width:1326px) and (min-height:739px) {
+      @media only screen and (min-width:82.8875rem) and (min-height:46.2175rem) {
         .c0 {
           bottom: 0;
           position: fixed;
@@ -65,7 +65,7 @@ describe('renders UI correctly', () => {
         width: 303px;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           padding-bottom: 21.059999999999995px;
           padding-top: 21.059999999999995px;
@@ -73,7 +73,7 @@ describe('renders UI correctly', () => {
         }
       }
 
-      @media only screen and (min-width:923px) {
+      @media only screen and (min-width:57.6625rem) {
         .c0 {
           -webkit-box-pack: end;
           -webkit-justify-content: flex-end;
@@ -85,7 +85,7 @@ describe('renders UI correctly', () => {
         }
       }
 
-      @media only screen and (min-width:1326px) {
+      @media only screen and (min-width:82.8875rem) {
         .c0 {
           -webkit-box-pack: end;
           -webkit-justify-content: flex-end;
@@ -130,13 +130,13 @@ describe('renders UI correctly', () => {
         transform: translateY(-0.1375em);
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 1.0714rem;
         }
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c1 {
           font-size: 1.0714rem;
         }

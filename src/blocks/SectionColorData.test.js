@@ -41,7 +41,7 @@ describe('renders UI correctly', () => {
         transform: translateX(-0.065em) translateY(-0.37em);
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 2.1429rem;
         }
@@ -62,7 +62,7 @@ describe('renders UI correctly', () => {
         width: 100%;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           height: 24px;
         }
@@ -83,7 +83,7 @@ describe('renders UI correctly', () => {
         width: 100%;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           height: 24px;
         }
@@ -104,7 +104,7 @@ describe('renders UI correctly', () => {
         width: 100%;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           height: 12px;
         }
@@ -139,7 +139,7 @@ describe('renders UI correctly', () => {
         position: relative;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           height: 72px;
         }
@@ -172,7 +172,7 @@ describe('renders UI correctly', () => {
         padding-right: 20px;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 6.4103rem;
         }
@@ -202,7 +202,7 @@ describe('renders UI correctly', () => {
         text-align: left;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 1.0714rem;
         }
@@ -232,7 +232,7 @@ describe('renders UI correctly', () => {
         position: absolute;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 2.1368rem;
         }

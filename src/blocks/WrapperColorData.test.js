@@ -28,14 +28,14 @@ describe('renders UI correctly', () => {
         width: 343px;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           height: auto;
           width: 412px;
         }
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           padding: 48px;
         }

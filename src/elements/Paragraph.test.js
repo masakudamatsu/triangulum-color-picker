@@ -25,7 +25,7 @@ test('renders UI correctly:', () => {
       text-align: left;
     }
 
-    @media only screen and (min-width:728px) {
+    @media only screen and (min-width:45.5rem) {
       .c0 {
         font-size: 1.0714rem;
       }

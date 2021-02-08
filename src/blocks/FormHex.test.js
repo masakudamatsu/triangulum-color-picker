@@ -32,7 +32,7 @@ describe('renders UI correctly', () => {
         width: 109px;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           height: 131px;
           width: 131px;
@@ -76,7 +76,7 @@ describe('renders UI correctly', () => {
         width: 100%;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c1 {
           font-size: 1.6071rem;
         }
@@ -115,13 +115,13 @@ describe('renders UI correctly', () => {
         top: 18px;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 1.0714rem;
         }
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c1 {
           top: 21.599999999999998px;
         }

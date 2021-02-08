@@ -16,7 +16,7 @@ describe('renders UI correctly:', () => {
         color: rgb(255,255,255);
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 2.1429rem;
         }
@@ -41,7 +41,7 @@ describe('renders UI correctly:', () => {
         color: rgb(255,255,255);
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 1.0714rem;
         }
