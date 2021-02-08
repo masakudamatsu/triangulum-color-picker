@@ -72,7 +72,7 @@ describe('renders UI correctly', () => {
     expect(container).toMatchInlineSnapshot(`
       .c0 {
         height: auto;
-        max-width: 100%;
+        width: 100%;
       }
 
       <div>
