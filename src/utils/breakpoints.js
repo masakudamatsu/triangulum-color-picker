@@ -42,7 +42,6 @@ export const twoColumns = {
 };
 
 export const mediaQuery = {
-  canvas: `(min-width: 535px)`,
   font: `(min-width: 728px)`,
   threeColumns: `(min-width: ${threeColumns.minWidth.toFixed()}px)`,
   threeColumnsTall: `(min-width: ${threeColumns.minWidth.toFixed()}px) and (min-height: ${threeColumns.minHeight.toFixed()}px)`,
