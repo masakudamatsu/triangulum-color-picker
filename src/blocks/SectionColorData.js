@@ -28,7 +28,7 @@ SectionColorData.InnerWrapper = styled.div`
 `;
 
 SectionColorData.Output = styled(Output)`
-  padding-right: 20px;
+  padding-right: ${remify(20)};
 `;
 
 SectionColorData.Paragraph = Paragraph;
