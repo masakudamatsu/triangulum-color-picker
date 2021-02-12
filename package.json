@@ -1,7 +1,7 @@
 {
   "name": "triangulum-color-picker",
   "version": "1.0.0-beta.1",
-  "description": "A front-end web app to pick a tint/tone/shade of hues more logically and more intuitively than the standard color pickers",
+  "description": "A front-end web app to pick tints and shades of a hue by luminance and by chroma, to make our color choice more logical and more intuitive",
   "main": "pages/index.js",
   "scripts": {
     "dev": "next dev",
@@ -29,7 +29,9 @@
     "url": "git+https://github.com/masakudamatsu/nextjs-template.git"
   },
   "keywords": [
-    "Next.js"
+    "color",
+    "color picker",
+    "contrast-ratio"
   ],
   "author": "Masa Kudamatsu <masakudamatsu@gmail.com>",
   "license": "MIT",
