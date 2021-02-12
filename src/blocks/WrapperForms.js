@@ -3,14 +3,15 @@ import styled from 'styled-components';
 import {mediaQuery} from 'src/utils/breakpoints';
 import {boxSize} from 'src/utils/layout';
 import {page, rgbHslWrapper, scale} from 'src/utils/designSpecs';
+import remify from 'src/utils/remify';
 
 const WrapperForms = styled.section``;
 
 WrapperForms.MarginBetweenColorCodeAndHexRgbHsl = styled.div`
-  height: ${page.whitespace.betweenColorCodeAndRgb}px;
+  height: ${remify(page.whitespace.betweenColorCodeAndRgb)};
   width: 100%;
   @media only screen and ${mediaQuery.font} {
-    height: ${page.whitespace.betweenColorCodeAndRgb * scale}px;
+    height: ${remify(page.whitespace.betweenColorCodeAndRgb * scale)};
   }
 `;
 
@@ -24,18 +25,18 @@ WrapperForms.WrapperRgbHsl = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: ${rgbHslWrapper.padding}px;
+  padding: ${remify(rgbHslWrapper.padding)};
   ${boxSize.rgbHslWrapper}
   @media only screen and ${mediaQuery.font} {
-    padding: ${rgbHslWrapper.padding * scale}px;
+    padding: ${remify(rgbHslWrapper.padding * scale)};
   }
 `;
 
 WrapperForms.MarginBetweenRgbAndHsl = styled.div`
-  height: ${rgbHslWrapper.whitespace.betweenRgbAndHsl}px;
+  height: ${remify(rgbHslWrapper.whitespace.betweenRgbAndHsl)};
   width: 100%;
   @media only screen and ${mediaQuery.font} {
-    height: ${rgbHslWrapper.whitespace.betweenRgbAndHsl * scale}px;
+    height: ${remify(rgbHslWrapper.whitespace.betweenRgbAndHsl * scale)};
   }
 `;
 

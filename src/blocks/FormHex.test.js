@@ -28,14 +28,14 @@ describe('renders UI correctly', () => {
         -ms-flex-direction: column;
         flex-direction: column;
         position: relative;
-        height: 109px;
-        width: 109px;
+        height: 6.8125rem;
+        width: 6.8125rem;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
-          height: 131px;
-          width: 131px;
+          height: 8.175rem;
+          width: 8.175rem;
         }
       }
 
@@ -76,7 +76,7 @@ describe('renders UI correctly', () => {
         width: 100%;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c1 {
           font-size: 1.6071rem;
         }
@@ -112,18 +112,18 @@ describe('renders UI correctly', () => {
         align-self: center;
         color: inherit;
         position: absolute;
-        top: 18px;
+        top: 1.125rem;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 1.0714rem;
         }
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c1 {
-          top: 21.599999999999998px;
+          top: 1.35rem;
         }
       }
 

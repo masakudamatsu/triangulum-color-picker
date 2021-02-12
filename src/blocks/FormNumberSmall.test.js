@@ -48,14 +48,14 @@ describe('renders UI correctly', () => {
         -ms-flex-direction: column;
         flex-direction: column;
         position: relative;
-        height: 48px;
-        width: 48px;
+        height: 3rem;
+        width: 3rem;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
-          height: 58px;
-          width: 58px;
+          height: 3.6rem;
+          width: 3.6rem;
         }
       }
 
@@ -90,20 +90,20 @@ describe('renders UI correctly', () => {
         font-weight: 300;
         border-radius: 100%;
         height: 100%;
-        padding-top: 9px;
+        padding-top: 0.5625rem;
         text-align: center;
         width: 100%;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c1 {
           font-size: 1.6071rem;
         }
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c1 {
-          padding-top: 10.799999999999999px;
+          padding-top: 0.675rem;
         }
       }
 
@@ -136,18 +136,18 @@ describe('renders UI correctly', () => {
         -ms-flex-item-align: center;
         align-self: center;
         position: absolute;
-        top: 5px;
+        top: 0.3125rem;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 1.0714rem;
         }
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c1 {
-          top: 6px;
+          top: 0.375rem;
         }
       }
 

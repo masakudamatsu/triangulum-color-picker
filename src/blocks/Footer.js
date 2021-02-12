@@ -12,6 +12,7 @@ import {
   triangleWidth,
 } from 'src/utils/designSpecs';
 import {mediaQuery, threeColumns, twoColumns} from 'src/utils/breakpoints';
+import remify from 'src/utils/remify';
 import {textcrop, typescale} from 'src/utils/typography';
 
 const Footer = styled.footer`
@@ -36,25 +37,26 @@ Footer.InnerWrapper = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding-bottom: ${footer.belowParagraph}px;
-  padding-top: ${footer.aboveParagraph}px;
-  width: ${triangleWidth}px;
+  padding-bottom: ${remify(footer.belowParagraph)};
+  padding-top: ${remify(footer.aboveParagraph)};
+  width: ${remify(triangleWidth)};
   @media only screen and ${mediaQuery.font} {
-    padding-bottom: ${footer.belowParagraph * scale}px;
-    padding-top: ${footer.aboveParagraph * scale}px;
-    width: ${triangleWidth * scale}px;
+    padding-bottom: ${remify(footer.belowParagraph * scale)};
+    padding-top: ${remify(footer.aboveParagraph * scale)};
+    width: ${remify(triangleWidth * scale)};
   }
   @media only screen and ${mediaQuery.twoColumns} {
     justify-content: flex-end;
-    padding-left: ${page.whitespace.sideMargin +
-    (cross.width.large * scale) / 3}px;
-    padding-right: ${page.whitespace.sideMargin}px;
-    width: ${twoColumns.minWidth}px;
+    padding-left: ${remify(
+      page.whitespace.sideMargin + (cross.width.large * scale) / 3,
+    )};
+    padding-right: ${remify(page.whitespace.sideMargin)};
+    width: ${remify(twoColumns.minWidth)};
   }
   @media only screen and ${mediaQuery.threeColumns} {
     justify-content: flex-end;
-    padding-left: ${page.whitespace.sideMargin}px;
-    width: ${threeColumns.minWidth}px;
+    padding-left: ${remify(page.whitespace.sideMargin)};
+    width: ${remify(threeColumns.minWidth)};
   }
 `;
 

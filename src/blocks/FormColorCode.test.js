@@ -17,13 +17,13 @@ describe('renders UI correctly', () => {
         background-color: inherit;
         position: relative;
         height: auto;
-        width: 303px;
+        width: 18.9375rem;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           height: auto;
-          width: 364px;
+          width: 22.725rem;
         }
       }
 
@@ -57,9 +57,9 @@ describe('renders UI correctly', () => {
         font-size: 1.7857rem;
         font-weight: 300;
         border-radius: 4px;
-        padding-bottom: 8px;
-        padding-left: 7.75px;
-        padding-top: 30px;
+        padding-bottom: 0.5rem;
+        padding-left: 0.4844rem;
+        padding-top: 1.875rem;
         text-align: left;
         width: 100%;
       }
@@ -67,30 +67,30 @@ describe('renders UI correctly', () => {
       .c1:active,
       .c1:hover,
       .c1:focus {
-        padding-bottom: 7px;
-        padding-left: 6.75px;
-        padding-top: 29px;
+        padding-bottom: 0.4375rem;
+        padding-left: 0.4219rem;
+        padding-top: 1.8125rem;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c1 {
           font-size: 2.1429rem;
         }
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c1 {
-          padding-bottom: 9.6px;
-          padding-left: 9.299999999999999px;
-          padding-top: 36px;
+          padding-bottom: 0.6rem;
+          padding-left: 0.5812rem;
+          padding-top: 2.25rem;
         }
 
         .c1:active,
         .c1:hover,
         .c1:focus {
-          padding-bottom: 8.6px;
-          padding-left: 8.299999999999999px;
-          padding-top: 35px;
+          padding-bottom: 0.5375rem;
+          padding-left: 0.5187rem;
+          padding-top: 2.1875rem;
         }
       }
 
@@ -120,20 +120,20 @@ describe('renders UI correctly', () => {
         -ms-transform: translateX(-0.08em) translateY(-0.1375em);
         transform: translateX(-0.08em) translateY(-0.1375em);
         position: absolute;
-        top: 11px;
-        left: 11px;
+        top: 0.6875rem;
+        left: 0.6875rem;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 1.0714rem;
         }
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c1 {
-          top: 13px;
-          left: 13px;
+          top: 0.8125rem;
+          left: 0.8125rem;
         }
       }
 

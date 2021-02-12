@@ -23,21 +23,21 @@ describe('renders UI correctly', () => {
     expect(container).toMatchInlineSnapshot(`
       .c0 {
         position: relative;
-        padding: 40px;
+        padding: 2.5rem;
         height: auto;
-        width: 343px;
+        width: 21.4375rem;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           height: auto;
-          width: 412px;
+          width: 25.725rem;
         }
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
-          padding: 48px;
+          padding: 3rem;
         }
       }
 

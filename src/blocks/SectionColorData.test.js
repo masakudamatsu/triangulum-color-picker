@@ -41,7 +41,7 @@ describe('renders UI correctly', () => {
         transform: translateX(-0.065em) translateY(-0.37em);
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 2.1429rem;
         }
@@ -58,13 +58,13 @@ describe('renders UI correctly', () => {
     const {container} = render(<SectionColorData.SpacerAboveOutput />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        height: 20px;
+        height: 1.25rem;
         width: 100%;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
-          height: 24px;
+          height: 1.5rem;
         }
       }
 
@@ -79,13 +79,13 @@ describe('renders UI correctly', () => {
     const {container} = render(<SectionColorData.SpacerBelowOutput />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        height: 20px;
+        height: 1.25rem;
         width: 100%;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
-          height: 24px;
+          height: 1.5rem;
         }
       }
 
@@ -100,13 +100,13 @@ describe('renders UI correctly', () => {
     const {container} = render(<SectionColorData.SpacerBelowH2 />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        height: 10px;
+        height: 0.625rem;
         width: 100%;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
-          height: 12px;
+          height: 0.75rem;
         }
       }
 
@@ -131,7 +131,7 @@ describe('renders UI correctly', () => {
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
-        height: 60px;
+        height: 3.75rem;
         -webkit-box-pack: end;
         -webkit-justify-content: flex-end;
         -ms-flex-pack: end;
@@ -139,9 +139,9 @@ describe('renders UI correctly', () => {
         position: relative;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
-          height: 72px;
+          height: 4.5rem;
         }
       }
 
@@ -169,10 +169,10 @@ describe('renders UI correctly', () => {
       }
 
       .c1 {
-        padding-right: 20px;
+        padding-right: 1.25rem;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 6.4103rem;
         }
@@ -202,7 +202,7 @@ describe('renders UI correctly', () => {
         text-align: left;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 1.0714rem;
         }
@@ -232,7 +232,7 @@ describe('renders UI correctly', () => {
         position: absolute;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 2.1368rem;
         }

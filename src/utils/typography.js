@@ -3,15 +3,7 @@ import {css} from 'styled-components';
 import {capheight, footer, scale} from './designSpecs';
 import {mediaQuery} from './breakpoints';
 import {poppins} from './fontMetrics';
-
-// Convert px in number into rem in string
-function remify(px) {
-  const oneRemInPx = 16;
-  function stringify(number) {
-    return `${number.toFixed(4)}rem`;
-  }
-  return stringify(px / oneRemInPx);
-}
+import remify from './remify';
 
 function capHeightToBe(px, fontMetrics) {
   const capHeightToFontSize = capHeight =>

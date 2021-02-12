@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 import Img from 'src/elements/Img';
 import {header} from 'src/utils/designSpecs';
 import {mediaQuery} from 'src/utils/breakpoints';
+import remify from 'src/utils/remify';
 
 const ImageLink = styled.a`
-  height: ${header.logo.height}px;
-  width: ${header.logo.width}px;
+  height: ${remify(header.logo.height)};
+  width: ${remify(header.logo.width)};
   ${props => (props.footer ? `display: inline-block;` : `display: none;`)}
   @media only screen and ${mediaQuery.twoColumns} {
     ${props => (props.footer ? `display: none;` : `display: inline-block;`)}

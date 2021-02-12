@@ -23,14 +23,14 @@ describe('renders UI correctly', () => {
         width: 100%;
       }
 
-      @media only screen and (min-width:923px) and (min-height:1025px) {
+      @media only screen and (min-width:57.6625rem) and (min-height:64.0675rem) {
         .c0 {
           bottom: 0;
           position: fixed;
         }
       }
 
-      @media only screen and (min-width:1326px) and (min-height:739px) {
+      @media only screen and (min-width:82.8875rem) and (min-height:46.2175rem) {
         .c0 {
           bottom: 0;
           position: fixed;
@@ -60,39 +60,39 @@ describe('renders UI correctly', () => {
         -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
         justify-content: space-between;
-        padding-bottom: 17.549999999999997px;
-        padding-top: 17.549999999999997px;
-        width: 303px;
+        padding-bottom: 1.0969rem;
+        padding-top: 1.0969rem;
+        width: 18.9375rem;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
-          padding-bottom: 21.059999999999995px;
-          padding-top: 21.059999999999995px;
-          width: 363.59999999999997px;
+          padding-bottom: 1.3162rem;
+          padding-top: 1.3162rem;
+          width: 22.725rem;
         }
       }
 
-      @media only screen and (min-width:923px) {
+      @media only screen and (min-width:57.6625rem) {
         .c0 {
           -webkit-box-pack: end;
           -webkit-justify-content: flex-end;
           -ms-flex-pack: end;
           justify-content: flex-end;
-          padding-left: 64px;
-          padding-right: 40px;
-          width: 922.5999999999999px;
+          padding-left: 4rem;
+          padding-right: 2.5rem;
+          width: 57.6625rem;
         }
       }
 
-      @media only screen and (min-width:1326px) {
+      @media only screen and (min-width:82.8875rem) {
         .c0 {
           -webkit-box-pack: end;
           -webkit-justify-content: flex-end;
           -ms-flex-pack: end;
           justify-content: flex-end;
-          padding-left: 40px;
-          width: 1326.1999999999998px;
+          padding-left: 2.5rem;
+          width: 82.8875rem;
         }
       }
 
@@ -130,13 +130,13 @@ describe('renders UI correctly', () => {
         transform: translateY(-0.1375em);
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 1.0714rem;
         }
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c1 {
           font-size: 1.0714rem;
         }

@@ -9,6 +9,8 @@ import {
   scale,
 } from './designSpecs';
 
+import remify from './remify';
+
 export const threeColumns = {
   minWidth:
     canvas.width.small +
@@ -42,9 +44,13 @@ export const twoColumns = {
 };
 
 export const mediaQuery = {
-  font: `(min-width: 728px)`,
-  threeColumns: `(min-width: ${threeColumns.minWidth.toFixed()}px)`,
-  threeColumnsTall: `(min-width: ${threeColumns.minWidth.toFixed()}px) and (min-height: ${threeColumns.minHeight.toFixed()}px)`,
-  twoColumns: `(min-width: ${twoColumns.minWidth.toFixed()}px)`,
-  twoColumnsTall: `(min-width: ${twoColumns.minWidth.toFixed()}px) and (min-height: ${twoColumns.minHeight.toFixed()}px)`,
+  font: `(min-width: ${remify(728)})`,
+  threeColumns: `(min-width: ${remify(threeColumns.minWidth)})`,
+  threeColumnsTall: `(min-width: ${remify(
+    threeColumns.minWidth,
+  )}) and (min-height: ${remify(threeColumns.minHeight)})`,
+  twoColumns: `(min-width: ${remify(twoColumns.minWidth)})`,
+  twoColumnsTall: `(min-width: ${remify(
+    twoColumns.minWidth,
+  )}) and (min-height: ${remify(twoColumns.minHeight)})`,
 };

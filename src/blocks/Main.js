@@ -8,11 +8,12 @@ import {
   page,
   scale,
 } from 'src/utils/designSpecs';
+import remify from 'src/utils/remify';
 
 const Main = styled.main`
-  padding-top: ${header.height + header.borderBottomWidth}px;
+  padding-top: ${remify(header.height + header.borderBottomWidth)};
   @media only screen and ${mediaQuery.font} {
-    padding-top: ${header.height * scale + header.borderBottomWidth}px;
+    padding-top: ${remify(header.height * scale + header.borderBottomWidth)};
   }
   @media only screen and ${mediaQuery.twoColumns} {
     align-items: center;
@@ -37,17 +38,17 @@ const Main = styled.main`
 `;
 
 Main.MarginTop = styled.div`
-  height: ${page.whitespace.aboveColorCode}px;
+  height: ${remify(page.whitespace.aboveColorCode)};
   width: 100%;
   @media only screen and ${mediaQuery.font} {
-    height: ${page.whitespace.aboveColorCode * scale}px;
+    height: ${remify(page.whitespace.aboveColorCode * scale)};
   }
   @media only screen and ${mediaQuery.twoColumns} {
-    height: ${page.whitespace.topMargin}px;
+    height: ${remify(page.whitespace.topMargin)};
     width: 100%;
   }
   @media only screen and ${mediaQuery.threeColumns} {
-    height: ${page.whitespace.topMargin}px;
+    height: ${remify(page.whitespace.topMargin)};
     width: 100%;
   }
 `;
@@ -59,19 +60,19 @@ Main.FlexContainer = styled.div`
   width: 100%;
   @media only screen and ${mediaQuery.twoColumns} {
     flex-wrap: wrap;
-    height: ${(
-      flexbox.height.twoColumns + 5
-    ).toFixed()}px; /* Flex items will be wrapped with less than this height */
-    padding: 0 ${page.whitespace.sideMargin}px;
-    width: ${twoColumns.minWidth.toFixed()}px;
+    height: ${remify(
+      flexbox.height.twoColumns + 5,
+    )}; /* Flex items will be wrapped with less than this height */
+    padding: 0 ${remify(page.whitespace.sideMargin)};
+    width: ${remify(twoColumns.minWidth)};
   }
   @media only screen and ${mediaQuery.threeColumns} {
     align-items: flex-start;
     flex-direction: row;
     flex-wrap: nowrap;
-    height: ${(formNumberLarge.height * scale * 2).toFixed()}px;
+    height: ${remify(formNumberLarge.height * scale * 2)};
     justify-content: center;
-    padding: 0 ${page.whitespace.sideMargin}px;
+    padding: 0 ${remify(page.whitespace.sideMargin)};
     width: auto;
   }
 `;
@@ -81,24 +82,24 @@ Main.MarginBetweenColumns = styled.div`
   @media only screen and ${mediaQuery.threeColumns} {
     display: block;
     height: 100vh;
-    width: ${page.whitespace.betweenComponents}px;
+    width: ${remify(page.whitespace.betweenComponents)};
   }
 `;
 
 Main.MarginBottom = styled.div`
-  height: ${page.whitespace.aboveColorCode}px;
+  height: ${remify(page.whitespace.aboveColorCode)};
   width: 100%;
   @media only screen and ${mediaQuery.font} {
-    height: ${page.whitespace.aboveColorCode * scale}px;
+    height: ${remify(page.whitespace.aboveColorCode * scale)};
   }
   @media only screen and ${mediaQuery.twoColumns} {
     display: block;
-    height: ${page.whitespace.bottomMargin}px;
+    height: ${remify(page.whitespace.bottomMargin)};
     width: 100%;
   }
   @media only screen and ${mediaQuery.threeColumns} {
     display: block;
-    height: ${page.whitespace.bottomMargin}px;
+    height: ${remify(page.whitespace.bottomMargin)};
     width: 100%;
   }
 `;
