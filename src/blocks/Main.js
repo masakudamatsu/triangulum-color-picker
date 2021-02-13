@@ -81,7 +81,7 @@ Main.MarginBetweenColumns = styled.div`
   display: none;
   @media only screen and ${mediaQuery.threeColumns} {
     display: block;
-    height: 100vh;
+    height: 100%;
     width: ${remify(page.whitespace.betweenComponents)};
   }
 `;

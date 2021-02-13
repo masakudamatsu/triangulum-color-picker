@@ -148,7 +148,7 @@ describe('renders UI correctly', () => {
       @media only screen and (min-width:82.8875rem) {
         .c0 {
           display: block;
-          height: 100vh;
+          height: 100%;
           width: 1.25rem;
         }
       }
