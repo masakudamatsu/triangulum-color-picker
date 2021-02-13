@@ -1,7 +1,7 @@
 {
   "name": "triangulum-color-picker",
   "version": "1.0.0-beta.1",
-  "description": "A front-end web app to pick a tint/tone/shade of hues more logically and more intuitively than the standard color pickers",
+  "description": "A front-end web app to pick tints and shades of a hue by luminance and by chroma, to make our color choice more logical and more intuitive",
   "main": "pages/index.js",
   "scripts": {
     "dev": "next dev",
@@ -9,28 +9,29 @@
     "start": "next start",
     "lint": "eslint --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|json)\"",
-    "test": "is-ci \"test:coverage:only\" \"test:watch\"",
-    "test:coverage:only": "jest --coverage",
-    "test:coverage": "jest --coverage && open coverage/lcov-report/index.html",
-    "test:watch": "jest --watch",
-    "test:e2e": "is-ci \"test:e2e:run\" \"test:e2e:dev\"",
-    "test:e2e:dev": "start-server-and-test dev http://localhost:3000 cy:open",
+    "test": "jest --watch",
+    "test:coverage": "is-ci \"test:coverage:ci\" \"test:coverage:local\"",
+    "test:coverage:ci": "jest --coverage",
+    "test:coverage:local": "jest --coverage && open coverage/lcov-report/index.html",
+    "test:e2e": "start-server-and-test dev http://localhost:3000 cy:open",
     "cy:open": "cypress open",
     "test:e2e:run": "start-server-and-test start http://localhost:3000 cy:run",
     "pretest:e2e:run": "npm run build",
     "cy:run": "cypress run",
     "snapshot": "cypress run --spec \"cypress/e2e/snapshots.js,cypress/component/CanvasWrapper.test.js\"",
     "snapshot:update": "cypress run --env updateSnapshots=true --spec \"cypress/e2e/snapshots.js,cypress/component/CanvasWrapper.test.js\"",
-    "commit": "git-cz",
+    "validate": "npm-run-all --parallel lint test:coverage test:e2e:run",
     "setup:ci": "npm install && npm run validate",
-    "validate": "npm-run-all --parallel lint test:coverage:only test:e2e:run"
+    "commit": "git-cz"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/masakudamatsu/nextjs-template.git"
   },
   "keywords": [
-    "Next.js"
+    "color",
+    "color picker",
+    "contrast-ratio"
   ],
   "author": "Masa Kudamatsu <masakudamatsu@gmail.com>",
   "license": "MIT",
@@ -95,7 +96,7 @@
       "eslint"
     ],
     "*.+(js|json|css|html|md)": [
-      "prettier --write",
+      "prettier --list-different",
       "jest --findRelatedTests"
     ]
   },

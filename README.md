@@ -1,7 +1,7 @@
 # Triangulum Color Picker
 
-A front-end web app to pick a tint/tone/shade of hues more logically and more
-intuitively than the standard color pickers
+A front-end web app to pick tints and shades of a hue by luminance and by
+chroma, to make our color choice more logical and more intuitive
 
 ## UI preview
 
@@ -28,8 +28,8 @@ This app is in an experimental stage. Pull requests are welcome.
 
 ## Setting up local environment
 
-Requirements: [Node.js](http://nodejs.org/) (with [NPM](https://npmjs.org/) which
-comes with it) and [Git LFS](https://git-lfs.github.com/)
+Requirements: [Node.js](http://nodejs.org/) (with [NPM](https://npmjs.org/)
+which comes with it) and [Git LFS](https://git-lfs.github.com/)
 
 To install:
 
@@ -66,7 +66,8 @@ To run unit tests with Testing Library and Jest:
 $ npm test
 ```
 
-To run e2e tests with [Cypress Test Runner](https://docs.cypress.io/guides/core-concepts/test-runner.html#Overview):
+To run e2e tests with
+[Cypress Test Runner](https://docs.cypress.io/guides/core-concepts/test-runner.html#Overview):
 
 - if you've started the development server
 
@@ -86,7 +87,9 @@ To run cypress-image-snapshot tests headlessly in the Electron browser:
 $ npm run snapshot
 ```
 
-When you make a commit, the `ghooks` will run the unit tests and e2e tests (excluding cypress-image-snapshot tests) to make sure that no failing script will be committed.
+When you make a commit, the `ghooks` will run the unit tests and e2e tests
+(excluding cypress-image-snapshot tests) to make sure that no failing script
+will be committed.
 
 ## Contact
 

@@ -9,7 +9,7 @@ const mockProps = {};
 test('renders UI correctly', () => {
   const {container} = render(<SectionColorPalette {...mockProps} />);
   expect(container).toMatchInlineSnapshot(`
-    @media only screen and (min-width:923px) {
+    @media only screen and (min-width:57.6625rem) {
       .c0 {
         -webkit-order: 1;
         -ms-flex-order: 1;
@@ -17,7 +17,7 @@ test('renders UI correctly', () => {
       }
     }
 
-    @media only screen and (min-width:1326px) {
+    @media only screen and (min-width:82.8875rem) {
       .c0 {
         -webkit-order: 0;
         -ms-flex-order: 0;

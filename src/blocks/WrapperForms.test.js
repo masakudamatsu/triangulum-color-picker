@@ -23,13 +23,13 @@ describe('renders UI correctly', () => {
     );
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        height: 10px;
+        height: 0.625rem;
         width: 100%;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
-          height: 12px;
+          height: 0.75rem;
         }
       }
 
@@ -56,13 +56,13 @@ describe('renders UI correctly', () => {
         display: -ms-flexbox;
         display: flex;
         height: auto;
-        width: 303px;
+        width: 18.9375rem;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           height: auto;
-          width: 364px;
+          width: 22.725rem;
         }
       }
 
@@ -86,21 +86,21 @@ describe('renders UI correctly', () => {
         -ms-flex-direction: column;
         flex-direction: column;
         position: relative;
-        padding: 20px;
+        padding: 1.25rem;
         height: auto;
-        width: 194px;
+        width: 12.125rem;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           height: auto;
-          width: 233px;
+          width: 14.55rem;
         }
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
-          padding: 24px;
+          padding: 1.5rem;
         }
       }
 
@@ -118,13 +118,13 @@ describe('renders UI correctly', () => {
     );
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        height: 10px;
+        height: 0.625rem;
         width: 100%;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
-          height: 12px;
+          height: 0.75rem;
         }
       }
 

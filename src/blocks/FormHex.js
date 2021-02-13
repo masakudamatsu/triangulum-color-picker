@@ -6,6 +6,7 @@ import {formHex, scale} from 'src/utils/designSpecs';
 import {textcrop, typescale} from 'src/utils/typography';
 import {color} from 'src/utils/color';
 import {mediaQuery} from 'src/utils/breakpoints';
+import remify from 'src/utils/remify';
 
 import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
@@ -34,9 +35,9 @@ FormHex.Label = styled(Label)`
   align-self: center;
   color: inherit;
   position: absolute;
-  top: ${formHex.whitespace.aboveLabel}px;
+  top: ${remify(formHex.whitespace.aboveLabel)};
   @media only screen and ${mediaQuery.font} {
-    top: ${formHex.whitespace.aboveLabel * scale}px;
+    top: ${remify(formHex.whitespace.aboveLabel * scale)};
   }
 `;
 

@@ -1,8 +1,19 @@
 import getCanvasMetrics from 'src/utils/getCanvasMetrics';
 import {threeColumns, twoColumns} from 'src/utils/breakpoints';
+import round from 'src/utils/round';
 
 const twitterBlue = 'rgb(29, 161, 242)';
 const grey = 'rgb(129, 129, 129)';
+
+const laptop = {
+  width: Math.ceil(round(twoColumns.minWidth / 16, 4) * 16),
+  height: Math.ceil(round(twoColumns.minHeight / 16, 4) * 16),
+};
+
+const desktop = {
+  width: Math.ceil(round(threeColumns.minWidth / 16, 4) * 16),
+  height: Math.ceil(round(threeColumns.minHeight / 16, 4) * 16),
+};
 
 describe('Entire UI is correctly shown', () => {
   it('for narrowest screen size', () => {
@@ -22,7 +33,7 @@ describe('Entire UI is correctly shown', () => {
     cy.matchImageSnapshot('entire-ui-tablet', {capture: 'fullPage'});
   });
   it('for laptop screen size', () => {
-    cy.viewport(twoColumns.minWidth, twoColumns.minHeight);
+    cy.viewport(laptop.width, laptop.height);
     cy.visit('/');
     cy.findByLabelText(/color code/i)
       .clear()
@@ -30,7 +41,7 @@ describe('Entire UI is correctly shown', () => {
     cy.matchImageSnapshot('entire-ui-laptop', {capture: 'fullPage'});
   });
   it('for desktop screen size', () => {
-    cy.viewport(threeColumns.minWidth, threeColumns.minHeight);
+    cy.viewport(desktop.width, desktop.height);
     cy.visit('/');
     cy.findByLabelText(/color code/i)
       .clear()

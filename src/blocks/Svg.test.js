@@ -9,14 +9,14 @@ describe('renders UI correctly', () => {
     expect(container).toMatchInlineSnapshot(`
       .c0 {
         position: absolute;
-        width: 30px;
+        width: 1.875rem;
         top: 0;
         left: 0;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
-          width: 36px;
+          width: 2.25rem;
         }
       }
 
@@ -32,14 +32,14 @@ describe('renders UI correctly', () => {
     expect(container).toMatchInlineSnapshot(`
       .c0 {
         position: absolute;
-        width: 60px;
+        width: 3.75rem;
         top: 0;
         left: 0;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
-          width: 72px;
+          width: 4.5rem;
         }
       }
 
@@ -55,14 +55,14 @@ describe('renders UI correctly', () => {
     expect(container).toMatchInlineSnapshot(`
       .c0 {
         position: absolute;
-        width: 30px;
+        width: 1.875rem;
         bottom: 0;
         right: 0;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
-          width: 36px;
+          width: 2.25rem;
         }
       }
 
@@ -78,14 +78,14 @@ describe('renders UI correctly', () => {
     expect(container).toMatchInlineSnapshot(`
       .c0 {
         position: absolute;
-        width: 60px;
+        width: 3.75rem;
         bottom: 0;
         right: 0;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
-          width: 72px;
+          width: 4.5rem;
         }
       }
 

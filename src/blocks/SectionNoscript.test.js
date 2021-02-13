@@ -24,12 +24,12 @@ describe('renders UI correctly:', () => {
         width: 100%;
         background-color: rgb(254,254,50);
         color: rgb(10,10,10);
-        padding: 17.549999999999997px;
+        padding: 1.0969rem;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
-          padding: 21.059999999999995px;
+          padding: 1.3162rem;
         }
       }
 
@@ -119,7 +119,7 @@ describe('renders UI correctly:', () => {
 
       .c1 {
         height: auto;
-        width: 303px;
+        width: 18.9375rem;
         font-family: 'Poppins',Verdana,sans-serif;
         font-size: 0.8929rem;
         font-weight: 300;
@@ -130,20 +130,20 @@ describe('renders UI correctly:', () => {
         transform: translateY(-0.1375em);
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 1.0714rem;
         }
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c1 {
           height: auto;
-          width: 364px;
+          width: 22.725rem;
         }
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c1 {
           font-size: 1.0714rem;
         }
@@ -160,13 +160,13 @@ describe('renders UI correctly:', () => {
     const {container} = render(<SectionNoscript.Spacer {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        height: 17.549999999999997px;
+        height: 1.0969rem;
         width: 100%;
       }
 
-      @media only screen and (min-width:728px) {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
-          height: 21.059999999999995px;
+          height: 1.3162rem;
         }
       }
 

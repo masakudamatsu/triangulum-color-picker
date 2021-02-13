@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 import Line from 'src/elements/Line';
 import {mediaQuery} from 'src/utils/breakpoints';
 import {cross, scale} from 'src/utils/designSpecs';
+import remify from 'src/utils/remify';
 
 const Svg = styled.svg`
   position: absolute;
-  width: ${props => (props.large ? cross.width.large : cross.width.default)}px;
+  width: ${props =>
+    props.large ? remify(cross.width.large) : remify(cross.width.default)};
   ${props =>
     props.position === 'bottomRight'
       ? `
@@ -20,7 +22,9 @@ const Svg = styled.svg`
       `}
   @media only screen and ${mediaQuery.font} {
     width: ${props =>
-      props.large ? cross.width.large * scale : cross.width.default * scale}px;
+      props.large
+        ? remify(cross.width.large * scale)
+        : remify(cross.width.default * scale)};
   }
 `;
 

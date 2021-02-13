@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import {formNumberLarge, scale} from 'src/utils/designSpecs';
 import {mediaQuery} from 'src/utils/breakpoints';
+import remify from 'src/utils/remify';
 
 import H2 from 'src/elements/H2';
 import Output from 'src/elements/Output';
@@ -18,41 +19,41 @@ SectionColorData.H2 = H2;
 SectionColorData.InnerWrapper = styled.div`
   align-items: baseline; /* Bottom-align */
   display: flex;
-  height: ${formNumberLarge.capheight.output}px; /* Text crop */
+  height: ${remify(formNumberLarge.capheight.output)}; /* Text crop */
   justify-content: flex-end; /* Left-align */
   position: relative; /* to position Unit */
   @media only screen and ${mediaQuery.font} {
-    height: ${formNumberLarge.capheight.output * scale}px;
+    height: ${remify(formNumberLarge.capheight.output * scale)};
   }
 `;
 
 SectionColorData.Output = styled(Output)`
-  padding-right: 20px;
+  padding-right: ${remify(20)};
 `;
 
 SectionColorData.Paragraph = Paragraph;
 
 SectionColorData.SpacerAboveOutput = styled.div`
-  height: ${formNumberLarge.whitespace.aboveOutput}px;
+  height: ${remify(formNumberLarge.whitespace.aboveOutput)};
   width: 100%;
   @media only screen and ${mediaQuery.font} {
-    height: ${formNumberLarge.whitespace.aboveOutput * scale}px;
+    height: ${remify(formNumberLarge.whitespace.aboveOutput * scale)};
   }
 `;
 
 SectionColorData.SpacerBelowH2 = styled.div`
-  height: ${formNumberLarge.whitespace.belowH2}px;
+  height: ${remify(formNumberLarge.whitespace.belowH2)};
   width: 100%;
   @media only screen and ${mediaQuery.font} {
-    height: ${formNumberLarge.whitespace.belowH2 * scale}px;
+    height: ${remify(formNumberLarge.whitespace.belowH2 * scale)};
   }
 `;
 
 SectionColorData.SpacerBelowOutput = styled.div`
-  height: ${formNumberLarge.whitespace.belowOutput}px;
+  height: ${remify(formNumberLarge.whitespace.belowOutput)};
   width: 100%;
   @media only screen and ${mediaQuery.font} {
-    height: ${formNumberLarge.whitespace.belowOutput * scale}px;
+    height: ${remify(formNumberLarge.whitespace.belowOutput * scale)};
   }
 `;
 
