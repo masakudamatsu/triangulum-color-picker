@@ -31,7 +31,9 @@ const padding = {
     formNumberSmall.whitespace.belowInputValue,
 };
 
-FormNumberSmall.Input = styled(Input)`
+FormNumberSmall.Input = styled(Input).attrs(props => ({
+  inputMode: 'decimal',
+}))`
   ${typescale.medium}
   border-radius: 100%;
   height: 100%;
