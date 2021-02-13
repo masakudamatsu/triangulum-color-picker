@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import LinkHelpIcon from 'src/components/LinkHelpIcon';
 import SectionColorData from 'src/blocks/SectionColorData';
 import Span from 'src/elements/Span';
 
@@ -24,6 +25,14 @@ const ChromaLuminanceForm = ({type, value}) => {
       </SectionColorData.Paragraph>
     );
 
+  const link =
+    type === 'chroma'
+      ? 'https://medium.com/introducing-triangulum-color-picker/pick-color-by-chroma-with-triangulum-color-picker-f6902d6f91ae'
+      : 'https://medium.com/introducing-triangulum-color-picker/pick-color-by-luminance-with-triangulum-color-picker-dbcf858c40a1';
+
+  const linkTitle = `Link to help document on ${
+    type === 'chroma' ? 'chroma' : 'luminance'
+  }`;
   const unit =
     type === 'chroma' ? (
       <SectionColorData.Unit>%</SectionColorData.Unit>
@@ -36,7 +45,8 @@ const ChromaLuminanceForm = ({type, value}) => {
   return (
     <SectionColorData>
       <SectionColorData.H2>
-        {type === 'chroma' ? 'Chroma' : 'Luminance'}
+        {type === 'chroma' ? 'Chroma ' : 'Luminance '}
+        <LinkHelpIcon href={link} linkTitle={linkTitle} />
       </SectionColorData.H2>
       <SectionColorData.SpacerBelowH2 />{' '}
       <SectionColorData.Paragraph id={sublabelId}>
