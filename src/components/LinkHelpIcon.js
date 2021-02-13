@@ -15,6 +15,7 @@ const Svg = styled.svg`
   fill: ${black};
   stroke: ${white};
   stroke-width: 1.5;
+  transform: translate(0, 0.14em);
   width: ${remify(25)};
   @media only screen and ${mediaQuery.font} {
     width: ${remify(25 * scale)};
@@ -40,7 +41,6 @@ const LinkHelpIcon = ({href, linkTitle}) => {
         viewBox="0 0 24 24"
         stroke-linecap="round"
         stroke-linejoin="round"
-        transform="translate(0, 4)"
       >
         <title>{linkTitle}</title>
         <circle cx="12" cy="12" r="9" />

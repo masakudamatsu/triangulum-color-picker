@@ -17,6 +17,9 @@ test('renders UI correctly', () => {
       fill: rgb(10,10,10);
       stroke: rgb(255,255,255);
       stroke-width: 1.5;
+      -webkit-transform: translate(0,0.14em);
+      -ms-transform: translate(0,0.14em);
+      transform: translate(0,0.14em);
       width: 1.5625rem;
     }
 
@@ -45,7 +48,6 @@ test('renders UI correctly', () => {
       >
         <svg
           class="c0"
-          transform="translate(0, 4)"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
         >
