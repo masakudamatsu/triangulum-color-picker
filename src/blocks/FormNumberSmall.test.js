@@ -111,6 +111,7 @@ describe('renders UI correctly', () => {
         <input
           autocomplete="off"
           class="c0 c1"
+          inputmode="decimal"
           type="text"
         />
       </div>
