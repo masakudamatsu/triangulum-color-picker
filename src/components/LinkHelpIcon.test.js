@@ -10,6 +10,26 @@ const mockProps = {
   linkTitle: 'Link for learning what chroma is',
 };
 
+test('changes the href attribute value with the href prop', () => {
+  const newHrefProp =
+    'https://github.com/masakudamatsu/triangulum-color-picker';
+  render(<LinkHelpIcon {...mockProps} href={newHrefProp} />);
+  expect(screen.getByTestId('help-icon-link-tag')).toHaveAttribute(
+    'href',
+    newHrefProp,
+  );
+});
+
+test('changes the title attribute for the link tag and the title element for the svg with the linkTitle prop', () => {
+  const newLinkTitle = 'Link for learning what luminance is';
+  render(<LinkHelpIcon {...mockProps} linkTitle={newLinkTitle} />);
+  expect(screen.getByTestId('help-icon-link-tag')).toHaveAttribute(
+    'title',
+    newLinkTitle,
+  );
+  expect(screen.getByTestId('svg-title')).toHaveTextContent(newLinkTitle);
+});
+
 test('renders UI correctly', () => {
   const {container} = render(<LinkHelpIcon {...mockProps} />);
   expect(container).toMatchInlineSnapshot(`
@@ -42,6 +62,7 @@ test('renders UI correctly', () => {
 
     <div>
       <a
+        data-testid="help-icon-link-tag"
         href="https://triangulum.netlify.app"
         rel="help"
         title="Link for learning what chroma is"
@@ -51,7 +72,9 @@ test('renders UI correctly', () => {
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <title>
+          <title
+            data-testid="svg-title"
+          >
             Link for learning what chroma is
           </title>
           <circle
