@@ -47,7 +47,7 @@ export default function App({Component, pageProps}) {
 
         <meta
           name="description"
-          content="A front-end web app to pick a tint/tone/shade of hues more logically and more intuitively than the standard color pickers"
+          content="A front-end web app to pick tints and shades of a hue by luminance and by chroma, to make our color choice more logical and more intuitive"
         />
         {/* SVG-favicon-compatible browsers */}
         <link rel="icon" type="image/svg+xml" href="/logo.svg" />
@@ -77,7 +77,7 @@ export default function App({Component, pageProps}) {
         <meta property="og:type" content="website" />
         <meta
           property="og:description"
-          content="A front-end web app to pick a tint/tone/shade of hues more logically and more intuitively than the standard color pickers"
+          content="A front-end web app to pick tints and shades of a hue by luminance and by chroma, to make our color choice more logical and more intuitive"
         />
         <meta
           property="og:image"
