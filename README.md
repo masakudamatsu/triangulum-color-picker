@@ -5,11 +5,18 @@ chroma, to make our color choice more logical and more intuitive
 
 ## UI preview
 
-![landing page screenshot](public/thumbnail.png)
+![Screenshots of Triangulum Color Picker for desktop, tablet, and mobile screens](readme-images/ui-preview.png)
 
 ## URL
 
 https://triangulum.netlify.app
+
+## Features
+
+See Medium articles that accompany Triangulum Color Picker:
+
+- ["Pick color by luminance with Triangulum Color Picker"](https://medium.com/introducing-triangulum-color-picker/pick-color-by-luminance-with-triangulum-color-picker-dbcf858c40a1)
+- ["Pick color by chroma with Triangulum Color Picker"](https://medium.com/introducing-triangulum-color-picker/pick-color-by-chroma-with-triangulum-color-picker-f6902d6f91ae)
 
 ## JS libraries used
 
@@ -58,38 +65,48 @@ The following testing tools are used:
 - [Jest](https://jestjs.io/)
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
-- [ghooks](https://www.npmjs.com/package/ghooks)
 
-To run unit tests with Testing Library and Jest:
+To run all the unit tests with Testing Library and Jest (with code coverage
+reports):
 
 ```
-$ npm test
+$ npm run test:coverage
+```
+
+To run only the unit tests relevant to changes since the last commit (with Jest
+watch mode):
+
+```
+$ npm t
 ```
 
 To run e2e tests with
 [Cypress Test Runner](https://docs.cypress.io/guides/core-concepts/test-runner.html#Overview):
 
-- if you've started the development server
-
-```
-$ npm run e2e
-```
-
-- if you haven't started the development server
-
 ```
 $ npm run test:e2e
 ```
 
-To run cypress-image-snapshot tests headlessly in the Electron browser:
+To run cypress-image-snapshot tests headlessly in the Electron browser (after
+launching the development server):
 
 ```
 $ npm run snapshot
 ```
 
-When you make a commit, the `ghooks` will run the unit tests and e2e tests
-(excluding cypress-image-snapshot tests) to make sure that no failing script
-will be committed.
+When you make a commit, ESLint, Prettier, and Jest will be run only on the files
+to be committed. If there is any error, the commit will be aborted.
+
+## Writing commit messages
+
+After staging files to be committed, run
+
+```
+npm run commit
+```
+
+which launches a dialog to write a commit message in the fashion of
+[Angular's Commit Message Guidelines](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit).
 
 ## Contact
 
