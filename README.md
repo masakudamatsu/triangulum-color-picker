@@ -11,6 +11,13 @@ chroma, to make our color choice more logical and more intuitive
 
 https://triangulum.netlify.app
 
+## Features
+
+See Medium articles that accompany Triangulum Color Picker:
+
+- ["Pick color by luminance with Triangulum Color Picker"](https://medium.com/introducing-triangulum-color-picker/pick-color-by-luminance-with-triangulum-color-picker-dbcf858c40a1)
+- ["Pick color by chroma with Triangulum Color Picker"](https://medium.com/introducing-triangulum-color-picker/pick-color-by-chroma-with-triangulum-color-picker-f6902d6f91ae)
+
 ## JS libraries used
 
 - [React](https://reactjs.org/)
