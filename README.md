@@ -5,7 +5,7 @@ chroma, to make our color choice more logical and more intuitive
 
 ## UI preview
 
-![landing page screenshot](public/thumbnail.png)
+![Screenshots of Triangulum Color Picker for desktop, tablet, and mobile screens](readme-images/ui-preview.png)
 
 ## URL
 
