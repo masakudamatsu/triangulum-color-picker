@@ -18,3 +18,23 @@ cases(
     },
   },
 );
+
+cases(
+  'returns an error when the argument is not a number',
+  options => {
+    expect(() => {
+      remify(options.inputs);
+    }).toThrow(options.outputs);
+  },
+  {
+    missing: {
+      inputs: undefined,
+      outputs:
+        'The argument is missing. Provide a number of the pixel value to be converted into rem.',
+    },
+    string: {
+      inputs: '16',
+      outputs: 'The argument must be a number, but you provided a string',
+    },
+  },
+);
