@@ -5,12 +5,10 @@ import {color} from 'src/utils/color';
 import {typescale} from 'src/utils/typography';
 
 const Label = styled.label`
-  ${props => (props.numberLarge ? typescale.large : typescale.small)}
+  ${typescale.small}
   color: ${color.font};
 `;
 
-Label.propTypes = {
-  numberLarge: PropTypes.bool,
-};
+Label.propTypes = {};
 
 export default Label;
