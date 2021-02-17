@@ -25,9 +25,9 @@ function lineHeightToBe(xHeightPx, spaceBetweenPx, fontMetrics) {
 // Type scale
 export const typescale = {
   small: css`
-    font-family: 'Poppins', Verdana, sans-serif;
+    font-family: ${poppins.light.fontFamily};
     font-size: ${remify(capHeightToBe(capheight.small, poppins.light))};
-    font-weight: 300;
+    font-weight: ${poppins.light.fontWeight};
     line-height: 1;
     @media only screen and ${mediaQuery.font} {
       font-size: ${remify(
@@ -36,9 +36,9 @@ export const typescale = {
     }
   `,
   medium: css`
-    font-family: 'Poppins', Verdana, sans-serif;
+    font-family: ${poppins.light.fontFamily};
     font-size: ${remify(capHeightToBe(capheight.medium, poppins.light))};
-    font-weight: 300;
+    font-weight: ${poppins.light.fontWeight};
     @media only screen and ${mediaQuery.font} {
       font-size: ${remify(
         capHeightToBe(capheight.medium * scale, poppins.light),
@@ -46,9 +46,9 @@ export const typescale = {
     }
   `,
   large: css`
-    font-family: 'Poppins', Verdana, sans-serif;
+    font-family: ${poppins.light.fontFamily};
     font-size: ${remify(capHeightToBe(capheight.large, poppins.light))};
-    font-weight: 300;
+    font-weight: ${poppins.light.fontWeight};
     @media only screen and ${mediaQuery.font} {
       font-size: ${remify(
         capHeightToBe(capheight.large * scale, poppins.light),
@@ -56,9 +56,9 @@ export const typescale = {
     }
   `,
   number: css`
-    font-family: 'Poppins', Verdana, sans-serif;
+    font-family: ${poppins.thin.fontFamily};
     font-size: ${remify(capHeightToBe(capheight.number, poppins.thin))};
-    font-weight: 100;
+    font-weight: ${poppins.thin.fontWeight};
     line-height: 1;
     @media only screen and ${mediaQuery.font} {
       font-size: ${remify(
@@ -67,9 +67,9 @@ export const typescale = {
     }
   `,
   percent: css`
-    font-family: 'Poppins', Verdana, sans-serif;
+    font-family: ${poppins.thin.fontFamily};
     font-size: ${remify(capHeightToBe(capheight.percent, poppins.thin))};
-    font-weight: 100;
+    font-weight: ${poppins.thin.fontWeight};
     @media only screen and ${mediaQuery.font} {
       font-size: ${remify(
         capHeightToBe(capheight.percent * scale, poppins.thin),
@@ -77,9 +77,9 @@ export const typescale = {
     }
   `,
   footer: css`
-    font-family: 'Poppins', Verdana, sans-serif;
+    font-family: ${poppins.light.fontFamily};
     font-size: ${remify(xHeightToBe(footer.xheight, poppins.light))};
-    font-weight: 300;
+    font-weight: ${poppins.light.fontWeight};
     line-height: ${lineHeightToBe(
       footer.xheight,
       footer.betweenLine,
