@@ -5,8 +5,15 @@ import H1 from 'src/elements/H1';
 import Img from 'src/elements/Img';
 
 import {color} from 'src/utils/color';
-import {mediaQuery, threeColumns, twoColumns} from 'src/utils/breakpoints';
-import {cross, header, page, triangleWidth} from 'src/utils/designSpecs';
+import {mediaQuery} from 'src/utils/breakpoints';
+import {
+  cross,
+  header,
+  page,
+  triangleWidth,
+  threeColumns,
+  twoColumns,
+} from 'src/utils/designSpecs';
 import remify from 'src/utils/remify';
 import {scale} from 'src/utils/specFont';
 const animation = {

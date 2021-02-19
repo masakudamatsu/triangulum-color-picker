@@ -9,8 +9,10 @@ import {
   header,
   page,
   triangleWidth,
+  threeColumns,
+  twoColumns,
 } from 'src/utils/designSpecs';
-import {mediaQuery, threeColumns, twoColumns} from 'src/utils/breakpoints';
+import {mediaQuery} from 'src/utils/breakpoints';
 import {scale} from 'src/utils/specFont';
 import remify from 'src/utils/remify';
 

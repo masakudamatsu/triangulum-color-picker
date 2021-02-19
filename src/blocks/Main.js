@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 
-import {mediaQuery, twoColumns} from 'src/utils/breakpoints';
-import {flexbox, formNumberLarge, header, page} from 'src/utils/designSpecs';
+import {mediaQuery} from 'src/utils/breakpoints';
+import {
+  flexbox,
+  formNumberLarge,
+  header,
+  page,
+  twoColumns,
+} from 'src/utils/designSpecs';
 import remify from 'src/utils/remify';
 import {scale} from 'src/utils/specFont';
 
