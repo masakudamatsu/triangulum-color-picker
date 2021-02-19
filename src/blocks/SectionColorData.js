@@ -58,8 +58,11 @@ SectionColorData.SpacerBelowOutput = styled.div`
 `;
 
 SectionColorData.Unit = styled(Unit)`
-  bottom: 0;
+  bottom: 2px;
   position: absolute;
+  @media only screen and ${mediaQuery.font} {
+    bottom: 1px;
+  }
 `;
 
 export default SectionColorData;

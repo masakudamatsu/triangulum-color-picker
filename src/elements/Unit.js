@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import {textcrop, typescale} from 'src/utils/typography';
+import {fontCssGenerator} from 'src/utils/getFontCss';
+import {typescale} from 'src/utils/specFont';
 
 const Unit = styled.span`
-  ${typescale.percent}
-  ${textcrop.percent}
+  ${fontCssGenerator(typescale.percent)}
 `;
 
 export default Unit;
