@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import H1 from 'src/elements/H1';
 import Img from 'src/elements/Img';
 
-import {color} from 'src/utils/color';
+import {color} from 'src/utils/specColor';
 import {mediaQuery} from 'src/utils/breakpoints';
 import {
   cross,

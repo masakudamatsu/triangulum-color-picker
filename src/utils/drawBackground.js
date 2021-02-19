@@ -1,4 +1,4 @@
-import {color} from './color';
+import {color} from './specColor';
 import getCanvasMetrics from './getCanvasMetrics';
 
 // Draw the color triangle encircled

@@ -1,7 +1,7 @@
 import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
 
 import colorAnalyzer from 'src/utils/colorAnalyzer';
-import {color} from 'src/utils/color';
+import {color} from 'src/utils/specColor';
 
 // Construct user data
 const [twitterBlue, mcdonaldsRed] = [

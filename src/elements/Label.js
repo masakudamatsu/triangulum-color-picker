@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import {color} from 'src/utils/color';
+import {color} from 'src/utils/specColor';
 import {typescale} from 'src/utils/specFont';
 
 import {fontCssGenerator} from 'src/utils/getFontCss';

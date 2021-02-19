@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import {color} from 'src/utils/color';
+import {color} from 'src/utils/specColor';
 import {input} from 'src/utils/specLayout';
 
 const Input = styled.input.attrs(props => ({

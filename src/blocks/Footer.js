@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import A from 'src/elements/A';
 import Paragraph from 'src/elements/Paragraph';
-import {color} from 'src/utils/color';
+import {color} from 'src/utils/specColor';
 import {
   cross,
   footer,

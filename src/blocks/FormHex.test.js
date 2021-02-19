@@ -2,7 +2,7 @@ import React from 'react';
 import {render, screen} from '@testing-library/react';
 
 import FormHex from './FormHex';
-import {color} from 'src/utils/color';
+import {color} from 'src/utils/specColor';
 const mockProps = {
   parent: {
     lightMode: false,

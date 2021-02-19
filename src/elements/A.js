@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import {color} from 'src/utils/color';
+import {color} from 'src/utils/specColor';
 import {poppins} from 'src/utils/specFont';
 
 const A = styled.a`

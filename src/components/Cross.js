@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Svg from 'src/blocks/Svg';
-import {color} from 'src/utils/color';
+import {color} from 'src/utils/specColor';
 
 const Cross = ({large, position}) => {
   const scale = large ? 2 : 1;

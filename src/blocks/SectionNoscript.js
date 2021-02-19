@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import A from 'src/elements/A';
 import Paragraph from 'src/elements/Paragraph';
 import {responsiveBoxSize} from 'src/utils/getLayoutCss';
-import {color} from 'src/utils/color';
+import {color} from 'src/utils/specColor';
 import {footer, formColorCode} from 'src/utils/specLayout';
 import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';

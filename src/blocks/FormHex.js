@@ -7,7 +7,7 @@ import {formHex} from 'src/utils/specLayout';
 import {fontCssGenerator} from 'src/utils/getFontCss';
 import {scale, typescale} from 'src/utils/specFont';
 
-import {color} from 'src/utils/color';
+import {color} from 'src/utils/specColor';
 import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';
 
