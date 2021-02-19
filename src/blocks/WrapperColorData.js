@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 import {mediaQuery} from 'src/utils/breakpoints';
 import {boxSize} from 'src/utils/layout';
-import {formNumberLarge, scale} from 'src/utils/designSpecs';
+import {formNumberLarge} from 'src/utils/designSpecs';
 import remify from 'src/utils/remify';
+import {scale} from 'src/utils/specFont';
 
 const WrapperColorData = styled.div``;
 

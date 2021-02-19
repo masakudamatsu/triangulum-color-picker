@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 import {boxSize} from 'src/utils/layout';
-import {formNumberSmall, scale} from 'src/utils/designSpecs';
+import {formNumberSmall} from 'src/utils/designSpecs';
 
 import {fontCssGenerator} from 'src/utils/getFontCss';
-import {typescale} from 'src/utils/specFont';
+import {scale, typescale} from 'src/utils/specFont';
 
 import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';

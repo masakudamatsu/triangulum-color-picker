@@ -6,9 +6,9 @@ import Img from 'src/elements/Img';
 
 import {color} from 'src/utils/color';
 import {mediaQuery, threeColumns, twoColumns} from 'src/utils/breakpoints';
-import {cross, header, page, scale, triangleWidth} from 'src/utils/designSpecs';
+import {cross, header, page, triangleWidth} from 'src/utils/designSpecs';
 import remify from 'src/utils/remify';
-
+import {scale} from 'src/utils/specFont';
 const animation = {
   show: `
     transform: translate(0, 0);

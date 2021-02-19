@@ -6,8 +6,9 @@ import {
   formNumberLarge,
   header,
   page,
-  scale,
 } from './designSpecs';
+
+import {scale} from 'src/utils/specFont';
 
 import remify from './remify';
 

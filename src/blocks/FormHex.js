@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import {boxSize} from 'src/utils/layout';
-import {formHex, scale} from 'src/utils/designSpecs';
+import {formHex} from 'src/utils/designSpecs';
 
 import {fontCssGenerator} from 'src/utils/getFontCss';
-import {typescale} from 'src/utils/specFont';
+import {scale, typescale} from 'src/utils/specFont';
 
 import {color} from 'src/utils/color';
 import {mediaQuery} from 'src/utils/breakpoints';

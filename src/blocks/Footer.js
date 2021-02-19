@@ -8,10 +8,10 @@ import {
   footer,
   header,
   page,
-  scale,
   triangleWidth,
 } from 'src/utils/designSpecs';
 import {mediaQuery, threeColumns, twoColumns} from 'src/utils/breakpoints';
+import {scale} from 'src/utils/specFont';
 import remify from 'src/utils/remify';
 
 const Footer = styled.footer`

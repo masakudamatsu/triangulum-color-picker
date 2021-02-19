@@ -5,13 +5,13 @@ import {
   formHex,
   formNumberLarge,
   formNumberSmall,
-  scale,
   triangleWidth,
 } from './designSpecs';
 
 import {mediaQuery} from './breakpoints';
 
 import remify from './remify';
+import {scale} from 'src/utils/specFont';
 
 export const boxSize = {
   formColorCode: responsiveBoxSize(formColorCode.width),

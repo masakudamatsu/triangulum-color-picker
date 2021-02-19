@@ -1,5 +1,5 @@
 import getCanvasMetrics from './getCanvasMetrics';
-import {poppins, typescale} from './specFont';
+import {poppins, scale, typescale} from './specFont';
 
 const canvasSmall = getCanvasMetrics(3);
 const canvasLarge = getCanvasMetrics(5);
@@ -10,7 +10,6 @@ export const canvas = {
   },
 };
 // Scale factor to enlarge fonts beyond the tablet screen width of 728px
-export const scale = 1.2;
 export const triangleWidth = 303;
 
 export const marginLeft = 10;

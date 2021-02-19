@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-import {formNumberLarge, scale} from 'src/utils/designSpecs';
+import {formNumberLarge} from 'src/utils/designSpecs';
 import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';
+import {scale} from 'src/utils/specFont';
 
 import H2 from 'src/elements/H2';
 import Output from 'src/elements/Output';

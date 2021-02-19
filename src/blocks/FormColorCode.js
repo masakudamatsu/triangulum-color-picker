@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 import {boxSize} from 'src/utils/layout';
-import {formColorCode, input, scale} from 'src/utils/designSpecs';
+import {formColorCode, input} from 'src/utils/designSpecs';
 import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';
 
 import {fontCssGenerator} from 'src/utils/getFontCss';
-import {typescale} from 'src/utils/specFont';
+import {scale, typescale} from 'src/utils/specFont';
 
 import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
