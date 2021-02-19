@@ -111,11 +111,11 @@ describe('renders UI correctly', () => {
       }
 
       .c0::before {
-        margin-bottom: -0.3855em;
+        margin-bottom: -0.3165em;
       }
 
       .c0::after {
-        margin-top: -0.406em;
+        margin-top: -0.4195em;
       }
 
       .c1 {
@@ -124,7 +124,7 @@ describe('renders UI correctly', () => {
         align-self: center;
         color: inherit;
         position: absolute;
-        top: 1.25rem;
+        top: 1.1875rem;
       }
 
       @media only screen and (min-width:45.5rem) {
@@ -135,7 +135,7 @@ describe('renders UI correctly', () => {
 
       @media only screen and (min-width:45.5rem) {
         .c1 {
-          top: 1.5rem;
+          top: 1.425rem;
         }
       }
 

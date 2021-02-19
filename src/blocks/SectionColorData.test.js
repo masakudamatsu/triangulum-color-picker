@@ -35,10 +35,26 @@ describe('renders UI correctly', () => {
         font-family: 'Poppins',Verdana,sans-serif;
         font-size: 1.7857rem;
         font-weight: 300;
-        margin-bottom: -0.771em;
-        -webkit-transform: translateX(-0.065em) translateY(-0.37em);
-        -ms-transform: translateX(-0.065em) translateY(-0.37em);
-        transform: translateX(-0.065em) translateY(-0.37em);
+        line-height: 1.2285;
+        -webkit-transform: translateX(-0.065em);
+        -ms-transform: translateX(-0.065em);
+        transform: translateX(-0.065em);
+      }
+
+      .c0::before,
+      .c0::after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+      }
+
+      .c0::before {
+        margin-bottom: -0.263em;
+      }
+
+      .c0::after {
+        margin-top: -0.316em;
       }
 
       @media only screen and (min-width:45.5rem) {
@@ -79,13 +95,13 @@ describe('renders UI correctly', () => {
     const {container} = render(<SectionColorData.SpacerBelowOutput />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        height: 1.25rem;
+        height: 1.375rem;
         width: 100%;
       }
 
       @media only screen and (min-width:45.5rem) {
         .c0 {
-          height: 1.5rem;
+          height: 1.65rem;
         }
       }
 
@@ -100,13 +116,13 @@ describe('renders UI correctly', () => {
     const {container} = render(<SectionColorData.SpacerBelowH2 />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        height: 0.625rem;
+        height: 0.75rem;
         width: 100%;
       }
 
       @media only screen and (min-width:45.5rem) {
         .c0 {
-          height: 0.75rem;
+          height: 0.9rem;
         }
       }
 
@@ -210,11 +226,11 @@ describe('renders UI correctly', () => {
       }
 
       .c0::before {
-        margin-bottom: -0.3855em;
+        margin-bottom: -0.3165em;
       }
 
       .c0::after {
-        margin-top: -0.406em;
+        margin-top: -0.4195em;
       }
 
       @media only screen and (min-width:45.5rem) {

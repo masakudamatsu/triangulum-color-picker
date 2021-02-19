@@ -123,11 +123,11 @@ describe('renders UI correctly', () => {
       }
 
       .c0::before {
-        margin-bottom: -0.3855em;
+        margin-bottom: -0.3165em;
       }
 
       .c0::after {
-        margin-top: -0.406em;
+        margin-top: -0.4195em;
       }
 
       .c1 {
