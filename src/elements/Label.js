@@ -2,10 +2,12 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import {color} from 'src/utils/color';
-import {typescale} from 'src/utils/typography';
+import {typescale} from 'src/utils/specFont';
+
+import {fontCssGenerator} from 'src/utils/getFontCss';
 
 const Label = styled.label`
-  ${typescale.small}
+  ${fontCssGenerator(typescale.small)}
   color: ${color.font};
 `;
 

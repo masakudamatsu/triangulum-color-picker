@@ -98,21 +98,33 @@ describe('renders UI correctly', () => {
         font-family: 'Poppins',Verdana,sans-serif;
         font-size: 0.8929rem;
         font-weight: 300;
-        line-height: 1;
+        line-height: 1.365;
         color: rgb(255,255,255);
       }
 
+      .c0::before,
+      .c0::after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+      }
+
+      .c0::before {
+        margin-bottom: -0.3855em;
+      }
+
+      .c0::after {
+        margin-top: -0.406em;
+      }
+
       .c1 {
-        margin-bottom: -0.28em;
-        -webkit-transform: translateY(-0.1375em);
-        -ms-transform: translateY(-0.1375em);
-        transform: translateY(-0.1375em);
         -webkit-align-self: center;
         -ms-flex-item-align: center;
         align-self: center;
         color: inherit;
         position: absolute;
-        top: 1.125rem;
+        top: 1.25rem;
       }
 
       @media only screen and (min-width:45.5rem) {
@@ -123,7 +135,7 @@ describe('renders UI correctly', () => {
 
       @media only screen and (min-width:45.5rem) {
         .c1 {
-          top: 1.35rem;
+          top: 1.5rem;
         }
       }
 

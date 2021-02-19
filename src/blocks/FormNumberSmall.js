@@ -46,12 +46,11 @@ FormNumberSmall.Input = styled(Input).attrs(props => ({
 `;
 
 FormNumberSmall.Label = styled(Label)`
-  ${textcrop.smallCenterAligned}
   align-self: center;
   position: absolute;
-  top: ${remify(formNumberSmall.whitespace.aboveLabel)};
+  top: ${remify(formNumberSmall.whitespace.aboveLabel + 1)};
   @media only screen and ${mediaQuery.font} {
-    top: ${remify(formNumberSmall.whitespace.aboveLabel * scale)};
+    top: ${remify((formNumberSmall.whitespace.aboveLabel + 1) * scale)};
   }
 `;
 

@@ -31,13 +31,12 @@ FormHex.Input = styled(Input)`
 `;
 
 FormHex.Label = styled(Label)`
-  ${textcrop.smallCenterAligned}
   align-self: center;
   color: inherit;
   position: absolute;
-  top: ${remify(formHex.whitespace.aboveLabel)};
+  top: ${remify(formHex.whitespace.aboveLabel + 2)};
   @media only screen and ${mediaQuery.font} {
-    top: ${remify(formHex.whitespace.aboveLabel * scale)};
+    top: ${remify((formHex.whitespace.aboveLabel + 2) * scale)};
   }
 `;
 

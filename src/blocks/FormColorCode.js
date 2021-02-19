@@ -59,7 +59,6 @@ FormColorCode.Input = styled(Input)`
 `;
 
 FormColorCode.Label = styled(Label)`
-  ${textcrop.small}
   position: absolute;
   top: ${remify(
     formColorCode.whitespace.aboveLabel + input.borderWidth.inactive,
@@ -73,6 +72,7 @@ FormColorCode.Label = styled(Label)`
       formColorCode.whitespace.left * scale + input.borderWidth.inactive,
     )};
   }
+  transform: translateX(-0.08em); /* To be left-aligned with input text */
 `;
 
 export default FormColorCode;
