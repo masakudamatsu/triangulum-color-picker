@@ -195,12 +195,16 @@ export const flexbox = {
 };
 
 export const footer = {
-  xheight: (10 / poppins.light.capHeight) * poppins.light.xHeight,
+  xheight:
+    (typescale.small.capHeight / poppins.light.capHeight) *
+    poppins.light.xHeight,
+  modularScale:
+    typescale.small.betweenLinesRatio / typescale.small.xHeightRatio,
   get aboveParagraph() {
-    return this.xheight * 1.5 * 1.5;
+    return this.xheight * Math.pow(this.modularScale, 2);
   },
   get belowParagraph() {
-    return this.xheight * 1.5 * 1.5;
+    return this.xheight * Math.pow(this.modularScale, 2);
   },
   get height() {
     return this.xheight + this.aboveParagraph + this.belowParagraph;

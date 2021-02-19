@@ -29,7 +29,7 @@ describe('renders UI correctly:', () => {
 
       @media only screen and (min-width:45.5rem) {
         .c0 {
-          padding: 1.3162rem;
+          padding: 1.3163rem;
         }
       }
 
@@ -167,7 +167,7 @@ describe('renders UI correctly:', () => {
 
       @media only screen and (min-width:45.5rem) {
         .c0 {
-          height: 1.3162rem;
+          height: 1.3163rem;
         }
       }
 
