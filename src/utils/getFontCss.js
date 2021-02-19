@@ -5,6 +5,24 @@ import {mediaQuery} from './breakpoints';
 import remify from './remify';
 
 export function fontCssGenerator(typeface) {
+  /* Text Crop (see https://text-crop.eightshapes.com/) */
+  const textcropCss =
+    typeface.textCropEm &&
+    `
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+      }
+      &::before {
+        margin-bottom: ${typeface.textCropEm.top}em;
+      }
+      &::after {
+        margin-top: ${typeface.textCropEm.bottom}em;
+      }
+    `;
   return css`
     font-family: ${typeface.fontMetrics.fontFamily};
     font-size: ${remify(
@@ -17,20 +35,7 @@ export function fontCssGenerator(typeface) {
         capHeightToBe(typeface.capHeight * scale, typeface.fontMetrics),
       )};
     }
-    /* Text Crop (see https://text-crop.eightshapes.com/) */
-    &::before,
-    &::after {
-      content: '';
-      display: block;
-      height: 0;
-      width: 0;
-    }
-    &::before {
-      margin-bottom: ${typeface.textCropEm.top}em;
-    }
-    &::after {
-      margin-top: ${typeface.textCropEm.bottom}em;
-    }
+    ${textcropCss}
   `;
 }
 
@@ -48,6 +53,9 @@ function xHeightToBe(xHeight, fontMetrics) {
 }
 
 function lineHeightToBe(typeface) {
+  if (!typeface.xHeightRatio || !typeface.betweenLinesRatio) {
+    return 'normal';
+  }
   const lineHeightToXHeightRatio =
     (typeface.xHeightRatio + typeface.betweenLinesRatio) /
     typeface.xHeightRatio;
