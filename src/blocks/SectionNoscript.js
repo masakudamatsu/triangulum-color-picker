@@ -7,7 +7,6 @@ import {color} from 'src/utils/color';
 import {footer, scale} from 'src/utils/designSpecs';
 import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';
-import {textcrop, typescale} from 'src/utils/typography';
 
 const SectionNoscript = styled.section`
   align-items: center;
@@ -36,8 +35,6 @@ SectionNoscript.Link = styled(A)`
 
 SectionNoscript.Paragraph = styled(Paragraph)`
   ${boxSize.noscript}
-  ${typescale.footer}
-  ${textcrop.footer}
 `;
 
 SectionNoscript.Spacer = styled.div`

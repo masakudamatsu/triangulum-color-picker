@@ -135,14 +135,6 @@ describe('renders UI correctly:', () => {
       .c1 {
         height: auto;
         width: 18.9375rem;
-        font-family: 'Poppins',Verdana,sans-serif;
-        font-size: 0.8929rem;
-        font-weight: 300;
-        line-height: 1.365;
-        margin-bottom: -0.28em;
-        -webkit-transform: translateY(-0.1375em);
-        -ms-transform: translateY(-0.1375em);
-        transform: translateY(-0.1375em);
       }
 
       @media only screen and (min-width:45.5rem) {
@@ -155,12 +147,6 @@ describe('renders UI correctly:', () => {
         .c1 {
           height: auto;
           width: 22.725rem;
-        }
-      }
-
-      @media only screen and (min-width:45.5rem) {
-        .c1 {
-          font-size: 1.0714rem;
         }
       }
 
