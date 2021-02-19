@@ -56,6 +56,7 @@ describe('renders UI correctly', () => {
         font-family: 'Poppins',Verdana,sans-serif;
         font-size: 1.7857rem;
         font-weight: 300;
+        line-height: normal;
         border-radius: 4px;
         padding-bottom: 0.5rem;
         padding-left: 0.4844rem;

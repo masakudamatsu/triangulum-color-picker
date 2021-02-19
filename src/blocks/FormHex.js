@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 
 import {boxSize} from 'src/utils/layout';
 import {formHex, scale} from 'src/utils/designSpecs';
-import {textcrop, typescale} from 'src/utils/typography';
+
+import {fontCssGenerator} from 'src/utils/getFontCss';
+import {typescale} from 'src/utils/specFont';
+
 import {color} from 'src/utils/color';
 import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';
@@ -20,7 +23,7 @@ const FormHex = styled.form`
 `;
 
 FormHex.Input = styled(Input)`
-  ${typescale.medium}
+  ${fontCssGenerator(typescale.inputMedium)}
   background-color: ${props => props.backgroundColor};
   border-width: ${props => props.lightMode && `0`};
   border-radius: 100%;

@@ -2,9 +2,11 @@ import styled from 'styled-components';
 
 import {boxSize} from 'src/utils/layout';
 import {formColorCode, input, scale} from 'src/utils/designSpecs';
-import {textcrop, typescale} from 'src/utils/typography';
 import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';
+
+import {fontCssGenerator} from 'src/utils/getFontCss';
+import {typescale} from 'src/utils/specFont';
 
 import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
@@ -27,7 +29,7 @@ const padding = {
 };
 
 FormColorCode.Input = styled(Input)`
-  ${typescale.large}
+  ${fontCssGenerator(typescale.inputLarge)}
 
   border-radius: 4px;
   padding-bottom: ${remify(padding.bottom)};

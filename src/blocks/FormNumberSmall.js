@@ -2,7 +2,10 @@ import styled from 'styled-components';
 
 import {boxSize} from 'src/utils/layout';
 import {formNumberSmall, scale} from 'src/utils/designSpecs';
-import {textcrop, typescale} from 'src/utils/typography';
+
+import {fontCssGenerator} from 'src/utils/getFontCss';
+import {typescale} from 'src/utils/specFont';
+
 import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';
 
@@ -34,7 +37,7 @@ const padding = {
 FormNumberSmall.Input = styled(Input).attrs(props => ({
   inputMode: 'decimal',
 }))`
-  ${typescale.medium}
+  ${fontCssGenerator(typescale.inputMedium)}
   border-radius: 100%;
   height: 100%;
   padding-top: ${remify(padding.top)};

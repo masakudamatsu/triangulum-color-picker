@@ -50,6 +50,14 @@ export const typescale = {
     },
     fontMetrics: poppins.light,
   },
+  inputMedium: {
+    capHeight: 15,
+    fontMetrics: poppins.light,
+  },
+  inputLarge: {
+    capHeight: 20,
+    fontMetrics: poppins.light,
+  },
   number: {
     capHeight: 60,
     xHeightRatio: 5,
