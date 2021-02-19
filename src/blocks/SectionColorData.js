@@ -34,10 +34,10 @@ SectionColorData.Output = styled(Output)`
 SectionColorData.Paragraph = Paragraph;
 
 SectionColorData.SpacerAboveOutput = styled.div`
-  height: ${remify(formNumberLarge.whitespace.aboveOutput)};
+  height: ${remify(formNumberLarge.whitespace.aboveOutput + 3)};
   width: 100%;
   @media only screen and ${mediaQuery.font} {
-    height: ${remify(formNumberLarge.whitespace.aboveOutput * scale)};
+    height: ${remify((formNumberLarge.whitespace.aboveOutput + 3) * scale)};
   }
 `;
 
@@ -50,10 +50,10 @@ SectionColorData.SpacerBelowH2 = styled.div`
 `;
 
 SectionColorData.SpacerBelowOutput = styled.div`
-  height: ${remify(formNumberLarge.whitespace.belowOutput + 2)};
+  height: ${remify(formNumberLarge.whitespace.belowOutput - 1)};
   width: 100%;
   @media only screen and ${mediaQuery.font} {
-    height: ${remify((formNumberLarge.whitespace.belowOutput + 2) * scale)};
+    height: ${remify((formNumberLarge.whitespace.belowOutput - 1) * scale)};
   }
 `;
 

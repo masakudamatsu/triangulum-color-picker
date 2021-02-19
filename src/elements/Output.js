@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import {textcrop, typescale} from 'src/utils/typography';
+import {fontCssGenerator} from 'src/utils/getFontCss';
+import {typescale} from 'src/utils/specFont';
 
 const Output = styled.output`
-  ${typescale.number}
-  ${textcrop.number}
+  ${fontCssGenerator(typescale.number)}
 `;
 
 export default Output;

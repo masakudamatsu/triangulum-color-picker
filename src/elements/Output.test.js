@@ -12,11 +12,23 @@ test('renders UI correctly', () => {
       font-family: 'Poppins',Verdana,sans-serif;
       font-size: 5.3419rem;
       font-weight: 100;
-      line-height: 1;
-      margin-bottom: -0.3158em;
-      -webkit-transform: translateY(-0.1286em);
-      -ms-transform: translateY(-0.1286em);
-      transform: translateY(-0.1286em);
+      line-height: 1.188;
+    }
+
+    .c0::before,
+    .c0::after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+    }
+
+    .c0::before {
+      margin-bottom: -0.24em;
+    }
+
+    .c0::after {
+      margin-top: -0.2575em;
     }
 
     @media only screen and (min-width:45.5rem) {
