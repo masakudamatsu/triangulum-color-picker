@@ -12,10 +12,26 @@ test('renders UI correctly:', () => {
       font-family: 'Poppins',Verdana,sans-serif;
       font-size: 1.3393rem;
       font-weight: 300;
-      margin-bottom: -0.771em;
-      -webkit-transform: translateX(-0.065em) translateY(-0.37em);
-      -ms-transform: translateX(-0.065em) translateY(-0.37em);
-      transform: translateX(-0.065em) translateY(-0.37em);
+      line-height: 1.274;
+      -webkit-transform: translateX(-0.065em);
+      -ms-transform: translateX(-0.065em);
+      transform: translateX(-0.065em);
+    }
+
+    .c0::before,
+    .c0::after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+    }
+
+    .c0::before {
+      margin-bottom: -0.304em;
+    }
+
+    .c0::after {
+      margin-top: -0.3325em;
     }
 
     @media only screen and (min-width:45.5rem) {
