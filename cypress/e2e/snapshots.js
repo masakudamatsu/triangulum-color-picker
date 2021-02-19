@@ -1,5 +1,5 @@
 import getCanvasMetrics from 'src/utils/getCanvasMetrics';
-import {threeColumns, twoColumns} from 'src/utils/designSpecs';
+import {threeColumns, twoColumns} from 'src/utils/specLayout';
 import round from 'src/utils/round';
 
 const twitterBlue = 'rgb(29, 161, 242)';

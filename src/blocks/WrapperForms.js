@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import {mediaQuery} from 'src/utils/breakpoints';
 import {boxSize} from 'src/utils/layout';
-import {page, rgbHslWrapper} from 'src/utils/designSpecs';
+import {page, rgbHslWrapper} from 'src/utils/specLayout';
 import remify from 'src/utils/remify';
 import {scale} from 'src/utils/specFont';
 const WrapperForms = styled.section``;

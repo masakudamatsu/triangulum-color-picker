@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import {boxSize} from 'src/utils/layout';
-import {formHex} from 'src/utils/designSpecs';
+import {formHex} from 'src/utils/specLayout';
 
 import {fontCssGenerator} from 'src/utils/getFontCss';
 import {scale, typescale} from 'src/utils/specFont';

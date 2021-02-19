@@ -2,7 +2,7 @@ import React from 'react';
 
 import GitHubLink from 'src/components/GitHubLink';
 import Header from 'src/blocks/Header';
-import {header} from 'src/utils/designSpecs';
+import {header} from 'src/utils/specLayout';
 
 const AppBar = () => {
   const [show, setShow] = React.useState(true);

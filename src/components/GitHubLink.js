@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ImageLink from 'src/blocks/ImageLink';
-import {header} from 'src/utils/designSpecs';
+import {header} from 'src/utils/specLayout';
 
 const GitHubLink = ({footer}) => {
   return (

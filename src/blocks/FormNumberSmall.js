@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import {boxSize} from 'src/utils/layout';
-import {formNumberSmall} from 'src/utils/designSpecs';
+import {formNumberSmall} from 'src/utils/specLayout';
 
 import {fontCssGenerator} from 'src/utils/getFontCss';
 import {scale, typescale} from 'src/utils/specFont';

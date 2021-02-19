@@ -11,7 +11,7 @@ import {
   triangleWidth,
   threeColumns,
   twoColumns,
-} from 'src/utils/designSpecs';
+} from 'src/utils/specLayout';
 import {mediaQuery} from 'src/utils/breakpoints';
 import {scale} from 'src/utils/specFont';
 import remify from 'src/utils/remify';

@@ -13,7 +13,7 @@ import {
   triangleWidth,
   threeColumns,
   twoColumns,
-} from 'src/utils/designSpecs';
+} from 'src/utils/specLayout';
 import remify from 'src/utils/remify';
 import {scale} from 'src/utils/specFont';
 const animation = {

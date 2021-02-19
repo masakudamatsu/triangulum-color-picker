@@ -2,7 +2,7 @@ import React from 'react';
 import {render, screen} from '@testing-library/react';
 
 import Header from './Header';
-import {header} from 'src/utils/designSpecs';
+import {header} from 'src/utils/specLayout';
 import remify from 'src/utils/remify';
 
 const mockProps = {};

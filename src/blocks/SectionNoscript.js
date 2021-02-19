@@ -4,7 +4,7 @@ import A from 'src/elements/A';
 import Paragraph from 'src/elements/Paragraph';
 import {boxSize} from 'src/utils/layout';
 import {color} from 'src/utils/color';
-import {footer} from 'src/utils/designSpecs';
+import {footer} from 'src/utils/specLayout';
 import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';
 import {scale} from 'src/utils/specFont';

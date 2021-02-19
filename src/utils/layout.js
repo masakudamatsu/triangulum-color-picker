@@ -6,7 +6,7 @@ import {
   formNumberLarge,
   formNumberSmall,
   triangleWidth,
-} from './designSpecs';
+} from './specLayout';
 
 import {mediaQuery} from './breakpoints';
 

@@ -8,7 +8,7 @@ import {
   page,
   threeColumns,
   twoColumns,
-} from './designSpecs';
+} from './specLayout';
 
 import {scale} from 'src/utils/specFont';
 

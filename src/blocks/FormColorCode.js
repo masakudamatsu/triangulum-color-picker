@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import {boxSize} from 'src/utils/layout';
-import {formColorCode, input} from 'src/utils/designSpecs';
+import {formColorCode, input} from 'src/utils/specLayout';
 import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';
 
