@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import {boxSize} from 'src/utils/layout';
+import {responsiveBoxSize} from 'src/utils/getLayoutCss';
 import {formHex} from 'src/utils/specLayout';
 
 import {fontCssGenerator} from 'src/utils/getFontCss';
@@ -19,7 +19,7 @@ const FormHex = styled.form`
   display: flex;
   flex-direction: column;
   position: relative;
-  ${boxSize.formHex}
+  ${responsiveBoxSize(formHex.diameter, formHex.diameter)}
 `;
 
 FormHex.Input = styled(Input)`

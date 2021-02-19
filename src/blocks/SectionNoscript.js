@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 import A from 'src/elements/A';
 import Paragraph from 'src/elements/Paragraph';
-import {boxSize} from 'src/utils/layout';
+import {responsiveBoxSize} from 'src/utils/getLayoutCss';
 import {color} from 'src/utils/color';
-import {footer} from 'src/utils/specLayout';
+import {footer, formColorCode} from 'src/utils/specLayout';
 import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';
 import {scale} from 'src/utils/specFont';
@@ -35,7 +35,7 @@ SectionNoscript.Link = styled(A)`
 `;
 
 SectionNoscript.Paragraph = styled(Paragraph)`
-  ${boxSize.noscript}
+  ${responsiveBoxSize(formColorCode.width)}
 `;
 
 SectionNoscript.Spacer = styled.div`

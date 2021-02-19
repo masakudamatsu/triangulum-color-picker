@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 
 import {mediaQuery} from 'src/utils/breakpoints';
-import {boxSize} from 'src/utils/layout';
-import {page, rgbHslWrapper} from 'src/utils/specLayout';
+import {responsiveBoxSize} from 'src/utils/getLayoutCss';
+import {
+  formHex,
+  page,
+  rgbHslWrapper,
+  triangleWidth,
+} from 'src/utils/specLayout';
 import remify from 'src/utils/remify';
 import {scale} from 'src/utils/specFont';
 const WrapperForms = styled.section``;
@@ -18,7 +23,7 @@ WrapperForms.MarginBetweenColorCodeAndHexRgbHsl = styled.div`
 WrapperForms.WrapperHexRgbHsl = styled.div`
   align-items: center;
   display: flex;
-  ${boxSize.formWrapper}
+  ${responsiveBoxSize(triangleWidth)}
 `;
 
 WrapperForms.WrapperRgbHsl = styled.div`
@@ -26,7 +31,7 @@ WrapperForms.WrapperRgbHsl = styled.div`
   flex-direction: column;
   position: relative;
   padding: ${remify(rgbHslWrapper.padding)};
-  ${boxSize.rgbHslWrapper}
+  ${responsiveBoxSize(triangleWidth - formHex.diameter)}
   @media only screen and ${mediaQuery.font} {
     padding: ${remify(rgbHslWrapper.padding * scale)};
   }

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import {boxSize} from 'src/utils/layout';
+import {responsiveBoxSize} from 'src/utils/getLayoutCss';
 import {formNumberSmall} from 'src/utils/specLayout';
 
 import {fontCssGenerator} from 'src/utils/getFontCss';
@@ -23,7 +23,7 @@ FormNumberSmall.InnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  ${boxSize.formNumberSmall}
+  ${responsiveBoxSize(formNumberSmall.diameter, formNumberSmall.diameter)}
 `;
 
 const padding = {

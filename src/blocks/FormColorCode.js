@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import {boxSize} from 'src/utils/layout';
+import {responsiveBoxSize} from 'src/utils/getLayoutCss';
 import {formColorCode, input} from 'src/utils/specLayout';
 import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';
@@ -14,7 +14,7 @@ import Label from 'src/elements/Label';
 const FormColorCode = styled.form`
   background-color: inherit;
   position: relative;
-  ${boxSize.formColorCode}
+  ${responsiveBoxSize(formColorCode.width)}
 `;
 
 // Text crop and other adjustments
