@@ -1,7 +1,8 @@
 import styled, {css} from 'styled-components';
 import PropTypes from 'prop-types';
 
-import {textcrop, typescale} from 'src/utils/typography';
+import {fontCssGenerator} from 'src/utils/getFontCss';
+import {typescale} from 'src/utils/specFont';
 
 const visuallyHidden = css`
   /* Hide an element but show it for the screen reader. See my article on this technique: https://masakudamatsu.medium.com/the-visually-hidden-technique-303f8e2bd409 */
@@ -16,8 +17,8 @@ const visuallyHidden = css`
 `;
 
 const defaultStyle = css`
-  ${typescale.large}
-  ${textcrop.large}
+  ${fontCssGenerator(typescale.large)}
+  transform: translateX(-0.065em);
 `;
 
 const H2 = styled.h2`
