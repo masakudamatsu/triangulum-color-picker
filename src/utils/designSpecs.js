@@ -1,5 +1,5 @@
 import getCanvasMetrics from './getCanvasMetrics';
-import {poppins} from './fontMetrics';
+import {poppins} from './specFont';
 
 const canvasSmall = getCanvasMetrics(3);
 const canvasLarge = getCanvasMetrics(5);

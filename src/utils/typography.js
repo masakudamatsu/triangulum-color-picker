@@ -2,7 +2,7 @@ import {css} from 'styled-components';
 
 import {capheight, footer, scale} from './designSpecs';
 import {mediaQuery} from './breakpoints';
-import {poppins} from './fontMetrics';
+import {poppins} from './specFont';
 import remify from './remify';
 
 function capHeightToBe(px, fontMetrics) {

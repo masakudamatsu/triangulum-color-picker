@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import {color} from 'src/utils/color';
-import {poppins} from 'src/utils/fontMetrics';
+import {poppins} from 'src/utils/specFont';
 
 const A = styled.a`
   background: ${color.footer.linkBackground}; /* Fallback */
