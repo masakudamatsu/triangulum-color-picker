@@ -10,12 +10,12 @@ import {
   twoColumns,
 } from './specLayout';
 
-import {scale} from 'src/utils/specFont';
+import {breakpointForFont, scale} from 'src/utils/specFont';
 
 import remify from './remify';
 
 export const mediaQuery = {
-  font: `(min-width: ${remify(728)})`,
+  font: `(min-width: ${remify(breakpointForFont)})`,
   threeColumns: `(min-width: ${remify(threeColumns.minWidth)})`,
   threeColumnsTall: `(min-width: ${remify(
     threeColumns.minWidth,
