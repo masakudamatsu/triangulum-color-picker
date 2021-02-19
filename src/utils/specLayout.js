@@ -1,5 +1,5 @@
 import getCanvasMetrics from './getCanvasMetrics';
-import {poppins, scale, typescale} from './specFont';
+import {font, poppins, scale} from './specFont';
 
 const canvasSmall = getCanvasMetrics(3);
 const canvasLarge = getCanvasMetrics(5);
@@ -30,7 +30,7 @@ export const input = {
 export const header = {
   borderBottomWidth: 1,
   capheight: {
-    h1: typescale.medium.capHeight,
+    h1: font.h1.capHeight,
   },
   logo: {
     height: 30,
@@ -54,8 +54,8 @@ export const header = {
 
 export const formColorCode = {
   capheight: {
-    label: typescale.small.capHeight,
-    inputValue: typescale.inputLarge.capHeight,
+    label: font.label.capHeight,
+    inputValue: font.formColorCode.capHeight,
   },
   whitespace: {
     aboveLabel: 10,
@@ -78,8 +78,8 @@ export const formColorCode = {
 
 export const formHex = {
   capheight: {
-    label: typescale.small.capHeight,
-    inputValue: typescale.inputMedium.capHeight,
+    label: font.label.capHeight,
+    inputValue: font.formHex.capHeight,
   },
   whitespace: {
     aboveLabel: 18,
@@ -99,9 +99,9 @@ export const formHex = {
 
 export const formNumberLarge = {
   capheight: {
-    h2: typescale.large.capHeight,
-    paragraph: typescale.small.capHeight,
-    output: typescale.number.capHeight,
+    h2: font.h2.capHeight,
+    paragraph: font.paragraph.capHeight,
+    output: font.output.capHeight,
   },
   whitespace: {
     padding: cross.width.large * (2 / 3),
@@ -128,8 +128,8 @@ export const formNumberLarge = {
 
 export const formNumberSmall = {
   capheight: {
-    label: typescale.small.capHeight,
-    inputValue: typescale.inputMedium.capHeight,
+    label: font.label.capHeight,
+    inputValue: font.formNumberSmall.capHeight,
   },
   whitespace: {
     aboveLabel: 5,
@@ -196,10 +196,8 @@ export const flexbox = {
 
 export const footer = {
   xheight:
-    (typescale.small.capHeight / poppins.light.capHeight) *
-    poppins.light.xHeight,
-  modularScale:
-    typescale.small.betweenLinesRatio / typescale.small.xHeightRatio,
+    (font.footer.capHeight / poppins.light.capHeight) * poppins.light.xHeight,
+  modularScale: font.footer.betweenLinesRatio / font.footer.xHeightRatio,
   get aboveParagraph() {
     return this.xheight * Math.pow(this.modularScale, 2);
   },
