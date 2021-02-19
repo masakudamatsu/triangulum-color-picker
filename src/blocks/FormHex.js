@@ -34,9 +34,9 @@ FormHex.Label = styled(Label)`
   align-self: center;
   color: inherit;
   position: absolute;
-  top: ${remify(formHex.whitespace.aboveLabel + 2)};
+  top: ${remify(formHex.whitespace.aboveLabel + 1)};
   @media only screen and ${mediaQuery.font} {
-    top: ${remify((formHex.whitespace.aboveLabel + 2) * scale)};
+    top: ${remify((formHex.whitespace.aboveLabel + 1) * scale)};
   }
 `;
 

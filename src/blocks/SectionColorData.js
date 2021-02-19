@@ -42,18 +42,18 @@ SectionColorData.SpacerAboveOutput = styled.div`
 `;
 
 SectionColorData.SpacerBelowH2 = styled.div`
-  height: ${remify(formNumberLarge.whitespace.belowH2)};
+  height: ${remify(formNumberLarge.whitespace.belowH2 + 2)};
   width: 100%;
   @media only screen and ${mediaQuery.font} {
-    height: ${remify(formNumberLarge.whitespace.belowH2 * scale)};
+    height: ${remify((formNumberLarge.whitespace.belowH2 + 2) * scale)};
   }
 `;
 
 SectionColorData.SpacerBelowOutput = styled.div`
-  height: ${remify(formNumberLarge.whitespace.belowOutput)};
+  height: ${remify(formNumberLarge.whitespace.belowOutput + 2)};
   width: 100%;
   @media only screen and ${mediaQuery.font} {
-    height: ${remify(formNumberLarge.whitespace.belowOutput * scale)};
+    height: ${remify((formNumberLarge.whitespace.belowOutput + 2) * scale)};
   }
 `;
 
