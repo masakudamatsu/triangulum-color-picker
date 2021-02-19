@@ -12,8 +12,8 @@ if (Cypress.config('isInteractive')) {
     capture: 'viewport', // this option is ignored for DOM-element snapshots
 
     // Allow tiny differences between snapshots
-    customDiffConfig: {threshold: 0.1}, // threshold for each pixel
-    failureThreshold: 0.009, // threshold for entire image
+    customDiffConfig: {threshold: 0.1}, // threshold for each pixel (0.1 is the recommended value by Cypress: https://github.com/jaredpalmer/cypress-image-snapshot#options)
+    failureThreshold: 0.0005, // threshold for entire image (the recommended 0.03 is way too generous)
     failureThresholdType: 'percent', // percent of image or number of pixels
 
     // see https://github.com/jaredpalmer/cypress-image-snapshot#options
