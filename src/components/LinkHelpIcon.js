@@ -5,7 +5,6 @@ import {capheight, scale} from 'src/utils/designSpecs';
 import {color} from 'src/utils/color';
 import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';
-import {typescale} from 'src/utils/typography';
 
 // color scheme
 const black = color.input.background;
