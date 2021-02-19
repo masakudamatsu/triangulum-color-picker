@@ -31,7 +31,8 @@ const padding = {
     formNumberSmall.whitespace.aboveLabel +
     formNumberSmall.capheight.label +
     formNumberSmall.whitespace.aboveInputValue -
-    formNumberSmall.whitespace.belowInputValue,
+    formNumberSmall.whitespace.belowInputValue -
+    2,
 };
 
 FormNumberSmall.Input = styled(Input).attrs(props => ({
@@ -51,9 +52,9 @@ FormNumberSmall.Input = styled(Input).attrs(props => ({
 FormNumberSmall.Label = styled(Label)`
   align-self: center;
   position: absolute;
-  top: ${remify(formNumberSmall.whitespace.aboveLabel + 1)};
+  top: ${remify(formNumberSmall.whitespace.aboveLabel)};
   @media only screen and ${mediaQuery.font} {
-    top: ${remify((formNumberSmall.whitespace.aboveLabel + 1) * scale)};
+    top: ${remify(formNumberSmall.whitespace.aboveLabel * scale)};
   }
 `;
 

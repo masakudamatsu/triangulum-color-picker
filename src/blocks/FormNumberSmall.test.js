@@ -91,7 +91,7 @@ describe('renders UI correctly', () => {
         line-height: normal;
         border-radius: 100%;
         height: 100%;
-        padding-top: 0.5625rem;
+        padding-top: 0.4375rem;
         text-align: center;
         width: 100%;
       }
@@ -104,7 +104,7 @@ describe('renders UI correctly', () => {
 
       @media only screen and (min-width:45.5rem) {
         .c1 {
-          padding-top: 0.675rem;
+          padding-top: 0.525rem;
         }
       }
 
@@ -150,7 +150,7 @@ describe('renders UI correctly', () => {
         -ms-flex-item-align: center;
         align-self: center;
         position: absolute;
-        top: 0.375rem;
+        top: 0.3125rem;
       }
 
       @media only screen and (min-width:45.5rem) {
@@ -161,7 +161,7 @@ describe('renders UI correctly', () => {
 
       @media only screen and (min-width:45.5rem) {
         .c1 {
-          top: 0.45rem;
+          top: 0.375rem;
         }
       }
 
