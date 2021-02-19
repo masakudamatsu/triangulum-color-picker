@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import {textcrop, typescale} from 'src/utils/typography';
+import {fontCssGenerator} from 'src/utils/getFontCss';
+import {typescale} from 'src/utils/specFont';
 
 const Paragraph = styled.p`
-  ${typescale.small}
-  ${textcrop.small}
+  ${fontCssGenerator(typescale.small)}
   text-align: ${props => (props.rightAligned ? `right` : `left`)};
+  transform: translateX(-0.08em);
 `;
 
 Paragraph.propTypes = {
