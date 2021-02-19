@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {capheight, scale} from 'src/utils/designSpecs';
-import {color} from 'src/utils/color';
+
+import {color} from 'src/utils/specColor';
 import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';
-import {typescale} from 'src/utils/typography';
+import {scale} from 'src/utils/specFont';
 
 // color scheme
 const black = color.input.background;

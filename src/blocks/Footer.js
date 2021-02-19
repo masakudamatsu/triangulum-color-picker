@@ -2,18 +2,19 @@ import styled from 'styled-components';
 
 import A from 'src/elements/A';
 import Paragraph from 'src/elements/Paragraph';
-import {color} from 'src/utils/color';
+import {color} from 'src/utils/specColor';
 import {
   cross,
   footer,
   header,
   page,
-  scale,
   triangleWidth,
-} from 'src/utils/designSpecs';
-import {mediaQuery, threeColumns, twoColumns} from 'src/utils/breakpoints';
+  threeColumns,
+  twoColumns,
+} from 'src/utils/specLayout';
+import {mediaQuery} from 'src/utils/breakpoints';
+import {scale} from 'src/utils/specFont';
 import remify from 'src/utils/remify';
-import {textcrop, typescale} from 'src/utils/typography';
 
 const Footer = styled.footer`
   background-color: ${color.footer.background};
@@ -62,8 +63,6 @@ Footer.InnerWrapper = styled.div`
 
 Footer.Paragraph = styled(Paragraph)`
   color: ${color.footer.font};
-  ${typescale.footer}
-  ${textcrop.footer}
 `;
 
 export default Footer;

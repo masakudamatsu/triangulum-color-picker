@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
-import {textcrop, typescale} from 'src/utils/typography';
+import {fontCssGenerator} from 'src/utils/getFontCss';
+import {typescale} from 'src/utils/specFont';
 
 const H1 = styled.h1`
-  ${typescale.medium}
-  ${textcrop.medium}
+  ${fontCssGenerator(typescale.medium)}
+  transform: translateX(-0.065em);
 `;
 
 export default H1;

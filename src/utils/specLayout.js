@@ -1,5 +1,5 @@
 import getCanvasMetrics from './getCanvasMetrics';
-import {poppins} from './fontMetrics';
+import {poppins, scale, typescale} from './specFont';
 
 const canvasSmall = getCanvasMetrics(3);
 const canvasLarge = getCanvasMetrics(5);
@@ -10,16 +10,7 @@ export const canvas = {
   },
 };
 // Scale factor to enlarge fonts beyond the tablet screen width of 728px
-export const scale = 1.2;
 export const triangleWidth = 303;
-
-export const capheight = {
-  small: 10,
-  medium: 15,
-  large: 20,
-  number: 60,
-  percent: 20,
-};
 
 export const marginLeft = 10;
 
@@ -39,7 +30,7 @@ export const input = {
 export const header = {
   borderBottomWidth: 1,
   capheight: {
-    h1: capheight.medium,
+    h1: typescale.medium.capHeight,
   },
   logo: {
     height: 30,
@@ -63,8 +54,8 @@ export const header = {
 
 export const formColorCode = {
   capheight: {
-    label: capheight.small,
-    inputValue: capheight.large,
+    label: typescale.small.capHeight,
+    inputValue: typescale.inputLarge.capHeight,
   },
   whitespace: {
     aboveLabel: 10,
@@ -87,8 +78,8 @@ export const formColorCode = {
 
 export const formHex = {
   capheight: {
-    label: capheight.small,
-    inputValue: capheight.medium,
+    label: typescale.small.capHeight,
+    inputValue: typescale.inputMedium.capHeight,
   },
   whitespace: {
     aboveLabel: 18,
@@ -108,9 +99,9 @@ export const formHex = {
 
 export const formNumberLarge = {
   capheight: {
-    h2: capheight.large,
-    paragraph: capheight.small,
-    output: capheight.number,
+    h2: typescale.large.capHeight,
+    paragraph: typescale.small.capHeight,
+    output: typescale.number.capHeight,
   },
   whitespace: {
     padding: cross.width.large * (2 / 3),
@@ -137,8 +128,8 @@ export const formNumberLarge = {
 
 export const formNumberSmall = {
   capheight: {
-    label: capheight.small,
-    inputValue: capheight.medium,
+    label: typescale.small.capHeight,
+    inputValue: typescale.inputMedium.capHeight,
   },
   whitespace: {
     aboveLabel: 5,
@@ -204,17 +195,50 @@ export const flexbox = {
 };
 
 export const footer = {
-  xheight: (10 / poppins.light.capHeight) * poppins.light.xHeight,
-  get betweenLine() {
-    return this.xheight * 1.5;
-  },
+  xheight:
+    (typescale.small.capHeight / poppins.light.capHeight) *
+    poppins.light.xHeight,
+  modularScale:
+    typescale.small.betweenLinesRatio / typescale.small.xHeightRatio,
   get aboveParagraph() {
-    return this.xheight * 1.5 * 1.5;
+    return this.xheight * Math.pow(this.modularScale, 2);
   },
   get belowParagraph() {
-    return this.xheight * 1.5 * 1.5;
+    return this.xheight * Math.pow(this.modularScale, 2);
   },
   get height() {
     return this.xheight + this.aboveParagraph + this.belowParagraph;
   },
+};
+
+export const threeColumns = {
+  minWidth:
+    canvas.width.small +
+    formColorCode.width * scale +
+    formNumberLarge.width * scale +
+    page.whitespace.betweenComponents * 2 +
+    page.whitespace.sideMargin * 2,
+  minHeight:
+    header.height * scale +
+    header.borderBottomWidth +
+    formNumberLarge.height * scale * 2 +
+    page.whitespace.topMargin +
+    page.whitespace.bottomMargin +
+    header.borderBottomWidth +
+    footer.height * scale,
+};
+
+export const twoColumns = {
+  minWidth:
+    canvas.width.small +
+    formNumberLarge.width * scale +
+    page.whitespace.sideMargin * 2,
+  minHeight:
+    header.height * scale +
+    header.borderBottomWidth +
+    flexbox.height.twoColumns +
+    page.whitespace.topMargin +
+    page.whitespace.bottomMargin +
+    header.borderBottomWidth +
+    footer.height * scale,
 };

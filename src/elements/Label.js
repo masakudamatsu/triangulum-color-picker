@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import {color} from 'src/utils/color';
-import {typescale} from 'src/utils/typography';
+import {color} from 'src/utils/specColor';
+import {typescale} from 'src/utils/specFont';
+
+import {fontCssGenerator} from 'src/utils/getFontCss';
 
 const Label = styled.label`
-  ${props => (props.numberLarge ? typescale.large : typescale.small)}
+  ${fontCssGenerator(typescale.small)}
   color: ${color.font};
 `;
 
-Label.propTypes = {
-  numberLarge: PropTypes.bool,
-};
+Label.propTypes = {};
 
 export default Label;

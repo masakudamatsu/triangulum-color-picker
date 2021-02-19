@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import Canvas from 'src/elements/Canvas';
 
-import {canvas} from 'src/utils/designSpecs';
+import {canvas} from 'src/utils/specLayout';
 
 const Figure = styled.figure`
   display: flex;

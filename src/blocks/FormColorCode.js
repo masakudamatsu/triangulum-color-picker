@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
-import {boxSize} from 'src/utils/layout';
-import {formColorCode, input, scale} from 'src/utils/designSpecs';
-import {textcrop, typescale} from 'src/utils/typography';
+import {responsiveBoxSize} from 'src/utils/getLayoutCss';
+import {formColorCode, input} from 'src/utils/specLayout';
 import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';
+
+import {fontCssGenerator} from 'src/utils/getFontCss';
+import {scale, typescale} from 'src/utils/specFont';
 
 import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
@@ -12,7 +14,7 @@ import Label from 'src/elements/Label';
 const FormColorCode = styled.form`
   background-color: inherit;
   position: relative;
-  ${boxSize.formColorCode}
+  ${responsiveBoxSize(formColorCode.width)}
 `;
 
 // Text crop and other adjustments
@@ -27,7 +29,7 @@ const padding = {
 };
 
 FormColorCode.Input = styled(Input)`
-  ${typescale.large}
+  ${fontCssGenerator(typescale.inputLarge)}
 
   border-radius: 4px;
   padding-bottom: ${remify(padding.bottom)};
@@ -59,7 +61,6 @@ FormColorCode.Input = styled(Input)`
 `;
 
 FormColorCode.Label = styled(Label)`
-  ${textcrop.small}
   position: absolute;
   top: ${remify(
     formColorCode.whitespace.aboveLabel + input.borderWidth.inactive,
@@ -73,6 +74,7 @@ FormColorCode.Label = styled(Label)`
       formColorCode.whitespace.left * scale + input.borderWidth.inactive,
     )};
   }
+  transform: translateX(-0.08em); /* To be left-aligned with input text */
 `;
 
 export default FormColorCode;

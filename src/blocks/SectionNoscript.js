@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 import A from 'src/elements/A';
 import Paragraph from 'src/elements/Paragraph';
-import {boxSize} from 'src/utils/layout';
-import {color} from 'src/utils/color';
-import {footer, scale} from 'src/utils/designSpecs';
+import {responsiveBoxSize} from 'src/utils/getLayoutCss';
+import {color} from 'src/utils/specColor';
+import {footer, formColorCode} from 'src/utils/specLayout';
 import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';
-import {textcrop, typescale} from 'src/utils/typography';
+import {scale} from 'src/utils/specFont';
 
 const SectionNoscript = styled.section`
   align-items: center;
@@ -35,9 +35,7 @@ SectionNoscript.Link = styled(A)`
 `;
 
 SectionNoscript.Paragraph = styled(Paragraph)`
-  ${boxSize.noscript}
-  ${typescale.footer}
-  ${textcrop.footer}
+  ${responsiveBoxSize(formColorCode.width)}
 `;
 
 SectionNoscript.Spacer = styled.div`

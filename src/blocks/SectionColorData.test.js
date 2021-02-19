@@ -35,10 +35,26 @@ describe('renders UI correctly', () => {
         font-family: 'Poppins',Verdana,sans-serif;
         font-size: 1.7857rem;
         font-weight: 300;
-        margin-bottom: -0.771em;
-        -webkit-transform: translateX(-0.065em) translateY(-0.37em);
-        -ms-transform: translateX(-0.065em) translateY(-0.37em);
-        transform: translateX(-0.065em) translateY(-0.37em);
+        line-height: 1.2285;
+        -webkit-transform: translateX(-0.065em);
+        -ms-transform: translateX(-0.065em);
+        transform: translateX(-0.065em);
+      }
+
+      .c0::before,
+      .c0::after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+      }
+
+      .c0::before {
+        margin-bottom: -0.263em;
+      }
+
+      .c0::after {
+        margin-top: -0.316em;
       }
 
       @media only screen and (min-width:45.5rem) {
@@ -58,13 +74,13 @@ describe('renders UI correctly', () => {
     const {container} = render(<SectionColorData.SpacerAboveOutput />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        height: 1.25rem;
+        height: 1.4375rem;
         width: 100%;
       }
 
       @media only screen and (min-width:45.5rem) {
         .c0 {
-          height: 1.5rem;
+          height: 1.725rem;
         }
       }
 
@@ -79,13 +95,13 @@ describe('renders UI correctly', () => {
     const {container} = render(<SectionColorData.SpacerBelowOutput />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        height: 1.25rem;
+        height: 1.1875rem;
         width: 100%;
       }
 
       @media only screen and (min-width:45.5rem) {
         .c0 {
-          height: 1.5rem;
+          height: 1.425rem;
         }
       }
 
@@ -100,13 +116,13 @@ describe('renders UI correctly', () => {
     const {container} = render(<SectionColorData.SpacerBelowH2 />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        height: 0.625rem;
+        height: 0.75rem;
         width: 100%;
       }
 
       @media only screen and (min-width:45.5rem) {
         .c0 {
-          height: 0.75rem;
+          height: 0.9rem;
         }
       }
 
@@ -161,11 +177,23 @@ describe('renders UI correctly', () => {
         font-family: 'Poppins',Verdana,sans-serif;
         font-size: 5.3419rem;
         font-weight: 100;
-        line-height: 1;
-        margin-bottom: -0.3158em;
-        -webkit-transform: translateY(-0.1286em);
-        -ms-transform: translateY(-0.1286em);
-        transform: translateY(-0.1286em);
+        line-height: 1.188;
+      }
+
+      .c0::before,
+      .c0::after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+      }
+
+      .c0::before {
+        margin-bottom: -0.24em;
+      }
+
+      .c0::after {
+        margin-top: -0.2575em;
       }
 
       .c1 {
@@ -194,12 +222,27 @@ describe('renders UI correctly', () => {
         font-family: 'Poppins',Verdana,sans-serif;
         font-size: 0.8929rem;
         font-weight: 300;
-        line-height: 1;
-        margin-bottom: -0.28em;
-        -webkit-transform: translateX(-0.08em) translateY(-0.1375em);
-        -ms-transform: translateX(-0.08em) translateY(-0.1375em);
-        transform: translateX(-0.08em) translateY(-0.1375em);
+        line-height: 1.365;
         text-align: left;
+        -webkit-transform: translateX(-0.08em);
+        -ms-transform: translateX(-0.08em);
+        transform: translateX(-0.08em);
+      }
+
+      .c0::before,
+      .c0::after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+      }
+
+      .c0::before {
+        margin-bottom: -0.3165em;
+      }
+
+      .c0::after {
+        margin-top: -0.4195em;
       }
 
       @media only screen and (min-width:45.5rem) {
@@ -222,19 +265,39 @@ describe('renders UI correctly', () => {
         font-family: 'Poppins',Verdana,sans-serif;
         font-size: 1.7806rem;
         font-weight: 100;
-        -webkit-transform: translateY(0.46em);
-        -ms-transform: translateY(0.46em);
-        transform: translateY(0.46em);
+        line-height: 1.215;
+      }
+
+      .c0::before,
+      .c0::after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+      }
+
+      .c0::before {
+        margin-bottom: -0.264em;
+      }
+
+      .c0::after {
+        margin-top: -0.281em;
       }
 
       .c1 {
-        bottom: 0;
+        bottom: 2px;
         position: absolute;
       }
 
       @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 2.1368rem;
+        }
+      }
+
+      @media only screen and (min-width:45.5rem) {
+        .c1 {
+          bottom: 1px;
         }
       }
 

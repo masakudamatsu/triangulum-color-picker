@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 
 import Line from 'src/elements/Line';
 import {mediaQuery} from 'src/utils/breakpoints';
-import {cross, scale} from 'src/utils/designSpecs';
+import {cross} from 'src/utils/specLayout';
 import remify from 'src/utils/remify';
+import {scale} from 'src/utils/specFont';
 
 const Svg = styled.svg`
   position: absolute;

@@ -4,11 +4,18 @@ import PropTypes from 'prop-types';
 import H1 from 'src/elements/H1';
 import Img from 'src/elements/Img';
 
-import {color} from 'src/utils/color';
-import {mediaQuery, threeColumns, twoColumns} from 'src/utils/breakpoints';
-import {cross, header, page, scale, triangleWidth} from 'src/utils/designSpecs';
+import {color} from 'src/utils/specColor';
+import {mediaQuery} from 'src/utils/breakpoints';
+import {
+  cross,
+  header,
+  page,
+  triangleWidth,
+  threeColumns,
+  twoColumns,
+} from 'src/utils/specLayout';
 import remify from 'src/utils/remify';
-
+import {scale} from 'src/utils/specFont';
 const animation = {
   show: `
     transform: translate(0, 0);

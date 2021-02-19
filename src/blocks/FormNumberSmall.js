@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
-import {boxSize} from 'src/utils/layout';
-import {formNumberSmall, scale} from 'src/utils/designSpecs';
-import {textcrop, typescale} from 'src/utils/typography';
+import {responsiveBoxSize} from 'src/utils/getLayoutCss';
+import {formNumberSmall} from 'src/utils/specLayout';
+
+import {fontCssGenerator} from 'src/utils/getFontCss';
+import {scale, typescale} from 'src/utils/specFont';
+
 import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';
 
@@ -20,7 +23,7 @@ FormNumberSmall.InnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  ${boxSize.formNumberSmall}
+  ${responsiveBoxSize(formNumberSmall.diameter, formNumberSmall.diameter)}
 `;
 
 const padding = {
@@ -28,13 +31,14 @@ const padding = {
     formNumberSmall.whitespace.aboveLabel +
     formNumberSmall.capheight.label +
     formNumberSmall.whitespace.aboveInputValue -
-    formNumberSmall.whitespace.belowInputValue,
+    formNumberSmall.whitespace.belowInputValue -
+    2,
 };
 
 FormNumberSmall.Input = styled(Input).attrs(props => ({
   inputMode: 'decimal',
 }))`
-  ${typescale.medium}
+  ${fontCssGenerator(typescale.inputMedium)}
   border-radius: 100%;
   height: 100%;
   padding-top: ${remify(padding.top)};
@@ -46,7 +50,6 @@ FormNumberSmall.Input = styled(Input).attrs(props => ({
 `;
 
 FormNumberSmall.Label = styled(Label)`
-  ${textcrop.smallCenterAligned}
   align-self: center;
   position: absolute;
   top: ${remify(formNumberSmall.whitespace.aboveLabel)};

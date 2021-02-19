@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 
-import {mediaQuery, twoColumns} from 'src/utils/breakpoints';
+import {mediaQuery} from 'src/utils/breakpoints';
 import {
   flexbox,
   formNumberLarge,
   header,
   page,
-  scale,
-} from 'src/utils/designSpecs';
+  twoColumns,
+} from 'src/utils/specLayout';
 import remify from 'src/utils/remify';
+import {scale} from 'src/utils/specFont';
 
 const Main = styled.main`
   padding-top: ${remify(header.height + header.borderBottomWidth)};

@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import {boxSize} from 'src/utils/layout';
-import {formHex, scale} from 'src/utils/designSpecs';
-import {textcrop, typescale} from 'src/utils/typography';
-import {color} from 'src/utils/color';
+import {responsiveBoxSize} from 'src/utils/getLayoutCss';
+import {formHex} from 'src/utils/specLayout';
+
+import {fontCssGenerator} from 'src/utils/getFontCss';
+import {scale, typescale} from 'src/utils/specFont';
+
+import {color} from 'src/utils/specColor';
 import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';
 
@@ -16,11 +19,11 @@ const FormHex = styled.form`
   display: flex;
   flex-direction: column;
   position: relative;
-  ${boxSize.formHex}
+  ${responsiveBoxSize(formHex.diameter, formHex.diameter)}
 `;
 
 FormHex.Input = styled(Input)`
-  ${typescale.medium}
+  ${fontCssGenerator(typescale.inputMedium)}
   background-color: ${props => props.backgroundColor};
   border-width: ${props => props.lightMode && `0`};
   border-radius: 100%;
@@ -31,13 +34,12 @@ FormHex.Input = styled(Input)`
 `;
 
 FormHex.Label = styled(Label)`
-  ${textcrop.smallCenterAligned}
   align-self: center;
   color: inherit;
   position: absolute;
-  top: ${remify(formHex.whitespace.aboveLabel)};
+  top: ${remify(formHex.whitespace.aboveLabel + 1)};
   @media only screen and ${mediaQuery.font} {
-    top: ${remify(formHex.whitespace.aboveLabel * scale)};
+    top: ${remify((formHex.whitespace.aboveLabel + 1) * scale)};
   }
 `;
 

@@ -67,8 +67,8 @@ describe('renders UI correctly', () => {
 
       @media only screen and (min-width:45.5rem) {
         .c0 {
-          padding-bottom: 1.3162rem;
-          padding-top: 1.3162rem;
+          padding-bottom: 1.3163rem;
+          padding-top: 1.3163rem;
           width: 22.725rem;
         }
       }
@@ -110,34 +110,35 @@ describe('renders UI correctly', () => {
         font-family: 'Poppins',Verdana,sans-serif;
         font-size: 0.8929rem;
         font-weight: 300;
-        line-height: 1;
-        margin-bottom: -0.28em;
-        -webkit-transform: translateX(-0.08em) translateY(-0.1375em);
-        -ms-transform: translateX(-0.08em) translateY(-0.1375em);
-        transform: translateX(-0.08em) translateY(-0.1375em);
+        line-height: 1.365;
         text-align: left;
+        -webkit-transform: translateX(-0.08em);
+        -ms-transform: translateX(-0.08em);
+        transform: translateX(-0.08em);
+      }
+
+      .c0::before,
+      .c0::after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+      }
+
+      .c0::before {
+        margin-bottom: -0.3165em;
+      }
+
+      .c0::after {
+        margin-top: -0.4195em;
       }
 
       .c1 {
         color: rgb(173,173,173);
-        font-family: 'Poppins',Verdana,sans-serif;
-        font-size: 0.8929rem;
-        font-weight: 300;
-        line-height: 1.365;
-        margin-bottom: -0.28em;
-        -webkit-transform: translateY(-0.1375em);
-        -ms-transform: translateY(-0.1375em);
-        transform: translateY(-0.1375em);
       }
 
       @media only screen and (min-width:45.5rem) {
         .c0 {
-          font-size: 1.0714rem;
-        }
-      }
-
-      @media only screen and (min-width:45.5rem) {
-        .c1 {
           font-size: 1.0714rem;
         }
       }
