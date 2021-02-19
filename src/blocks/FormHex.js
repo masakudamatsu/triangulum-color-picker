@@ -5,7 +5,7 @@ import {responsiveBoxSize} from 'src/utils/getLayoutCss';
 import {formHex} from 'src/utils/specLayout';
 
 import {fontCssGenerator} from 'src/utils/getFontCss';
-import {scale, typescale} from 'src/utils/specFont';
+import {font, scale} from 'src/utils/specFont';
 
 import {color} from 'src/utils/specColor';
 import {mediaQuery} from 'src/utils/breakpoints';
@@ -23,7 +23,7 @@ const FormHex = styled.form`
 `;
 
 FormHex.Input = styled(Input)`
-  ${fontCssGenerator(typescale.inputMedium)}
+  ${fontCssGenerator(font.formHex)}
   background-color: ${props => props.backgroundColor};
   border-width: ${props => props.lightMode && `0`};
   border-radius: 100%;

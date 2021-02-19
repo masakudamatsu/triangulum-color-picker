@@ -4,7 +4,7 @@ import {responsiveBoxSize} from 'src/utils/getLayoutCss';
 import {formNumberSmall} from 'src/utils/specLayout';
 
 import {fontCssGenerator} from 'src/utils/getFontCss';
-import {scale, typescale} from 'src/utils/specFont';
+import {font, scale} from 'src/utils/specFont';
 
 import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';
@@ -38,7 +38,7 @@ const padding = {
 FormNumberSmall.Input = styled(Input).attrs(props => ({
   inputMode: 'decimal',
 }))`
-  ${fontCssGenerator(typescale.inputMedium)}
+  ${fontCssGenerator(font.formNumberSmall)}
   border-radius: 100%;
   height: 100%;
   padding-top: ${remify(padding.top)};

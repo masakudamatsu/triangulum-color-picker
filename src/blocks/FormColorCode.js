@@ -6,7 +6,7 @@ import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';
 
 import {fontCssGenerator} from 'src/utils/getFontCss';
-import {scale, typescale} from 'src/utils/specFont';
+import {font, scale} from 'src/utils/specFont';
 
 import Input from 'src/elements/Input';
 import Label from 'src/elements/Label';
@@ -29,7 +29,7 @@ const padding = {
 };
 
 FormColorCode.Input = styled(Input)`
-  ${fontCssGenerator(typescale.inputLarge)}
+  ${fontCssGenerator(font.formColorCode)}
 
   border-radius: 4px;
   padding-bottom: ${remify(padding.bottom)};

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 import {fontCssGenerator} from 'src/utils/getFontCss';
-import {typescale} from 'src/utils/specFont';
+import {font} from 'src/utils/specFont';
 
 const Output = styled.output`
-  ${fontCssGenerator(typescale.number)}
+  ${fontCssGenerator(font.output)}
 `;
 
 export default Output;

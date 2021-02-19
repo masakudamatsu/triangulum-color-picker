@@ -19,7 +19,7 @@ export const poppins = {
 export const scale = 1.2;
 export const breakpointForFont = 728;
 
-export const typescale = {
+const typescale = {
   small: {
     capHeight: 10,
     xHeightRatio: 2,
@@ -78,4 +78,17 @@ export const typescale = {
     },
     fontMetrics: poppins.thin,
   },
+};
+
+export const font = {
+  footer: typescale.small,
+  formColorCode: typescale.inputLarge,
+  formHex: typescale.inputMedium,
+  formNumberSmall: typescale.inputMedium,
+  h1: typescale.medium,
+  h2: typescale.large,
+  label: typescale.small,
+  output: typescale.number,
+  paragraph: typescale.small,
+  unit: typescale.percent,
 };
