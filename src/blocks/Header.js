@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import H1 from 'src/elements/H1';
 import Img from 'src/elements/Img';
 
+import {animation} from 'src/utils/specAnimation';
 import {color} from 'src/utils/specColor';
 import {mediaQuery} from 'src/utils/breakpoints';
 import {
@@ -16,14 +17,16 @@ import {
 } from 'src/utils/specLayout';
 import remify from 'src/utils/remify';
 import {scale} from 'src/utils/specFont';
-const animation = {
+const cssAnimation = {
   show: `
     transform: translate(0, 0);
-    transition: transform ${header.speed.show};
+    transition: transform ${animation.header.show.duration} ${animation.header.show.easing};
   `,
   hide: `
     transform: translate(0, -${remify(header.height)});
-    transition: transform ${header.speed.hide};
+    transition: transform ${animation.header.hide.duration} ${
+    animation.header.hide.easing
+  };
     @media only screen and ${mediaQuery.font} {
       transform: translate(0, -${remify(header.height * scale)});
     }
@@ -40,8 +43,8 @@ const Header = styled.header`
   position: fixed;
   width: 100%;
   z-index: 1;
-  ${props => props.show && animation.show}
-  ${props => props.hide && animation.hide}
+  ${props => props.show && cssAnimation.show}
+  ${props => props.hide && cssAnimation.hide}
   @media only screen and ${mediaQuery.font} {
     height: ${remify(header.height * scale + header.borderBottomWidth)};
   }

@@ -36,10 +36,6 @@ export const header = {
     height: 30,
     width: 30,
   },
-  speed: {
-    hide: '.5s',
-    show: '.25s',
-  },
   whitespace: {
     aboveH1: 15,
     belowH1: 15,

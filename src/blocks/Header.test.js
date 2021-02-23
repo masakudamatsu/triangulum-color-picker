@@ -2,6 +2,8 @@ import React from 'react';
 import {render, screen} from '@testing-library/react';
 
 import Header from './Header';
+
+import {animation} from 'src/utils/specAnimation';
 import {header} from 'src/utils/specLayout';
 import remify from 'src/utils/remify';
 
@@ -231,7 +233,7 @@ describe('changes style by props values', () => {
     expect(screen.getByTestId('header')).toHaveStyle(
       `
         transform: translate(0,0);
-        transition: transform ${header.speed.show};
+        transition: transform ${animation.header.show.duration} ${animation.header.show.easing};
       `,
     );
   });
@@ -240,7 +242,9 @@ describe('changes style by props values', () => {
     expect(screen.getByTestId('header')).toHaveStyle(
       `
         transform: translate(0,-${remify(header.height)});
-        transition: transform ${header.speed.hide};
+        transition: transform ${animation.header.hide.duration} ${
+        animation.header.hide.easing
+      };
       `,
     );
   });
