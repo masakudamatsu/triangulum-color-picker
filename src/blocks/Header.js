@@ -19,11 +19,11 @@ import {scale} from 'src/utils/specFont';
 const animation = {
   show: `
     transform: translate(0, 0);
-    transition: transform ${header.speed.show};
+    transition: transform ${header.speed.show} cubic-bezier(0.0, 0.0, 0.2, 1);
   `,
   hide: `
     transform: translate(0, -${remify(header.height)});
-    transition: transform ${header.speed.hide};
+    transition: transform ${header.speed.hide} cubic-bezier(0.0, 0.0, 0.2, 1);
     @media only screen and ${mediaQuery.font} {
       transform: translate(0, -${remify(header.height * scale)});
     }

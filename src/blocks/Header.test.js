@@ -231,7 +231,7 @@ describe('changes style by props values', () => {
     expect(screen.getByTestId('header')).toHaveStyle(
       `
         transform: translate(0,0);
-        transition: transform ${header.speed.show};
+        transition: transform ${header.speed.show} cubic-bezier(0.0,0.0,0.2,1);
       `,
     );
   });
@@ -240,7 +240,7 @@ describe('changes style by props values', () => {
     expect(screen.getByTestId('header')).toHaveStyle(
       `
         transform: translate(0,-${remify(header.height)});
-        transition: transform ${header.speed.hide};
+        transition: transform ${header.speed.hide} cubic-bezier(0.0,0.0,0.2,1);
       `,
     );
   });
