@@ -37,8 +37,8 @@ export const header = {
     width: 30,
   },
   speed: {
-    hide: '.5s',
-    show: '.25s',
+    hide: '200ms',
+    show: '250ms',
   },
   whitespace: {
     aboveH1: 15,
