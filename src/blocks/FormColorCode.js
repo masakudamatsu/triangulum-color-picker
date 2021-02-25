@@ -8,7 +8,7 @@ import remify from 'src/utils/remify';
 import {fontCssGenerator} from 'src/utils/getFontCss';
 import {font, scale} from 'src/utils/specFont';
 
-import Input from 'src/elements/Input';
+import InputText from 'src/elements/InputText';
 import Label from 'src/elements/Label';
 
 const FormColorCode = styled.form`
@@ -28,7 +28,7 @@ const padding = {
     10,
 };
 
-FormColorCode.Input = styled(Input)`
+FormColorCode.InputText = styled(InputText)`
   ${fontCssGenerator(font.formColorCode)}
 
   border-radius: 4px;

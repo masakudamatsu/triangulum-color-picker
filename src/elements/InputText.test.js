@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from '@testing-library/react';
 
-import Input from './Input';
+import InputText from './InputText';
 
 const mockProps = {
   backgroundColor: '#654321',
@@ -10,7 +10,7 @@ const mockProps = {
 };
 
 test('renders UI correctly when:', () => {
-  const {container} = render(<Input {...mockProps} />);
+  const {container} = render(<InputText {...mockProps} />);
   expect(container).toMatchInlineSnapshot(`
     .c0 {
       background-color: rgb(10,10,10);

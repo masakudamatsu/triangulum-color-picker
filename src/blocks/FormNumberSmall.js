@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import {responsiveBoxSize} from 'src/utils/getLayoutCss';
 import {formNumberSmall} from 'src/utils/specLayout';
@@ -9,7 +10,7 @@ import {font, scale} from 'src/utils/specFont';
 import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';
 
-import Input from 'src/elements/Input';
+import InputNumber from 'src/elements/InputNumber';
 import Label from 'src/elements/Label';
 
 const FormNumberSmall = styled.form`
@@ -35,9 +36,14 @@ const padding = {
     2,
 };
 
-FormNumberSmall.Input = styled(Input).attrs(props => ({
-  inputMode: 'decimal',
-}))`
+FormNumberSmall.InputNumber = styled(InputNumber).attrs(props => {
+  if (props.rgb) {
+    return {
+      pattern: '(?:1?d?d|2[0-4]d|25[0-5])',
+      title: 'RGB values must be between 0 and 255 inclusive',
+    };
+  }
+})`
   ${fontCssGenerator(font.formNumberSmall)}
   border-radius: 100%;
   height: 100%;
@@ -57,5 +63,11 @@ FormNumberSmall.Label = styled(Label)`
     top: ${remify(formNumberSmall.whitespace.aboveLabel * scale)};
   }
 `;
+
+FormNumberSmall.InputNumber.propTypes = {
+  rgb: PropTypes.bool,
+  h: PropTypes.bool,
+  sl: PropTypes.bool,
+};
 
 export default FormNumberSmall;

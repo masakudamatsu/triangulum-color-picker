@@ -12,7 +12,7 @@ const TextFieldForHex = ({
   return (
     <FormHex lightMode={lightMode}>
       <FormHex.Label htmlFor="hex">HEX</FormHex.Label>
-      <FormHex.Input
+      <FormHex.InputText
         backgroundColor={backgroundColor} // not value, to avoid changes while the user enters a new hex value
         id="hex"
         lightMode={lightMode}

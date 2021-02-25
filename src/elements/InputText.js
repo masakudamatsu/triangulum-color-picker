@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {color} from 'src/utils/specColor';
 import {input} from 'src/utils/specLayout';
 
-const Input = styled.input.attrs(props => ({
+const InputText = styled.input.attrs(props => ({
   autoComplete: 'off', // to remove Webkit browser's default style that cannot be overriden. See https://stackoverflow.com/questions/2338102/overrideq-browser-form-filling-and-input-highlighting-with-html-css
   type: 'text',
 }))`
@@ -21,6 +21,4 @@ const Input = styled.input.attrs(props => ({
   }
 `;
 
-Input.propTypes = {};
-
-export default Input;
+export default InputText;

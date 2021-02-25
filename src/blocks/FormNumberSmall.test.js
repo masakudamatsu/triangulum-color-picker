@@ -66,8 +66,10 @@ describe('renders UI correctly', () => {
       </div>
     `);
   });
-  test('Input', () => {
-    const {container} = render(<FormNumberSmall.Input {...mockProps.input} />);
+  test('InputNumber', () => {
+    const {container} = render(
+      <FormNumberSmall.InputNumber {...mockProps.input} />,
+    );
     expect(container).toMatchInlineSnapshot(`
       .c0 {
         background-color: rgb(10,10,10);
@@ -111,7 +113,7 @@ describe('renders UI correctly', () => {
       <div>
         <input
           autocomplete="off"
-          class="c0 c1"
+          class="InputNumber-sc-1xej5a2-0 c0 c1"
           inputmode="decimal"
           type="text"
         />

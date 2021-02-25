@@ -7,7 +7,7 @@ const TextInputForm = ({inputId, labelText, handleChange, userColor}) => {
   return (
     <FormColorCode>
       <FormColorCode.Label htmlFor={inputId}>{labelText}</FormColorCode.Label>
-      <FormColorCode.Input
+      <FormColorCode.InputText
         id={inputId}
         onChange={handleChange}
         value={userColor}

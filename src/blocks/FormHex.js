@@ -11,7 +11,7 @@ import {color} from 'src/utils/specColor';
 import {mediaQuery} from 'src/utils/breakpoints';
 import remify from 'src/utils/remify';
 
-import Input from 'src/elements/Input';
+import InputText from 'src/elements/InputText';
 import Label from 'src/elements/Label';
 
 const FormHex = styled.form`
@@ -22,7 +22,7 @@ const FormHex = styled.form`
   ${responsiveBoxSize(formHex.diameter, formHex.diameter)}
 `;
 
-FormHex.Input = styled(Input)`
+FormHex.InputText = styled(InputText)`
   ${fontCssGenerator(font.formHex)}
   background-color: ${props => props.backgroundColor};
   border-width: ${props => props.lightMode && `0`};
@@ -46,7 +46,7 @@ FormHex.Label = styled(Label)`
 FormHex.propTypes = {
   lightMode: PropTypes.bool,
 };
-FormHex.Input.propTypes = {
+FormHex.InputText.propTypes = {
   backgroundColor: PropTypes.string,
   lightMode: PropTypes.bool,
 };
