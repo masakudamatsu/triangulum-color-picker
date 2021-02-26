@@ -3,11 +3,7 @@ import {render} from '@testing-library/react';
 
 import InputText from './InputText';
 
-const mockProps = {
-  backgroundColor: '#654321',
-  onChange: jest.fn(),
-  value: '#654321',
-};
+const mockProps = {};
 
 test('renders UI correctly when:', () => {
   const {container} = render(<InputText {...mockProps} />);
@@ -32,7 +28,6 @@ test('renders UI correctly when:', () => {
         autocomplete="off"
         class="c0"
         type="text"
-        value="#654321"
       />
     </div>
   `);
