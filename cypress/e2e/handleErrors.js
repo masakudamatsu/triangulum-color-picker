@@ -19,14 +19,19 @@ describe('Invalid values in:', () => {
           cy.findByLabelText(fieldLabel).blur();
           // Verify
           cy.verifyErrorState(fieldLabel);
-          // cy.focused().should('have.attr', 'id', fieldLabel.source[1]);
+          cy.focused().should('have.attr', 'id', fieldLabel.source[1]);
+
+          cy.log('*** Not forcibly focused after blurring again ***');
+          // Execute
+          cy.findByLabelText(/css/i).click();
+          // Verify
+          cy.focused().should('not.have.attr', 'id', fieldLabel.source[1]);
 
           cy.log('*** Alerted as long as invalid ***');
           // Execute
           cy.findByLabelText(fieldLabel).type('1');
           // Verify
           cy.verifyErrorState(fieldLabel);
-          // cy.focused().should('have.attr', 'id', fieldLabel.source[1]);
           // Isolate
           cy.findByLabelText(fieldLabel).type('{backspace}');
 
@@ -62,7 +67,8 @@ describe('No value in:', () => {
       cy.findByLabelText(fieldLabel).blur();
       // Verify
       cy.verifyErrorState(fieldLabel);
-      // cy.focused().should('have.attr', 'id', fieldLabel.source[1]);
+      cy.focused().should('have.attr', 'id', fieldLabel.source[1]);
+
       cy.log('*** No alert as soon as corrected ***');
       // Execute
       cy.findByLabelText(fieldLabel).type('1');

@@ -19,6 +19,15 @@ const mockProps = {
   },
 };
 
+test.skip('forces the field with an invalid value to be focused after blurring', () => {
+  // THIS TEST DOES NOT WORK...
+  render(<TextFieldForRgb {...mockProps} />);
+  userEvent.click(screen.getByLabelText(/r/i));
+  userEvent.type(screen.getByLabelText(/r/i), '9');
+  userEvent.click(screen.getByLabelText(/g/i));
+  expect(screen.getByLabelText(/r/i)).toHaveFocus();
+});
+
 test('changes RGB values according to the props', () => {
   const newProps = {
     userColor: {

@@ -1,9 +1,8 @@
-import {useState} from 'react';
+import {useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
 
 import FormNumberSmall from 'src/blocks/FormNumberSmall';
-import {regex} from 'src/utils/regex';
 
 import {errorText} from 'src/utils/errorText';
 import {pattern} from 'src/utils/regex';
@@ -15,15 +14,29 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
     b: null,
   });
 
+  const refR = useRef();
+  const refG = useRef();
+  const refB = useRef();
+
   const handleBlur = event => {
     const fieldLabel = event.target.id;
-    if (
-      event.target.validity.patternMismatch ||
-      event.target.validity.valueMissing
-    ) {
-      const newErrorObject = {};
-      newErrorObject[fieldLabel] = errorText.rgb;
-      setError(newErrorObject);
+    // Only forcibly focus when there was no error before
+    if (!error[fieldLabel]) {
+      if (
+        event.target.validity.patternMismatch ||
+        event.target.validity.valueMissing
+      ) {
+        const newErrorObject = {};
+        newErrorObject[fieldLabel] = errorText.rgb;
+        setError(newErrorObject);
+        if (fieldLabel === 'r') {
+          refR.current.focus();
+        } else if (fieldLabel === 'g') {
+          refG.current.focus();
+        } else if (fieldLabel === 'b') {
+          refB.current.focus();
+        }
+      }
     }
   };
 
@@ -78,6 +91,7 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           onBlur={handleBlur}
           onChange={handleChange}
           pattern={pattern.rgbValues}
+          ref={refR}
           required
           value={userColor.r}
         />
@@ -90,6 +104,7 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           onBlur={handleBlur}
           onChange={handleChange}
           pattern={pattern.rgbValues}
+          ref={refG}
           required
           value={userColor.g}
         />
@@ -102,6 +117,7 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           onBlur={handleBlur}
           onChange={handleChange}
           pattern={pattern.rgbValues}
+          ref={refB}
           required
           value={userColor.b}
         />
