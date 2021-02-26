@@ -17,7 +17,10 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
 
   const handleBlur = event => {
     const fieldLabel = event.target.id;
-    if (event.target.validity.patternMismatch) {
+    if (
+      event.target.validity.patternMismatch ||
+      event.target.validity.valueMissing
+    ) {
       const newErrorObject = {};
       newErrorObject[fieldLabel] = errorText.rgb;
       setError(newErrorObject);
@@ -28,7 +31,9 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
     const fieldLabel = event.target.id;
     const newUserValue = event.target.value.trim().replace(/\s/g, '');
     // Verify the input value
-    const isInvalid = event.target.validity.patternMismatch;
+    const isInvalid =
+      event.target.validity.patternMismatch ||
+      event.target.validity.valueMissing;
     if (isInvalid) {
       const newUserColor = {};
       newUserColor[fieldLabel] = event.target.value;
@@ -73,6 +78,7 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           onBlur={handleBlur}
           onChange={handleChange}
           pattern={pattern.rgbValues}
+          required
           value={userColor.r}
         />
         <FormNumberSmall.Label htmlFor="r">R</FormNumberSmall.Label>
@@ -84,6 +90,7 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           onBlur={handleBlur}
           onChange={handleChange}
           pattern={pattern.rgbValues}
+          required
           value={userColor.g}
         />
         <FormNumberSmall.Label htmlFor="g">G</FormNumberSmall.Label>
@@ -95,6 +102,7 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           onBlur={handleBlur}
           onChange={handleChange}
           pattern={pattern.rgbValues}
+          required
           value={userColor.b}
         />
         <FormNumberSmall.Label htmlFor="b">B</FormNumberSmall.Label>
