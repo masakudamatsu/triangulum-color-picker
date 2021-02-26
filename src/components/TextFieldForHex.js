@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
 
 import FormHex from 'src/blocks/FormHex';
+import {regex} from 'src/utils/regex';
 
 const TextFieldForHex = ({
   backgroundColor,
