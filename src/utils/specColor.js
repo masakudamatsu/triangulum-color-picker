@@ -18,6 +18,9 @@ export const color = {
   input: {
     background: black,
     border: white,
+    font: white,
+    error: yellow,
+    onError: black,
   },
   topAppBar: {
     background: black,

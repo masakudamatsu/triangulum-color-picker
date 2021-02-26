@@ -1,9 +1,38 @@
 import React from 'react';
-import {render} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 
 import InputText from './InputText';
+import {color} from 'src/utils/specColor';
 
 const mockProps = {};
+
+describe('Props work as intended', () => {
+  test('error', () => {
+    render(
+      <form>
+        <InputText id="input-text" error />
+        <label htmlFor="input-text">Label Text</label>
+      </form>,
+    );
+    expect(screen.getByLabelText('Label Text')).toHaveStyleRule(
+      'background-color',
+      color.input.error.replace(/\s/g, ''),
+    );
+    expect(screen.getByLabelText('Label Text')).toHaveStyleRule(
+      'border-color',
+      color.input.error.replace(/\s/g, ''),
+    );
+    expect(screen.getByLabelText('Label Text')).toHaveStyleRule(
+      'color',
+      color.input.onError.replace(/\s/g, ''),
+    );
+    expect(screen.getByLabelText('Label Text')).toHaveStyleRule(
+      'color',
+      color.input.onError.replace(/\s/g, ''),
+      {modifier: '~ label'},
+    );
+  });
+});
 
 test('renders UI correctly when:', () => {
   const {container} = render(<InputText {...mockProps} />);
