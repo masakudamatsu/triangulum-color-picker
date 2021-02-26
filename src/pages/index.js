@@ -139,69 +139,6 @@ function HomePage() {
     }
   };
 
-  const handleChangeR = event => {
-    const newUserValue = event.target.value.trim().replace(/\s/g, '');
-    if (regex.rgbValues.test(newUserValue)) {
-      const rgb = `rgb(${newUserValue}, ${userColor.g}, ${userColor.b})`;
-      const {hex, hsl} = parseColor(rgb);
-      setUserColor({
-        cssCode: rgb,
-        hex: hex,
-        r: newUserValue,
-        h: hsl[0],
-        s: hsl[1],
-        l: hsl[2],
-        validCode: rgb,
-      });
-    } else {
-      setUserColor({
-        r: event.target.value,
-      });
-    }
-  };
-
-  const handleChangeG = event => {
-    const newUserValue = event.target.value.trim().replace(/\s/g, '');
-    if (regex.rgbValues.test(newUserValue)) {
-      const rgb = `rgb(${userColor.r}, ${newUserValue}, ${userColor.b})`;
-      const {hex, hsl} = parseColor(rgb);
-      setUserColor({
-        cssCode: rgb,
-        hex: hex,
-        g: newUserValue,
-        h: hsl[0],
-        s: hsl[1],
-        l: hsl[2],
-        validCode: rgb,
-      });
-    } else {
-      setUserColor({
-        g: event.target.value,
-      });
-    }
-  };
-
-  const handleChangeB = event => {
-    const newUserValue = event.target.value.trim().replace(/\s/g, '');
-    if (regex.rgbValues.test(newUserValue)) {
-      const rgb = `rgb(${userColor.r}, ${userColor.g}, ${newUserValue})`;
-      const {hex, hsl} = parseColor(rgb);
-      setUserColor({
-        cssCode: rgb,
-        hex: hex,
-        b: newUserValue,
-        h: hsl[0],
-        s: hsl[1],
-        l: hsl[2],
-        validCode: rgb,
-      });
-    } else {
-      setUserColor({
-        b: event.target.value,
-      });
-    }
-  };
-
   const handleChangeH = event => {
     const newUserValue = event.target.value.trim().replace(/\s/g, '');
     if (regex.hValue.test(newUserValue)) {
@@ -309,14 +246,8 @@ function HomePage() {
               <WrapperForms.WrapperRgbHsl>
                 <Cross position="topLeft" />
                 <TextFieldForRgb
-                  handleChange={{
-                    r: handleChangeR,
-                    g: handleChangeG,
-                    b: handleChangeB,
-                  }}
-                  r={userColor.r}
-                  g={userColor.g}
-                  b={userColor.b}
+                  userColor={userColor}
+                  setUserColor={setUserColor}
                 />
                 <WrapperForms.MarginBetweenRgbAndHsl />
                 <TextFieldForHsl

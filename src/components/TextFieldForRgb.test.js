@@ -6,48 +6,78 @@ import {axe} from 'jest-axe';
 import TextFieldForRgb from 'src/components/TextFieldForRgb';
 
 const mockProps = {
-  handleChange: {
-    r: jest.fn().mockName('handleChange.r'),
-    g: jest.fn().mockName('handleChange.g'),
-    b: jest.fn().mockName('handleChange.b'),
+  setUserColor: jest.fn().mockName('setUserColor'),
+  userColor: {
+    validCode: 'rgb(25, 122, 122)',
+    hex: '#197a7a',
+    r: 25,
+    g: 122,
+    b: 122,
+    h: 180,
+    s: 66,
+    l: 29,
   },
-  r: 235,
-  g: 22,
-  b: 123,
 };
 
 test('changes RGB values according to the props', () => {
   const newProps = {
-    r: 34,
-    g: 123,
-    b: 222,
+    userColor: {
+      r: 34,
+      g: 123,
+      b: 222,
+    },
   };
-  render(<TextFieldForRgb {...mockProps} {...newProps} />);
+  const {rerender} = render(<TextFieldForRgb {...mockProps} />);
+  expect(screen.getByLabelText(/r/i)).toHaveValue(
+    mockProps.userColor.r.toString(),
+  );
+  expect(screen.getByLabelText(/g/i)).toHaveValue(
+    mockProps.userColor.g.toString(),
+  );
+  expect(screen.getByLabelText(/b/i)).toHaveValue(
+    mockProps.userColor.b.toString(),
+  );
 
-  expect(screen.getByLabelText(/r/i)).toHaveValue(newProps.r.toString());
-  expect(screen.getByLabelText(/g/i)).toHaveValue(newProps.g.toString());
-  expect(screen.getByLabelText(/b/i)).toHaveValue(newProps.b.toString());
+  rerender(<TextFieldForRgb {...mockProps} {...newProps} />);
+  expect(screen.getByLabelText(/r/i)).toHaveValue(
+    newProps.userColor.r.toString(),
+  );
+  expect(screen.getByLabelText(/g/i)).toHaveValue(
+    newProps.userColor.g.toString(),
+  );
+  expect(screen.getByLabelText(/b/i)).toHaveValue(
+    newProps.userColor.b.toString(),
+  );
 });
 
-test('calls handleChange functions when the user enters RGB values', () => {
+describe('calls setUserColor when the user enters valid RGB values', () => {
+  beforeEach(() => {
+    render(<TextFieldForRgb {...mockProps} />);
+  });
+
   const newValues = {
     r: '245',
     g: '21',
     b: '196',
   };
-  render(<TextFieldForRgb {...mockProps} />);
 
-  userEvent.type(screen.getByLabelText(/r/i), newValues.r);
+  it('R value field', () => {
+    userEvent.type(screen.getByLabelText(/r/i), newValues.r);
 
-  expect(mockProps.handleChange.r).toHaveBeenCalledTimes(newValues.r.length);
+    expect(mockProps.setUserColor).toHaveBeenCalledTimes(newValues.r.length);
+  });
 
-  userEvent.type(screen.getByLabelText(/g/i), newValues.g);
+  it('G value field', () => {
+    userEvent.type(screen.getByLabelText(/g/i), newValues.g);
 
-  expect(mockProps.handleChange.g).toHaveBeenCalledTimes(newValues.g.length);
+    expect(mockProps.setUserColor).toHaveBeenCalledTimes(newValues.g.length);
+  });
 
-  userEvent.type(screen.getByLabelText(/b/i), newValues.b);
+  it('B value field', () => {
+    userEvent.type(screen.getByLabelText(/b/i), newValues.b);
 
-  expect(mockProps.handleChange.b).toHaveBeenCalledTimes(newValues.b.length);
+    expect(mockProps.setUserColor).toHaveBeenCalledTimes(newValues.b.length);
+  });
 });
 
 test('is accessible', async () => {
