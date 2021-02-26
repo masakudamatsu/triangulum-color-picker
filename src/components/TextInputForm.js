@@ -2,8 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import FormColorCode from 'src/blocks/FormColorCode';
+import {regex} from 'src/utils/regex';
 
-const TextInputForm = ({inputId, labelText, handleChange, userColor}) => {
+const TextInputForm = ({
+  inputId,
+  labelText,
+  setUserColor,
+  updateUserColor,
+  userColor,
+}) => {
+  const handleChange = event => {
+    const newCssCode = event.target.value.trim().replace(/\s/g, '');
+    if (regex.hex.test(newCssCode)) {
+      updateUserColor(newCssCode, 'hex');
+    } else if (regex.hsl.test(newCssCode)) {
+      updateUserColor(newCssCode, 'hsl');
+    } else if (regex.rgb.test(newCssCode)) {
+      updateUserColor(newCssCode, 'rgb');
+    } else {
+      setUserColor({
+        cssCode: event.target.value,
+      });
+    }
+  };
   return (
     <FormColorCode>
       <FormColorCode.Label htmlFor={inputId}>{labelText}</FormColorCode.Label>
@@ -19,7 +40,8 @@ const TextInputForm = ({inputId, labelText, handleChange, userColor}) => {
 TextInputForm.propTypes = {
   inputId: PropTypes.string.isRequired,
   labelText: PropTypes.string.isRequired,
-  handleChange: PropTypes.func,
+  setUserColor: PropTypes.func,
+  updateUserColor: PropTypes.func,
   userColor: PropTypes.string,
 };
 

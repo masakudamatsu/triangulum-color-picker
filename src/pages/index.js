@@ -18,7 +18,6 @@ import WrapperForms from 'src/blocks/WrapperForms';
 
 import colorAnalyzer from 'src/utils/colorAnalyzer';
 import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
-import {regex} from 'src/utils/regex';
 import useWindowWidth from 'src/utils/useWindowWidth';
 
 const userColorReducer = (state, action) => {
@@ -113,21 +112,6 @@ function HomePage() {
     }
   }
 
-  const handleChangeCssCode = event => {
-    const newCssCode = event.target.value.trim().replace(/\s/g, '');
-    if (regex.hex.test(newCssCode)) {
-      updateUserColor(newCssCode, 'hex');
-    } else if (regex.hsl.test(newCssCode)) {
-      updateUserColor(newCssCode, 'hsl');
-    } else if (regex.rgb.test(newCssCode)) {
-      updateUserColor(newCssCode, 'rgb');
-    } else {
-      setUserColor({
-        cssCode: event.target.value,
-      });
-    }
-  };
-
   // Prepare prop values
   const {luminance, chroma, hue} = colorAnalyzer(userColor.validCode);
   const pureHue = hue
@@ -157,7 +141,8 @@ function HomePage() {
             <TextInputForm
               inputId="colorCode"
               labelText="CSS color code"
-              handleChange={handleChangeCssCode}
+              setUserColor={setUserColor}
+              updateUserColor={updateUserColor}
               userColor={userColor.cssCode}
             />
             <WrapperForms.MarginBetweenColorCodeAndHexRgbHsl />
