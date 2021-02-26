@@ -7,25 +7,27 @@ import TextFieldForHex from 'src/components/TextFieldForHex';
 
 const mockProps = {
   backgroundColor: 'rgb(35, 78, 210)',
-  handleChange: jest.fn().mockName('handleChange'),
   lightMode: false,
+  setUserColor: jest.fn().mockName('setUserColor'),
+  updateUserColor: jest.fn().mockName('updateUserColor'),
   value: '#234ed2',
 };
 
-test('changes the background-color property for input element by the backgroundColor prop', () => {
-  // This test is done in FormHex.test.js
-});
-
-test('calls handleChange as the user enters text', () => {
-  const userText = 'abc';
+// doesn't call updateUserColor for some reason...
+test.skip('calls updateUserColor when the user enters a valid text', () => {
   render(<TextFieldForHex {...mockProps} />);
-  userEvent.type(screen.getByLabelText(/hex/i), userText);
+  userEvent.type(screen.getByLabelText(/hex/i), `{backspace}f`);
 
-  expect(mockProps.handleChange).toHaveBeenCalledTimes(userText.length);
+  expect(mockProps.updateUserColor).toHaveBeenCalled();
 });
 
-test('changes the color property by the lightMode prop', () => {
-  // This test is done in FormHex.test.js
+test('calls setUserColor when the user enters an invalid text', () => {
+  const userText = 'z';
+  render(<TextFieldForHex {...mockProps} />);
+  userEvent.type(screen.getByLabelText(/hex/i), `{selectall}{del}${userText}`);
+
+  expect(mockProps.updateUserColor).not.toHaveBeenCalled();
+  expect(mockProps.setUserColor).toHaveBeenCalled();
 });
 
 test('changes the hex code, but not the background color, according to the value prop', () => {

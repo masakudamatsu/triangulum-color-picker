@@ -1,16 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
 
 import FormHex from 'src/blocks/FormHex';
 import {regex} from 'src/utils/regex';
 
 const TextFieldForHex = ({
   backgroundColor,
-  handleChange,
   lightMode = false,
+  setUserColor,
+  updateUserColor,
   value = '#000000',
 }) => {
+  const handleChange = event => {
+    const newUserValue = event.target.value.trim().replace(/\s/g, '');
+    if (regex.hex.test(newUserValue)) {
+      updateUserColor(newUserValue, 'hex');
+    } else {
+      setUserColor({
+        hex: event.target.value,
+      });
+    }
+  };
+
   return (
     <FormHex lightMode={lightMode}>
       <FormHex.Label htmlFor="hex">HEX</FormHex.Label>
@@ -27,8 +38,9 @@ const TextFieldForHex = ({
 
 TextFieldForHex.propTypes = {
   backgroundColor: PropTypes.string,
-  handleChange: PropTypes.func,
   lightMode: PropTypes.bool,
+  setUserColor: PropTypes.func,
+  updateUserColor: PropTypes.func,
   value: PropTypes.string,
 };
 

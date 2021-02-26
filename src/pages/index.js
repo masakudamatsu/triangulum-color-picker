@@ -128,17 +128,6 @@ function HomePage() {
     }
   };
 
-  const handleChangeHex = event => {
-    const newUserValue = event.target.value.trim().replace(/\s/g, '');
-    if (regex.hex.test(newUserValue)) {
-      updateUserColor(newUserValue, 'hex');
-    } else {
-      setUserColor({
-        hex: event.target.value,
-      });
-    }
-  };
-
   // Prepare prop values
   const {luminance, chroma, hue} = colorAnalyzer(userColor.validCode);
   const pureHue = hue
@@ -175,8 +164,9 @@ function HomePage() {
             <WrapperForms.WrapperHexRgbHsl>
               <TextFieldForHex
                 backgroundColor={userColor.validCode}
-                handleChange={handleChangeHex}
                 lightMode={lightMode}
+                setUserColor={setUserColor}
+                updateUserColor={updateUserColor}
                 value={userColor.hex}
               />
               <WrapperForms.WrapperRgbHsl>
