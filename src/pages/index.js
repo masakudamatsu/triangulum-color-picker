@@ -108,7 +108,6 @@ function HomePage() {
       }
       default:
         throw new Error('updateUserColor has thrown an impossible error.');
-        break;
     }
   }
 

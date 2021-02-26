@@ -1,5 +1,3 @@
-import {color} from 'src/utils/specColor';
-
 describe('Invalid values in:', () => {
   beforeEach(() => {
     cy.visit('/');
