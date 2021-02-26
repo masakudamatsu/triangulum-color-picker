@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import {responsiveBoxSize} from 'src/utils/getLayoutCss';
 import {formNumberSmall} from 'src/utils/specLayout';
 
 import {fontCssGenerator} from 'src/utils/getFontCss';
 import {font, scale} from 'src/utils/specFont';
 
 import {mediaQuery} from 'src/utils/breakpoints';
+import {responsiveBoxSize} from 'src/utils/getLayoutCss';
+
 import remify from 'src/utils/remify';
 
 import InputNumber from 'src/elements/InputNumber';
@@ -36,14 +37,7 @@ const padding = {
     2,
 };
 
-FormNumberSmall.InputNumber = styled(InputNumber).attrs(props => {
-  if (props.rgb) {
-    return {
-      pattern: '(?:1?d?d|2[0-4]d|25[0-5])',
-      title: 'RGB values must be between 0 and 255 inclusive',
-    };
-  }
-})`
+FormNumberSmall.InputNumber = styled(InputNumber)`
   ${fontCssGenerator(font.formNumberSmall)}
   border-radius: 100%;
   height: 100%;
