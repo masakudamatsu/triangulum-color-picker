@@ -9,40 +9,49 @@ import {errorText} from 'src/utils/errorText';
 import {pattern} from 'src/utils/regex';
 
 const TextFieldForRgb = ({setUserColor, userColor}) => {
-  const [error, setError] = useState({
-    r: null,
-    g: null,
-    b: null,
-  });
+  const [errorR, setErrorR] = useState(false);
+  const [errorG, setErrorG] = useState(false);
+  const [errorB, setErrorB] = useState(false);
+
+  function defineErrorState(fieldLabel) {
+    const error =
+      fieldLabel === 'r' ? errorR : fieldLabel === 'g' ? errorG : errorB;
+    const setError = bool => {
+      fieldLabel === 'r'
+        ? setErrorR(bool)
+        : fieldLabel === 'g'
+        ? setErrorG(bool)
+        : setErrorB(bool);
+    };
+    return [error, setError];
+  }
 
   const refR = useRef();
   const refG = useRef();
   const refB = useRef();
 
+  function defineRef(fieldLabel) {
+    return fieldLabel === 'r' ? refR : fieldLabel === 'g' ? refG : refB;
+  }
+
   const handleBlur = event => {
-    const fieldLabel = event.target.id;
+    const ref = defineRef(event.target.id);
+    const [error, setError] = defineErrorState(event.target.id);
     // Only forcibly focus when there was no error before
-    if (!error[fieldLabel]) {
+    if (!error) {
       if (
         event.target.validity.patternMismatch ||
         event.target.validity.valueMissing
       ) {
-        const newErrorObject = {};
-        newErrorObject[fieldLabel] = errorText.rgb;
-        setError(newErrorObject);
-        if (fieldLabel === 'r') {
-          refR.current.focus();
-        } else if (fieldLabel === 'g') {
-          refG.current.focus();
-        } else if (fieldLabel === 'b') {
-          refB.current.focus();
-        }
+        setError(true);
+        ref.current.focus();
       }
     }
   };
 
   const handleChange = event => {
     const fieldLabel = event.target.id;
+    const [error, setError] = defineErrorState(fieldLabel);
     const newUserValue = event.target.value.trim().replace(/\s/g, '');
     // Verify the input value
     const isInvalid =
@@ -53,10 +62,8 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
       newUserColor[fieldLabel] = event.target.value;
       setUserColor(newUserColor);
     } else {
-      if (error[fieldLabel]) {
-        const newError = error;
-        newError[fieldLabel] = null;
-        setError(newError);
+      if (error) {
+        setError(false);
       }
       // Update RGB values
       const rgbValues = {
@@ -85,11 +92,11 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
   return (
     <FormNumberSmall>
       <FormNumberSmall.InnerWrapper>
-        <FormNumberSmall.Label error={error.r} htmlFor="r">
+        <FormNumberSmall.Label error={errorR} htmlFor="r">
           R
         </FormNumberSmall.Label>
         <FormNumberSmall.InputNumber
-          error={error.r}
+          error={errorR}
           id="r"
           onBlur={handleBlur}
           onChange={handleChange}
@@ -98,14 +105,14 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           required
           value={userColor.r}
         />
-        {error.r ? <ErrorMessage errorText={error.r} /> : null}
+        {errorR ? <ErrorMessage errorText={errorText.rgb} /> : null}
       </FormNumberSmall.InnerWrapper>
       <FormNumberSmall.InnerWrapper>
-        <FormNumberSmall.Label error={error.g} htmlFor="g">
+        <FormNumberSmall.Label error={errorG} htmlFor="g">
           G
         </FormNumberSmall.Label>
         <FormNumberSmall.InputNumber
-          error={error.g}
+          error={errorG}
           id="g"
           onBlur={handleBlur}
           onChange={handleChange}
@@ -114,14 +121,14 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           required
           value={userColor.g}
         />
-        {error.g ? <ErrorMessage errorText={error.g} /> : null}
+        {errorG ? <ErrorMessage errorText={errorText.rgb} /> : null}
       </FormNumberSmall.InnerWrapper>
       <FormNumberSmall.InnerWrapper>
-        <FormNumberSmall.Label error={error.b} htmlFor="b">
+        <FormNumberSmall.Label error={errorB} htmlFor="b">
           B
         </FormNumberSmall.Label>
         <FormNumberSmall.InputNumber
-          error={error.b}
+          error={errorB}
           id="b"
           onBlur={handleBlur}
           onChange={handleChange}
@@ -130,7 +137,7 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           required
           value={userColor.b}
         />
-        {error.b ? <ErrorMessage errorText={error.b} /> : null}
+        {errorB ? <ErrorMessage errorText={errorText.rgb} /> : null}
       </FormNumberSmall.InnerWrapper>
     </FormNumberSmall>
   );
