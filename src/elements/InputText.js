@@ -27,9 +27,6 @@ const InputText = styled.input.attrs(props => ({
     background-color: ${color.input.error};
     border-color: ${color.input.error};
     color: ${color.input.onError};
-    & ~ label {
-      color: ${color.input.onError};
-    }
   `}
 `;
 

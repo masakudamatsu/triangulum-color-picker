@@ -8,9 +8,11 @@ import {fontCssGenerator} from 'src/utils/getFontCss';
 
 const Label = styled.label`
   ${fontCssGenerator(font.label)}
-  color: ${color.font};
+  color: ${props => (props.error ? color.input.onError : color.font)};
 `;
 
-Label.propTypes = {};
+Label.propTypes = {
+  error: PropTypes.bool,
+};
 
 export default Label;

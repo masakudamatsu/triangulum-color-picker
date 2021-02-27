@@ -26,11 +26,6 @@ describe('Props work as intended', () => {
       'color',
       color.input.onError.replace(/\s/g, ''),
     );
-    expect(screen.getByLabelText('Label Text')).toHaveStyleRule(
-      'color',
-      color.input.onError.replace(/\s/g, ''),
-      {modifier: '~ label'},
-    );
   });
 });
 

@@ -85,7 +85,9 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
   return (
     <FormNumberSmall>
       <FormNumberSmall.InnerWrapper>
-        {/* <input> comes before <label> to use the sibling combinator in CSS (input ~ label {}) to style the error state together with the :invalid selector. See InputText.js */}
+        <FormNumberSmall.Label error={error.r} htmlFor="r">
+          R
+        </FormNumberSmall.Label>
         <FormNumberSmall.InputNumber
           aria-describedby="alert-on-r"
           error={error.r}
@@ -97,10 +99,12 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           required
           value={userColor.r}
         />
-        <FormNumberSmall.Label htmlFor="r">R</FormNumberSmall.Label>
         <ErrorMessage error={error.r} id="alert-on-r" />
       </FormNumberSmall.InnerWrapper>
       <FormNumberSmall.InnerWrapper>
+        <FormNumberSmall.Label error={error.g} htmlFor="g">
+          G
+        </FormNumberSmall.Label>
         <FormNumberSmall.InputNumber
           aria-describedby="alert-on-g"
           error={error.g}
@@ -112,10 +116,12 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           required
           value={userColor.g}
         />
-        <FormNumberSmall.Label htmlFor="g">G</FormNumberSmall.Label>
         <ErrorMessage error={error.g} id="alert-on-g" />
       </FormNumberSmall.InnerWrapper>
       <FormNumberSmall.InnerWrapper>
+        <FormNumberSmall.Label error={error.b} htmlFor="b">
+          B
+        </FormNumberSmall.Label>
         <FormNumberSmall.InputNumber
           aria-describedby="alert-on-b"
           error={error.b}
@@ -127,7 +133,6 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           required
           value={userColor.b}
         />
-        <FormNumberSmall.Label htmlFor="b">B</FormNumberSmall.Label>
         <ErrorMessage error={error.b} id="alert-on-b" />
       </FormNumberSmall.InnerWrapper>
     </FormNumberSmall>

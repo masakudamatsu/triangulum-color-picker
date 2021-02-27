@@ -1,9 +1,19 @@
 import React from 'react';
-import {render} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 
 import Label from './Label';
+import {color} from 'src/utils/specColor';
 
 const mockProps = {};
+
+describe('Props work as intended', () => {
+  test('error', () => {
+    render(<Label error data-testid="label" />);
+    expect(screen.getByTestId('label')).toHaveStyle(
+      `color: ${color.input.onError.replace(/\s/g, '')}`,
+    );
+  });
+});
 
 test('renders UI correctly:', () => {
   const {container} = render(<Label {...mockProps} />);
