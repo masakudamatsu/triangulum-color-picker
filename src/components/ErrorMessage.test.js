@@ -6,29 +6,12 @@ import {axe} from 'jest-axe';
 import ErrorMessage from './ErrorMessage';
 
 const mockProps = {
-  error: '',
-  id: 'error-message',
+  errorText: 'There is an error',
 };
 
-const mockErrorText = 'This is an error message.';
-
-test('shows the error message when the error prop is provided', () => {
-  const {rerender} = render(<ErrorMessage {...mockProps} />);
-  expect(screen.queryByRole('alert')).not.toBeInTheDocument();
-
-  rerender(
-    <ErrorMessage
-      {...mockProps}
-      error={mockErrorText}
-      data-testid="error-message-component"
-    />,
-  );
-  expect(screen.getByRole('alert')).toHaveTextContent(mockErrorText);
-});
-
-test('adds the id prop value to the paragraph element id attribute', () => {
-  render(<ErrorMessage {...mockProps} error={mockErrorText} />);
-  expect(screen.getByRole('alert')).toHaveAttribute('id', mockProps.id);
+test('shows the error prop value as its text content', () => {
+  render(<ErrorMessage {...mockProps} />);
+  expect(screen.getByRole('alert')).toHaveTextContent(mockProps.errorText);
 });
 
 test('is accessible', async () => {

@@ -3,17 +3,16 @@ import PropTypes from 'prop-types';
 
 import DivAlert from 'src/blocks/DivAlert';
 
-const ErrorMessage = ({error, id}) => {
+const ErrorMessage = ({errorText}) => {
   return (
-    <DivAlert show={error} data-testid="error-message-component">
-      <DivAlert.Paragraph id={id}>{error}</DivAlert.Paragraph>
+    <DivAlert data-testid="error-message-component">
+      <DivAlert.Paragraph>{errorText}</DivAlert.Paragraph>
     </DivAlert>
   );
 };
 
 ErrorMessage.propTypes = {
-  error: PropTypes.string,
-  id: PropTypes.string,
+  errorText: PropTypes.string,
 };
 
 export default ErrorMessage;

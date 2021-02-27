@@ -11,7 +11,7 @@ import {paragraphAlert, triangleWidth} from 'src/utils/specLayout';
 const DivAlert = styled.div`
   background-color: ${color.input.error};
   color: ${color.input.onError};
-  display: ${props => (props.show ? 'flex' : 'none')};
+  display: flex;
   justify-content: center;
   left: 0;
   padding: ${remify(paragraphAlert.aboveParagraph)} 0
@@ -41,7 +41,6 @@ DivAlert.Paragraph = styled(Paragraph).attrs(props => ({
 
 DivAlert.Paragraph.propTypes = {
   rightAligned: PropTypes.bool,
-  show: PropTypes.bool,
 };
 
 export default DivAlert;

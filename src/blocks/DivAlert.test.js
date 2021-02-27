@@ -5,13 +5,6 @@ import DivAlert from './DivAlert';
 
 const mockProps = {};
 
-describe('shows up with the show prop', () => {
-  const {rerender} = render(<DivAlert {...mockProps} data-testid="alert" />);
-  expect(screen.getByTestId('alert')).not.toBeVisible();
-  rerender(<DivAlert show {...mockProps} data-testid="alert" />);
-  expect(screen.getByTestId('alert')).toBeVisible();
-});
-
 describe('renders UI correctly:', () => {
   test('Parent', () => {
     const {container} = render(<DivAlert {...mockProps} />);
@@ -19,7 +12,10 @@ describe('renders UI correctly:', () => {
       .c0 {
         background-color: rgb(254,254,50);
         color: rgb(10,10,10);
-        display: none;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
         -webkit-box-pack: center;
         -webkit-justify-content: center;
         -ms-flex-pack: center;

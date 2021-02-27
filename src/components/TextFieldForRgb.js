@@ -89,7 +89,6 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           R
         </FormNumberSmall.Label>
         <FormNumberSmall.InputNumber
-          aria-describedby="alert-on-r"
           error={error.r}
           id="r"
           onBlur={handleBlur}
@@ -99,14 +98,13 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           required
           value={userColor.r}
         />
-        <ErrorMessage error={error.r} id="alert-on-r" />
+        {error.r ? <ErrorMessage errorText={error.r} /> : null}
       </FormNumberSmall.InnerWrapper>
       <FormNumberSmall.InnerWrapper>
         <FormNumberSmall.Label error={error.g} htmlFor="g">
           G
         </FormNumberSmall.Label>
         <FormNumberSmall.InputNumber
-          aria-describedby="alert-on-g"
           error={error.g}
           id="g"
           onBlur={handleBlur}
@@ -116,14 +114,13 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           required
           value={userColor.g}
         />
-        <ErrorMessage error={error.g} id="alert-on-g" />
+        {error.g ? <ErrorMessage errorText={error.g} /> : null}
       </FormNumberSmall.InnerWrapper>
       <FormNumberSmall.InnerWrapper>
         <FormNumberSmall.Label error={error.b} htmlFor="b">
           B
         </FormNumberSmall.Label>
         <FormNumberSmall.InputNumber
-          aria-describedby="alert-on-b"
           error={error.b}
           id="b"
           onBlur={handleBlur}
@@ -133,7 +130,7 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           required
           value={userColor.b}
         />
-        <ErrorMessage error={error.b} id="alert-on-b" />
+        {error.b ? <ErrorMessage errorText={error.b} /> : null}
       </FormNumberSmall.InnerWrapper>
     </FormNumberSmall>
   );
