@@ -59,7 +59,6 @@ FormNumberSmall.Label = styled(Label)`
 `;
 
 FormNumberSmall.InputNumber.propTypes = {
-  rgb: PropTypes.bool,
   h: PropTypes.bool,
   sl: PropTypes.bool,
 };
