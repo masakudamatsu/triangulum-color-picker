@@ -2,6 +2,7 @@ import {useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
 
+import ErrorMessage from './ErrorMessage';
 import FormNumberSmall from 'src/blocks/FormNumberSmall';
 
 import {errorText} from 'src/utils/errorText';
@@ -86,6 +87,7 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
       <FormNumberSmall.InnerWrapper>
         {/* <input> comes before <label> to use the sibling combinator in CSS (input ~ label {}) to style the error state together with the :invalid selector. See InputText.js */}
         <FormNumberSmall.InputNumber
+          aria-describedby="alert-on-r"
           error={error.r}
           id="r"
           onBlur={handleBlur}
@@ -96,9 +98,11 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           value={userColor.r}
         />
         <FormNumberSmall.Label htmlFor="r">R</FormNumberSmall.Label>
+        <ErrorMessage error={error.r} id="alert-on-r" />
       </FormNumberSmall.InnerWrapper>
       <FormNumberSmall.InnerWrapper>
         <FormNumberSmall.InputNumber
+          aria-describedby="alert-on-g"
           error={error.g}
           id="g"
           onBlur={handleBlur}
@@ -109,9 +113,11 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           value={userColor.g}
         />
         <FormNumberSmall.Label htmlFor="g">G</FormNumberSmall.Label>
+        <ErrorMessage error={error.g} id="alert-on-g" />
       </FormNumberSmall.InnerWrapper>
       <FormNumberSmall.InnerWrapper>
         <FormNumberSmall.InputNumber
+          aria-describedby="alert-on-b"
           error={error.b}
           id="b"
           onBlur={handleBlur}
@@ -122,6 +128,7 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           value={userColor.b}
         />
         <FormNumberSmall.Label htmlFor="b">B</FormNumberSmall.Label>
+        <ErrorMessage error={error.b} id="alert-on-b" />
       </FormNumberSmall.InnerWrapper>
     </FormNumberSmall>
   );

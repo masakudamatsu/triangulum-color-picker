@@ -205,6 +205,22 @@ export const footer = {
   },
 };
 
+export const paragraphAlert = {
+  xheight:
+    (font.paragraph.capHeight / poppins.light.capHeight) *
+    poppins.light.xHeight,
+  modularScale: font.paragraph.betweenLinesRatio / font.paragraph.xHeightRatio,
+  get aboveParagraph() {
+    return this.xheight * Math.pow(this.modularScale, 2);
+  },
+  get belowParagraph() {
+    return this.xheight * Math.pow(this.modularScale, 2);
+  },
+  get sideMargin() {
+    return this.xheight * Math.pow(this.modularScale, 2);
+  },
+};
+
 export const threeColumns = {
   minWidth:
     canvas.width.small +

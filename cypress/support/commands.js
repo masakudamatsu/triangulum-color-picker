@@ -21,20 +21,22 @@ if (Cypress.config('isInteractive')) {
   });
 }
 
-Cypress.Commands.add('verifyDefaultState', fieldLabel => {
+Cypress.Commands.add('verifyDefaultState', (fieldLabel, errorText) => {
   cy.findByLabelText(fieldLabel)
     .should('have.css', 'background-color', color.input.background)
     .should('have.css', 'border-color', color.input.border)
     .should('have.css', 'color', color.input.font);
   cy.findByText(fieldLabel).should('have.css', 'color', color.input.font);
+  cy.findByRole('alert').should('not.exist');
 });
 
-Cypress.Commands.add('verifyErrorState', fieldLabel => {
+Cypress.Commands.add('verifyErrorState', (fieldLabel, errorText) => {
   cy.findByLabelText(fieldLabel)
     .should('have.css', 'background-color', color.input.error)
     .should('have.css', 'border-color', color.input.error)
     .should('have.css', 'color', color.input.onError);
   cy.findByText(fieldLabel).should('have.css', 'color', color.input.onError);
+  cy.findByRole('alert').should('be.visible').should('have.text', errorText);
 });
 
 // ***********************************************
