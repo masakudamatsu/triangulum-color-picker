@@ -4,7 +4,7 @@ import colorAnalyzer from 'src/utils/colorAnalyzer';
 import {color} from 'src/utils/specColor';
 
 // Construct user data
-const [twitterBlue, mcdonaldsRed] = [
+const [twitterBlue, mcdonaldsRed, threeDigitHexCode] = [
   {
     // an example of high-luminance color
     label: 'Twitter Blue',
@@ -20,6 +20,14 @@ const [twitterBlue, mcdonaldsRed] = [
     rgb: 'rgb(192, 12, 12)',
     hsl: 'hsl(0, 88%, 40%)',
     fontColor: color.font,
+  },
+  {
+    // an example of low-luminance color
+    label: '3-digit Hex code',
+    hex: '#eb4',
+    rgb: 'rgb(238, 187, 68)',
+    hsl: 'hsl(42, 71%, 93%)',
+    fontColor: color.fontLightMode,
   },
 ].map(color => {
   const {rgb, hsl} = parseColor(color.hex);
@@ -42,7 +50,10 @@ describe('Entering css color code shows (1) its color, (2) its Hex code equivale
   // test
   ['hex', 'rgb', 'hsl'].forEach(colorcode => {
     it(`for ${colorcode}`, () => {
-      [twitterBlue, mcdonaldsRed].forEach(exampleColor => {
+      [twitterBlue, mcdonaldsRed, threeDigitHexCode].forEach(exampleColor => {
+        if (colorcode !== 'hex' && exampleColor === threeDigitHexCode) {
+          return; // we don't need to test RGB/HSL equivalents of 3-digit Hex code.
+        }
         cy.visit('/');
         cy.findByLabelText(/color code/i)
           .clear()
@@ -77,7 +88,7 @@ describe('Entering css color code shows (1) its color, (2) its Hex code equivale
 });
 
 describe('Entering hex code shows its color, the hex code in a legible way, RGB and HSL values, its css code in the text field, and chroma and luminance', () => {
-  [twitterBlue, mcdonaldsRed].forEach(userColor => {
+  [twitterBlue, mcdonaldsRed, threeDigitHexCode].forEach(userColor => {
     it(`${userColor.label}`, () => {
       cy.visit('/');
       cy.findByLabelText(/hex/i).clear().type(userColor.hex);

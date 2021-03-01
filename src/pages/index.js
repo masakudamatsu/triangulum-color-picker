@@ -63,19 +63,30 @@ function HomePage() {
       );
     }
     switch (colorCodeType) {
-      case 'hex':
+      case 'hex': {
+        let hexCorrected;
+        // Deal with 3-digit Hex code
+        if (validColorCode.length === 4) {
+          const red = hex.charAt(1);
+          const green = hex.charAt(3);
+          const blue = hex.charAt(5);
+          hexCorrected = `#${red}${green}${blue}`;
+        } else {
+          hexCorrected = hex;
+        }
         setUserColor({
-          cssCode: hex,
-          hex: hex,
+          cssCode: hexCorrected,
+          hex: hexCorrected,
           r: rgb[0],
           g: rgb[1],
           b: rgb[2],
           h: hsl[0],
           s: hsl[1],
           l: hsl[2],
-          validCode: hex,
+          validCode: hexCorrected,
         });
         break;
+      }
       case 'rgb': {
         const rgbCode = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
         setUserColor({
