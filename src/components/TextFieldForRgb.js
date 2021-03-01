@@ -72,6 +72,10 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
         setShowErrorText(true);
       }
     }
+    // Hide error message when there's already an error
+    if (error) {
+      setShowErrorText(false);
+    }
   };
 
   const handleChange = event => {
@@ -117,6 +121,15 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
     }
   };
 
+  const handleFocus = event => {
+    const fieldLabel = event.target.id;
+    const [error, setError] = defineErrorState(event.target.id);
+    const [showErrorText, setShowErrorText] = defineErrorTextState(fieldLabel);
+    if (error) {
+      setShowErrorText(true);
+    }
+  };
+
   return (
     <FormNumberSmall>
       <FormNumberSmall.InnerWrapper>
@@ -128,6 +141,7 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           id="r"
           onBlur={handleBlur}
           onChange={handleChange}
+          onFocus={handleFocus}
           pattern={pattern.rgbValues}
           ref={refR}
           required
@@ -144,6 +158,7 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           id="g"
           onBlur={handleBlur}
           onChange={handleChange}
+          onFocus={handleFocus}
           pattern={pattern.rgbValues}
           ref={refG}
           required
@@ -160,6 +175,7 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           id="b"
           onBlur={handleBlur}
           onChange={handleChange}
+          onFocus={handleFocus}
           pattern={pattern.rgbValues}
           ref={refB}
           required

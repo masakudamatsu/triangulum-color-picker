@@ -31,8 +31,18 @@ describe('Invalid values in:', () => {
           // Verify
           cy.verifyErrorState(fieldLabel);
           cy.focused().should('not.have.attr', 'id', fieldLabel.source[1]);
+          cy.findByRole('alert').should('not.exist');
 
-          cy.log('*** Alerted as long as invalid ***');
+          cy.log('*** After clicking again ***');
+          // Execute
+          cy.findByLabelText(fieldLabel).click();
+          // Verify
+          cy.verifyErrorState(fieldLabel);
+          cy.findByRole('alert')
+            .should('be.visible')
+            .should('have.text', errorText.rgb);
+
+          cy.log('*** While typing ***');
           // Execute
           cy.findByLabelText(fieldLabel).type('1');
           // Verify

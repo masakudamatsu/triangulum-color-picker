@@ -19,15 +19,6 @@ const mockProps = {
   },
 };
 
-test.skip('forces the field with an invalid value to be focused after blurring', () => {
-  // THIS TEST DOES NOT WORK...
-  render(<TextFieldForRgb {...mockProps} />);
-  userEvent.click(screen.getByLabelText(/r/i));
-  userEvent.type(screen.getByLabelText(/r/i), '9');
-  userEvent.click(screen.getByLabelText(/g/i));
-  expect(screen.getByLabelText(/r/i)).toHaveFocus();
-});
-
 test('changes RGB values according to the props', () => {
   const newProps = {
     userColor: {
@@ -59,33 +50,87 @@ test('changes RGB values according to the props', () => {
   );
 });
 
-describe('calls setUserColor when the user enters valid RGB values', () => {
+describe('calls setUserColor with an object of color codes when the user enters a valid value', () => {
   beforeEach(() => {
     render(<TextFieldForRgb {...mockProps} />);
   });
 
-  const newValues = {
-    r: '245',
-    g: '21',
-    b: '196',
-  };
-
   it('R value field', () => {
-    userEvent.type(screen.getByLabelText(/r/i), newValues.r);
+    userEvent.type(screen.getByLabelText(/r/i), '1');
 
-    expect(mockProps.setUserColor).toHaveBeenCalledTimes(newValues.r.length);
+    expect(mockProps.setUserColor).toHaveBeenCalledTimes(1);
+    expect(mockProps.setUserColor).toHaveBeenCalledWith({
+      cssCode: 'rgb(251, 122, 122)',
+      h: 0,
+      hex: '#fb7a7a',
+      l: 73,
+      r: '251',
+      s: 94,
+      validCode: 'rgb(251, 122, 122)',
+    });
   });
 
   it('G value field', () => {
-    userEvent.type(screen.getByLabelText(/g/i), newValues.g);
+    userEvent.type(screen.getByLabelText(/g/i), '{backspace}');
 
-    expect(mockProps.setUserColor).toHaveBeenCalledTimes(newValues.g.length);
+    expect(mockProps.setUserColor).toHaveBeenCalledTimes(1);
+    expect(mockProps.setUserColor).toHaveBeenCalledWith({
+      cssCode: 'rgb(25, 12, 122)',
+      g: '12',
+      h: 247,
+      hex: '#190c7a',
+      l: 26,
+      s: 82,
+      validCode: 'rgb(25, 12, 122)',
+    });
   });
 
   it('B value field', () => {
-    userEvent.type(screen.getByLabelText(/b/i), newValues.b);
+    userEvent.type(screen.getByLabelText(/b/i), '{backspace}');
 
-    expect(mockProps.setUserColor).toHaveBeenCalledTimes(newValues.b.length);
+    expect(mockProps.setUserColor).toHaveBeenCalledTimes(1);
+    expect(mockProps.setUserColor).toHaveBeenLastCalledWith({
+      b: '12',
+      cssCode: 'rgb(25, 122, 12)',
+      h: 113,
+      hex: '#197a0c',
+      l: 26,
+      s: 82,
+      validCode: 'rgb(25, 122, 12)',
+    });
+  });
+});
+
+describe('calls setUserColor with an invalid value when the user enters a invalid value', () => {
+  beforeEach(() => {
+    render(<TextFieldForRgb {...mockProps} />);
+  });
+
+  it('R value field', () => {
+    userEvent.type(screen.getByLabelText(/r/i), 'g');
+
+    expect(mockProps.setUserColor).toHaveBeenCalledTimes(1);
+    expect(mockProps.setUserColor).toHaveBeenCalledWith({
+      r: '25g',
+    });
+  });
+
+  it('G value field', () => {
+    userEvent.type(screen.getByLabelText(/g/i), '9');
+
+    expect(mockProps.setUserColor).toHaveBeenCalledTimes(1);
+    expect(mockProps.setUserColor).toHaveBeenCalledWith({
+      g: '1229',
+    });
+  });
+
+  it('B value field', () => {
+    userEvent.type(screen.getByLabelText(/b/i), '1');
+
+    expect(mockProps.setUserColor).toHaveBeenCalledTimes(1);
+    expect(mockProps.setUserColor).toHaveBeenLastCalledWith({
+      b: '1221',
+    });
   });
 });
 
