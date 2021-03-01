@@ -26,6 +26,27 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
     return [error, setError];
   }
 
+  const [showErrorTextR, setShowErrorTextR] = useState(false);
+  const [showErrorTextG, setShowErrorTextG] = useState(false);
+  const [showErrorTextB, setShowErrorTextB] = useState(false);
+
+  function defineErrorTextState(fieldLabel) {
+    const showErrorText =
+      fieldLabel === 'r'
+        ? showErrorTextR
+        : fieldLabel === 'g'
+        ? showErrorTextG
+        : showErrorTextB;
+    const setShowErrorText = bool => {
+      fieldLabel === 'r'
+        ? setShowErrorTextR(bool)
+        : fieldLabel === 'g'
+        ? setShowErrorTextG(bool)
+        : setShowErrorTextB(bool);
+    };
+    return [showErrorText, setShowErrorText];
+  }
+
   const refR = useRef();
   const refG = useRef();
   const refB = useRef();
@@ -35,16 +56,20 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
   }
 
   const handleBlur = event => {
-    const ref = defineRef(event.target.id);
-    const [error, setError] = defineErrorState(event.target.id);
+    const fieldLabel = event.target.id;
+    const ref = defineRef(fieldLabel);
+    const [error, setError] = defineErrorState(fieldLabel);
+    const [showErrorText, setShowErrorText] = defineErrorTextState(fieldLabel);
+
     // Only forcibly focus when there was no error before
     if (!error) {
       if (
         event.target.validity.patternMismatch ||
         event.target.validity.valueMissing
       ) {
-        setError(true);
         ref.current.focus();
+        setError(true);
+        setShowErrorText(true);
       }
     }
   };
@@ -52,6 +77,8 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
   const handleChange = event => {
     const fieldLabel = event.target.id;
     const [error, setError] = defineErrorState(fieldLabel);
+    const [showErrorText, setShowErrorText] = defineErrorTextState(fieldLabel);
+
     const newUserValue = event.target.value.trim().replace(/\s/g, '');
     // Verify the input value
     const isInvalid =
@@ -64,6 +91,7 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
     } else {
       if (error) {
         setError(false);
+        setShowErrorText(false);
       }
       // Update RGB values
       const rgbValues = {
@@ -105,7 +133,7 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           required
           value={userColor.r}
         />
-        {errorR ? <ErrorMessage errorText={errorText.rgb} /> : null}
+        {showErrorTextR ? <ErrorMessage errorText={errorText.rgb} /> : null}
       </FormNumberSmall.InnerWrapper>
       <FormNumberSmall.InnerWrapper>
         <FormNumberSmall.Label error={errorG} htmlFor="g">
@@ -121,7 +149,7 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           required
           value={userColor.g}
         />
-        {errorG ? <ErrorMessage errorText={errorText.rgb} /> : null}
+        {showErrorTextG ? <ErrorMessage errorText={errorText.rgb} /> : null}
       </FormNumberSmall.InnerWrapper>
       <FormNumberSmall.InnerWrapper>
         <FormNumberSmall.Label error={errorB} htmlFor="b">
@@ -137,7 +165,7 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           required
           value={userColor.b}
         />
-        {errorB ? <ErrorMessage errorText={errorText.rgb} /> : null}
+        {showErrorTextB ? <ErrorMessage errorText={errorText.rgb} /> : null}
       </FormNumberSmall.InnerWrapper>
     </FormNumberSmall>
   );
