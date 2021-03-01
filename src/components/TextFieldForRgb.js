@@ -59,7 +59,7 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
     const fieldLabel = event.target.id;
     const ref = defineRef(fieldLabel);
     const [error, setError] = defineErrorState(fieldLabel);
-    const [showErrorText, setShowErrorText] = defineErrorTextState(fieldLabel);
+    const [, setShowErrorText] = defineErrorTextState(fieldLabel);
 
     // Only forcibly focus when there was no error before
     if (!error) {
@@ -81,7 +81,7 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
   const handleChange = event => {
     const fieldLabel = event.target.id;
     const [error, setError] = defineErrorState(fieldLabel);
-    const [showErrorText, setShowErrorText] = defineErrorTextState(fieldLabel);
+    const [, setShowErrorText] = defineErrorTextState(fieldLabel);
 
     const newUserValue = event.target.value.trim().replace(/\s/g, '');
     // Verify the input value
@@ -123,8 +123,8 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
 
   const handleFocus = event => {
     const fieldLabel = event.target.id;
-    const [error, setError] = defineErrorState(event.target.id);
-    const [showErrorText, setShowErrorText] = defineErrorTextState(fieldLabel);
+    const [error] = defineErrorState(event.target.id);
+    const [, setShowErrorText] = defineErrorTextState(fieldLabel);
     if (error) {
       setShowErrorText(true);
     }
