@@ -24,10 +24,10 @@ const FormHex = styled.form`
 
 FormHex.InputText = styled(InputText)`
   ${fontCssGenerator(font.formHex)}
-  background-color: ${props => props.backgroundColor};
+  background-color: ${props => !props.error && props.backgroundColor};
   border-width: ${props => props.lightMode && `0`};
   border-radius: 100%;
-  color: inherit;
+  color: ${props => !props.error && 'inherit'};
   height: 100%;
   text-align: center;
   width: 100%;
