@@ -42,56 +42,36 @@ describe('Entering css color code shows (1) its color, (2) its Hex code equivale
   // test
   ['hex', 'rgb', 'hsl'].forEach(colorcode => {
     it(`for ${colorcode}`, () => {
-      cy.visit('/');
-      cy.findByLabelText(/color code/i)
-        .clear()
-        .type(twitterBlue[colorcode]);
+      [twitterBlue, mcdonaldsRed].forEach(exampleColor => {
+        cy.visit('/');
+        cy.findByLabelText(/color code/i)
+          .clear()
+          .type(exampleColor[colorcode]);
 
-      cy.findByLabelText(/hex/i)
-        .should('have.css', 'background-color', twitterBlue.rgb) // (1)
-        .should('have.value', twitterBlue.hex) // (2)
-        .should('have.css', 'color', twitterBlue.fontColor); // (5)
-      cy.findByText(/hex/i, {selector: 'label'}).should(
-        'have.css',
-        'color',
-        twitterBlue.fontColor, // (5)
-      );
+        cy.findByLabelText(/hex/i)
+          .should('have.css', 'background-color', exampleColor.rgb) // (1)
+          .should('have.value', exampleColor.hex) // (2)
+          .should('have.css', 'color', exampleColor.fontColor); // (5)
+        cy.findByText(/hex/i, {selector: 'label'}).should(
+          'have.css',
+          'color',
+          exampleColor.fontColor, // (5)
+        );
 
-      cy.findByLabelText(/^r$/i).should('have.value', twitterBlue.r); // (3)
-      cy.findByLabelText(/^g$/i).should('have.value', twitterBlue.g);
-      cy.findByLabelText(/^b$/i).should('have.value', twitterBlue.b);
+        cy.findByLabelText(/^r$/i).should('have.value', exampleColor.r); // (3)
+        cy.findByLabelText(/^g$/i).should('have.value', exampleColor.g);
+        cy.findByLabelText(/^b$/i).should('have.value', exampleColor.b);
 
-      cy.findByLabelText(/^h$/i).should('have.value', twitterBlue.h); // (4)
-      cy.findByLabelText(/^s$/i).should('have.value', twitterBlue.s);
-      cy.findByLabelText(/^l$/i).should('have.value', twitterBlue.l);
+        cy.findByLabelText(/^h$/i).should('have.value', exampleColor.h); // (4)
+        cy.findByLabelText(/^s$/i).should('have.value', exampleColor.s);
+        cy.findByLabelText(/^l$/i).should('have.value', exampleColor.l);
 
-      cy.findByTestId('chroma').should('have.value', twitterBlue.chroma);
-      cy.findByTestId('luminance').should('have.value', twitterBlue.luminance);
-
-      cy.findByLabelText(/color code/i)
-        .clear()
-        .type(mcdonaldsRed[colorcode]);
-
-      cy.findByLabelText(/hex/i)
-        .should('have.css', 'background-color', mcdonaldsRed.rgb) // (1)
-        .should('have.value', mcdonaldsRed.hex) // (2)
-        .should('have.css', 'color', mcdonaldsRed.fontColor); // (5)
-      cy.findByText(/hex/i, {selector: 'label'}).should(
-        'have.css',
-        'color',
-        mcdonaldsRed.fontColor, // (5)
-      );
-
-      cy.findByLabelText(/^r$/i).should('have.value', mcdonaldsRed.r); // (3)
-      cy.findByLabelText(/^g$/i).should('have.value', mcdonaldsRed.g);
-      cy.findByLabelText(/^b$/i).should('have.value', mcdonaldsRed.b);
-
-      cy.findByLabelText(/^h$/i).should('have.value', mcdonaldsRed.h); // (4)
-      cy.findByLabelText(/^s$/i).should('have.value', mcdonaldsRed.s);
-      cy.findByLabelText(/^l$/i).should('have.value', mcdonaldsRed.l);
-
-      cy.findByTestId('chroma').should('have.value', mcdonaldsRed.chroma);
-      cy.findByTestId('luminance').should('have.value', mcdonaldsRed.luminance);
+        cy.findByTestId('chroma').should('have.value', exampleColor.chroma);
+        cy.findByTestId('luminance').should(
+          'have.value',
+          exampleColor.luminance,
+        );
+      });
     });
   });
 });
