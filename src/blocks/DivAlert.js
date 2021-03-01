@@ -18,6 +18,7 @@ const DivAlert = styled.div`
     ${remify(paragraphAlert.belowParagraph)};
   position: fixed;
   top: 0;
+  -webkit-transform: translate3d(0, 0, 0); /* Fix iOS Safari and Chrome bug */
   width: 100vw;
   z-index: 1;
   @media only screen and ${mediaQuery.twoColumns} {

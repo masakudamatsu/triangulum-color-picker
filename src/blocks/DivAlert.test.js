@@ -24,6 +24,7 @@ describe('renders UI correctly:', () => {
         padding: 1.0969rem 0 1.0969rem;
         position: fixed;
         top: 0;
+        -webkit-transform: translate3d(0,0,0);
         width: 100vw;
         z-index: 1;
       }
