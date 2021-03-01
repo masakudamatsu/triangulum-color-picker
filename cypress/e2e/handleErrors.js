@@ -23,7 +23,7 @@ describe('Invalid values in:', () => {
           cy.focused().should('have.attr', 'id', fieldLabel.source[1]);
           cy.findByRole('alert')
             .should('be.visible')
-            .should('have.text', errorText.rgb);
+            .should('have.text', errorText[fieldLabel.source[1]]);
 
           cy.log('*** After blurring again ***');
           // Execute
@@ -40,7 +40,7 @@ describe('Invalid values in:', () => {
           cy.verifyErrorState(fieldLabel);
           cy.findByRole('alert')
             .should('be.visible')
-            .should('have.text', errorText.rgb);
+            .should('have.text', errorText[fieldLabel.source[1]]);
 
           cy.log('*** While typing ***');
           // Execute
@@ -49,7 +49,7 @@ describe('Invalid values in:', () => {
           cy.verifyErrorState(fieldLabel);
           cy.findByRole('alert')
             .should('be.visible')
-            .should('have.text', errorText.rgb);
+            .should('have.text', errorText[fieldLabel.source[1]]);
           // Isolate
           cy.findByLabelText(fieldLabel).type('{backspace}');
 
@@ -90,7 +90,7 @@ describe('No value in:', () => {
       cy.focused().should('have.attr', 'id', fieldLabel.source[1]);
       cy.findByRole('alert')
         .should('be.visible')
-        .should('have.text', errorText.rgb);
+        .should('have.text', errorText[fieldLabel.source[1]]);
 
       cy.log('*** As soon as filling in ***');
       // Execute
