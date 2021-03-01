@@ -8,34 +8,42 @@ describe('Invalid values in:', () => {
     ['-1', '256', 'text'].forEach(invalidValue => {
       it(`Invalid value: ${invalidValue}`, () => {
         [/^r$/i, /^g$/i, /^b$/i].forEach(fieldLabel => {
-          cy.log('*** No alert before blurring ***');
+          cy.log('*** Before blurring ***');
           // Execute
           cy.findByLabelText(fieldLabel).clear().type(invalidValue);
           // Verify
-          cy.verifyDefaultState(fieldLabel, errorText.rgb);
+          cy.verifyDefaultState(fieldLabel);
+          cy.findByRole('alert').should('not.exist');
 
-          cy.log('*** Alerted and focused after blurring ***');
+          cy.log('*** After blurring ***');
           // Execute
           cy.findByLabelText(fieldLabel).blur();
           // Verify
-          cy.verifyErrorState(fieldLabel, errorText.rgb);
+          cy.verifyErrorState(fieldLabel);
           cy.focused().should('have.attr', 'id', fieldLabel.source[1]);
+          cy.findByRole('alert')
+            .should('be.visible')
+            .should('have.text', errorText.rgb);
 
-          cy.log('*** Not forcibly focused after blurring again ***');
+          cy.log('*** After blurring again ***');
           // Execute
           cy.findByLabelText(/css/i).click();
           // Verify
+          cy.verifyErrorState(fieldLabel);
           cy.focused().should('not.have.attr', 'id', fieldLabel.source[1]);
 
           cy.log('*** Alerted as long as invalid ***');
           // Execute
           cy.findByLabelText(fieldLabel).type('1');
           // Verify
-          cy.verifyErrorState(fieldLabel, errorText.rgb);
+          cy.verifyErrorState(fieldLabel);
+          cy.findByRole('alert')
+            .should('be.visible')
+            .should('have.text', errorText.rgb);
           // Isolate
           cy.findByLabelText(fieldLabel).type('{backspace}');
 
-          cy.log('*** No alert as soon as corrected ***');
+          cy.log('*** As soon as correcting ***');
           // Execute
           if (invalidValue !== 'text') {
             cy.findByLabelText(fieldLabel).type('{movetostart}{del}1');
@@ -43,7 +51,8 @@ describe('Invalid values in:', () => {
             cy.findByLabelText(fieldLabel).clear().type('1');
           }
           // Verify
-          cy.verifyDefaultState(fieldLabel, errorText.rgb);
+          cy.verifyDefaultState(fieldLabel);
+          cy.findByRole('alert').should('not.exist');
         });
       });
     });
@@ -56,25 +65,29 @@ describe('No value in:', () => {
   });
   it('RGB value fields', () => {
     [/^r$/i, /^g$/i, /^b$/i].forEach(fieldLabel => {
-      cy.log('*** No alert before blurring ***');
+      cy.log('*** Before blurring ***');
       // Execute
       cy.findByLabelText(fieldLabel).clear();
       // Verify
-      cy.verifyDefaultState(fieldLabel, errorText.rgb);
+      cy.verifyDefaultState(fieldLabel);
       cy.findByRole('alert').should('not.exist');
 
-      cy.log('*** Alerted and focused after blurring ***');
+      cy.log('*** After blurring ***');
       // Execute
       cy.findByLabelText(fieldLabel).blur();
       // Verify
-      cy.verifyErrorState(fieldLabel, errorText.rgb);
+      cy.verifyErrorState(fieldLabel);
       cy.focused().should('have.attr', 'id', fieldLabel.source[1]);
+      cy.findByRole('alert')
+        .should('be.visible')
+        .should('have.text', errorText.rgb);
 
-      cy.log('*** No alert as soon as corrected ***');
+      cy.log('*** As soon as filling in ***');
       // Execute
       cy.findByLabelText(fieldLabel).type('1');
       // Verify
-      cy.verifyDefaultState(fieldLabel, errorText.rgb);
+      cy.verifyDefaultState(fieldLabel);
+      cy.findByRole('alert').should('not.exist');
     });
   });
 });
