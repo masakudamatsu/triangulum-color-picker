@@ -11,6 +11,12 @@ const TextInputForm = ({setUserColor, updateUserColor, userColor}) => {
   const [showErrorText, setShowErrorText] = useState(false);
   const refColorCode = useRef();
 
+  // If a valid value in other fields corrects the invalid value, we set the error state off
+  if (error && regex.hex.test(userColor)) {
+    setError(false);
+    setShowErrorText(false);
+  }
+
   const handleBlur = event => {
     // Only forcibly focus when there was no error before
     if (!error) {

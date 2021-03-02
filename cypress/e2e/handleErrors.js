@@ -579,3 +579,59 @@ describe('No alert with whitespaces at the beginning or at the end:', () => {
     });
   });
 });
+
+describe('Alert disappears when updating other fields', () => {
+  beforeEach(() => {
+    cy.visit('/');
+  });
+  it('Color code field', () => {
+    // set up
+    cy.findByLabelText(/color code/i)
+      .clear()
+      .type('invalid text')
+      .blur();
+
+    // correction by color code field
+    cy.findByLabelText(/hex/i).clear().type('#172c38').blur();
+
+    // verify
+    cy.verifyDefaultState(/color code/i);
+    cy.findByRole('alert').should('not.exist');
+  });
+  it('Hex value field', () => {
+    // set up
+    const fieldLabel = /hex/i;
+    cy.findByLabelText(fieldLabel).clear().type('invalid text').blur();
+
+    // correction by color code field
+    const validColorCode = 'rgb(23, 44, 56)';
+    cy.findByLabelText(/color code/i)
+      .clear()
+      .type(validColorCode)
+      .blur();
+
+    // verify
+    cy.findByLabelText(fieldLabel).should(
+      'have.css',
+      'background-color',
+      validColorCode,
+    );
+    cy.findByRole('alert').should('not.exist');
+  });
+  it('RGB/HSL value fields', () => {
+    [/^r$/i, /^g$/i, /^b$/i, /^h$/i, /^s$/i, /^l$/i].forEach(fieldLabel => {
+      // set up
+      cy.findByLabelText(fieldLabel).clear().type('invalid text').blur();
+
+      // correction by color code field
+      cy.findByLabelText(/color code/i)
+        .clear()
+        .type('rgb(23, 44, 56)')
+        .blur();
+
+      // verify
+      cy.verifyDefaultState(fieldLabel);
+      cy.findByRole('alert').should('not.exist');
+    });
+  });
+});

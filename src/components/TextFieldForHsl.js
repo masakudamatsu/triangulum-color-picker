@@ -6,7 +6,7 @@ import ErrorMessage from './ErrorMessage';
 import FormNumberSmall from 'src/blocks/FormNumberSmall';
 
 import {errorText} from 'src/utils/errorText';
-import {pattern} from 'src/utils/regex';
+import {pattern, regex} from 'src/utils/regex';
 
 const TextFieldForHsl = ({setUserColor, userColor}) => {
   const [errorH, setErrorH] = useState(false);
@@ -53,6 +53,20 @@ const TextFieldForHsl = ({setUserColor, userColor}) => {
 
   function defineRef(fieldLabel) {
     return fieldLabel === 'h' ? refH : fieldLabel === 's' ? refS : refL;
+  }
+
+  // If a valid value in other fields corrects the invalid value, we set the error state off
+  if (errorH && regex.rgbValues.test(userColor.h)) {
+    setErrorH(false);
+    setShowErrorTextH(false);
+  }
+  if (errorS && regex.rgbValues.test(userColor.s)) {
+    setErrorS(false);
+    setShowErrorTextS(false);
+  }
+  if (errorL && regex.rgbValues.test(userColor.l)) {
+    setErrorL(false);
+    setShowErrorTextL(false);
   }
 
   const handleBlur = event => {

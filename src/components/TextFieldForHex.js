@@ -5,7 +5,7 @@ import ErrorMessage from './ErrorMessage';
 import FormHex from 'src/blocks/FormHex';
 
 import {errorText} from 'src/utils/errorText';
-import {pattern} from 'src/utils/regex';
+import {pattern, regex} from 'src/utils/regex';
 
 const TextFieldForHex = ({
   backgroundColor,
@@ -17,6 +17,12 @@ const TextFieldForHex = ({
   const [error, setError] = useState(false);
   const [showErrorText, setShowErrorText] = useState(false);
   const refHex = useRef();
+
+  // If a valid value in other fields corrects the invalid value, we set the error state off
+  if (error && regex.hex.test(value)) {
+    setError(false);
+    setShowErrorText(false);
+  }
 
   const handleBlur = event => {
     // Only forcibly focus when there was no error before
