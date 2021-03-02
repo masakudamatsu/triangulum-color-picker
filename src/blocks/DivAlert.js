@@ -46,7 +46,7 @@ const DivAlert = styled.div`
   position: absolute;
   top: 90%;
   width: ${remify(triangleWidth)};
-  z-index: 1;
+  z-index: 1; /* Otherwise HSL fields come forward */
   @media only screen and ${mediaQuery.font} {
     left: ${props =>
       props.r
@@ -67,12 +67,11 @@ const DivAlert = styled.div`
               formNumberSmall.diameter * 2
             ) * scale,
           )
-        : remify(paragraphAlert.marginLeft * scale)}};
+        : remify(paragraphAlert.marginLeft * scale)};
     padding-bottom: ${remify(paragraphAlert.belowParagraph * scale)};
     padding-left: ${remify(paragraphAlert.sideMargin * scale)};
     padding-right: ${remify(paragraphAlert.sideMargin * scale)};
     padding-top: ${remify(paragraphAlert.aboveParagraph * scale)};
-    position: absolute;
     width: ${remify(triangleWidth * scale)};
   }
   @media only screen and ${mediaQuery.twoColumns} {
@@ -85,12 +84,7 @@ const DivAlert = styled.div`
 
 DivAlert.Paragraph = styled(Paragraph).attrs(props => ({
   role: 'alert',
-}))`
-  width: ${remify(triangleWidth)};
-  @media only screen and ${mediaQuery.font} {
-    width: ${remify(triangleWidth * scale)};
-  }
-`;
+}))``;
 
 DivAlert.propTypes = {
   r: PropTypes.bool,

@@ -59,17 +59,16 @@ describe('renders UI correctly:', () => {
         top: 90%;
         width: 18.9375rem;
         z-index: 1;
-        padding-bottom: 1.3163rem;
-        padding-left: 1.3163rem;
-        padding-right: 1.3163rem;
-        padding-top: 1.3163rem;
-        position: absolute;
-        width: 22.725rem;
       }
 
       @media only screen and (min-width:45.5rem) {
         .c0 {
           left: 0.375rem;
+          padding-bottom: 1.3163rem;
+          padding-left: 1.3163rem;
+          padding-right: 1.3163rem;
+          padding-top: 1.3163rem;
+          width: 22.725rem;
         }
       }
 
@@ -119,25 +118,15 @@ describe('renders UI correctly:', () => {
         margin-top: -0.4195em;
       }
 
-      .c1 {
-        width: 18.9375rem;
-      }
-
       @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 1.0714rem;
         }
       }
 
-      @media only screen and (min-width:45.5rem) {
-        .c1 {
-          width: 22.725rem;
-        }
-      }
-
       <div>
         <p
-          class="c0 c1"
+          class="DivAlert__Paragraph-dfxf8u-1 c0"
           role="alert"
         />
       </div>
