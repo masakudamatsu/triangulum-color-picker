@@ -426,3 +426,156 @@ describe('No value in:', () => {
     });
   });
 });
+
+describe('No alert with whitespaces at the beginning or at the end:', () => {
+  beforeEach(() => {
+    cy.visit('/');
+  });
+  it('CSS color code field', () => {
+    const fieldLabel = /color code/i;
+    ['#ff0304', 'rgb(255, 3, 4)', 'hsl(0, 100%, 51%)'].forEach(colorCode => {
+      cy.log('***** Whitespace at the beginning *****');
+      // Execute
+      cy.findByLabelText(fieldLabel)
+        .clear()
+        .type(' ' + colorCode);
+
+      cy.log('*** Before blurring ***');
+      // Verify
+      cy.verifyDefaultState(fieldLabel);
+      cy.findByRole('alert').should('not.exist');
+      // cy.findByLabelText(fieldLabel).should('have.value', ' ' + colorCode);
+
+      cy.log('*** After blurring ***');
+      // Execute
+      cy.findByLabelText(fieldLabel).blur();
+      // Verify
+      cy.verifyDefaultState(fieldLabel);
+      cy.findByRole('alert').should('not.exist');
+      cy.findByLabelText(fieldLabel).should('have.value', colorCode);
+
+      cy.log('***** Whitespace at the end *****');
+      // Execute
+      cy.findByLabelText(fieldLabel)
+        .clear()
+        .type(colorCode + ' ');
+
+      cy.log('*** Before blurring ***');
+      // Verify
+      cy.verifyDefaultState(fieldLabel);
+      cy.findByRole('alert').should('not.exist');
+      // cy.findByLabelText(fieldLabel).should('have.value', colorCode + ' ');
+
+      cy.log('*** After blurring ***');
+      // Execute
+      cy.findByLabelText(fieldLabel).blur();
+      // Verify
+      cy.verifyDefaultState(fieldLabel);
+      cy.findByRole('alert').should('not.exist');
+      cy.findByLabelText(fieldLabel).should('have.value', colorCode);
+    });
+  });
+  it('Hex value field', () => {
+    const fieldLabel = /hex/i;
+    const validColorCode = '#ff0304';
+    cy.log('***** Whitespace at the beginning *****');
+    // Execute
+    cy.findByLabelText(fieldLabel)
+      .clear()
+      .type(' ' + validColorCode);
+
+    cy.log('*** Before blurring ***');
+    // Verify
+    cy.findByLabelText(fieldLabel).should(
+      'have.css',
+      'background-color',
+      hexToRgb(validColorCode),
+    );
+    cy.findByRole('alert').should('not.exist');
+    // cy.findByLabelText(fieldLabel).should('have.value', ' ' + validColorCode);
+
+    cy.log('*** After blurring ***');
+    // Execute
+    cy.findByLabelText(fieldLabel).blur();
+    // Verify
+    cy.findByLabelText(fieldLabel).should(
+      'have.css',
+      'background-color',
+      hexToRgb(validColorCode),
+    );
+    cy.findByRole('alert').should('not.exist');
+    cy.findByLabelText(fieldLabel).should('have.value', validColorCode);
+
+    cy.log('***** Whitespace at the end *****');
+    // Execute
+    cy.findByLabelText(fieldLabel)
+      .clear()
+      .type(validColorCode + ' ');
+
+    cy.log('*** Before blurring ***');
+    // Verify
+    cy.findByLabelText(fieldLabel).should(
+      'have.css',
+      'background-color',
+      hexToRgb(validColorCode),
+    );
+    cy.findByRole('alert').should('not.exist');
+    // cy.findByLabelText(fieldLabel).should('have.value', validColorCode + ' ');
+
+    cy.log('*** After blurring ***');
+    // Execute
+    cy.findByLabelText(fieldLabel).blur();
+    // Verify
+    cy.findByLabelText(fieldLabel).should(
+      'have.css',
+      'background-color',
+      hexToRgb(validColorCode),
+    );
+    cy.findByRole('alert').should('not.exist');
+    cy.findByLabelText(fieldLabel).should('have.value', validColorCode);
+  });
+  it('RGB/HSL value fields', () => {
+    [/^r$/i, /^g$/i, /^b$/i, /^h$/i, /^s$/i, /^l$/i].forEach(fieldLabel => {
+      const validValue = '100';
+      cy.log('***** Whitespace at the beginning *****');
+      // Execute
+      cy.findByLabelText(fieldLabel)
+        .clear()
+        .type(' ' + validValue);
+
+      cy.log('*** Before blurring ***');
+      // Verify
+      cy.verifyDefaultState(fieldLabel);
+      cy.findByRole('alert').should('not.exist');
+      // cy.findByLabelText(fieldLabel).should('have.value', ' ' + validValue);
+
+      cy.log('*** After blurring ***');
+      // Execute
+      cy.findByLabelText(fieldLabel).blur();
+      // Verify
+      cy.verifyDefaultState(fieldLabel);
+      cy.findByRole('alert').should('not.exist');
+      cy.findByLabelText(fieldLabel).should('have.value', validValue);
+
+      cy.log('***** Whitespace at the end *****');
+      // Execute
+      cy.findByLabelText(fieldLabel)
+        .clear()
+        .type(validValue + ' ');
+
+      cy.log('*** Before blurring ***');
+      // Verify
+      cy.verifyDefaultState(fieldLabel);
+      cy.findByRole('alert').should('not.exist');
+      // cy.findByLabelText(fieldLabel).should('have.value', validValue + ' ');
+
+      cy.log('*** After blurring ***');
+      // Execute
+      cy.findByLabelText(fieldLabel).blur();
+      // Verify
+      cy.verifyDefaultState(fieldLabel);
+      cy.findByRole('alert').should('not.exist');
+      cy.findByLabelText(fieldLabel).should('have.value', validValue);
+    });
+  });
+});
