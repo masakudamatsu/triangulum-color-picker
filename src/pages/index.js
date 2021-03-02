@@ -149,8 +149,6 @@ function HomePage() {
           <WrapperForms>
             <H2 hidden>Setting Color</H2>
             <TextInputForm
-              inputId="colorCode"
-              labelText="CSS color code"
               setUserColor={setUserColor}
               updateUserColor={updateUserColor}
               userColor={userColor.cssCode}

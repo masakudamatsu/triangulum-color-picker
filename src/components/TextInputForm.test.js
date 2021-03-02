@@ -6,8 +6,6 @@ import {axe} from 'jest-axe';
 import TextInputForm from 'src/components/TextInputForm';
 
 const mockProps = {
-  inputId: 'colorCode',
-  labelText: 'Enter color code',
   setUserColor: jest.fn().mockName('setUserColor'),
   updateUserColor: jest.fn().mockName('updateUserColor'),
   userColor: 'rgb(255, 0, 0)',

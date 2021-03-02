@@ -4,13 +4,7 @@ import PropTypes from 'prop-types';
 import FormColorCode from 'src/blocks/FormColorCode';
 import {regex} from 'src/utils/regex';
 
-const TextInputForm = ({
-  inputId,
-  labelText,
-  setUserColor,
-  updateUserColor,
-  userColor,
-}) => {
+const TextInputForm = ({setUserColor, updateUserColor, userColor}) => {
   const handleChange = event => {
     const newCssCode = event.target.value.trim().replace(/\s/g, '');
     if (regex.hex.test(newCssCode)) {
@@ -27,9 +21,11 @@ const TextInputForm = ({
   };
   return (
     <FormColorCode>
-      <FormColorCode.Label htmlFor={inputId}>{labelText}</FormColorCode.Label>
+      <FormColorCode.Label htmlFor="colorCode">
+        CSS color code
+      </FormColorCode.Label>
       <FormColorCode.InputText
-        id={inputId}
+        id="colorCode"
         onChange={handleChange}
         value={userColor}
       />
@@ -38,8 +34,6 @@ const TextInputForm = ({
 };
 
 TextInputForm.propTypes = {
-  inputId: PropTypes.string.isRequired,
-  labelText: PropTypes.string.isRequired,
   setUserColor: PropTypes.func,
   updateUserColor: PropTypes.func,
   userColor: PropTypes.string,
