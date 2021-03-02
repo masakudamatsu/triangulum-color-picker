@@ -48,6 +48,7 @@ FormHex.propTypes = {
 };
 FormHex.InputText.propTypes = {
   backgroundColor: PropTypes.string,
+  error: PropTypes.bool,
   lightMode: PropTypes.bool,
 };
 

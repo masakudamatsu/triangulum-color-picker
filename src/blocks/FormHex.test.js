@@ -181,4 +181,19 @@ describe('changes CSS properties by props', () => {
     );
     expect(screen.getByTestId('input')).toHaveStyle(`border-width: 0px`);
   });
+  test('error prop for InputText', () => {
+    render(
+      <FormHex.InputText
+        data-testid="input"
+        {...mockProps.input}
+        error={true}
+      />,
+    );
+    expect(screen.getByTestId('input')).toHaveStyle(
+      `background-color: ${color.input.error}`,
+    );
+    expect(screen.getByTestId('input')).toHaveStyle(
+      `color: ${color.input.onError}`,
+    );
+  });
 });
