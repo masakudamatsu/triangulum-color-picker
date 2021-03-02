@@ -147,7 +147,9 @@ const TextFieldForHsl = ({setUserColor, userColor}) => {
           required
           value={userColor.h}
         />
-        {showErrorTextH ? <ErrorMessage errorText={errorText.h} /> : null}
+        {showErrorTextH ? (
+          <ErrorMessage errorText={errorText.h} r={true} />
+        ) : null}
       </FormNumberSmall.InnerWrapper>
       <FormNumberSmall.InnerWrapper>
         <FormNumberSmall.Label error={errorS} htmlFor="s">
@@ -164,7 +166,9 @@ const TextFieldForHsl = ({setUserColor, userColor}) => {
           required
           value={userColor.s}
         />
-        {showErrorTextS ? <ErrorMessage errorText={errorText.s} /> : null}
+        {showErrorTextS ? (
+          <ErrorMessage errorText={errorText.s} g={true} />
+        ) : null}
       </FormNumberSmall.InnerWrapper>
       <FormNumberSmall.InnerWrapper>
         <FormNumberSmall.Label error={errorL} htmlFor="l">
@@ -181,7 +185,9 @@ const TextFieldForHsl = ({setUserColor, userColor}) => {
           required
           value={userColor.l}
         />
-        {showErrorTextL ? <ErrorMessage errorText={errorText.l} /> : null}
+        {showErrorTextL ? (
+          <ErrorMessage b={true} errorText={errorText.l} />
+        ) : null}
       </FormNumberSmall.InnerWrapper>
     </FormNumberSmall>
   );

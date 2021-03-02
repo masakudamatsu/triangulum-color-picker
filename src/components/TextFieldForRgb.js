@@ -147,7 +147,9 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           required
           value={userColor.r}
         />
-        {showErrorTextR ? <ErrorMessage errorText={errorText.r} /> : null}
+        {showErrorTextR ? (
+          <ErrorMessage errorText={errorText.r} r={true} />
+        ) : null}
       </FormNumberSmall.InnerWrapper>
       <FormNumberSmall.InnerWrapper>
         <FormNumberSmall.Label error={errorG} htmlFor="g">
@@ -164,7 +166,9 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           required
           value={userColor.g}
         />
-        {showErrorTextG ? <ErrorMessage errorText={errorText.g} /> : null}
+        {showErrorTextG ? (
+          <ErrorMessage errorText={errorText.g} g={true} />
+        ) : null}
       </FormNumberSmall.InnerWrapper>
       <FormNumberSmall.InnerWrapper>
         <FormNumberSmall.Label error={errorB} htmlFor="b">
@@ -181,7 +185,9 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
           required
           value={userColor.b}
         />
-        {showErrorTextB ? <ErrorMessage errorText={errorText.b} /> : null}
+        {showErrorTextB ? (
+          <ErrorMessage b={true} errorText={errorText.b} />
+        ) : null}
       </FormNumberSmall.InnerWrapper>
     </FormNumberSmall>
   );

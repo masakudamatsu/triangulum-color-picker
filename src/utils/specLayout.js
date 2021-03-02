@@ -206,6 +206,7 @@ export const footer = {
 };
 
 export const paragraphAlert = {
+  marginLeft: marginLeft / 2, // Make the error message look temporary by disaligning it with the input field
   xheight:
     (font.paragraph.capHeight / poppins.light.capHeight) *
     poppins.light.xHeight,

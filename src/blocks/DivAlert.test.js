@@ -1,9 +1,39 @@
 import React from 'react';
-import {render} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 
 import DivAlert from './DivAlert';
-
+import {formHex, formNumberSmall, rgbHslWrapper} from 'src/utils/specLayout';
+import remify from 'src/utils/remify';
 const mockProps = {};
+
+describe('changes the left property value according to props', () => {
+  test('r', () => {
+    render(<DivAlert {...mockProps} r data-testid="div-alert" />);
+    expect(screen.getByTestId('div-alert')).toHaveStyle(
+      `left: ${remify(-(formHex.diameter + rgbHslWrapper.padding))}`,
+    );
+  });
+  test('g', () => {
+    render(<DivAlert {...mockProps} g data-testid="div-alert" />);
+    expect(screen.getByTestId('div-alert')).toHaveStyle(
+      `left: ${remify(
+        -(formHex.diameter + rgbHslWrapper.padding + formNumberSmall.diameter),
+      )}`,
+    );
+  });
+  test('b', () => {
+    render(<DivAlert {...mockProps} b data-testid="div-alert" />);
+    expect(screen.getByTestId('div-alert')).toHaveStyle(
+      `left: ${remify(
+        -(
+          formHex.diameter +
+          rgbHslWrapper.padding +
+          formNumberSmall.diameter * 2
+        ),
+      )}`,
+    );
+  });
+});
 
 describe('renders UI correctly:', () => {
   test('Parent', () => {
@@ -20,19 +50,32 @@ describe('renders UI correctly:', () => {
         -webkit-justify-content: center;
         -ms-flex-pack: center;
         justify-content: center;
-        left: 0;
-        padding: 1.0969rem 0 1.0969rem;
-        position: fixed;
-        top: 0;
-        width: 100vw;
+        left: 0.3125rem;
+        padding-bottom: 1.0969rem;
+        padding-left: 1.0969rem;
+        padding-right: 1.0969rem;
+        padding-top: 1.0969rem;
+        position: absolute;
+        top: 90%;
+        width: 18.9375rem;
         z-index: 1;
+        padding-bottom: 1.3163rem;
+        padding-left: 1.3163rem;
+        padding-right: 1.3163rem;
+        padding-top: 1.3163rem;
+        position: absolute;
+        width: 22.725rem;
+      }
+
+      @media only screen and (min-width:45.5rem) {
+        .c0 {
+          left: 0.375rem;
+        }
       }
 
       @media only screen and (min-width:57.6625rem) {
         .c0 {
           left: 90%;
-          padding-left: 1.0969rem;
-          padding-right: 1.0969rem;
           position: absolute;
           top: 90%;
           width: auto;
