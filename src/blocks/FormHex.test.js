@@ -196,4 +196,12 @@ describe('changes CSS properties by props', () => {
       `color: ${color.input.onError}`,
     );
   });
+  test('error prop for Label', () => {
+    render(
+      <FormHex.Label data-testid="label" {...mockProps.label} error={true} />,
+    );
+    expect(screen.getByTestId('label')).toHaveStyle(
+      `color: ${color.input.onError}`,
+    );
+  });
 });

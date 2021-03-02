@@ -35,7 +35,7 @@ FormHex.InputText = styled(InputText)`
 
 FormHex.Label = styled(Label)`
   align-self: center;
-  color: inherit;
+  color: ${props => !props.error && 'inherit'};
   position: absolute;
   top: ${remify(formHex.whitespace.aboveLabel + 1)};
   @media only screen and ${mediaQuery.font} {
@@ -50,6 +50,9 @@ FormHex.InputText.propTypes = {
   backgroundColor: PropTypes.string,
   error: PropTypes.bool,
   lightMode: PropTypes.bool,
+};
+FormHex.Label.propTypes = {
+  error: PropTypes.bool,
 };
 
 export default FormHex;

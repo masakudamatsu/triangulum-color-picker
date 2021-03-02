@@ -14,12 +14,16 @@ describe('Invalid values in:', () => {
     ['#a', '#a3', '#aa33c', '#zzzzzz'].forEach(invalidValue => {
       it(`Invalid value: ${invalidValue}`, () => {
         [/^hex$/i].forEach(fieldLabel => {
+          // Change the background color to a dark one so the font color turns into white
+          const newColor = '#00f';
+          cy.findByLabelText(fieldLabel).clear().type(newColor);
+
           cy.log('*** Before blurring ***');
           // Execute
           cy.findByLabelText(fieldLabel).clear().type(invalidValue);
           // Verify
           const expectedBackgroundColor =
-            invalidValue === '#aa33c' ? '#aa3' : '#f00';
+            invalidValue === '#aa33c' ? '#aa3' : newColor;
           cy.findByLabelText(fieldLabel).should(
             'have.css',
             'background-color',
