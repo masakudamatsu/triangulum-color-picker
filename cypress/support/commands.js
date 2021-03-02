@@ -34,7 +34,11 @@ Cypress.Commands.add('verifyErrorState', fieldLabel => {
     .should('have.css', 'background-color', color.input.error)
     .should('have.css', 'border-color', color.input.error)
     .should('have.css', 'color', color.input.onError);
-  cy.findByText(fieldLabel).should('have.css', 'color', color.input.onError);
+  cy.findByText(fieldLabel, {selector: 'label'}).should(
+    'have.css',
+    'color',
+    color.input.onError,
+  );
 });
 
 // ***********************************************

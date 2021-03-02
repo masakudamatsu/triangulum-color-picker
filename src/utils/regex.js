@@ -5,6 +5,12 @@ export const regex = {
   rgbValues: /^(?:1?\d?\d|2[0-4]\d|25[0-5])$/i,
   hValue: /^(?:3[0-5]\d|[1-2]?\d?\d)$/i,
   slValues: /^(?:100|[1-9]?\d)$/i,
+  get cssCode() {
+    return new RegExp(
+      this.hex.source + '|' + this.rgb.source + '|' + this.hsl.source,
+      'i',
+    );
+  },
 };
 
 export const pattern = {
@@ -14,4 +20,5 @@ export const pattern = {
   rgbValues: regex.rgbValues.source,
   hValue: regex.hValue.source,
   slValues: regex.slValues.source,
+  cssCode: regex.cssCode.source,
 };

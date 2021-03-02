@@ -8,4 +8,6 @@ export const errorText = {
   l: 'L value must be a number between 0 and 100',
   hex:
     'HEX value must start with #, followed by 3 or 6 hexadecimal characters (0–9, a–f)',
+  colorCode:
+    'CSS color code must be either in the HEX format (e.g. #f0c396), the RGB format (e.g. rgb(240, 195, 150)), or the HSL format (e.g. hsl(30, 75%, 76%))',
 };

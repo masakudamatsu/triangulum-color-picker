@@ -1,3 +1,4 @@
+import {color} from 'src/utils/specColor';
 import {errorText} from 'src/utils/errorText';
 import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
 
@@ -9,6 +10,67 @@ function hexToRgb(hexCode) {
 describe('Invalid values in:', () => {
   beforeEach(() => {
     cy.visit('/');
+  });
+  describe('CSS color code field', () => {
+    ['r'].forEach(invalidValue => {
+      it(`Invalid value: ${invalidValue}`, () => {
+        [/color code/i].forEach(fieldLabel => {
+          cy.log('*** Before blurring ***');
+          // Execute
+          cy.findByLabelText(fieldLabel).clear().type(invalidValue);
+          // Verify
+          cy.verifyDefaultState(fieldLabel);
+          cy.findByRole('alert').should('not.exist');
+
+          cy.log('*** After blurring ***');
+          // Execute
+          cy.findByLabelText(fieldLabel).blur();
+          // Verify
+          cy.verifyErrorState(fieldLabel);
+          cy.focused().should('have.attr', 'id', 'colorCode');
+          cy.findByRole('alert')
+            .should('be.visible')
+            .should('have.text', errorText['colorCode']);
+
+          cy.log('*** After blurring again ***');
+          // Execute
+          cy.findByLabelText(/hex/i).click();
+          // Verify
+          cy.verifyErrorState(fieldLabel);
+          cy.focused().should('not.have.attr', 'id', 'colorCode');
+          cy.findByRole('alert').should('not.exist');
+
+          cy.log('*** After clicking again ***');
+          // Execute
+          cy.findByLabelText(fieldLabel).click();
+          // Verify
+          cy.verifyErrorState(fieldLabel);
+          cy.findByRole('alert')
+            .should('be.visible')
+            .should('have.text', errorText['colorCode']);
+
+          cy.log('*** While typing ***');
+          // Execute
+          cy.findByLabelText(fieldLabel).type('gb(');
+          // Verify
+          cy.verifyErrorState(fieldLabel);
+          cy.findByRole('alert')
+            .should('be.visible')
+            .should('have.text', errorText['colorCode']);
+
+          cy.log('*** As soon as correcting ***');
+          // Execute
+          cy.findByLabelText(fieldLabel).type('20, 40, 60)');
+          // Verify
+          cy.findByLabelText(fieldLabel).should(
+            'have.css',
+            'background-color',
+            color.input.background,
+          );
+          cy.findByRole('alert').should('not.exist');
+        });
+      });
+    });
   });
   describe('Hex value field', () => {
     ['#a', '#a3', '#aa33c', '#zzzzzz'].forEach(invalidValue => {
@@ -284,6 +346,33 @@ describe('Invalid values in:', () => {
 describe('No value in:', () => {
   beforeEach(() => {
     cy.visit('/');
+  });
+  it('CSS color code field', () => {
+    [/color code/i].forEach(fieldLabel => {
+      cy.log('*** Before blurring ***');
+      // Execute
+      cy.findByLabelText(fieldLabel).clear();
+      // Verify
+      cy.verifyDefaultState(fieldLabel);
+      cy.findByRole('alert').should('not.exist');
+
+      cy.log('*** After blurring ***');
+      // Execute
+      cy.findByLabelText(fieldLabel).blur();
+      // Verify
+      cy.verifyErrorState(fieldLabel);
+      cy.focused().should('have.attr', 'id', 'colorCode');
+      cy.findByRole('alert')
+        .should('be.visible')
+        .should('have.text', errorText['colorCode']);
+
+      cy.log('*** As soon as filling in ***');
+      // Execute
+      cy.findByLabelText(fieldLabel).type('#123');
+      // Verify
+      cy.verifyDefaultState(fieldLabel);
+      cy.findByRole('alert').should('not.exist');
+    });
   });
   it('HEX value field', () => {
     [/^hex$/i].forEach(fieldLabel => {
