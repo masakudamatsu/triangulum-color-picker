@@ -9,5 +9,5 @@ export const errorText = {
   hex:
     'HEX value must start with #, followed by 3 or 6 hexadecimal characters (0–9, a–f)',
   colorCode:
-    'CSS color code must be either in the HEX format (e.g. #f0c396), the RGB format (e.g. rgb(240, 195, 150)), or the HSL format (e.g. hsl(30, 75%, 76%))',
+    'CSS color code must be in the HEX, RGB, or HSL format such as #f0c396, rgb(240, 195, 150), and hsl(30, 75%, 76%)',
 };
