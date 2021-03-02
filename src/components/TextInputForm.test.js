@@ -11,55 +11,36 @@ const mockProps = {
   userColor: 'rgb(255, 0, 0)',
 };
 
-afterEach(() => {
-  window.localStorage.clear();
+test('changes the CSS color code shown in the text field according to the userColor prop value', () => {
+  const {rerender} = render(<TextInputForm {...mockProps} />);
+  const inputElement = screen.getByLabelText(/color code/i);
+  expect(inputElement).toHaveValue(mockProps.userColor);
+
+  const newUserColor = 'hsl(34, 45%, 60%)';
+  rerender(<TextInputForm {...mockProps} userColor={newUserColor} />);
+  expect(inputElement).toHaveValue(newUserColor);
 });
 
-test.skip('entering hex code calls setUserColor with the appropriate arguments', () => {
-  const userText = '#22345a';
-
-  render(<TextInputForm {...mockProps} />);
-
-  userEvent.type(
-    screen.getByLabelText(mockProps.labelText),
-    `{selectall}{del}${userText}`,
+test('calls updateUserColor when the user enters a valid text', () => {
+  const validCode = 'rgb(234,11,145)';
+  render(
+    <TextInputForm {...mockProps} userColor={validCode.substring(0, 14)} />,
   );
+  userEvent.type(screen.getByLabelText(/color code/i), validCode[14]);
 
+  expect(mockProps.setUserColor).not.toHaveBeenCalled();
   expect(mockProps.updateUserColor).toHaveBeenCalledTimes(1);
-
-  expect(mockProps.updateUserColor).toHaveBeenCalledWith(userText, 'hex');
+  expect(mockProps.updateUserColor).toHaveBeenCalledWith(validCode, 'rgb');
 });
 
-test.skip('entering rgb code calls setUserColor for each key stroke and finally calls updateUserColor', () => {
-  const userText = 'rgb(223,11,123)';
-
+test('calls setUserColor when the user enters an invalid text', () => {
   render(<TextInputForm {...mockProps} />);
-
-  userEvent.type(
-    screen.getByLabelText(mockProps.labelText),
-    `{selectall}{del}${userText}`,
-  );
-
-  expect(mockProps.setUserColor).toHaveBeenCalledTimes(userText.length);
-
-  expect(mockProps.updateUserColor).toHaveBeenCalledTimes(1);
-
-  expect(mockProps.updateUserColor).toHaveBeenCalledWith(userText, 'rgb');
-});
-
-test.skip('entering hsl code calls setUserColor with the appropriate arguments', () => {
-  const userText = 'hsl(123, 11%, 23%)';
-
-  render(<TextInputForm {...mockProps} />);
-
-  userEvent.type(
-    screen.getByLabelText(mockProps.labelText),
-    `{selectall}{del}${userText}`,
-  );
-
-  expect(mockProps.updateUserColor).toHaveBeenCalledTimes(1);
-
-  expect(mockProps.updateUserColor).toHaveBeenCalledWith(userText, 'hsl');
+  userEvent.type(screen.getByLabelText(/color code/i), 'x');
+  expect(mockProps.updateUserColor).not.toHaveBeenCalled();
+  expect(mockProps.setUserColor).toHaveBeenCalledTimes(1);
+  expect(mockProps.setUserColor).toHaveBeenCalledWith({
+    cssCode: mockProps.userColor + 'x',
+  });
 });
 
 test('is accessible', async () => {
