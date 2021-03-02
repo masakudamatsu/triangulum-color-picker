@@ -10,7 +10,7 @@ describe('renders UI correctly:', () => {
     const {container} = render(<DivAlert {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        background-color: rgb(254,254,50);
+        background-color: rgba(254,254,50,0.9);
         color: rgb(10,10,10);
         display: -webkit-box;
         display: -webkit-flex;
