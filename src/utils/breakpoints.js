@@ -1,16 +1,6 @@
-import {
-  canvas,
-  flexbox,
-  footer,
-  formColorCode,
-  formNumberLarge,
-  header,
-  page,
-  threeColumns,
-  twoColumns,
-} from './specLayout';
+import {threeColumns, twoColumns} from './specLayout';
 
-import {breakpointForFont, scale} from 'src/utils/specFont';
+import {breakpointForFont} from 'src/utils/specFont';
 
 import remify from './remify';
 

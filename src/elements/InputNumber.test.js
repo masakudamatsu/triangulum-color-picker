@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from '@testing-library/react';
 
-import Input from './Input';
+import InputNumber from './InputNumber';
 
 const mockProps = {
   backgroundColor: '#654321',
@@ -10,7 +10,7 @@ const mockProps = {
 };
 
 test('renders UI correctly when:', () => {
-  const {container} = render(<Input {...mockProps} />);
+  const {container} = render(<InputNumber {...mockProps} />);
   expect(container).toMatchInlineSnapshot(`
     .c0 {
       background-color: rgb(10,10,10);
@@ -30,7 +30,8 @@ test('renders UI correctly when:', () => {
     <div>
       <input
         autocomplete="off"
-        class="c0"
+        class="InputNumber-sc-1xej5a2-0 c0"
+        inputmode="decimal"
         type="text"
         value="#654321"
       />

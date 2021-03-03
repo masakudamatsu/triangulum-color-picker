@@ -6,48 +6,134 @@ import {axe} from 'jest-axe';
 import TextFieldForHsl from 'src/components/TextFieldForHsl';
 
 const mockProps = {
-  handleChange: {
-    h: jest.fn().mockName('handleChange.h'),
-    s: jest.fn().mockName('handleChange.s'),
-    l: jest.fn().mockName('handleChange.l'),
+  setUserColor: jest.fn().mockName('setUserColor'),
+  userColor: {
+    validCode: 'rgb(25, 122, 122)',
+    hex: '#197a7a',
+    r: 25,
+    g: 122,
+    b: 122,
+    h: 18,
+    s: 66,
+    l: 29,
   },
-  h: 235,
-  s: 22,
-  l: 56,
 };
 
-test('changes RGB values according to the props', () => {
+test('changes HSL values according to the props', () => {
   const newProps = {
-    h: 34,
-    s: 23,
-    l: 22,
+    userColor: {
+      h: 34,
+      s: 23,
+      l: 22,
+    },
   };
-  render(<TextFieldForHsl {...mockProps} {...newProps} />);
+  const {rerender} = render(<TextFieldForHsl {...mockProps} />);
 
-  expect(screen.getByLabelText(/h/i)).toHaveValue(newProps.h.toString());
-  expect(screen.getByLabelText(/s/i)).toHaveValue(newProps.s.toString());
-  expect(screen.getByLabelText(/l/i)).toHaveValue(newProps.l.toString());
+  expect(screen.getByLabelText(/h/i)).toHaveValue(
+    mockProps.userColor.h.toString(),
+  );
+  expect(screen.getByLabelText(/s/i)).toHaveValue(
+    mockProps.userColor.s.toString(),
+  );
+  expect(screen.getByLabelText(/l/i)).toHaveValue(
+    mockProps.userColor.l.toString(),
+  );
+
+  rerender(<TextFieldForHsl {...mockProps} {...newProps} />);
+
+  expect(screen.getByLabelText(/h/i)).toHaveValue(
+    newProps.userColor.h.toString(),
+  );
+  expect(screen.getByLabelText(/s/i)).toHaveValue(
+    newProps.userColor.s.toString(),
+  );
+  expect(screen.getByLabelText(/l/i)).toHaveValue(
+    newProps.userColor.l.toString(),
+  );
 });
 
-test('calls handleChange functions when the user enters HSL values', () => {
-  const newValues = {
-    h: '145',
-    s: '81',
-    l: '46',
-  };
-  render(<TextFieldForHsl {...mockProps} />);
+describe('calls setUserColor with an object of color codes when the user enters a valid value', () => {
+  beforeEach(() => {
+    render(<TextFieldForHsl {...mockProps} />);
+  });
 
-  userEvent.type(screen.getByLabelText(/h/i), newValues.h);
+  it('H value field', () => {
+    userEvent.type(screen.getByLabelText(/h/i), '1');
 
-  expect(mockProps.handleChange.h).toHaveBeenCalledTimes(newValues.h.length);
+    expect(mockProps.setUserColor).toHaveBeenCalledTimes(1);
+    expect(mockProps.setUserColor).toHaveBeenCalledWith({
+      b: 123,
+      cssCode: 'hsl(181, 66%, 29%)',
+      g: 121,
+      h: '181',
+      hex: '#19797b',
+      r: 25,
+      validCode: 'hsl(181, 66%, 29%)',
+    });
+  });
 
-  userEvent.type(screen.getByLabelText(/s/i), newValues.s);
+  it('S value field', () => {
+    userEvent.type(screen.getByLabelText(/s/i), '{backspace}');
 
-  expect(mockProps.handleChange.s).toHaveBeenCalledTimes(newValues.s.length);
+    expect(mockProps.setUserColor).toHaveBeenCalledTimes(1);
+    expect(mockProps.setUserColor).toHaveBeenCalledWith({
+      b: 70,
+      cssCode: 'hsl(18, 6%, 29%)',
+      g: 72,
+      hex: '#4e4846',
+      r: 78,
+      s: '6',
+      validCode: 'hsl(18, 6%, 29%)',
+    });
+  });
 
-  userEvent.type(screen.getByLabelText(/l/i), newValues.l);
+  it('L value field', () => {
+    userEvent.type(screen.getByLabelText(/l/i), '{backspace}');
 
-  expect(mockProps.handleChange.l).toHaveBeenCalledTimes(newValues.l.length);
+    expect(mockProps.setUserColor).toHaveBeenCalledTimes(1);
+    expect(mockProps.setUserColor).toHaveBeenCalledWith({
+      b: 2,
+      cssCode: 'hsl(18, 66%, 2%)',
+      g: 4,
+      hex: '#080402',
+      l: '2',
+      r: 8,
+      validCode: 'hsl(18, 66%, 2%)',
+    });
+  });
+});
+
+describe('calls setUserColor with an invalid value when the user enters a invalid value', () => {
+  beforeEach(() => {
+    render(<TextFieldForHsl {...mockProps} />);
+  });
+
+  it('H value field', () => {
+    userEvent.type(screen.getByLabelText(/h/i), 'g');
+
+    expect(mockProps.setUserColor).toHaveBeenCalledTimes(1);
+    expect(mockProps.setUserColor).toHaveBeenCalledWith({
+      h: '18g',
+    });
+  });
+
+  it('S value field', () => {
+    userEvent.type(screen.getByLabelText(/s/i), '9');
+
+    expect(mockProps.setUserColor).toHaveBeenCalledTimes(1);
+    expect(mockProps.setUserColor).toHaveBeenCalledWith({
+      s: '669',
+    });
+  });
+
+  it('L value field', () => {
+    userEvent.type(screen.getByLabelText(/l/i), '1');
+
+    expect(mockProps.setUserColor).toHaveBeenCalledTimes(1);
+    expect(mockProps.setUserColor).toHaveBeenLastCalledWith({
+      l: '291',
+    });
+  });
 });
 
 test('is accessible', async () => {

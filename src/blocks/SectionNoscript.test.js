@@ -22,7 +22,7 @@ describe('renders UI correctly:', () => {
         -ms-flex-direction: column;
         flex-direction: column;
         width: 100%;
-        background-color: rgb(254,254,50);
+        background-color: rgba(254,254,50,0.9);
         color: rgb(10,10,10);
         padding: 1.0969rem;
       }
@@ -85,7 +85,7 @@ describe('renders UI correctly:', () => {
       }
 
       .c1 {
-        text-shadow: 0.03em 0 rgb(254,254,50),-0.03em 0 rgb(254,254,50),0 0.03em rgb(254,254,50),0 -0.03em rgb(254,254,50);
+        text-shadow: 0.03em 0 rgba(254,254,50,0.9),-0.03em 0 rgba(254,254,50,0.9),0 0.03em rgba(254,254,50,0.9),0 -0.03em rgba(254,254,50,0.9);
       }
 
       .c1:focus,

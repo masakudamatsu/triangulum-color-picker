@@ -10,7 +10,7 @@ const structuredData = {
   applicationCategory: 'DesignApplication',
   genre: 'color',
   browserRequirements: 'Requires JavaScript. Requires HTML5.',
-  softwareVersion: '1.0.0-beta.1',
+  softwareVersion: '1.1.0',
   operatingSystem: 'All',
   offers: {
     '@type': 'Offer',

@@ -18,7 +18,6 @@ import WrapperForms from 'src/blocks/WrapperForms';
 
 import colorAnalyzer from 'src/utils/colorAnalyzer';
 import parseColor from 'parse-color'; // See https://www.npmjs.com/package/parse-color
-import {regex} from 'src/utils/regex';
 import useWindowWidth from 'src/utils/useWindowWidth';
 
 const userColorReducer = (state, action) => {
@@ -64,19 +63,30 @@ function HomePage() {
       );
     }
     switch (colorCodeType) {
-      case 'hex':
+      case 'hex': {
+        let hexCorrected;
+        // Deal with 3-digit Hex code
+        if (validColorCode.length === 4) {
+          const red = hex.charAt(1);
+          const green = hex.charAt(3);
+          const blue = hex.charAt(5);
+          hexCorrected = `#${red}${green}${blue}`;
+        } else {
+          hexCorrected = hex;
+        }
         setUserColor({
-          cssCode: hex,
-          hex: hex,
+          cssCode: hexCorrected,
+          hex: hexCorrected,
           r: rgb[0],
           g: rgb[1],
           b: rgb[2],
           h: hsl[0],
           s: hsl[1],
           l: hsl[2],
-          validCode: hex,
+          validCode: hexCorrected,
         });
         break;
+      }
       case 'rgb': {
         const rgbCode = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
         setUserColor({
@@ -109,162 +119,8 @@ function HomePage() {
       }
       default:
         throw new Error('updateUserColor has thrown an impossible error.');
-        break;
     }
   }
-
-  const handleChangeCssCode = event => {
-    const newCssCode = event.target.value.trim().replace(/\s/g, '');
-    if (regex.hex.test(newCssCode)) {
-      updateUserColor(newCssCode, 'hex');
-    } else if (regex.hsl.test(newCssCode)) {
-      updateUserColor(newCssCode, 'hsl');
-    } else if (regex.rgb.test(newCssCode)) {
-      updateUserColor(newCssCode, 'rgb');
-    } else {
-      setUserColor({
-        cssCode: event.target.value,
-      });
-    }
-  };
-
-  const handleChangeHex = event => {
-    const newUserValue = event.target.value.trim().replace(/\s/g, '');
-    if (regex.hex.test(newUserValue)) {
-      updateUserColor(newUserValue, 'hex');
-    } else {
-      setUserColor({
-        hex: event.target.value,
-      });
-    }
-  };
-
-  const handleChangeR = event => {
-    const newUserValue = event.target.value.trim().replace(/\s/g, '');
-    if (regex.rgbValues.test(newUserValue)) {
-      const rgb = `rgb(${newUserValue}, ${userColor.g}, ${userColor.b})`;
-      const {hex, hsl} = parseColor(rgb);
-      setUserColor({
-        cssCode: rgb,
-        hex: hex,
-        r: newUserValue,
-        h: hsl[0],
-        s: hsl[1],
-        l: hsl[2],
-        validCode: rgb,
-      });
-    } else {
-      setUserColor({
-        r: event.target.value,
-      });
-    }
-  };
-
-  const handleChangeG = event => {
-    const newUserValue = event.target.value.trim().replace(/\s/g, '');
-    if (regex.rgbValues.test(newUserValue)) {
-      const rgb = `rgb(${userColor.r}, ${newUserValue}, ${userColor.b})`;
-      const {hex, hsl} = parseColor(rgb);
-      setUserColor({
-        cssCode: rgb,
-        hex: hex,
-        g: newUserValue,
-        h: hsl[0],
-        s: hsl[1],
-        l: hsl[2],
-        validCode: rgb,
-      });
-    } else {
-      setUserColor({
-        g: event.target.value,
-      });
-    }
-  };
-
-  const handleChangeB = event => {
-    const newUserValue = event.target.value.trim().replace(/\s/g, '');
-    if (regex.rgbValues.test(newUserValue)) {
-      const rgb = `rgb(${userColor.r}, ${userColor.g}, ${newUserValue})`;
-      const {hex, hsl} = parseColor(rgb);
-      setUserColor({
-        cssCode: rgb,
-        hex: hex,
-        b: newUserValue,
-        h: hsl[0],
-        s: hsl[1],
-        l: hsl[2],
-        validCode: rgb,
-      });
-    } else {
-      setUserColor({
-        b: event.target.value,
-      });
-    }
-  };
-
-  const handleChangeH = event => {
-    const newUserValue = event.target.value.trim().replace(/\s/g, '');
-    if (regex.hValue.test(newUserValue)) {
-      const hsl = `hsl(${newUserValue}, ${userColor.s}%, ${userColor.l}%)`;
-      const {hex, rgb} = parseColor(hsl);
-      setUserColor({
-        cssCode: hsl,
-        hex: hex,
-        r: rgb[0],
-        g: rgb[1],
-        b: rgb[2],
-        h: newUserValue,
-        validCode: hsl,
-      });
-    } else {
-      setUserColor({
-        h: event.target.value,
-      });
-    }
-  };
-
-  const handleChangeS = event => {
-    const newUserValue = event.target.value.trim().replace(/\s/g, '');
-    if (regex.slValues.test(newUserValue)) {
-      console.log('saturation value passes the test');
-      const hsl = `hsl(${userColor.h}, ${newUserValue}%, ${userColor.l}%)`;
-      const {hex, rgb} = parseColor(hsl);
-      setUserColor({
-        cssCode: hsl,
-        hex: hex,
-        r: rgb[0],
-        g: rgb[1],
-        b: rgb[2],
-        s: newUserValue,
-        validCode: hsl,
-      });
-    } else {
-      setUserColor({
-        s: event.target.value,
-      });
-    }
-  };
-
-  const handleChangeL = event => {
-    const newUserValue = event.target.value.trim().replace(/\s/g, '');
-    if (regex.slValues.test(newUserValue)) {
-      const hsl = `hsl(${userColor.h}, ${userColor.s}%, ${newUserValue}%)`;
-      const {hex, rgb} = parseColor(hsl);
-      setUserColor({
-        cssCode: hsl,
-        hex: hex,
-        r: rgb[0],
-        g: rgb[1],
-        b: rgb[2],
-        l: newUserValue,
-        validCode: hsl,
-      });
-    } else {
-      setUserColor({
-        l: event.target.value,
-      });
-    }
-  };
 
   // Prepare prop values
   const {luminance, chroma, hue} = colorAnalyzer(userColor.validCode);
@@ -293,41 +149,29 @@ function HomePage() {
           <WrapperForms>
             <H2 hidden>Setting Color</H2>
             <TextInputForm
-              inputId="colorCode"
-              labelText="CSS color code"
-              handleChange={handleChangeCssCode}
+              setUserColor={setUserColor}
+              updateUserColor={updateUserColor}
               userColor={userColor.cssCode}
             />
             <WrapperForms.MarginBetweenColorCodeAndHexRgbHsl />
             <WrapperForms.WrapperHexRgbHsl>
               <TextFieldForHex
                 backgroundColor={userColor.validCode}
-                handleChange={handleChangeHex}
                 lightMode={lightMode}
-                value={userColor.hex}
+                setUserColor={setUserColor}
+                updateUserColor={updateUserColor}
+                userColor={userColor.hex}
               />
               <WrapperForms.WrapperRgbHsl>
                 <Cross position="topLeft" />
                 <TextFieldForRgb
-                  handleChange={{
-                    r: handleChangeR,
-                    g: handleChangeG,
-                    b: handleChangeB,
-                  }}
-                  r={userColor.r}
-                  g={userColor.g}
-                  b={userColor.b}
+                  userColor={userColor}
+                  setUserColor={setUserColor}
                 />
                 <WrapperForms.MarginBetweenRgbAndHsl />
                 <TextFieldForHsl
-                  handleChange={{
-                    h: handleChangeH,
-                    s: handleChangeS,
-                    l: handleChangeL,
-                  }}
-                  h={userColor.h}
-                  s={userColor.s}
-                  l={userColor.l}
+                  setUserColor={setUserColor}
+                  userColor={userColor}
                 />
                 <Cross position="bottomRight" />
               </WrapperForms.WrapperRgbHsl>

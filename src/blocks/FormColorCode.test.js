@@ -34,8 +34,10 @@ describe('renders UI correctly', () => {
       </div>
     `);
   });
-  test('Input', () => {
-    const {container} = render(<FormColorCode.Input {...mockProps.input} />);
+  test('InputText', () => {
+    const {container} = render(
+      <FormColorCode.InputText {...mockProps.input} />,
+    );
     expect(container).toMatchInlineSnapshot(`
       .c0 {
         background-color: rgb(10,10,10);

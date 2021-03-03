@@ -1,6 +1,7 @@
-// Cypress Image Snapshot
 import {addMatchImageSnapshotCommand} from 'cypress-image-snapshot/command';
+import {color} from 'src/utils/specColor';
 
+// Cypress Image Snapshot
 // Disable the image snapshot tests in the interactive mode: see https://glebbahmutov.com/blog/open-source-visual-testing-of-components/#local-workflow
 if (Cypress.config('isInteractive')) {
   Cypress.Commands.add('matchImageSnapshot', () => {
@@ -19,6 +20,26 @@ if (Cypress.config('isInteractive')) {
     // see https://github.com/jaredpalmer/cypress-image-snapshot#options
   });
 }
+
+Cypress.Commands.add('verifyDefaultState', fieldLabel => {
+  cy.findByLabelText(fieldLabel)
+    .should('have.css', 'background-color', color.input.background)
+    .should('have.css', 'border-color', color.input.border)
+    .should('have.css', 'color', color.input.font);
+  cy.findByText(fieldLabel).should('have.css', 'color', color.input.font);
+});
+
+Cypress.Commands.add('verifyErrorState', fieldLabel => {
+  cy.findByLabelText(fieldLabel)
+    .should('have.css', 'background-color', color.input.error)
+    .should('have.css', 'border-color', color.input.error)
+    .should('have.css', 'color', color.input.onError);
+  cy.findByText(fieldLabel, {selector: 'label'}).should(
+    'have.css',
+    'color',
+    color.input.onError,
+  );
+});
 
 // ***********************************************
 // This example commands.js shows you how to

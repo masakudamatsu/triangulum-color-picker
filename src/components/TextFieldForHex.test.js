@@ -7,41 +7,47 @@ import TextFieldForHex from 'src/components/TextFieldForHex';
 
 const mockProps = {
   backgroundColor: 'rgb(35, 78, 210)',
-  handleChange: jest.fn().mockName('handleChange'),
   lightMode: false,
-  value: '#234ed2',
+  setUserColor: jest.fn().mockName('setUserColor'),
+  updateUserColor: jest.fn().mockName('updateUserColor'),
+  userColor: '#234ed2',
 };
 
-test('changes the background-color property for input element by the backgroundColor prop', () => {
-  // This test is done in FormHex.test.js
-});
-
-test('calls handleChange as the user enters text', () => {
-  const userText = 'abc';
-  render(<TextFieldForHex {...mockProps} />);
-  userEvent.type(screen.getByLabelText(/hex/i), userText);
-
-  expect(mockProps.handleChange).toHaveBeenCalledTimes(userText.length);
-});
-
-test('changes the color property by the lightMode prop', () => {
-  // This test is done in FormHex.test.js
-});
-
-test('changes the hex code, but not the background color, according to the value prop', () => {
+test('changes the hex code, but not the background color, according to the userColor prop', () => {
   const newHexCode = '#34ff2d';
   const {rerender} = render(<TextFieldForHex {...mockProps} />);
   const inputElement = screen.getByLabelText(/hex/i);
-  expect(inputElement).toHaveValue(mockProps.value);
+  expect(inputElement).toHaveValue(mockProps.userColor);
   expect(inputElement).toHaveStyle(
     `background-color: ${mockProps.backgroundColor}`,
   );
 
-  rerender(<TextFieldForHex {...mockProps} value={newHexCode} />);
+  rerender(<TextFieldForHex {...mockProps} userColor={newHexCode} />);
   expect(inputElement).toHaveValue(newHexCode);
   expect(inputElement).toHaveStyle(
     `background-color: ${mockProps.backgroundColor}`,
   );
+});
+
+test('calls updateUserColor when the user enters a valid text', () => {
+  const validHexCode = '#309abf';
+  render(
+    <TextFieldForHex {...mockProps} userColor={validHexCode.substring(0, 6)} />,
+  );
+  userEvent.type(screen.getByLabelText(/hex/i), validHexCode[6]);
+
+  expect(mockProps.setUserColor).not.toHaveBeenCalled();
+  expect(mockProps.updateUserColor).toHaveBeenCalledTimes(1);
+  expect(mockProps.updateUserColor).toHaveBeenCalledWith(validHexCode, 'hex');
+});
+
+test('calls setUserColor when the user enters an invalid text', () => {
+  render(<TextFieldForHex {...mockProps} />);
+  userEvent.type(screen.getByLabelText(/hex/i), 'z');
+
+  expect(mockProps.updateUserColor).not.toHaveBeenCalled();
+  expect(mockProps.setUserColor).toHaveBeenCalledTimes(1);
+  expect(mockProps.setUserColor).toHaveBeenCalledWith({hex: '#234ed2z'});
 });
 
 test('is accessible', async () => {

@@ -1,15 +1,17 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-import {responsiveBoxSize} from 'src/utils/getLayoutCss';
 import {formNumberSmall} from 'src/utils/specLayout';
 
 import {fontCssGenerator} from 'src/utils/getFontCss';
 import {font, scale} from 'src/utils/specFont';
 
 import {mediaQuery} from 'src/utils/breakpoints';
+import {responsiveBoxSize} from 'src/utils/getLayoutCss';
+
 import remify from 'src/utils/remify';
 
-import Input from 'src/elements/Input';
+import InputNumber from 'src/elements/InputNumber';
 import Label from 'src/elements/Label';
 
 const FormNumberSmall = styled.form`
@@ -35,9 +37,7 @@ const padding = {
     2,
 };
 
-FormNumberSmall.Input = styled(Input).attrs(props => ({
-  inputMode: 'decimal',
-}))`
+FormNumberSmall.InputNumber = styled(InputNumber)`
   ${fontCssGenerator(font.formNumberSmall)}
   border-radius: 100%;
   height: 100%;
@@ -57,5 +57,10 @@ FormNumberSmall.Label = styled(Label)`
     top: ${remify(formNumberSmall.whitespace.aboveLabel * scale)};
   }
 `;
+
+FormNumberSmall.InputNumber.propTypes = {
+  h: PropTypes.bool,
+  sl: PropTypes.bool,
+};
 
 export default FormNumberSmall;

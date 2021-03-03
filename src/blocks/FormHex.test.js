@@ -46,8 +46,8 @@ describe('renders UI correctly', () => {
       </div>
     `);
   });
-  test('Input', () => {
-    const {container} = render(<FormHex.Input {...mockProps.input} />);
+  test('InputText', () => {
+    const {container} = render(<FormHex.InputText {...mockProps.input} />);
     expect(container).toMatchInlineSnapshot(`
       .c0 {
         background-color: rgb(10,10,10);
@@ -158,10 +158,10 @@ describe('changes CSS properties by props', () => {
       `color: ${color.fontLightMode}`,
     );
   });
-  test('backgroundColor prop for Input', () => {
+  test('backgroundColor prop for InputText', () => {
     const newColor = 'rgb(18, 52, 86)'; // #123456
     render(
-      <FormHex.Input
+      <FormHex.InputText
         data-testid="input"
         {...mockProps.input}
         backgroundColor={newColor}
@@ -171,14 +171,37 @@ describe('changes CSS properties by props', () => {
       `background-color: ${newColor}`,
     );
   });
-  test('lightMode prop for Input', () => {
+  test('lightMode prop for InputText', () => {
     render(
-      <FormHex.Input
+      <FormHex.InputText
         data-testid="input"
         {...mockProps.input}
         lightMode={true}
       />,
     );
     expect(screen.getByTestId('input')).toHaveStyle(`border-width: 0px`);
+  });
+  test('error prop for InputText', () => {
+    render(
+      <FormHex.InputText
+        data-testid="input"
+        {...mockProps.input}
+        error={true}
+      />,
+    );
+    expect(screen.getByTestId('input')).toHaveStyle(
+      `background-color: ${color.input.error}`,
+    );
+    expect(screen.getByTestId('input')).toHaveStyle(
+      `color: ${color.input.onError}`,
+    );
+  });
+  test('error prop for Label', () => {
+    render(
+      <FormHex.Label data-testid="label" {...mockProps.label} error={true} />,
+    );
+    expect(screen.getByTestId('label')).toHaveStyle(
+      `color: ${color.input.onError}`,
+    );
   });
 });
