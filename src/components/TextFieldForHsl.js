@@ -56,15 +56,15 @@ const TextFieldForHsl = ({setUserColor, userColor}) => {
   }
 
   // If a valid value in other fields corrects the invalid value, we set the error state off
-  if (errorH && regex.rgbValues.test(userColor.h)) {
+  if (errorH && regex.hValue.test(userColor.h)) {
     setErrorH(false);
     setShowErrorTextH(false);
   }
-  if (errorS && regex.rgbValues.test(userColor.s)) {
+  if (errorS && regex.slValues.test(userColor.s)) {
     setErrorS(false);
     setShowErrorTextS(false);
   }
-  if (errorL && regex.rgbValues.test(userColor.l)) {
+  if (errorL && regex.slValues.test(userColor.l)) {
     setErrorL(false);
     setShowErrorTextL(false);
   }
