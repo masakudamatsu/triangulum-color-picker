@@ -215,7 +215,7 @@ describe('Invalid values in:', () => {
     });
   });
   describe('H value field', () => {
-    ['-1', '360', 'text'].forEach(invalidValue => {
+    ['-1', '361', 'text'].forEach(invalidValue => {
       it(`Invalid value: ${invalidValue}`, () => {
         [/^h$/i].forEach(fieldLabel => {
           cy.log('*** Before blurring ***');
