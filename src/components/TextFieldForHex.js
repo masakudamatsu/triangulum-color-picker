@@ -12,14 +12,14 @@ const TextFieldForHex = ({
   lightMode = false,
   setUserColor,
   updateUserColor,
-  value = '#000000',
+  userColor = '#000000',
 }) => {
   const [error, setError] = useState(false);
   const [showErrorText, setShowErrorText] = useState(false);
   const refHex = useRef();
 
   // If a valid value in other fields corrects the invalid value, we set the error state off
-  if (error && regex.hex.test(value)) {
+  if (error && regex.hex.test(userColor)) {
     setError(false);
     setShowErrorText(false);
   }
@@ -82,7 +82,7 @@ const TextFieldForHex = ({
         pattern={pattern.hex}
         ref={refHex}
         required
-        value={value}
+        value={userColor}
       />
       {showErrorText ? <ErrorMessage errorText={errorText.hex} /> : null}
     </FormHex>
@@ -94,7 +94,7 @@ TextFieldForHex.propTypes = {
   lightMode: PropTypes.bool,
   setUserColor: PropTypes.func,
   updateUserColor: PropTypes.func,
-  value: PropTypes.string,
+  userColor: PropTypes.string,
 };
 
 export default TextFieldForHex;

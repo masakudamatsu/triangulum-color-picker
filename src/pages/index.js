@@ -160,7 +160,7 @@ function HomePage() {
                 lightMode={lightMode}
                 setUserColor={setUserColor}
                 updateUserColor={updateUserColor}
-                value={userColor.hex}
+                userColor={userColor.hex}
               />
               <WrapperForms.WrapperRgbHsl>
                 <Cross position="topLeft" />

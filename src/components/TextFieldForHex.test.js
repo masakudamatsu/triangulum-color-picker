@@ -10,19 +10,19 @@ const mockProps = {
   lightMode: false,
   setUserColor: jest.fn().mockName('setUserColor'),
   updateUserColor: jest.fn().mockName('updateUserColor'),
-  value: '#234ed2',
+  userColor: '#234ed2',
 };
 
-test('changes the hex code, but not the background color, according to the value prop', () => {
+test('changes the hex code, but not the background color, according to the userColor prop', () => {
   const newHexCode = '#34ff2d';
   const {rerender} = render(<TextFieldForHex {...mockProps} />);
   const inputElement = screen.getByLabelText(/hex/i);
-  expect(inputElement).toHaveValue(mockProps.value);
+  expect(inputElement).toHaveValue(mockProps.userColor);
   expect(inputElement).toHaveStyle(
     `background-color: ${mockProps.backgroundColor}`,
   );
 
-  rerender(<TextFieldForHex {...mockProps} value={newHexCode} />);
+  rerender(<TextFieldForHex {...mockProps} userColor={newHexCode} />);
   expect(inputElement).toHaveValue(newHexCode);
   expect(inputElement).toHaveStyle(
     `background-color: ${mockProps.backgroundColor}`,
@@ -32,7 +32,7 @@ test('changes the hex code, but not the background color, according to the value
 test('calls updateUserColor when the user enters a valid text', () => {
   const validHexCode = '#309abf';
   render(
-    <TextFieldForHex {...mockProps} value={validHexCode.substring(0, 6)} />,
+    <TextFieldForHex {...mockProps} userColor={validHexCode.substring(0, 6)} />,
   );
   userEvent.type(screen.getByLabelText(/hex/i), validHexCode[6]);
 
