@@ -66,8 +66,13 @@ const TextFieldForHex = ({
     }
   };
 
+  // Prevent Enter key to reload the page
+  const handleSubmit = event => {
+    event.preventDefault();
+  };
+
   return (
-    <FormHex lightMode={lightMode}>
+    <FormHex lightMode={lightMode} noValidate onSubmit={handleSubmit}>
       <FormHex.Label error={error} htmlFor="hex">
         HEX
       </FormHex.Label>

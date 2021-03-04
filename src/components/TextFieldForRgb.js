@@ -145,7 +145,7 @@ const TextFieldForRgb = ({setUserColor, userColor}) => {
   };
 
   return (
-    <FormNumberSmall>
+    <FormNumberSmall noValidate>
       <FormNumberSmall.InnerWrapper>
         <FormNumberSmall.Label error={errorR} htmlFor="r">
           R
