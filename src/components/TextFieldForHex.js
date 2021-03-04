@@ -72,7 +72,7 @@ const TextFieldForHex = ({
   };
 
   return (
-    <FormHex lightMode={lightMode} onSubmit={handleSubmit}>
+    <FormHex lightMode={lightMode} noValidate onSubmit={handleSubmit}>
       <FormHex.Label error={error} htmlFor="hex">
         HEX
       </FormHex.Label>

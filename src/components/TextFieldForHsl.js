@@ -145,7 +145,7 @@ const TextFieldForHsl = ({setUserColor, userColor}) => {
   };
 
   return (
-    <FormNumberSmall>
+    <FormNumberSmall noValidate>
       <FormNumberSmall.InnerWrapper>
         <FormNumberSmall.Label error={errorH} htmlFor="h">
           H

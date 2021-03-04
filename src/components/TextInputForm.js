@@ -71,7 +71,7 @@ const TextInputForm = ({setUserColor, updateUserColor, userColor}) => {
   };
 
   return (
-    <FormColorCode onSubmit={handleSubmit}>
+    <FormColorCode noValidate onSubmit={handleSubmit}>
       <FormColorCode.Label error={error} htmlFor="colorCode">
         CSS color code
       </FormColorCode.Label>
