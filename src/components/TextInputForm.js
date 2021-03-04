@@ -65,8 +65,13 @@ const TextInputForm = ({setUserColor, updateUserColor, userColor}) => {
     }
   };
 
+  // Prevent Enter key to reload the page
+  const handleSubmit = event => {
+    event.preventDefault();
+  };
+
   return (
-    <FormColorCode>
+    <FormColorCode onSubmit={handleSubmit}>
       <FormColorCode.Label error={error} htmlFor="colorCode">
         CSS color code
       </FormColorCode.Label>
