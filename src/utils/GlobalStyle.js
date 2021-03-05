@@ -324,6 +324,7 @@ input {
 
 body {
   color: ${color.font};
+  overscroll-behavior: none;
 }
 
 `;
