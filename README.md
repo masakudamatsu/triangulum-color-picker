@@ -22,8 +22,8 @@ See Medium articles that accompany Triangulum Color Picker:
 
 - [React](https://reactjs.org/)
 - [Next.js](https://nextjs.org/)
-- [parse-color](https://github.com/substack/parse-color)
 - [Styled Components](https://styled-components.com/)
+- [parse-color](https://www.npmjs.com/package/parse-color)
 
 ## Web APIs used
 
